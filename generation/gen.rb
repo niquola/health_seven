@@ -7,6 +7,8 @@ module Gen
   include XSD
   include Code
 
+  attr_accessor :version
+
   def parse(str)
     Nokogiri::XML(str.gsub('<xsd:','<'))
     .tap do |doc|
@@ -18,34 +20,41 @@ module Gen
     File.dirname(__FILE__) + "/../#{path}"
   end
 
-  def doc(version, rel_path)
-    path = from_root_path("vendor/#{version}/#{rel_path}.xsd")
-      raise "No such file #{path}" unless File.exists?(path)
+  def doc(version, path)
+    raise "No such file #{path}" unless File.exists?(path)
     Nokogiri::XML(open(path).read).tap do |doc|
       doc.remove_namespaces!
     end
   end
 
-  def elements_idx(doc, idx = {})
-    doc.xpath('/schema/element').each_with_object(idx) do |el, acc|
-      acc[attr(el,:name)] = el
+  def elements_index(file, index = {})
+    Dir[file].each do |file_path|
+      doc(version, file_path).xpath('/schema/element').each do |el|
+        index[attr(el, :name)] = el
+      end
     end
+    index
   end
 
-  def types_idx(doc, idx = {})
-    doc.xpath('/schema/complexType').each_with_object(idx) do |el, acc|
-      acc[attr(el,:name)] = el
+  def types_index(file, index = {})
+    Dir[file].each do |file_path|
+      doc = doc(version, file_path)
+      doc.xpath('/schema/complexType').each do |el|
+        index[attr(el, :name)] = el
+      end
+      doc.xpath('/schema/simpleType').each do |el|
+        index[attr(el, :name)] = el
+      end
     end
-    doc.xpath('/schema/simpleType').each_with_object(idx) do |el, acc|
-      acc[attr(el,:name)] = el
-    end
-    idx
+    index
   end
 
-  def db(doc, db = {})
-    db[:types] = types_idx(doc, db[:types] || {})
-    db[:els] = elements_idx(doc, db[:els] || {})
-    db
+  def db(files)
+    files.reduce({}) do |acc, file|
+      acc[:types] = types_index(file, acc[:types] || {})
+      acc[:els] = elements_index(file, acc[:els] || {})
+      acc
+    end
   end
 
   def find_el(db, name)
@@ -61,16 +70,23 @@ module Gen
   end
 
   def full_db(version)
-    docs_pathes = Dir[from_root_path("vendor/#{version}/*.xsd")]
-    docs = docs_pathes.map do |doc_path|
-      p doc_path
-      #doc(versioin, doc_path)
-    end
-    db(docs)
-    full = db(load_fields(version))
-    full = db(load_datatypes(version), full)
-    full = db(load_segments(version), full)
-    full = load_all_messages(version, full)
+    @full_db ||= db(Dir[from_root_path("vendor/#{version}/**/*.xsd")])
+  end
+
+  def segments_db
+    elements_index(from_root_path("vendor/#{version}/segments.xsd"))
+  end
+
+  def datatypes_db
+    types_index(from_root_path("vendor/#{version}/datatypes.xsd"))
+  end
+
+  def messages_headers_db
+    elements_index(from_root_path("vendor/#{version}/messages.xsd"))
+  end
+
+  def messages_bodies_db
+    elements_index(from_root_path("vendor/#{version}/messages/*.xsd"))
   end
 
   def load_all_messages(version, db)
@@ -139,16 +155,25 @@ module Gen
   end
 
   def generate(version)
+    @version = version
     db = full_db(version)
+
+    generate_datatypes(db)
+    generate_segments(db)
+    generate_messages(db)
+  end
+
+  def generate_messages(db)
+    messages_headers_db
+    messages_bodies_db
+  end
+
+  def generate_datatypes(db)
     FileUtils.rm_rf(base_path(version, 'datatypes'))
-    FileUtils.rm_rf(base_path(version, 'segments'))
-
     FileUtils.mkdir_p(base_path(version, 'datatypes'))
-    FileUtils.mkdir_p(base_path(version, 'segments'))
-
 
     all_types = []
-    types_idx(load_datatypes(version)).each do |name, tp|
+    datatypes_db.each do |name, tp|
       next if name =~ /CONTENT$/
       if simple_type?(tp)
         next
@@ -166,9 +191,14 @@ module Gen
 
     datatypes_require_code = requires(version, all_types)
     fwrite(base_path(version, 'datatypes', "all.rb"), datatypes_require_code)
+  end
+
+  def generate_segments(db)
+    FileUtils.rm_rf(base_path(version, 'segments'))
+    FileUtils.mkdir_p(base_path(version, 'segments'))
 
     all_segments = []
-    elements_idx(load_segments(version)).each do |name, el|
+    segments_db.each do |name, el|
       class_name = name.camelize
       all_segments << class_name
       code = gklass module_name(version), class_name, 'Segment' do
