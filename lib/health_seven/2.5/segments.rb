@@ -149,6 +149,6 @@ autoload :URD, File.dirname(__FILE__) + '/segments/urd.rb'
 autoload :URS, File.dirname(__FILE__) + '/segments/urs.rb'
 autoload :VAR, File.dirname(__FILE__) + '/segments/var.rb'
 autoload :VTQ, File.dirname(__FILE__) + '/segments/vtq.rb'
-autoload :AnyHL7Segment, File.dirname(__FILE__) + '/segments/any_hl7_segment.rb'
-autoload :AnyZSegment, File.dirname(__FILE__) + '/segments/any_z_segment.rb'
+autoload :anyHL7Segment, File.dirname(__FILE__) + '/segments/any_hl7_segment.rb'
+autoload :anyZSegment, File.dirname(__FILE__) + '/segments/any_z_segment.rb'
 end

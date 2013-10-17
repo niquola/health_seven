@@ -7,69 +7,59 @@ module Gen
   include XSD
   include Code
 
-  attr_accessor :version
-
   def generate(version)
-    @version = version
-    db = full_db
+    db = full_db(version)
 
-    generate_datatypes(db)
-    generate_segments(db)
-    generate_messages(db)
+    generate_datatypes(version, db)
+    generate_segments(version, db)
+    generate_messages(version, db)
   end
 
   protected
 
-  def generate_messages(db)
-    messages_headers_db
-    messages_bodies_db
+  def generate_messages(version, db)
+    messages_headers_db(version)
+    messages_bodies_db(version)
   end
 
-  def generate_datatypes(db)
-    FileUtils.rm_rf(base_path('datatypes'))
-    FileUtils.mkdir_p(base_path('datatypes'))
+  def generate_datatypes(version, db)
+    FileUtils.rm_rf(base_path(version, 'datatypes'))
+    FileUtils.mkdir_p(base_path(version, 'datatypes'))
 
-    all_types = []
-    datatypes_db.each do |name, tp|
-      next if name =~ /CONTENT$/
-      if simple_type?(tp)
-        next
-      end
+    complex_types = datatypes_db(version).select { |n, t| complex_type?(t) && root_datatype?(n)}
+    complex_types.each do |name, tp|
       class_name = name.camelize
-      all_types<< class_name
-      code =  gklass(module_name, class_name, 'DataType') do
+      code = gklass(module_name(version), class_name, 'DataType') do
         generate_class_body(db, tp)
       end
-      fwrite(base_path('datatypes', "#{class_name.underscore}.rb"), code)
+      fwrite(base_path(version, 'datatypes', "#{class_name.underscore}.rb"), code)
     end
 
-    datatypes_autoload_code = autoloads(all_types, 'datatypes')
-    fwrite(base_path("datatypes.rb"), datatypes_autoload_code)
+    datatypes_autoload_code = autoloads(version, complex_types.keys.map(&:camelize), 'datatypes')
+    fwrite(base_path(version, "datatypes.rb"), datatypes_autoload_code)
 
-    datatypes_require_code = requires(all_types)
-    fwrite(base_path('datatypes', "all.rb"), datatypes_require_code)
+    datatypes_require_code = requires(complex_types.keys)
+    fwrite(base_path(version, 'datatypes', "all.rb"), datatypes_require_code)
   end
 
-  def generate_segments(db)
-    FileUtils.rm_rf(base_path('segments'))
-    FileUtils.mkdir_p(base_path('segments'))
+  def generate_segments(version, db)
+    FileUtils.rm_rf(base_path(version, 'segments'))
+    FileUtils.mkdir_p(base_path(version, 'segments'))
 
-    all_segments = []
-    segments_db.each do |name, el|
+    segments_db(version).each do |name, el|
       class_name = name.camelize
-      all_segments << class_name
-      code = gklass module_name, class_name, 'Segment' do
+      code = gklass module_name(version), class_name, 'Segment' do
         tp = find_type(db, attr(el, :type))
         generate_class_body(db, tp)
       end
-      fwrite( base_path('segments', "#{class_name.underscore}.rb"), code)
+      fwrite( base_path(version, 'segments', "#{class_name.underscore}.rb"), code)
     end
 
-    segments_autoload_code = autoloads(all_segments, 'segments')
-    fwrite(base_path("segments.rb"), segments_autoload_code)
+    segments_autoload_code = autoloads(version, segments_db(version).keys, 'segments')
+    fwrite(base_path(version, "segments.rb"), segments_autoload_code)
 
-    segments_require_code = requires(all_segments)
-    fwrite(base_path('segments', "all.rb"), segments_require_code)
+    segments_require_code = requires(segments_db(version).keys)
+    fwrite(base_path(version, 'segments', "all.rb"), segments_require_code)
   end
 
   def generate_class_body(db, tp)
@@ -88,20 +78,27 @@ module Gen
     #FIXME: handle segment "AnyZSegment, AnyHL7Segment"
   end
 
+  def complex_type?(node)
+    node.name == 'complexType'
+  end
 
-  def segments_db
+  def root_datatype?(name)
+    not name =~ /CONTENT$/
+  end
+
+  def segments_db(version)
     elements_index(from_root_path("vendor/#{version}/segments.xsd"))
   end
 
-  def datatypes_db
+  def datatypes_db(version)
     types_index(from_root_path("vendor/#{version}/datatypes.xsd"))
   end
 
-  def messages_headers_db
+  def messages_headers_db(version)
     elements_index(from_root_path("vendor/#{version}/messages.xsd"))
   end
 
-  def messages_bodies_db
+  def messages_bodies_db(version)
     elements_index(from_root_path("vendor/#{version}/messages/*.xsd"))
   end
 
@@ -150,7 +147,7 @@ module Gen
     find_type(db, attr(el, :type))
   end
 
-  def full_db
+  def full_db(version)
     @full_db ||= Dir[from_root_path("vendor/#{version}/**/*.xsd")].reduce({}) do |acc, file|
       acc[:types] = types_index(file, acc[:types] || {})
       acc[:els] = elements_index(file, acc[:els] || {})
@@ -178,17 +175,13 @@ module Gen
   end
 
 
-  def module_name(name=nil)
+  def module_name(version, name=nil)
     "HealthSeven::V#{version.gsub('.','_')}"
   end
 
-  def base_path(*dirs)
+  def base_path(version, *dirs)
     path = dirs.join('/')
     from_root_path("lib/health_seven/#{version}/#{path}")
-  end
-
-  def simple_type?(node)
-    node.name == 'simpleType'
   end
 
   def requires(types)
@@ -197,13 +190,13 @@ module Gen
     end.join("\n")
   end
 
-  def autoloads(types, dir)
+  def autoloads(version, types, dir)
     autoloads_string = types.map do |type|
       "autoload :#{type}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
     end.join("\n")
 
     <<-RUBY
-module #{module_name}
+module #{module_name(version)}
 #{autoloads_string}
 end
     RUBY
