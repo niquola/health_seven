@@ -2,7 +2,7 @@ require 'active_support/core_ext'
 module Gen::Code
   def gklass(mod, name, parent, includes = [], &block)
     content = []
-    content<< "module #{mod}"
+    content<< "module #{mod}" if mod
     content<< "class #{name}"
     content.last<< " < #{parent}" if parent
     includes.each do |inc|
@@ -10,7 +10,7 @@ module Gen::Code
     end
     content<< block.call if block
     content<< "end"
-    content<< "end"
+    content<< "end" if mod
     content.join("\n")
   end
 
@@ -20,7 +20,7 @@ module Gen::Code
 
   def gattr(name, type, meta = {})
     res = ''
-    res<< indent("# #{meta.delete(:comment).gsub(/\s+$/,'')}\n") if meta.key?(:comment)
+    res<< indent("# #{meta.delete(:comment).gsub(/\s+$/,'')}\n") if meta[:comment].present?
     res<< indent("attribute :#{normalize_name(name)}, #{type}, #{meta(meta)}")
   end
 

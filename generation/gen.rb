@@ -11,15 +11,23 @@ module Gen
     db = full_db(version)
 
     generate_datatypes(version, db)
-    generate_segments(version, db)
-    generate_messages(version, db)
+    #generate_segments(version, db)
+    #generate_messages(version, db)
   end
 
   protected
 
   def generate_messages(version, db)
-    messages_headers_db(version)
-    messages_bodies_db(version)
+    FileUtils.rm_rf(base_path(version, 'messages'))
+    FileUtils.mkdir_p(base_path(version, 'messages'))
+
+    messages_db(version).each do |name, message|
+      class_name = attr(message, :ref)
+      code = gklass(module_name(version), class_name, 'Message') do
+        generate_class_recursively(db, find_type_by_el(db, message))
+      end
+      fwrite(base_path(version, 'messages', "#{class_name.underscore}.rb"), code)
+    end
   end
 
   def generate_datatypes(version, db)
@@ -62,16 +70,40 @@ module Gen
     fwrite(base_path(version, 'segments', "all.rb"), segments_require_code)
   end
 
+  def generate_attribute(db, el_ref)
+    tp = find_type_by_el(db, el_ref)
+    tname = normalize_name(type_desc(tp) || attr(el_ref, :ref))
+    gattr(tname, (base_type(tp) || attr(tp, :name)).camelize,
+          comment: type_desc(tp),
+          minOccurs: el_ref[:minOccurs],
+          maxOccurs: el_ref[:maxOccurs])
+  end
+
+  def generate_class_recursively(db, tp)
+    elements(tp).map do |el_ref|
+      if attr(el_ref, :ref) == "ED"
+        next "# TODO: Encapsulated data segment"
+      elsif attr(el_ref, :ref) =~ /\.\w+$/
+        type_class_name = attr(el_ref, :ref).split('.').last
+        [
+          gklass(nil, type_class_name, nil) do
+            generate_class_recursively(db, find_type_by_el(db, el_ref))
+          end,
+          gattr(type_class_name.underscore, type_class_name, minOccurs: el_ref[:minOccurs], maxOccurs: el_ref[:maxOccurs])
+        ].join("\n")
+      else
+        generate_attribute(db, el_ref)
+      end
+    end.join("\n")
+  end
+
   def generate_class_body(db, tp)
     elements(tp).map do |el_ref|
-      attr_el = find_el(db, attr(el_ref, :ref))
-      tp = find_type(db, attr(attr_el, :type))
-      tname = normalize_name(type_desc(tp))
-      gattr(tname, base_type(tp).camelize,
-            comment: type_desc(tp),
-            minOccurs: el_ref[:minOccurs],
-            maxOccurs: el_ref[:maxOccurs])
-    end.join("\n")
+      if attr(el_ref, :ref) == "ED"
+        next "# TODO: Encapsulated data segment"
+      end
+      generate_attribute(db, el_ref)
+    end.compact.join("\n")
     #FIXME: add attribute annotations
     #FIXME: collections
     #FIXME: handle type "varies"
@@ -86,6 +118,11 @@ module Gen
     not name =~ /CONTENT$/
   end
 
+  def find_type_by_el(db, node)
+    element = find_el(db, attr(node, :ref))
+    find_type(db, attr(element, :type))
+  end
+
   def segments_db(version)
     elements_index(from_root_path("vendor/#{version}/segments.xsd"))
   end
@@ -94,12 +131,24 @@ module Gen
     types_index(from_root_path("vendor/#{version}/datatypes.xsd"))
   end
 
-  def messages_headers_db(version)
-    elements_index(from_root_path("vendor/#{version}/messages.xsd"))
+  def messages_db(version)
+    index = {}
+    file = from_root_path("vendor/#{version}/messages.xsd")
+    Dir[file].each do |file_path|
+      doc = parse_doc(file_path)
+      doc.xpath('/schema/group/choice/element').each do |el|
+        index[attr(el, :ref)] = el
+      end
+    end
+    index
   end
 
-  def messages_bodies_db(version)
-    elements_index(from_root_path("vendor/#{version}/messages/*.xsd"))
+  def full_db(version)
+    @full_db ||= Dir[from_root_path("vendor/#{version}/**/*.xsd")].reduce({}) do |acc, file|
+      acc[:types] = types_index(file, acc[:types] || {})
+      acc[:els] = elements_index(file, acc[:els] || {})
+      acc
+    end
   end
 
   def from_root_path(path)
@@ -115,7 +164,8 @@ module Gen
 
   def elements_index(file, index = {})
     Dir[file].each do |file_path|
-      parse_doc(file_path).xpath('/schema/element').each do |el|
+      doc = parse_doc(file_path)
+      doc.xpath('/schema/element').each do |el|
         index[attr(el, :name)] = el
       end
     end
@@ -147,12 +197,8 @@ module Gen
     find_type(db, attr(el, :type))
   end
 
-  def full_db(version)
-    @full_db ||= Dir[from_root_path("vendor/#{version}/**/*.xsd")].reduce({}) do |acc, file|
-      acc[:types] = types_index(file, acc[:types] || {})
-      acc[:els] = elements_index(file, acc[:els] || {})
-      acc
-    end
+  def gsub_dots(text)
+    text.gsub('.', '_')
   end
 
   def fwrite(path, content)
@@ -160,10 +206,11 @@ module Gen
   end
 
   def type_desc(node)
-    node.xpath('./annotation/documentation')
+    desc = node.xpath('./annotation/documentation')
     .map(&:text)
     .join()
     .chomp
+    desc if desc.present?
   end
 
   def normalize_name(name)
@@ -171,12 +218,13 @@ module Gen
   end
 
   def base_type(node)
-    (node.xpath('./complexContent/extension').first || node.xpath('./simpleContent/extension').first)[:base]
+    node = node.xpath('./complexContent/extension').first || node.xpath('./simpleContent/extension').first
+    node && node[:base]
   end
 
 
   def module_name(version, name=nil)
-    "HealthSeven::V#{version.gsub('.','_')}"
+    "HealthSeven::V#{gsub_dots(version)}"
   end
 
   def base_path(version, *dirs)
