@@ -9,18 +9,11 @@ module Gen
 
   attr_accessor :version
 
-  def parse(str)
-    Nokogiri::XML(str.gsub('<xsd:','<'))
-    .tap do |doc|
-      doc.remove_namespaces!
-    end.children.first
-  end
-
   def from_root_path(path)
     File.dirname(__FILE__) + "/../#{path}"
   end
 
-  def doc(version, path)
+  def parse_doc(path)
     raise "No such file #{path}" unless File.exists?(path)
     Nokogiri::XML(open(path).read).tap do |doc|
       doc.remove_namespaces!
@@ -29,7 +22,7 @@ module Gen
 
   def elements_index(file, index = {})
     Dir[file].each do |file_path|
-      doc(version, file_path).xpath('/schema/element').each do |el|
+      parse_doc(file_path).xpath('/schema/element').each do |el|
         index[attr(el, :name)] = el
       end
     end
@@ -38,7 +31,7 @@ module Gen
 
   def types_index(file, index = {})
     Dir[file].each do |file_path|
-      doc = doc(version, file_path)
+      doc = parse_doc(file_path)
       doc.xpath('/schema/complexType').each do |el|
         index[attr(el, :name)] = el
       end
@@ -69,7 +62,7 @@ module Gen
     find_type(db, attr(el, :type))
   end
 
-  def full_db(version)
+  def full_db
     @full_db ||= db(Dir[from_root_path("vendor/#{version}/**/*.xsd")])
   end
 
@@ -87,22 +80,6 @@ module Gen
 
   def messages_bodies_db
     elements_index(from_root_path("vendor/#{version}/messages/*.xsd"))
-  end
-
-  def load_all_messages(version, db)
-    from_root_path("vendor/#{version}/.xsd")
-  end
-
-  def load_fields(version)
-    @load_fields ||= doc(version, 'fields')
-  end
-
-  def load_datatypes(version)
-    @dts ||= doc(version, 'datatypes')
-  end
-
-  def load_segments(version)
-    @segs ||= doc(version, 'segments')
   end
 
   def fwrite(path, content)
@@ -125,11 +102,11 @@ module Gen
   end
 
 
-  def module_name(version, name=nil)
+  def module_name(name=nil)
     "HealthSeven::V#{version.gsub('.','_')}"
   end
 
-  def base_path(version, *dirs)
+  def base_path(*dirs)
     path = dirs.join('/')
     from_root_path("lib/health_seven/#{version}/#{path}")
   end
@@ -156,7 +133,7 @@ module Gen
 
   def generate(version)
     @version = version
-    db = full_db(version)
+    db = full_db
 
     generate_datatypes(db)
     generate_segments(db)
@@ -169,8 +146,8 @@ module Gen
   end
 
   def generate_datatypes(db)
-    FileUtils.rm_rf(base_path(version, 'datatypes'))
-    FileUtils.mkdir_p(base_path(version, 'datatypes'))
+    FileUtils.rm_rf(base_path('datatypes'))
+    FileUtils.mkdir_p(base_path('datatypes'))
 
     all_types = []
     datatypes_db.each do |name, tp|
@@ -180,55 +157,57 @@ module Gen
       end
       class_name = name.camelize
       all_types<< class_name
-      code =  gklass(module_name(version), class_name, 'DataType') do
+      code =  gklass(module_name, class_name, 'DataType') do
         generate_class_body(db, tp)
       end
-      fwrite(base_path(version, 'datatypes', "#{class_name.underscore}.rb"), code)
+      fwrite(base_path('datatypes', "#{class_name.underscore}.rb"), code)
     end
 
-    datatypes_autoload_code = autoloads(version, all_types, 'datatypes')
-    fwrite(base_path(version, "datatypes.rb"), datatypes_autoload_code)
+    datatypes_autoload_code = autoloads(all_types, 'datatypes')
+    fwrite(base_path("datatypes.rb"), datatypes_autoload_code)
 
-    datatypes_require_code = requires(version, all_types)
-    fwrite(base_path(version, 'datatypes', "all.rb"), datatypes_require_code)
+    datatypes_require_code = requires(all_types)
+    fwrite(base_path('datatypes', "all.rb"), datatypes_require_code)
   end
 
   def generate_segments(db)
-    FileUtils.rm_rf(base_path(version, 'segments'))
-    FileUtils.mkdir_p(base_path(version, 'segments'))
+    FileUtils.rm_rf(base_path('segments'))
+    FileUtils.mkdir_p(base_path('segments'))
 
     all_segments = []
     segments_db.each do |name, el|
       class_name = name.camelize
       all_segments << class_name
-      code = gklass module_name(version), class_name, 'Segment' do
+      code = gklass module_name, class_name, 'Segment' do
         tp = find_type(db, attr(el, :type))
         generate_class_body(db, tp)
       end
-      fwrite( base_path(version, 'segments', "#{class_name.underscore}.rb"), code)
+      fwrite( base_path('segments', "#{class_name.underscore}.rb"), code)
     end
 
-    segments_autoload_code = autoloads(version, all_segments, 'segments')
-    fwrite(base_path(version, "segments.rb"), segments_autoload_code)
+    segments_autoload_code = autoloads(all_segments, 'segments')
+    fwrite(base_path("segments.rb"), segments_autoload_code)
 
-    segments_require_code = requires(version, all_segments)
-    fwrite(base_path(version, 'segments', "all.rb"), segments_require_code)
+    segments_require_code = requires(all_segments)
+    fwrite(base_path('segments', "all.rb"), segments_require_code)
   end
 
-  def requires(version, types)
+  def requires(types)
     types.map do |type|
       "require File.dirname(__FILE__) + '/#{type.underscore}.rb'"
     end.join("\n")
   end
 
-  def autoloads(version, types, dir)
+  def autoloads(types, dir)
+    autoloads_string = types.map do |type|
+      "autoload :#{type}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
+    end.join("\n")
+
     <<-RUBY
-module #{module_name(version)}
-#{types.map do |type|
-"autoload :#{type}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
-end.join("\n")}
+module #{module_name}
+#{autoloads_string}
 end
-RUBY
+    RUBY
   end
 
   extend self
