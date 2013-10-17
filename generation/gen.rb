@@ -6,13 +6,14 @@ module Gen
 
   include XSD
   include Code
+  include IO
 
   def generate(version)
     db = full_db(version)
 
     generate_datatypes(version, db)
-    #generate_segments(version, db)
-    #generate_messages(version, db)
+    generate_segments(version, db)
+    generate_messages(version, db)
   end
 
   protected
@@ -151,17 +152,6 @@ module Gen
     end
   end
 
-  def from_root_path(path)
-    File.dirname(__FILE__) + "/../#{path}"
-  end
-
-  def parse_doc(path)
-    raise "No such file #{path}" unless File.exists?(path)
-    Nokogiri::XML(open(path).read).tap do |doc|
-      doc.remove_namespaces!
-    end
-  end
-
   def elements_index(file, index = {})
     Dir[file].each do |file_path|
       doc = parse_doc(file_path)
@@ -201,10 +191,6 @@ module Gen
     text.gsub('.', '_')
   end
 
-  def fwrite(path, content)
-    open(path, 'w'){|f| f<< content }
-  end
-
   def type_desc(node)
     desc = node.xpath('./annotation/documentation')
     .map(&:text)
@@ -222,14 +208,8 @@ module Gen
     node && node[:base]
   end
 
-
   def module_name(version, name=nil)
     "HealthSeven::V#{gsub_dots(version)}"
-  end
-
-  def base_path(version, *dirs)
-    path = dirs.join('/')
-    from_root_path("lib/health_seven/#{version}/#{path}")
   end
 
   def requires(types)
