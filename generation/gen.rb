@@ -124,7 +124,6 @@ module Gen
       generate_attribute_by_el_ref(db, el_ref)
     end.compact.join("\n")
     #FIXME: add attribute annotations
-    #FIXME: collections
     #FIXME: handle type "varies"
     #FIXME: handle segment "AnyZSegment, AnyHL7Segment"
   end
@@ -155,15 +154,9 @@ module Gen
   end
 
   def messages_db(version)
-    index = {}
-    file = from_root_path("vendor/#{version}/messages.xsd")
-    Dir[file].each do |file_path|
-      doc = parse_doc(file_path)
-      doc.xpath('/schema/group/choice/element').each do |el|
-        index[ref(el)] = el
-      end
+    index_for(['/schema/group/choice/element'], "vendor/#{version}/messages.xsd") do |el|
+      ref(el)
     end
-    index
   end
 
   def full_db(version)
@@ -174,27 +167,28 @@ module Gen
     end
   end
 
-  def elements_index(file, index = {})
+  def index_for(xpathes, file, index = {})
     Dir[file].each do |file_path|
       doc = parse_doc(file_path)
-      doc.xpath('/schema/element').each do |el|
-        index[name(el)] = el
+      xpathes.each do |xp|
+        doc.xpath(xp).each do |el|
+          index[yield(el)] = el
+        end
       end
     end
     index
   end
 
-  def types_index(file, index = {})
-    Dir[file].each do |file_path|
-      doc = parse_doc(file_path)
-      doc.xpath('/schema/complexType').each do |el|
-        index[name(el)] = el
-      end
-      doc.xpath('/schema/simpleType').each do |el|
-        index[name(el)] = el
-      end
+  def elements_index(file, index = {})
+    index_for(['/schema/element'], file, index) do |el|
+      name(el)
     end
-    index
+  end
+
+  def types_index(file, index = {})
+    index_for(['/schema/complexType', '/schema/simpleType'], file, index) do |el|
+      name(el)
+    end
   end
 
   def find_el(db, name)
@@ -207,10 +201,6 @@ module Gen
 
   def el_type(db, el)
     find_type(db, type(el))
-  end
-
-  def gsub_dots(text)
-    text.gsub('.', '_')
   end
 
   def type_desc(node)
@@ -231,7 +221,7 @@ module Gen
   end
 
   def module_name(version, name=nil)
-    "HealthSeven::V#{gsub_dots(version)}"
+    "HealthSeven::V#{version.gsub('.', '_')}"
   end
 
   def requires(types)
