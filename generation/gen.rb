@@ -1,4 +1,6 @@
 require 'nokogiri'
+require 'active_support/core_ext'
+
 module Gen
   ROOT = File.dirname(__FILE__)
   autoload :XSD, ROOT + '/gen/xsd.rb'
@@ -206,13 +208,9 @@ module Gen
   def type_desc(node)
     desc = node.xpath('./annotation/documentation')
     .map(&:text)
-    .join()
+    .join
     .chomp
     desc if desc.present?
-  end
-
-  def normalize_name(name)
-    name.downcase.chomp.gsub(/[^\w]/,'_').gsub(/_+/,'_').gsub(/_$/,'')
   end
 
   def base_type(node)
