@@ -12,13 +12,17 @@ module Gen::XSD
     attr(node, :name)
   end
 
+  def type(node)
+    attr(node, :type)
+  end
+
   def elements(node)
     node.xpath('./sequence/element')
   end
 
-  def doc(rel_path)
-    path = File.dirname(__FILE__) + "/../vendor/2.5/#{rel_path}"
-      Nokogiri::XML(open(path).read).tap do |doc|
+  def parse_doc(path)
+    raise "No such file #{path}" unless File.exists?(path)
+    Nokogiri::XML(open(path).read).tap do |doc|
       doc.remove_namespaces!
     end
   end

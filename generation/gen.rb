@@ -3,6 +3,7 @@ module Gen
   ROOT = File.dirname(__FILE__)
   autoload :XSD, ROOT + '/gen/xsd.rb'
   autoload :Code, ROOT + '/gen/code.rb'
+  autoload :IO, ROOT + '/gen/io.rb'
 
   include XSD
   include Code
@@ -23,7 +24,7 @@ module Gen
     FileUtils.mkdir_p(base_path(version, 'messages'))
 
     messages_db(version).each do |name, message|
-      class_name = attr(message, :ref)
+      class_name = ref(message)
       code = gklass(module_name(version), class_name, 'Message') do
         generate_class_recursively(db, find_type_by_el(db, message))
       end
@@ -58,7 +59,7 @@ module Gen
     segments_db(version).each do |name, el|
       class_name = name.camelize
       code = gklass module_name(version), class_name, 'Segment' do
-        tp = find_type(db, attr(el, :type))
+        tp = find_type(db, type(el))
         generate_class_body(db, tp)
       end
       fwrite( base_path(version, 'segments', "#{class_name.underscore}.rb"), code)
@@ -73,8 +74,8 @@ module Gen
 
   def generate_attribute(db, el_ref)
     tp = find_type_by_el(db, el_ref)
-    tname = normalize_name(type_desc(tp) || attr(el_ref, :ref))
-    gattr(tname, (base_type(tp) || attr(tp, :name)).camelize,
+    tname = normalize_name(type_desc(tp) || ref(el_ref))
+    gattr(tname, (base_type(tp) || name(tp)).camelize,
           comment: type_desc(tp),
           minOccurs: el_ref[:minOccurs],
           maxOccurs: el_ref[:maxOccurs])
@@ -82,10 +83,10 @@ module Gen
 
   def generate_class_recursively(db, tp)
     elements(tp).map do |el_ref|
-      if attr(el_ref, :ref) == "ED"
+      if ref(el_ref) == "ED"
         next "# TODO: Encapsulated data segment"
-      elsif attr(el_ref, :ref) =~ /\.\w+$/
-        type_class_name = attr(el_ref, :ref).split('.').last
+      elsif ref(el_ref) =~ /\.\w+$/
+        type_class_name = ref(el_ref).split('.').last
         [
           gklass(nil, type_class_name, nil) do
             generate_class_recursively(db, find_type_by_el(db, el_ref))
@@ -100,7 +101,7 @@ module Gen
 
   def generate_class_body(db, tp)
     elements(tp).map do |el_ref|
-      if attr(el_ref, :ref) == "ED"
+      if ref(el_ref) == "ED"
         next "# TODO: Encapsulated data segment"
       end
       generate_attribute(db, el_ref)
@@ -120,8 +121,8 @@ module Gen
   end
 
   def find_type_by_el(db, node)
-    element = find_el(db, attr(node, :ref))
-    find_type(db, attr(element, :type))
+    element = find_el(db, ref(node))
+    find_type(db, type(element))
   end
 
   def segments_db(version)
@@ -138,7 +139,7 @@ module Gen
     Dir[file].each do |file_path|
       doc = parse_doc(file_path)
       doc.xpath('/schema/group/choice/element').each do |el|
-        index[attr(el, :ref)] = el
+        index[ref(el)] = el
       end
     end
     index
@@ -156,7 +157,7 @@ module Gen
     Dir[file].each do |file_path|
       doc = parse_doc(file_path)
       doc.xpath('/schema/element').each do |el|
-        index[attr(el, :name)] = el
+        index[name(el)] = el
       end
     end
     index
@@ -166,10 +167,10 @@ module Gen
     Dir[file].each do |file_path|
       doc = parse_doc(file_path)
       doc.xpath('/schema/complexType').each do |el|
-        index[attr(el, :name)] = el
+        index[name(el)] = el
       end
       doc.xpath('/schema/simpleType').each do |el|
-        index[attr(el, :name)] = el
+        index[name(el)] = el
       end
     end
     index
@@ -184,7 +185,7 @@ module Gen
   end
 
   def el_type(db, el)
-    find_type(db, attr(el, :type))
+    find_type(db, type(el))
   end
 
   def gsub_dots(text)
