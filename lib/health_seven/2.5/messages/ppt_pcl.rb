@@ -1,70 +1,70 @@
 module HealthSeven::V2_5
 class PPT_PCL < Message
-  attribute :msh, MSH.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :sft, SFT.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-  attribute :msa, MSA.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :err, ERR.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-  attribute :qak, QAK.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "1"
-  attribute :qrd, QRD.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, MSH, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msa, MSA, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :err, ERR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :qak, QAK, comment: nil, minOccurs: "0", maxOccurs: "1"
+  attribute :qrd, QRD, comment: nil, minOccurs: "1", maxOccurs: "1"
 class PATIENT
-  attribute :pid, PID.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
 class PATIENT_VISIT
-  attribute :pv1, PV1.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :pv2, PV2.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "1"
+  attribute :pv1, PV1, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :pv2, PV2, comment: nil, minOccurs: "0", maxOccurs: "1"
 end
   attribute :patient_visit, PATIENT_VISIT, minOccurs: "0", maxOccurs: "1"
 class PATHWAY
-  attribute :pth, PTH.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :nte, NTE.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-  attribute :var, VAR.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :pth, PTH, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :var, VAR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 class PATHWAY_ROLE
-  attribute :rol, ROL.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :var, VAR.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :rol, ROL, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :var, VAR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :pathway_role, PATHWAY_ROLE, minOccurs: "0", maxOccurs: "unbounded"
 class GOAL
-  attribute :gol, GOL.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :nte, NTE.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-  attribute :var, VAR.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :gol, GOL, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :var, VAR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 class GOAL_ROLE
-  attribute :rol, ROL.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :var, VAR.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :rol, ROL, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :var, VAR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :goal_role, GOAL_ROLE, minOccurs: "0", maxOccurs: "unbounded"
 class GOAL_OBSERVATION
-  attribute :obx, OBX.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :nte, NTE.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :obx, OBX, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :goal_observation, GOAL_OBSERVATION, minOccurs: "0", maxOccurs: "unbounded"
 class PROBLEM
-  attribute :prb, PRB.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :nte, NTE.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-  attribute :var, VAR.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :prb, PRB, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :var, VAR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 class PROBLEM_ROLE
-  attribute :rol, ROL.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :var, VAR.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :rol, ROL, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :var, VAR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :problem_role, PROBLEM_ROLE, minOccurs: "0", maxOccurs: "unbounded"
 class PROBLEM_OBSERVATION
-  attribute :obx, OBX.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :nte, NTE.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :obx, OBX, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :problem_observation, PROBLEM_OBSERVATION, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :problem, PROBLEM, minOccurs: "0", maxOccurs: "unbounded"
 class ORDER
-  attribute :orc, ORC.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :orc, ORC, comment: nil, minOccurs: "1", maxOccurs: "1"
 class ORDER_DETAIL
 class CHOICE
 
 end
   attribute :choice, CHOICE, minOccurs: "1", maxOccurs: "1"
-  attribute :nte, NTE.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-  attribute :var, VAR.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :var, VAR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 class ORDER_OBSERVATION
-  attribute :obx, OBX.CONTENT, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :nte, NTE.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-  attribute :var, VAR.CONTENT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :obx, OBX, comment: nil, minOccurs: "1", maxOccurs: "1"
+  attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :var, VAR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :order_observation, ORDER_OBSERVATION, minOccurs: "0", maxOccurs: "unbounded"
 end

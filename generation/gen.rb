@@ -75,7 +75,7 @@ module Gen
   def generate_attribute(db, el_ref)
     tp = find_type_by_el(db, el_ref)
     tname = normalize_name(type_desc(tp) || ref(el_ref))
-    gattr(tname, (base_type(tp) || name(tp)).camelize,
+    gattr(tname, (base_type(tp) || name(tp).split('.').first).camelize,
           comment: type_desc(tp),
           minOccurs: el_ref[:minOccurs],
           maxOccurs: el_ref[:maxOccurs])
