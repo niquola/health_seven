@@ -1,21 +1,21 @@
 module HealthSeven::V2_5
 class NMD_N02 < Message
-  attribute :msh, MSH, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[SFT], comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
+  attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
 class CLOCK_AND_STATS_WITH_NOTES < SegmentGroup
 class CLOCK < SegmentGroup
-  attribute :nck, NCK, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :ntes, Array[NTE], comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :nck, NCK, minOccurs: "1", maxOccurs: "1"
+  attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :clock, CLOCK, minOccurs: "0", maxOccurs: "1"
 class APP_STATS < SegmentGroup
-  attribute :nst, NST, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :ntes, Array[NTE], comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :nst, NST, minOccurs: "1", maxOccurs: "1"
+  attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :app_stats, APP_STATS, minOccurs: "0", maxOccurs: "1"
 class APP_STATUS < SegmentGroup
-  attribute :nsc, NSC, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :ntes, Array[NTE], comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :nsc, NSC, minOccurs: "1", maxOccurs: "1"
+  attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :app_status, APP_STATUS, minOccurs: "0", maxOccurs: "1"
 end

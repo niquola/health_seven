@@ -18,10 +18,16 @@ module Gen::Code
     name.downcase.chomp.gsub(/[^\w]/,'_').gsub(/_+/,'_').gsub(/_$/,'')
   end
 
-  def gattr(name, type, meta = {})
+  def generate_attribute(aname, type, opts)
+    if is_collection?(opts)
+      aname = aname.pluralize
+      type = "Array[#{type}]"
+    end
+
     res = ''
-    res<< indent("# #{meta.delete(:comment).gsub(/\s+$/,'')}\n") if meta[:comment].present?
-    res<< indent("attribute :#{normalize_name(name)}, #{type}, #{meta(meta)}")
+    comment = opts.delete(:comment)
+    res<< indent("# #{comment.gsub(/\s+$/,'')}\n") if comment.present?
+    res<< indent("attribute :#{normalize_name(aname)}, #{type}, #{meta(opts)}")
   end
 
   def indent(str)

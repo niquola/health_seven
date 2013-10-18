@@ -90,14 +90,6 @@ module Gen
                        maxOccurs: el_ref[:maxOccurs])
   end
 
-  def generate_attribute(aname, type, opts)
-    if is_collection?(opts)
-      aname = aname.pluralize
-      type = "Array[#{type}]"
-    end
-    gattr(aname, type, opts)
-  end
-
   def generate_class_recursively(db, tp)
     elements(tp).map do |el_ref|
       if ref(el_ref) == "ED"
@@ -125,7 +117,7 @@ module Gen
       end
       generate_attribute_by_el_ref(db, el_ref)
     end.compact.join("\n")
-    #FIXME: add attribute annotations
+    #FIXME: add attribute annotations (complexType restrict attributes)
     #FIXME: handle type "varies"
     #FIXME: handle segment "AnyZSegment, AnyHL7Segment"
   end
