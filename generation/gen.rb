@@ -33,7 +33,7 @@ module Gen
       fwrite(base_path(version, 'messages', "#{class_name.underscore}.rb"), code)
     end
 
-    messages_autoload_code = autoloads(version, messages_db(version).keys.map(&:camelize), 'messages')
+    messages_autoload_code = autoloads(version, messages_db(version).keys, 'messages')
     fwrite(base_path(version, "messages.rb"), messages_autoload_code)
 
     messages_require_code = requires(messages_db(version).keys)
@@ -73,10 +73,11 @@ module Gen
       fwrite( base_path(version, 'segments', "#{class_name.underscore}.rb"), code)
     end
 
-    segments_autoload_code = autoloads(version, segments_db(version).keys, 'segments')
+    fixed_keys = segments_db(version).keys.map { |k| k.gsub(/^any/, 'Any') }
+    segments_autoload_code = autoloads(version, fixed_keys, 'segments')
     fwrite(base_path(version, "segments.rb"), segments_autoload_code)
 
-    segments_require_code = requires(segments_db(version).keys)
+    segments_require_code = requires(fixed_keys)
     fwrite(base_path(version, 'segments', "all.rb"), segments_require_code)
   end
 
@@ -86,7 +87,7 @@ module Gen
     type = (base_type(tp) || name(tp).split('.').first).camelize
     generate_attribute(tname, type,
                        comment: type_desc(tp),
-                       minOccurs: el_ref[:minOccurs],
+                       minOccurs: el_ref[:minOccurs] || "0",
                        maxOccurs: el_ref[:maxOccurs])
   end
 
@@ -101,7 +102,7 @@ module Gen
             generate_class_recursively(db, find_type_by_el(db, el_ref))
           end,
           generate_attribute(type_class_name.underscore, type_class_name,
-                             minOccurs: el_ref[:minOccurs],
+                             minOccurs: el_ref[:minOccurs] || "0",
                              maxOccurs: el_ref[:maxOccurs])
         ].join("\n")
       else
@@ -222,7 +223,7 @@ module Gen
 
   def autoloads(version, types, dir)
     autoloads_string = types.map do |type|
-      "autoload :#{type.camelize}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
+      "autoload :#{type}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
     end.join("\n")
 
     <<-RUBY

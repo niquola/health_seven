@@ -9,6 +9,5 @@ module HealthSeven
 
     require 'health_seven/2.5/core/message.rb'
     require 'health_seven/2.5/messages.rb'
-
   end
 end
