@@ -7,7 +7,7 @@ class ADR_A19 < Message
   attribute :qak, QAK, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :qrd, QRD, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qrf, QRF, comment: nil, minOccurs: "0", maxOccurs: "1"
-class QUERY_RESPONSE
+class QUERY_RESPONSE < SegmentGroup
   attribute :evn, EVN, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pd1, PD1, comment: nil, minOccurs: "0", maxOccurs: "1"
@@ -21,13 +21,13 @@ class QUERY_RESPONSE
   attribute :al1, AL1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :dg1, DG1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :drg, DRG, comment: nil, minOccurs: "0", maxOccurs: "1"
-class PROCEDURE
+class PROCEDURE < SegmentGroup
   attribute :pr1, PR1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rol, ROL, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :procedure, PROCEDURE, minOccurs: "0", maxOccurs: "unbounded"
   attribute :gt1, GT1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class INSURANCE
+class INSURANCE < SegmentGroup
   attribute :in1, IN1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :in2, IN2, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :in3, IN3, comment: nil, minOccurs: "0", maxOccurs: "unbounded"

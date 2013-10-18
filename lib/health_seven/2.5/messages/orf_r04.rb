@@ -5,23 +5,23 @@ class ORF_R04 < Message
   attribute :msa, MSA, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qrd, QRD, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qrf, QRF, comment: nil, minOccurs: "0", maxOccurs: "1"
-class QUERY_RESPONSE
-class PATIENT
+class QUERY_RESPONSE < SegmentGroup
+class PATIENT < SegmentGroup
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
-class ORDER
+class ORDER < SegmentGroup
   attribute :orc, ORC, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :obr, OBR, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class TIMING_QTY
+class TIMING_QTY < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :timing_qty, TIMING_QTY, minOccurs: "0", maxOccurs: "unbounded"
   attribute :ctd, CTD, comment: nil, minOccurs: "0", maxOccurs: "1"
-class OBSERVATION
+class OBSERVATION < SegmentGroup
   attribute :obx, OBX, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

@@ -5,10 +5,10 @@ class ORL_O34 < Message
   attribute :err, ERR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class RESPONSE
-class PATIENT
+class RESPONSE < SegmentGroup
+class PATIENT < SegmentGroup
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
-class SPECIMEN
+class SPECIMEN < SegmentGroup
   attribute :spm, SPM, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :sac, SAC, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

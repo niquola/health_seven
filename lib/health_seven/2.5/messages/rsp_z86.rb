@@ -6,30 +6,30 @@ class RSP_Z86 < Message
   attribute :err, ERR, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :qak, QAK, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qpd, QPD, comment: nil, minOccurs: "1", maxOccurs: "1"
-class QUERY_RESPONSE
-class PATIENT
+class QUERY_RESPONSE < SegmentGroup
+class PATIENT < SegmentGroup
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pd1, PD1, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :al1, AL1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
-class COMMON_ORDER
+class COMMON_ORDER < SegmentGroup
   attribute :orc, ORC, comment: nil, minOccurs: "1", maxOccurs: "1"
-class TIMING
+class TIMING < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :timing, TIMING, minOccurs: "0", maxOccurs: "unbounded"
-class ORDER_DETAIL
+class ORDER_DETAIL < SegmentGroup
   attribute :rxo, RXO, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rxr, RXR, comment: nil, minOccurs: "1", maxOccurs: "unbounded"
   attribute :rxc, RXC, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :order_detail, ORDER_DETAIL, minOccurs: "0", maxOccurs: "1"
-class ENCODED_ORDER
+class ENCODED_ORDER < SegmentGroup
   attribute :rxe, RXE, comment: nil, minOccurs: "1", maxOccurs: "1"
-class TIMING_ENCODED
+class TIMING_ENCODED < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
@@ -38,25 +38,25 @@ end
   attribute :rxc, RXC, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :encoded_order, ENCODED_ORDER, minOccurs: "0", maxOccurs: "1"
-class DISPENSE
+class DISPENSE < SegmentGroup
   attribute :rxd, RXD, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rxr, RXR, comment: nil, minOccurs: "1", maxOccurs: "unbounded"
   attribute :rxc, RXC, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :dispense, DISPENSE, minOccurs: "0", maxOccurs: "1"
-class GIVE
+class GIVE < SegmentGroup
   attribute :rxg, RXG, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rxr, RXR, comment: nil, minOccurs: "1", maxOccurs: "unbounded"
   attribute :rxc, RXC, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :give, GIVE, minOccurs: "0", maxOccurs: "1"
-class ADMINISTRATION
+class ADMINISTRATION < SegmentGroup
   attribute :rxa, RXA, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rxr, RXR, comment: nil, minOccurs: "1", maxOccurs: "unbounded"
   attribute :rxc, RXC, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :administration, ADMINISTRATION, minOccurs: "0", maxOccurs: "1"
-class OBSERVATION
+class OBSERVATION < SegmentGroup
   attribute :obx, OBX, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

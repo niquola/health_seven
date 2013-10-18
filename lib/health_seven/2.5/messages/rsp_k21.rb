@@ -6,7 +6,7 @@ class RSP_K21 < Message
   attribute :err, ERR, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :qak, QAK, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qpd, QPD, comment: nil, minOccurs: "1", maxOccurs: "1"
-class QUERY_RESPONSE
+class QUERY_RESPONSE < SegmentGroup
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pd1, PD1, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :nk1, NK1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"

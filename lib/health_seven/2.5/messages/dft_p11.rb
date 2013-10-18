@@ -10,19 +10,19 @@ class DFT_P11 < Message
   attribute :pv2, PV2, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :rol, ROL, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :db1, DB1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class COMMON_ORDER
+class COMMON_ORDER < SegmentGroup
   attribute :orc, ORC, comment: nil, minOccurs: "0", maxOccurs: "1"
-class TIMING_QUANTITY
+class TIMING_QUANTITY < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :timing_quantity, TIMING_QUANTITY, minOccurs: "0", maxOccurs: "unbounded"
-class ORDER
+class ORDER < SegmentGroup
   attribute :obr, OBR, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :order, ORDER, minOccurs: "0", maxOccurs: "1"
-class OBSERVATION
+class OBSERVATION < SegmentGroup
   attribute :obx, OBX, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
@@ -32,7 +32,7 @@ end
   attribute :dg1, DG1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :drg, DRG, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :gt1, GT1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class INSURANCE
+class INSURANCE < SegmentGroup
   attribute :in1, IN1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :in2, IN2, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :in3, IN3, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
@@ -40,26 +40,26 @@ class INSURANCE
 end
   attribute :insurance, INSURANCE, minOccurs: "0", maxOccurs: "unbounded"
   attribute :acc, ACC, comment: nil, minOccurs: "0", maxOccurs: "1"
-class FINANCIAL
+class FINANCIAL < SegmentGroup
   attribute :ft1, FT1, comment: nil, minOccurs: "1", maxOccurs: "1"
-class FINANCIAL_PROCEDURE
+class FINANCIAL_PROCEDURE < SegmentGroup
   attribute :pr1, PR1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rol, ROL, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :financial_procedure, FINANCIAL_PROCEDURE, minOccurs: "0", maxOccurs: "unbounded"
-class FINANCIAL_COMMON_ORDER
+class FINANCIAL_COMMON_ORDER < SegmentGroup
   attribute :orc, ORC, comment: nil, minOccurs: "0", maxOccurs: "1"
-class FINANCIAL_TIMING_QUANTITY
+class FINANCIAL_TIMING_QUANTITY < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :financial_timing_quantity, FINANCIAL_TIMING_QUANTITY, minOccurs: "0", maxOccurs: "unbounded"
-class FINANCIAL_ORDER
+class FINANCIAL_ORDER < SegmentGroup
   attribute :obr, OBR, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :financial_order, FINANCIAL_ORDER, minOccurs: "0", maxOccurs: "1"
-class FINANCIAL_OBSERVATION
+class FINANCIAL_OBSERVATION < SegmentGroup
   attribute :obx, OBX, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
@@ -69,7 +69,7 @@ end
   attribute :dg1, DG1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :drg, DRG, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :gt1, GT1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class FINANCIAL_INSURANCE
+class FINANCIAL_INSURANCE < SegmentGroup
   attribute :in1, IN1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :in2, IN2, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :in3, IN3, comment: nil, minOccurs: "0", maxOccurs: "unbounded"

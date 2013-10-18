@@ -8,7 +8,7 @@ class MFR_M07 < Message
   attribute :qrd, QRD, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qrf, QRF, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :mfi, MFI, comment: nil, minOccurs: "1", maxOccurs: "1"
-class MF_QUERY
+class MF_QUERY < SegmentGroup
   attribute :mfe, MFE, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :cm0, CM0, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :cm2, CM2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"

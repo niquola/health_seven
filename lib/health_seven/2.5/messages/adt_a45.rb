@@ -5,7 +5,7 @@ class ADT_A45 < Message
   attribute :evn, EVN, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pd1, PD1, comment: nil, minOccurs: "0", maxOccurs: "1"
-class MERGE_INFO
+class MERGE_INFO < SegmentGroup
   attribute :mrg, MRG, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pv1, PV1, comment: nil, minOccurs: "1", maxOccurs: "1"
 end

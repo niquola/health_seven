@@ -3,10 +3,10 @@ class EAC_U07 < Message
   attribute :msh, MSH, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :equ, EQU, comment: nil, minOccurs: "1", maxOccurs: "1"
-class COMMAND
+class COMMAND < SegmentGroup
   attribute :ecd, ECD, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq1, TQ1, comment: nil, minOccurs: "0", maxOccurs: "1"
-class SPECIMEN_CONTAINER
+class SPECIMEN_CONTAINER < SegmentGroup
   attribute :sac, SAC, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :spm, SPM, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

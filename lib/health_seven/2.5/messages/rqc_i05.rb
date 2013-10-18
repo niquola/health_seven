@@ -4,7 +4,7 @@ class RQC_I05 < Message
   attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :qrd, QRD, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qrf, QRF, comment: nil, minOccurs: "0", maxOccurs: "1"
-class PROVIDER
+class PROVIDER < SegmentGroup
   attribute :prd, PRD, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :ctd, CTD, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

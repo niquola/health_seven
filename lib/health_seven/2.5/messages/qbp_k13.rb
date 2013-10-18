@@ -5,7 +5,7 @@ class QBP_K13 < Message
   attribute :err, ERR, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :qak, QAK, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qpd, QPD, comment: nil, minOccurs: "1", maxOccurs: "1"
-class ROW_DEFINITION
+class ROW_DEFINITION < SegmentGroup
   attribute :rdf, RDF, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rdt, RDT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

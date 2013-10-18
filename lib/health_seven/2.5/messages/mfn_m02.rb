@@ -3,7 +3,7 @@ class MFN_M02 < Message
   attribute :msh, MSH, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :mfi, MFI, comment: nil, minOccurs: "1", maxOccurs: "1"
-class MF_STAFF
+class MF_STAFF < SegmentGroup
   attribute :mfe, MFE, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :stf, STF, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pra, PRA, comment: nil, minOccurs: "0", maxOccurs: "unbounded"

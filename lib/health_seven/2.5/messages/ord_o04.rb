@@ -5,15 +5,15 @@ class ORD_O04 < Message
   attribute :err, ERR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class RESPONSE
-class PATIENT
+class RESPONSE < SegmentGroup
+class PATIENT < SegmentGroup
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
-class ORDER_DIET
+class ORDER_DIET < SegmentGroup
   attribute :orc, ORC, comment: nil, minOccurs: "1", maxOccurs: "1"
-class TIMING_DIET
+class TIMING_DIET < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
@@ -22,9 +22,9 @@ end
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :order_diet, ORDER_DIET, minOccurs: "1", maxOccurs: "unbounded"
-class ORDER_TRAY
+class ORDER_TRAY < SegmentGroup
   attribute :orc, ORC, comment: nil, minOccurs: "1", maxOccurs: "1"
-class TIMING_TRAY
+class TIMING_TRAY < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

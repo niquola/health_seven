@@ -3,7 +3,7 @@ class ADT_A39 < Message
   attribute :msh, MSH, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :evn, EVN, comment: nil, minOccurs: "1", maxOccurs: "1"
-class PATIENT
+class PATIENT < SegmentGroup
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pd1, PD1, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :mrg, MRG, comment: nil, minOccurs: "1", maxOccurs: "1"

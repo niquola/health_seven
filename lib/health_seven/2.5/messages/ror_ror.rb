@@ -4,15 +4,15 @@ class ROR_ROR < Message
   attribute :msa, MSA, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :err, ERR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class DEFINITION
+class DEFINITION < SegmentGroup
   attribute :qrd, QRD, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qrf, QRF, comment: nil, minOccurs: "0", maxOccurs: "1"
-class PATIENT
+class PATIENT < SegmentGroup
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
-class ORDER
+class ORDER < SegmentGroup
   attribute :orc, ORC, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rxo, RXO, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rxr, RXR, comment: nil, minOccurs: "1", maxOccurs: "unbounded"

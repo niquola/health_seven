@@ -6,20 +6,20 @@ class PEX_P07 < Message
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pd1, PD1, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class VISIT
+class VISIT < SegmentGroup
   attribute :pv1, PV1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pv2, PV2, comment: nil, minOccurs: "0", maxOccurs: "1"
 end
   attribute :visit, VISIT, minOccurs: "0", maxOccurs: "1"
-class EXPERIENCE
+class EXPERIENCE < SegmentGroup
   attribute :pes, PES, comment: nil, minOccurs: "1", maxOccurs: "1"
-class PEX_OBSERVATION
+class PEX_OBSERVATION < SegmentGroup
   attribute :peo, PEO, comment: nil, minOccurs: "1", maxOccurs: "1"
-class PEX_CAUSE
+class PEX_CAUSE < SegmentGroup
   attribute :pcr, PCR, comment: nil, minOccurs: "1", maxOccurs: "1"
-class RX_ORDER
+class RX_ORDER < SegmentGroup
   attribute :rxe, RXE, comment: nil, minOccurs: "1", maxOccurs: "1"
-class TIMING_QTY
+class TIMING_QTY < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
@@ -27,7 +27,7 @@ end
   attribute :rxr, RXR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :rx_order, RX_ORDER, minOccurs: "0", maxOccurs: "1"
-class RX_ADMINISTRATION
+class RX_ADMINISTRATION < SegmentGroup
   attribute :rxa, RXA, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rxr, RXR, comment: nil, minOccurs: "0", maxOccurs: "1"
 end
@@ -35,11 +35,11 @@ end
   attribute :prb, PRB, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :obx, OBX, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class ASSOCIATED_PERSON
+class ASSOCIATED_PERSON < SegmentGroup
   attribute :nk1, NK1, comment: nil, minOccurs: "1", maxOccurs: "1"
-class ASSOCIATED_RX_ORDER
+class ASSOCIATED_RX_ORDER < SegmentGroup
   attribute :rxe, RXE, comment: nil, minOccurs: "1", maxOccurs: "1"
-class NK1_TIMING_QTY
+class NK1_TIMING_QTY < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
@@ -47,7 +47,7 @@ end
   attribute :rxr, RXR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :associated_rx_order, ASSOCIATED_RX_ORDER, minOccurs: "0", maxOccurs: "1"
-class ASSOCIATED_RX_ADMIN
+class ASSOCIATED_RX_ADMIN < SegmentGroup
   attribute :rxa, RXA, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rxr, RXR, comment: nil, minOccurs: "0", maxOccurs: "1"
 end
@@ -56,7 +56,7 @@ end
   attribute :obx, OBX, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :associated_person, ASSOCIATED_PERSON, minOccurs: "0", maxOccurs: "1"
-class STUDY
+class STUDY < SegmentGroup
   attribute :csr, CSR, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :csp, CSP, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

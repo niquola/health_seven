@@ -5,9 +5,9 @@ class MDM_T01 < Message
   attribute :evn, EVN, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pv1, PV1, comment: nil, minOccurs: "1", maxOccurs: "1"
-class COMMON_ORDER
+class COMMON_ORDER < SegmentGroup
   attribute :orc, ORC, comment: nil, minOccurs: "1", maxOccurs: "1"
-class TIMING
+class TIMING < SegmentGroup
   attribute :tq1, TQ1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq2, TQ2, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

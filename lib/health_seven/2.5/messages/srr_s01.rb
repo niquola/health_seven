@@ -3,35 +3,35 @@ class SRR_S01 < Message
   attribute :msh, MSH, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :msa, MSA, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :err, ERR, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class SCHEDULE
+class SCHEDULE < SegmentGroup
   attribute :sch, SCH, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :tq1, TQ1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
-class PATIENT
+class PATIENT < SegmentGroup
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pv1, PV1, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :pv2, PV2, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :dg1, DG1, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "unbounded"
-class RESOURCES
+class RESOURCES < SegmentGroup
   attribute :rgs, RGS, comment: nil, minOccurs: "1", maxOccurs: "1"
-class SERVICE
+class SERVICE < SegmentGroup
   attribute :ais, AIS, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :service, SERVICE, minOccurs: "0", maxOccurs: "unbounded"
-class GENERAL_RESOURCE
+class GENERAL_RESOURCE < SegmentGroup
   attribute :aig, AIG, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :general_resource, GENERAL_RESOURCE, minOccurs: "0", maxOccurs: "unbounded"
-class LOCATION_RESOURCE
+class LOCATION_RESOURCE < SegmentGroup
   attribute :ail, AIL, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :location_resource, LOCATION_RESOURCE, minOccurs: "0", maxOccurs: "unbounded"
-class PERSONNEL_RESOURCE
+class PERSONNEL_RESOURCE < SegmentGroup
   attribute :aip, AIP, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

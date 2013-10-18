@@ -5,7 +5,7 @@ class DOC_T12 < Message
   attribute :err, ERR, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :qak, QAK, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :qrd, QRD, comment: nil, minOccurs: "1", maxOccurs: "1"
-class RESULT
+class RESULT < SegmentGroup
   attribute :evn, EVN, comment: nil, minOccurs: "0", maxOccurs: "1"
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pv1, PV1, comment: nil, minOccurs: "1", maxOccurs: "1"

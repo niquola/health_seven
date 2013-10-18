@@ -30,6 +30,12 @@ module Gen
       end
       fwrite(base_path(version, 'messages', "#{class_name.underscore}.rb"), code)
     end
+
+    messages_autoload_code = autoloads(version, messages_db(version).keys.map(&:camelize), 'messages')
+    fwrite(base_path(version, "messages.rb"), messages_autoload_code)
+
+    messages_require_code = requires(messages_db(version).keys)
+    fwrite(base_path(version, 'messages', "all.rb"), messages_require_code)
   end
 
   def generate_datatypes(version, db)
@@ -58,7 +64,7 @@ module Gen
 
     segments_db(version).each do |name, el|
       class_name = name.camelize
-      code = gklass module_name(version), class_name, 'Segment' do
+      code = gklass(module_name(version), class_name, 'Segment') do
         tp = find_type(db, type(el))
         generate_class_body(db, tp)
       end
@@ -88,7 +94,7 @@ module Gen
       elsif ref(el_ref) =~ /\.\w+$/
         type_class_name = ref(el_ref).split('.').last
         [
-          gklass(nil, type_class_name, nil) do
+          gklass(nil, type_class_name, 'SegmentGroup') do
             generate_class_recursively(db, find_type_by_el(db, el_ref))
           end,
           gattr(type_class_name.underscore, type_class_name, minOccurs: el_ref[:minOccurs], maxOccurs: el_ref[:maxOccurs])
@@ -221,7 +227,7 @@ module Gen
 
   def autoloads(version, types, dir)
     autoloads_string = types.map do |type|
-      "autoload :#{type}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
+      "autoload :#{type.camelize}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
     end.join("\n")
 
     <<-RUBY

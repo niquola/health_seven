@@ -3,10 +3,10 @@ class MFN_M10 < Message
   attribute :msh, MSH, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :mfi, MFI, comment: nil, minOccurs: "1", maxOccurs: "1"
-class MF_TEST_BATTERIES
+class MF_TEST_BATTERIES < SegmentGroup
   attribute :mfe, MFE, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :om1, OM1, comment: nil, minOccurs: "1", maxOccurs: "1"
-class MF_TEST_BATT_DETAIL
+class MF_TEST_BATT_DETAIL < SegmentGroup
   attribute :om5, OM5, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :om4, OM4, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

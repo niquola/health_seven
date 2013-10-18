@@ -3,7 +3,7 @@ class EAN_U09 < Message
   attribute :msh, MSH, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :sft, SFT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :equ, EQU, comment: nil, minOccurs: "1", maxOccurs: "1"
-class NOTIFICATION
+class NOTIFICATION < SegmentGroup
   attribute :nds, NDS, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :nte, NTE, comment: nil, minOccurs: "0", maxOccurs: "1"
 end

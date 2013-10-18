@@ -5,7 +5,7 @@ class PMU_B07 < Message
   attribute :evn, EVN, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :stf, STF, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pra, PRA, comment: nil, minOccurs: "0", maxOccurs: "1"
-class CERTIFICATE
+class CERTIFICATE < SegmentGroup
   attribute :cer, CER, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rol, ROL, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end

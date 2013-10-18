@@ -7,7 +7,7 @@ class RSP_K25 < Message
   attribute :qak, QAK, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :qpd, QPD, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :rcp, RCP, comment: nil, minOccurs: "1", maxOccurs: "1"
-class STAFF
+class STAFF < SegmentGroup
   attribute :stf, STF, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pra, PRA, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
   attribute :org, ORG, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
