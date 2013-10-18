@@ -23,7 +23,7 @@ class BPX < Segment
   # BP Blood Group
   attribute :bp_blood_group, CNE, minOccurs: "0", maxOccurs: "1"
   # BC Special Testing
-  attribute :bc_special_testing, CNE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :bc_special_testings, Array[CNE], minOccurs: "0", maxOccurs: "unbounded"
   # BP Expiration Date/Time
   attribute :bp_expiration_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # BP Quantity

@@ -23,7 +23,7 @@ class PCR < Segment
   # Product Problem
   attribute :product_problem, IS, minOccurs: "0", maxOccurs: "1"
   # Product Serial/Lot Number
-  attribute :product_serial_lot_number, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :product_serial_lot_numbers, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Product Available For Inspection
   attribute :product_available_for_inspection, IS, minOccurs: "0", maxOccurs: "1"
   # Product Evaluation Performed
@@ -41,10 +41,10 @@ class PCR < Segment
   # Relatedness Assessment
   attribute :relatedness_assessment, ID, minOccurs: "0", maxOccurs: "1"
   # Action Taken In Response To The Event
-  attribute :action_taken_in_response_to_the_event, ID, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :action_taken_in_response_to_the_events, Array[ID], minOccurs: "0", maxOccurs: "unbounded"
   # Event Causality Observations
-  attribute :event_causality_observations, ID, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :event_causality_observations, Array[ID], minOccurs: "0", maxOccurs: "unbounded"
   # Indirect Exposure Mechanism
-  attribute :indirect_exposure_mechanism, ID, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :indirect_exposure_mechanisms, Array[ID], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

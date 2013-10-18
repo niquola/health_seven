@@ -35,7 +35,7 @@ class BTX < Segment
   # BP Transfusion End Date/Time of Status
   attribute :bp_transfusion_end_date_time_of_status, TS, minOccurs: "0", maxOccurs: "1"
   # BP Adverse Reaction Type
-  attribute :bp_adverse_reaction_type, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :bp_adverse_reaction_types, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # BP Transfusion Interrupted Reason
   attribute :bp_transfusion_interrupted_reason, CWE, minOccurs: "0", maxOccurs: "1"
 end

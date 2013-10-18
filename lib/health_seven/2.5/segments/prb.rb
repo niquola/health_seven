@@ -21,7 +21,7 @@ class PRB < Segment
   # Problem Classification
   attribute :problem_classification, CE, minOccurs: "0", maxOccurs: "1"
   # Problem Management Discipline
-  attribute :problem_management_discipline, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :problem_management_disciplines, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Problem Persistence
   attribute :problem_persistence, CE, minOccurs: "0", maxOccurs: "1"
   # Problem Confirmation Status

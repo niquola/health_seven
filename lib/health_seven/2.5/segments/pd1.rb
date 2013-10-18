@@ -1,13 +1,13 @@
 module HealthSeven::V2_5
 class PD1 < Segment
   # Living Dependency
-  attribute :living_dependency, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :living_dependencies, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Living Arrangement
   attribute :living_arrangement, IS, minOccurs: "0", maxOccurs: "1"
   # Patient Primary Facility
-  attribute :patient_primary_facility, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :patient_primary_facilities, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Patient Primary Care Provider Name  ID No.
-  attribute :patient_primary_care_provider_name_id_no, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :patient_primary_care_provider_name_id_nos, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Student Indicator
   attribute :student_indicator, IS, minOccurs: "0", maxOccurs: "1"
   # Handicap
@@ -19,7 +19,7 @@ class PD1 < Segment
   # Separate Bill
   attribute :separate_bill, ID, minOccurs: "0", maxOccurs: "1"
   # Duplicate Patient
-  attribute :duplicate_patient, CX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :duplicate_patients, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Publicity Code
   attribute :publicity_code, CE, minOccurs: "0", maxOccurs: "1"
   # Protection Indicator
@@ -27,9 +27,9 @@ class PD1 < Segment
   # Protection Indicator Effective Date
   attribute :protection_indicator_effective_date, DT, minOccurs: "0", maxOccurs: "1"
   # Place of Worship
-  attribute :place_of_worship, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :place_of_worships, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Advance Directive Code
-  attribute :advance_directive_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :advance_directive_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Immunization Registry Status
   attribute :immunization_registry_status, IS, minOccurs: "0", maxOccurs: "1"
   # Immunization Registry Status Effective Date

@@ -13,7 +13,7 @@ class RXE < Segment
   # Give Dosage Form
   attribute :give_dosage_form, CE, minOccurs: "0", maxOccurs: "1"
   # Provider's Administration Instructions
-  attribute :provider_s_administration_instructions, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :provider_s_administration_instructions, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Deliver-To Location
   attribute :deliver_to_location, LA1, minOccurs: "0", maxOccurs: "1"
   # Substitution Status
@@ -25,9 +25,9 @@ class RXE < Segment
   # Number Of Refills
   attribute :number_of_refills, NM, minOccurs: "0", maxOccurs: "1"
   # Ordering Provider's DEA Number
-  attribute :ordering_provider_s_dea_number, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ordering_provider_s_dea_numbers, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Pharmacist/Treatment Supplier's Verifier ID
-  attribute :pharmacist_treatment_supplier_s_verifier_id, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :pharmacist_treatment_supplier_s_verifier_ids, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Prescription Number
   attribute :prescription_number, ST, minOccurs: "0", maxOccurs: "1"
   # Number of Refills Remaining
@@ -41,7 +41,7 @@ class RXE < Segment
   # Needs Human Review
   attribute :needs_human_review, ID, minOccurs: "0", maxOccurs: "1"
   # Pharmacy/Treatment Supplier's Special Dispensing Instructions
-  attribute :pharmacy_treatment_supplier_s_special_dispensing_instructions, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :pharmacy_treatment_supplier_s_special_dispensing_instructions, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Give Per (Time Unit)
   attribute :give_per_time_unit, ST, minOccurs: "0", maxOccurs: "1"
   # Give Rate Amount
@@ -53,7 +53,7 @@ class RXE < Segment
   # Give Strength Units
   attribute :give_strength_units, CE, minOccurs: "0", maxOccurs: "1"
   # Give Indication
-  attribute :give_indication, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :give_indications, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Dispense Package Size
   attribute :dispense_package_size, NM, minOccurs: "0", maxOccurs: "1"
   # Dispense Package Size Unit
@@ -61,7 +61,7 @@ class RXE < Segment
   # Dispense Package Method
   attribute :dispense_package_method, ID, minOccurs: "0", maxOccurs: "1"
   # Supplementary Code
-  attribute :supplementary_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :supplementary_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Original Order Date/Time
   attribute :original_order_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Give Drug Strength Volume
@@ -73,7 +73,7 @@ class RXE < Segment
   # Formulary Status
   attribute :formulary_status, ID, minOccurs: "0", maxOccurs: "1"
   # Pharmaceutical Substance Alternative
-  attribute :pharmaceutical_substance_alternative, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :pharmaceutical_substance_alternatives, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Pharmacy of Most Recent Fill
   attribute :pharmacy_of_most_recent_fill, CWE, minOccurs: "0", maxOccurs: "1"
   # Initial Dispense Amount

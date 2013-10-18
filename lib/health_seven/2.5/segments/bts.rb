@@ -5,6 +5,6 @@ class BTS < Segment
   # Batch Comment
   attribute :batch_comment, ST, minOccurs: "0", maxOccurs: "1"
   # Batch Totals
-  attribute :batch_totals, NM, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :batch_totals, Array[NM], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

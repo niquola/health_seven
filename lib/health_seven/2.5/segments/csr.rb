@@ -13,19 +13,19 @@ class CSR < Segment
   # Date/Time Of Patient Study Registration
   attribute :date_time_of_patient_study_registration, TS, minOccurs: "1", maxOccurs: "1"
   # Person Performing Study Registration
-  attribute :person_performing_study_registration, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :person_performing_study_registrations, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Study Authorizing Provider
-  attribute :study_authorizing_provider, XCN, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :study_authorizing_providers, Array[XCN], minOccurs: "1", maxOccurs: "unbounded"
   # Date/time Patient Study Consent Signed
   attribute :date_time_patient_study_consent_signed, TS, minOccurs: "0", maxOccurs: "1"
   # Patient Study Eligibility Status
   attribute :patient_study_eligibility_status, CE, minOccurs: "0", maxOccurs: "1"
   # Study Randomization Date/time
-  attribute :study_randomization_date_time, TS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :study_randomization_date_times, Array[TS], minOccurs: "0", maxOccurs: "unbounded"
   # Randomized Study Arm
-  attribute :randomized_study_arm, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :randomized_study_arms, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Stratum for Study Randomization
-  attribute :stratum_for_study_randomization, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :stratum_for_study_randomizations, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Patient Evaluability Status
   attribute :patient_evaluability_status, CE, minOccurs: "0", maxOccurs: "1"
   # Date/time Ended Study

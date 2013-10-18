@@ -9,6 +9,6 @@ class VTQ < Segment
   # Virtual Table Name
   attribute :virtual_table_name, CE, minOccurs: "1", maxOccurs: "1"
   # Selection Criteria
-  attribute :selection_criteria, QSC, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :selection_criteria, Array[QSC], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

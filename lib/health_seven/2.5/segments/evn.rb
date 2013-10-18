@@ -9,7 +9,7 @@ class EVN < Segment
   # Event Reason Code
   attribute :event_reason_code, IS, minOccurs: "0", maxOccurs: "1"
   # Operator ID
-  attribute :operator_id, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :operator_ids, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Event Occurred
   attribute :event_occurred, TS, minOccurs: "0", maxOccurs: "1"
   # Event Facility

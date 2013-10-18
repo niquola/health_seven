@@ -15,13 +15,13 @@ class QRD < Segment
   # Quantity Limited Request
   attribute :quantity_limited_request, CQ, minOccurs: "1", maxOccurs: "1"
   # Who Subject Filter
-  attribute :who_subject_filter, XCN, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :who_subject_filters, Array[XCN], minOccurs: "1", maxOccurs: "unbounded"
   # What Subject Filter
-  attribute :what_subject_filter, CE, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :what_subject_filters, Array[CE], minOccurs: "1", maxOccurs: "unbounded"
   # What Department Data Code
-  attribute :what_department_data_code, CE, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :what_department_data_codes, Array[CE], minOccurs: "1", maxOccurs: "unbounded"
   # What Data Code Value Qual.
-  attribute :what_data_code_value_qual, VR, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :what_data_code_value_quals, Array[VR], minOccurs: "0", maxOccurs: "unbounded"
   # Query Results Level
   attribute :query_results_level, ID, minOccurs: "0", maxOccurs: "1"
 end

@@ -21,27 +21,27 @@ class SCH < Segment
   # Appointment Duration Units
   attribute :appointment_duration_units, CE, minOccurs: "0", maxOccurs: "1"
   # Appointment Timing Quantity
-  attribute :appointment_timing_quantity, TQ, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :appointment_timing_quantities, Array[TQ], minOccurs: "0", maxOccurs: "unbounded"
   # Placer Contact Person
-  attribute :placer_contact_person, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :placer_contact_people, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Placer Contact Phone Number
   attribute :placer_contact_phone_number, XTN, minOccurs: "0", maxOccurs: "1"
   # Placer Contact Address
-  attribute :placer_contact_address, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :placer_contact_addresses, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Placer Contact Location
   attribute :placer_contact_location, PL, minOccurs: "0", maxOccurs: "1"
   # Filler Contact Person
-  attribute :filler_contact_person, XCN, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :filler_contact_people, Array[XCN], minOccurs: "1", maxOccurs: "unbounded"
   # Filler Contact Phone Number
   attribute :filler_contact_phone_number, XTN, minOccurs: "0", maxOccurs: "1"
   # Filler Contact Address
-  attribute :filler_contact_address, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :filler_contact_addresses, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Filler Contact Location
   attribute :filler_contact_location, PL, minOccurs: "0", maxOccurs: "1"
   # Entered By Person
-  attribute :entered_by_person, XCN, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :entered_by_people, Array[XCN], minOccurs: "1", maxOccurs: "unbounded"
   # Entered By Phone Number
-  attribute :entered_by_phone_number, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :entered_by_phone_numbers, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Entered By Location
   attribute :entered_by_location, PL, minOccurs: "0", maxOccurs: "1"
   # Parent Placer Appointment ID
@@ -51,8 +51,8 @@ class SCH < Segment
   # Filler Status Code
   attribute :filler_status_code, CE, minOccurs: "0", maxOccurs: "1"
   # Placer Order Number
-  attribute :placer_order_number, EI, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :placer_order_numbers, Array[EI], minOccurs: "0", maxOccurs: "unbounded"
   # Filler Order Number
-  attribute :filler_order_number, EI, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :filler_order_numbers, Array[EI], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

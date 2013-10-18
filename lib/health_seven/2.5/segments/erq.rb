@@ -5,6 +5,6 @@ class ERQ < Segment
   # Event Identifier
   attribute :event_identifier, CE, minOccurs: "1", maxOccurs: "1"
   # Input Parameter List
-  attribute :input_parameter_list, QIP, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :input_parameter_lists, Array[QIP], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

@@ -15,15 +15,15 @@ class PR1 < Segment
   # Procedure Minutes
   attribute :procedure_minutes, NM, minOccurs: "0", maxOccurs: "1"
   # Anesthesiologist
-  attribute :anesthesiologist, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :anesthesiologists, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Anesthesia Code
   attribute :anesthesia_code, IS, minOccurs: "0", maxOccurs: "1"
   # Anesthesia Minutes
   attribute :anesthesia_minutes, NM, minOccurs: "0", maxOccurs: "1"
   # Surgeon
-  attribute :surgeon, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :surgeons, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Procedure Practitioner
-  attribute :procedure_practitioner, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedure_practitioners, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Consent Code
   attribute :consent_code, CE, minOccurs: "0", maxOccurs: "1"
   # Procedure Priority
@@ -31,11 +31,11 @@ class PR1 < Segment
   # Associated Diagnosis Code
   attribute :associated_diagnosis_code, CE, minOccurs: "0", maxOccurs: "1"
   # Procedure Code Modifier
-  attribute :procedure_code_modifier, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedure_code_modifiers, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Procedure DRG Type
   attribute :procedure_drg_type, IS, minOccurs: "0", maxOccurs: "1"
   # Tissue Type Code
-  attribute :tissue_type_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :tissue_type_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Procedure Identifier
   attribute :procedure_identifier, EI, minOccurs: "0", maxOccurs: "1"
   # Procedure Action Code

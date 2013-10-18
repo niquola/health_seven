@@ -5,7 +5,7 @@ class LAN < Segment
   # Language Code
   attribute :language_code, CE, minOccurs: "1", maxOccurs: "1"
   # Language Ability Code
-  attribute :language_ability_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :language_ability_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Language Proficiency Code
   attribute :language_proficiency_code, CE, minOccurs: "0", maxOccurs: "1"
 end

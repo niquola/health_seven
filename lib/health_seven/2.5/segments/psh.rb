@@ -25,8 +25,8 @@ class PSH < Segment
   # Quantity in Use Comment
   attribute :quantity_in_use_comment, FT, minOccurs: "0", maxOccurs: "1"
   # Number of Product Experience Reports Filed by Facility
-  attribute :number_of_product_experience_reports_filed_by_facility, NM, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :number_of_product_experience_reports_filed_by_facilities, Array[NM], minOccurs: "0", maxOccurs: "unbounded"
   # Number of Product Experience Reports Filed by Distributor
-  attribute :number_of_product_experience_reports_filed_by_distributor, NM, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :number_of_product_experience_reports_filed_by_distributors, Array[NM], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

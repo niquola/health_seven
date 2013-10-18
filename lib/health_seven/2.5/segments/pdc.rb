@@ -1,7 +1,7 @@
 module HealthSeven::V2_5
 class PDC < Segment
   # Manufacturer/Distributor
-  attribute :manufacturer_distributor, XON, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :manufacturer_distributors, Array[XON], minOccurs: "1", maxOccurs: "unbounded"
   # Country
   attribute :country, CE, minOccurs: "1", maxOccurs: "1"
   # Brand Name
@@ -11,11 +11,11 @@ class PDC < Segment
   # Generic Name
   attribute :generic_name, CE, minOccurs: "0", maxOccurs: "1"
   # Model Identifier
-  attribute :model_identifier, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :model_identifiers, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Catalogue Identifier
   attribute :catalogue_identifier, ST, minOccurs: "0", maxOccurs: "1"
   # Other Identifier
-  attribute :other_identifier, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :other_identifiers, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Product Code
   attribute :product_code, CE, minOccurs: "0", maxOccurs: "1"
   # Marketing Basis

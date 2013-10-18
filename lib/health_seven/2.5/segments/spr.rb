@@ -7,6 +7,6 @@ class SPR < Segment
   # Stored Procedure Name
   attribute :stored_procedure_name, CE, minOccurs: "1", maxOccurs: "1"
   # Input Parameter List
-  attribute :input_parameter_list, QIP, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :input_parameter_lists, Array[QIP], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

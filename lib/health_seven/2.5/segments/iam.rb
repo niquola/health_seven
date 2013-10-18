@@ -9,7 +9,7 @@ class IAM < Segment
   # Allergy Severity Code
   attribute :allergy_severity_code, CE, minOccurs: "0", maxOccurs: "1"
   # Allergy Reaction Code
-  attribute :allergy_reaction_code, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :allergy_reaction_codes, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Allergy Action Code
   attribute :allergy_action_code, CNE, minOccurs: "1", maxOccurs: "1"
   # Allergy Unique Identifier

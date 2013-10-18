@@ -5,23 +5,23 @@ class IN1 < Segment
   # Insurance Plan ID
   attribute :insurance_plan_id, CE, minOccurs: "1", maxOccurs: "1"
   # Insurance Company ID
-  attribute :insurance_company_id, CX, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :insurance_company_ids, Array[CX], minOccurs: "1", maxOccurs: "unbounded"
   # Insurance Company Name
-  attribute :insurance_company_name, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insurance_company_names, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Insurance Company Address
-  attribute :insurance_company_address, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insurance_company_addresses, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Insurance Co Contact Person
-  attribute :insurance_co_contact_person, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insurance_co_contact_people, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Insurance Co Phone Number
-  attribute :insurance_co_phone_number, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insurance_co_phone_numbers, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Group Number
   attribute :group_number, ST, minOccurs: "0", maxOccurs: "1"
   # Group Name
-  attribute :group_name, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :group_names, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Insured's Group Emp ID
-  attribute :insured_s_group_emp_id, CX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insured_s_group_emp_ids, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Insured's Group Emp Name
-  attribute :insured_s_group_emp_name, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insured_s_group_emp_names, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Plan Effective Date
   attribute :plan_effective_date, DT, minOccurs: "0", maxOccurs: "1"
   # Plan Expiration Date
@@ -31,13 +31,13 @@ class IN1 < Segment
   # Plan Type
   attribute :plan_type, IS, minOccurs: "0", maxOccurs: "1"
   # Name Of Insured
-  attribute :name_of_insured, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :name_of_insureds, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Insured's Relationship To Patient
   attribute :insured_s_relationship_to_patient, CE, minOccurs: "0", maxOccurs: "1"
   # Insured's Date Of Birth
   attribute :insured_s_date_of_birth, TS, minOccurs: "0", maxOccurs: "1"
   # Insured's Address
-  attribute :insured_s_address, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insured_s_addresses, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Assignment Of Benefits
   attribute :assignment_of_benefits, IS, minOccurs: "0", maxOccurs: "1"
   # Coordination Of Benefits
@@ -59,7 +59,7 @@ class IN1 < Segment
   # Verification Date/Time
   attribute :verification_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Verification By
-  attribute :verification_by, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :verification_bies, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Type Of Agreement Code
   attribute :type_of_agreement_code, IS, minOccurs: "0", maxOccurs: "1"
   # Billing Status
@@ -87,7 +87,7 @@ class IN1 < Segment
   # Insured's Administrative Sex
   attribute :insured_s_administrative_sex, IS, minOccurs: "0", maxOccurs: "1"
   # Insured's Employer's Address
-  attribute :insured_s_employer_s_address, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insured_s_employer_s_addresses, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Verification Status
   attribute :verification_status, ST, minOccurs: "0", maxOccurs: "1"
   # Prior Insurance Plan ID
@@ -97,7 +97,7 @@ class IN1 < Segment
   # Handicap
   attribute :handicap, IS, minOccurs: "0", maxOccurs: "1"
   # Insured's ID Number
-  attribute :insured_s_id_number, CX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insured_s_id_numbers, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Signature Code
   attribute :signature_code, IS, minOccurs: "0", maxOccurs: "1"
   # Signature Code Date

@@ -5,6 +5,6 @@ class CSS < Segment
   # Study Scheduled Patient Time Point
   attribute :study_scheduled_patient_time_point, TS, minOccurs: "0", maxOccurs: "1"
   # Study Quality Control Codes
-  attribute :study_quality_control_codes, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :study_quality_control_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

@@ -5,6 +5,6 @@ class ECR < Segment
   # Date/Time Completed
   attribute :date_time_completed, TS, minOccurs: "1", maxOccurs: "1"
   # Command Response Parameters
-  attribute :command_response_parameters, TX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :command_response_parameters, Array[TX], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

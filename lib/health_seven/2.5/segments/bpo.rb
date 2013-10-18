@@ -5,7 +5,7 @@ class BPO < Segment
   # BP Universal Service ID
   attribute :bp_universal_service_id, CWE, minOccurs: "1", maxOccurs: "1"
   # BP Processing Requirements
-  attribute :bp_processing_requirements, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :bp_processing_requirements, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # BP Quantity
   attribute :bp_quantity, NM, minOccurs: "1", maxOccurs: "1"
   # BP Amount
@@ -25,7 +25,7 @@ class BPO < Segment
   # BP Requested Dispense To Address
   attribute :bp_requested_dispense_to_address, XAD, minOccurs: "0", maxOccurs: "1"
   # BP Indication for Use
-  attribute :bp_indication_for_use, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :bp_indication_for_uses, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # BP Informed Consent Indicator
   attribute :bp_informed_consent_indicator, ID, minOccurs: "0", maxOccurs: "1"
 end

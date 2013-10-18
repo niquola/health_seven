@@ -17,9 +17,9 @@ class RXD < Segment
   # Number of Refills Remaining
   attribute :number_of_refills_remaining, NM, minOccurs: "0", maxOccurs: "1"
   # Dispense Notes
-  attribute :dispense_notes, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :dispense_notes, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Dispensing Provider
-  attribute :dispensing_provider, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :dispensing_providers, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Substitution Status
   attribute :substitution_status, ID, minOccurs: "0", maxOccurs: "1"
   # Total Daily Dose
@@ -29,19 +29,19 @@ class RXD < Segment
   # Needs Human Review
   attribute :needs_human_review, ID, minOccurs: "0", maxOccurs: "1"
   # Pharmacy/Treatment Supplier's Special Dispensing Instructions
-  attribute :pharmacy_treatment_supplier_s_special_dispensing_instructions, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :pharmacy_treatment_supplier_s_special_dispensing_instructions, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Actual Strength
   attribute :actual_strength, NM, minOccurs: "0", maxOccurs: "1"
   # Actual Strength Unit
   attribute :actual_strength_unit, CE, minOccurs: "0", maxOccurs: "1"
   # Substance Lot Number
-  attribute :substance_lot_number, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_lot_numbers, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Substance Expiration Date
-  attribute :substance_expiration_date, TS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_expiration_dates, Array[TS], minOccurs: "0", maxOccurs: "unbounded"
   # Substance Manufacturer Name
-  attribute :substance_manufacturer_name, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_manufacturer_names, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Indication
-  attribute :indication, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :indications, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Dispense Package Size
   attribute :dispense_package_size, NM, minOccurs: "0", maxOccurs: "1"
   # Dispense Package Size Unit
@@ -49,7 +49,7 @@ class RXD < Segment
   # Dispense Package Method
   attribute :dispense_package_method, ID, minOccurs: "0", maxOccurs: "1"
   # Supplementary Code
-  attribute :supplementary_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :supplementary_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Initiating Location
   attribute :initiating_location, CE, minOccurs: "0", maxOccurs: "1"
   # Packaging/Assembly Location

@@ -3,7 +3,7 @@ class INV < Segment
   # Substance Identifier
   attribute :substance_identifier, CE, minOccurs: "1", maxOccurs: "1"
   # Substance Status
-  attribute :substance_status, CE, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :substance_statuses, Array[CE], minOccurs: "1", maxOccurs: "unbounded"
   # Substance Type
   attribute :substance_type, CE, minOccurs: "0", maxOccurs: "1"
   # Inventory Container Identifier
@@ -29,7 +29,7 @@ class INV < Segment
   # On Board Stability Duration
   attribute :on_board_stability_duration, TQ, minOccurs: "0", maxOccurs: "1"
   # Test/Fluid Identifier(s)
-  attribute :test_fluid_identifier_s, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :test_fluid_identifier_s, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Manufacturer Lot Number
   attribute :manufacturer_lot_number, ST, minOccurs: "0", maxOccurs: "1"
   # Manufacturer Identifier

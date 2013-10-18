@@ -3,17 +3,17 @@ class GT1 < Segment
   # Set ID - GT1
   attribute :set_id_gt1, SI, minOccurs: "1", maxOccurs: "1"
   # Guarantor Number
-  attribute :guarantor_number, CX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_numbers, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Name
-  attribute :guarantor_name, XPN, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :guarantor_names, Array[XPN], minOccurs: "1", maxOccurs: "unbounded"
   # Guarantor Spouse Name
-  attribute :guarantor_spouse_name, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_spouse_names, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Address
-  attribute :guarantor_address, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_addresses, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Ph Num - Home
-  attribute :guarantor_ph_num_home, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_ph_num_homes, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Ph Num - Business
-  attribute :guarantor_ph_num_business, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_ph_num_businesses, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Date/Time Of Birth
   attribute :guarantor_date_time_of_birth, TS, minOccurs: "0", maxOccurs: "1"
   # Guarantor Administrative Sex
@@ -31,17 +31,17 @@ class GT1 < Segment
   # Guarantor Priority
   attribute :guarantor_priority, NM, minOccurs: "0", maxOccurs: "1"
   # Guarantor Employer Name
-  attribute :guarantor_employer_name, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_employer_names, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Employer Address
-  attribute :guarantor_employer_address, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_employer_addresses, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Employer Phone Number
-  attribute :guarantor_employer_phone_number, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_employer_phone_numbers, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Employee ID Number
-  attribute :guarantor_employee_id_number, CX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_employee_id_numbers, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Employment Status
   attribute :guarantor_employment_status, IS, minOccurs: "0", maxOccurs: "1"
   # Guarantor Organization Name
-  attribute :guarantor_organization_name, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_organization_names, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Billing Hold Flag
   attribute :guarantor_billing_hold_flag, ID, minOccurs: "0", maxOccurs: "1"
   # Guarantor Credit Rating Code
@@ -57,7 +57,7 @@ class GT1 < Segment
   # Guarantor Household Size
   attribute :guarantor_household_size, NM, minOccurs: "0", maxOccurs: "1"
   # Guarantor Employer ID Number
-  attribute :guarantor_employer_id_number, CX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_employer_id_numbers, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Marital Status Code
   attribute :guarantor_marital_status_code, CE, minOccurs: "0", maxOccurs: "1"
   # Guarantor Hire Effective Date
@@ -67,9 +67,9 @@ class GT1 < Segment
   # Living Dependency
   attribute :living_dependency, IS, minOccurs: "0", maxOccurs: "1"
   # Ambulatory Status
-  attribute :ambulatory_status, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ambulatory_statuses, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Citizenship
-  attribute :citizenship, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :citizenships, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Primary Language
   attribute :primary_language, CE, minOccurs: "0", maxOccurs: "1"
   # Living Arrangement
@@ -83,15 +83,15 @@ class GT1 < Segment
   # Religion
   attribute :religion, CE, minOccurs: "0", maxOccurs: "1"
   # Mother's Maiden Name
-  attribute :mother_s_maiden_name, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :mother_s_maiden_names, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Nationality
   attribute :nationality, CE, minOccurs: "0", maxOccurs: "1"
   # Ethnic Group
-  attribute :ethnic_group, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ethnic_groups, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Contact Person's Name
-  attribute :contact_person_s_name, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_person_s_names, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Contact Person's Telephone Number
-  attribute :contact_person_s_telephone_number, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_person_s_telephone_numbers, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Contact Reason
   attribute :contact_reason, CE, minOccurs: "0", maxOccurs: "1"
   # Contact Relationship
@@ -101,7 +101,7 @@ class GT1 < Segment
   # Job Code/Class
   attribute :job_code_class, JCC, minOccurs: "0", maxOccurs: "1"
   # Guarantor Employer's Organization Name
-  attribute :guarantor_employer_s_organization_name, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_employer_s_organization_names, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Handicap
   attribute :handicap, IS, minOccurs: "0", maxOccurs: "1"
   # Job Status
@@ -109,7 +109,7 @@ class GT1 < Segment
   # Guarantor Financial Class
   attribute :guarantor_financial_class, FC, minOccurs: "0", maxOccurs: "1"
   # Guarantor Race
-  attribute :guarantor_race, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_races, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Guarantor Birth Place
   attribute :guarantor_birth_place, ST, minOccurs: "0", maxOccurs: "1"
   # VIP Indicator

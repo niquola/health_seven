@@ -5,8 +5,8 @@ class LCC < Segment
   # Location Department
   attribute :location_department, CE, minOccurs: "1", maxOccurs: "1"
   # Accommodation Type
-  attribute :accommodation_type, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :accommodation_types, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Charge Code
-  attribute :charge_code, CE, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :charge_codes, Array[CE], minOccurs: "1", maxOccurs: "unbounded"
 end
 end

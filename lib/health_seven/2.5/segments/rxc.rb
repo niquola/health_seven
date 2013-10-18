@@ -13,7 +13,7 @@ class RXC < Segment
   # Component Strength Units
   attribute :component_strength_units, CE, minOccurs: "0", maxOccurs: "1"
   # Supplementary Code
-  attribute :supplementary_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :supplementary_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Component Drug Strength Volume
   attribute :component_drug_strength_volume, NM, minOccurs: "0", maxOccurs: "1"
   # Component Drug Strength Volume Units

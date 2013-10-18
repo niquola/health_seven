@@ -9,8 +9,8 @@ class MFA < Segment
   # MFN Record Level Error Return
   attribute :mfn_record_level_error_return, CE, minOccurs: "1", maxOccurs: "1"
   # Primary Key Value - MFA
-  attribute :primary_key_value_mfa, Varies, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :primary_key_value_mfas, Array[Varies], minOccurs: "1", maxOccurs: "unbounded"
   # Primary Key Value Type - MFA
-  attribute :primary_key_value_type_mfa, ID, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :primary_key_value_type_mfas, Array[ID], minOccurs: "1", maxOccurs: "unbounded"
 end
 end

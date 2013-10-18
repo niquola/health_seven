@@ -9,6 +9,6 @@ class ECD < Segment
   # Requested Completion Time
   attribute :requested_completion_time, TQ, minOccurs: "0", maxOccurs: "1"
   # Parameters
-  attribute :parameters, TX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :parameters, Array[TX], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

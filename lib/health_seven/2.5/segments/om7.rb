@@ -5,11 +5,11 @@ class OM7 < Segment
   # Universal Service Identifier
   attribute :universal_service_identifier, CE, minOccurs: "1", maxOccurs: "1"
   # Category Identifier
-  attribute :category_identifier, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :category_identifiers, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Category Description
   attribute :category_description, TX, minOccurs: "0", maxOccurs: "1"
   # Category Synonym
-  attribute :category_synonym, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :category_synonyms, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Effective Test/Service Start Date/Time
   attribute :effective_test_service_start_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Effective Test/Service End Date/Time
@@ -41,12 +41,12 @@ class OM7 < Segment
   # Entered By
   attribute :entered_by, XCN, minOccurs: "0", maxOccurs: "1"
   # Orderable-at Location
-  attribute :orderable_at_location, PL, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :orderable_at_locations, Array[PL], minOccurs: "0", maxOccurs: "unbounded"
   # Formulary Status
   attribute :formulary_status, IS, minOccurs: "0", maxOccurs: "1"
   # Special Order Indicator
   attribute :special_order_indicator, ID, minOccurs: "0", maxOccurs: "1"
   # Primary Key Value - CDM
-  attribute :primary_key_value_cdm, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :primary_key_value_cdms, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

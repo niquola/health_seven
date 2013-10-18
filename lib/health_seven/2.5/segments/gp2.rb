@@ -11,11 +11,11 @@ class GP2 < Segment
   # Denial or Rejection Code
   attribute :denial_or_rejection_code, IS, minOccurs: "0", maxOccurs: "1"
   # OCE Edit Code
-  attribute :oce_edit_code, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :oce_edit_codes, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Ambulatory Payment Classification Code
   attribute :ambulatory_payment_classification_code, CE, minOccurs: "0", maxOccurs: "1"
   # Modifier Edit Code
-  attribute :modifier_edit_code, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :modifier_edit_codes, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Payment Adjustment Code
   attribute :payment_adjustment_code, IS, minOccurs: "0", maxOccurs: "1"
   # Packaging Status Code

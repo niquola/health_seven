@@ -17,9 +17,9 @@ class RXA < Segment
   # Administered Dosage Form
   attribute :administered_dosage_form, CE, minOccurs: "0", maxOccurs: "1"
   # Administration Notes
-  attribute :administration_notes, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :administration_notes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Administering Provider
-  attribute :administering_provider, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :administering_providers, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Administered-at Location
   attribute :administered_at_location, LA2, minOccurs: "0", maxOccurs: "1"
   # Administered Per (Time Unit)
@@ -29,15 +29,15 @@ class RXA < Segment
   # Administered Strength Units
   attribute :administered_strength_units, CE, minOccurs: "0", maxOccurs: "1"
   # Substance Lot Number
-  attribute :substance_lot_number, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_lot_numbers, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Substance Expiration Date
-  attribute :substance_expiration_date, TS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_expiration_dates, Array[TS], minOccurs: "0", maxOccurs: "unbounded"
   # Substance Manufacturer Name
-  attribute :substance_manufacturer_name, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_manufacturer_names, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Substance/Treatment Refusal Reason
-  attribute :substance_treatment_refusal_reason, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_treatment_refusal_reasons, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Indication
-  attribute :indication, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :indications, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Completion Status
   attribute :completion_status, ID, minOccurs: "0", maxOccurs: "1"
   # Action Code - RXA

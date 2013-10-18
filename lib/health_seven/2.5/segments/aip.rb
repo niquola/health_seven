@@ -5,7 +5,7 @@ class AIP < Segment
   # Segment Action Code
   attribute :segment_action_code, ID, minOccurs: "0", maxOccurs: "1"
   # Personnel Resource ID
-  attribute :personnel_resource_id, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :personnel_resource_ids, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Resource Type
   attribute :resource_type, CE, minOccurs: "0", maxOccurs: "1"
   # Resource Group

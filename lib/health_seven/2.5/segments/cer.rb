@@ -27,7 +27,7 @@ class CER < Segment
   # Subject Name
   attribute :subject_name, ST, minOccurs: "1", maxOccurs: "1"
   # Subject Directory Attribute Extension (Health Professional Data)
-  attribute :subject_directory_attribute_extension_health_professional_data, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :subject_directory_attribute_extension_health_professional_data, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Subject Public Key Info
   attribute :subject_public_key_info, CWE, minOccurs: "0", maxOccurs: "1"
   # Authority Key Identifier
@@ -35,7 +35,7 @@ class CER < Segment
   # Basic Constraint
   attribute :basic_constraint, ID, minOccurs: "0", maxOccurs: "1"
   # CRL Distribution Point
-  attribute :crl_distribution_point, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :crl_distribution_points, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Jurisdiction Country
   attribute :jurisdiction_country, ID, minOccurs: "0", maxOccurs: "1"
   # Jurisdiction State/Province
@@ -43,7 +43,7 @@ class CER < Segment
   # Jurisdiction County/Parish
   attribute :jurisdiction_county_parish, CWE, minOccurs: "0", maxOccurs: "1"
   # Jurisdiction Breadth
-  attribute :jurisdiction_breadth, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :jurisdiction_breadths, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Granting Date
   attribute :granting_date, TS, minOccurs: "0", maxOccurs: "1"
   # Issuing Date

@@ -7,7 +7,7 @@ class RF1 < Segment
   # Referral Type
   attribute :referral_type, CE, minOccurs: "0", maxOccurs: "1"
   # Referral Disposition
-  attribute :referral_disposition, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :referral_dispositions, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Referral Category
   attribute :referral_category, CE, minOccurs: "0", maxOccurs: "1"
   # Originating Referral Identifier
@@ -19,8 +19,8 @@ class RF1 < Segment
   # Process Date
   attribute :process_date, TS, minOccurs: "0", maxOccurs: "1"
   # Referral Reason
-  attribute :referral_reason, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :referral_reasons, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # External Referral Identifier
-  attribute :external_referral_identifier, EI, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :external_referral_identifiers, Array[EI], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

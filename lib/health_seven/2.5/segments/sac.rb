@@ -29,7 +29,7 @@ class SAC < Segment
   # Position in Tray
   attribute :position_in_tray, NA, minOccurs: "0", maxOccurs: "1"
   # Location
-  attribute :location, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :locations, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Container Height
   attribute :container_height, NM, minOccurs: "0", maxOccurs: "1"
   # Container Diameter
@@ -53,7 +53,7 @@ class SAC < Segment
   # Cap Type
   attribute :cap_type, CE, minOccurs: "0", maxOccurs: "1"
   # Additive
-  attribute :additive, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :additives, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Component
   attribute :specimen_component, CE, minOccurs: "0", maxOccurs: "1"
   # Dilution Factor
@@ -79,14 +79,14 @@ class SAC < Segment
   # Fibrin Index Units
   attribute :fibrin_index_units, CE, minOccurs: "0", maxOccurs: "1"
   # System Induced Contaminants
-  attribute :system_induced_contaminants, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :system_induced_contaminants, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Drug Interference
-  attribute :drug_interference, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :drug_interferences, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Artificial Blood
   attribute :artificial_blood, CE, minOccurs: "0", maxOccurs: "1"
   # Special Handling Code
-  attribute :special_handling_code, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :special_handling_codes, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Other Environmental Factors
-  attribute :other_environmental_factors, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :other_environmental_factors, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

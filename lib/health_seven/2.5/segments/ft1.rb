@@ -37,21 +37,21 @@ class FT1 < Segment
   # Patient Type
   attribute :patient_type, IS, minOccurs: "0", maxOccurs: "1"
   # Diagnosis Code - FT1
-  attribute :diagnosis_code_ft1, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :diagnosis_code_ft1s, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Performed By Code
-  attribute :performed_by_code, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :performed_by_codes, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Ordered By Code
-  attribute :ordered_by_code, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ordered_by_codes, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Unit Cost
   attribute :unit_cost, CP, minOccurs: "0", maxOccurs: "1"
   # Filler Order Number
   attribute :filler_order_number, EI, minOccurs: "0", maxOccurs: "1"
   # Entered By Code
-  attribute :entered_by_code, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :entered_by_codes, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Procedure Code
   attribute :procedure_code, CE, minOccurs: "0", maxOccurs: "1"
   # Procedure Code Modifier
-  attribute :procedure_code_modifier, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedure_code_modifiers, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Advanced Beneficiary Notice Code
   attribute :advanced_beneficiary_notice_code, CE, minOccurs: "0", maxOccurs: "1"
   # Medically Necessary Duplicate Procedure Reason.
@@ -61,6 +61,6 @@ class FT1 < Segment
   # Payment Reference ID
   attribute :payment_reference_id, CX, minOccurs: "0", maxOccurs: "1"
   # Transaction Reference Key
-  attribute :transaction_reference_key, SI, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :transaction_reference_keys, Array[SI], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

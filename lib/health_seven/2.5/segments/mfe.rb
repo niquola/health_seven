@@ -7,8 +7,8 @@ class MFE < Segment
   # Effective Date/Time
   attribute :effective_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Primary Key Value - MFE
-  attribute :primary_key_value_mfe, Varies, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :primary_key_value_mves, Array[Varies], minOccurs: "1", maxOccurs: "unbounded"
   # Primary Key Value Type
-  attribute :primary_key_value_type, ID, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :primary_key_value_types, Array[ID], minOccurs: "1", maxOccurs: "unbounded"
 end
 end

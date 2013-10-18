@@ -21,8 +21,8 @@ class AIS < Segment
   # Filler Status Code
   attribute :filler_status_code, CE, minOccurs: "0", maxOccurs: "1"
   # Placer Supplemental Service Information
-  attribute :placer_supplemental_service_information, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :placer_supplemental_service_informations, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Filler Supplemental Service Information
-  attribute :filler_supplemental_service_information, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :filler_supplemental_service_informations, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

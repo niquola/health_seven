@@ -5,11 +5,11 @@ class TQ2 < Segment
   # Sequence/Results Flag
   attribute :sequence_results_flag, ID, minOccurs: "0", maxOccurs: "1"
   # Related Placer Number
-  attribute :related_placer_number, EI, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :related_placer_numbers, Array[EI], minOccurs: "0", maxOccurs: "unbounded"
   # Related Filler Number
-  attribute :related_filler_number, EI, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :related_filler_numbers, Array[EI], minOccurs: "0", maxOccurs: "unbounded"
   # Related Placer Group Number
-  attribute :related_placer_group_number, EI, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :related_placer_group_numbers, Array[EI], minOccurs: "0", maxOccurs: "unbounded"
   # Sequence Condition Code
   attribute :sequence_condition_code, ID, minOccurs: "0", maxOccurs: "1"
   # Cyclic Entry/Exit Indicator

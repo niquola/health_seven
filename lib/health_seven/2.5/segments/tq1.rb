@@ -5,11 +5,11 @@ class TQ1 < Segment
   # Quantity
   attribute :quantity, CQ, minOccurs: "0", maxOccurs: "1"
   # Repeat Pattern
-  attribute :repeat_pattern, RPT, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :repeat_patterns, Array[RPT], minOccurs: "0", maxOccurs: "unbounded"
   # Explicit Time
-  attribute :explicit_time, TM, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :explicit_times, Array[TM], minOccurs: "0", maxOccurs: "unbounded"
   # Relative Time and Units
-  attribute :relative_time_and_units, CQ, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :relative_time_and_units, Array[CQ], minOccurs: "0", maxOccurs: "unbounded"
   # Service Duration
   attribute :service_duration, CQ, minOccurs: "0", maxOccurs: "1"
   # Start date/time
@@ -17,7 +17,7 @@ class TQ1 < Segment
   # End date/time
   attribute :end_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Priority
-  attribute :priority, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :priorities, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Condition text
   attribute :condition_text, TX, minOccurs: "0", maxOccurs: "1"
   # Text instruction

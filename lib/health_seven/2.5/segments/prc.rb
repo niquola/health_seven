@@ -3,15 +3,15 @@ class PRC < Segment
   # Primary Key Value - PRC
   attribute :primary_key_value_prc, CE, minOccurs: "1", maxOccurs: "1"
   # Facility ID - PRC
-  attribute :facility_id_prc, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :facility_id_prcs, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Department
-  attribute :department, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :departments, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Valid Patient Classes
-  attribute :valid_patient_classes, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :valid_patient_classes, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Price
-  attribute :price, CP, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :prices, Array[CP], minOccurs: "0", maxOccurs: "unbounded"
   # Formula
-  attribute :formula, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :formulas, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Minimum Quantity
   attribute :minimum_quantity, NM, minOccurs: "0", maxOccurs: "1"
   # Maximum Quantity
@@ -27,7 +27,7 @@ class PRC < Segment
   # Price Override Flag
   attribute :price_override_flag, IS, minOccurs: "0", maxOccurs: "1"
   # Billing Category
-  attribute :billing_category, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :billing_categories, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Chargeable Flag
   attribute :chargeable_flag, ID, minOccurs: "0", maxOccurs: "1"
   # Active/Inactive Flag

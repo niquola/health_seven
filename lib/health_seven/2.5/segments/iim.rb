@@ -29,6 +29,6 @@ class IIM < Segment
   # Procedure Code
   attribute :procedure_code, CE, minOccurs: "0", maxOccurs: "1"
   # Procedure Code Modifier
-  attribute :procedure_code_modifier, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedure_code_modifiers, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

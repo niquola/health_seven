@@ -5,33 +5,33 @@ class SPM < Segment
   # Specimen ID
   attribute :specimen_id, EIP, minOccurs: "0", maxOccurs: "1"
   # Specimen Parent IDs
-  attribute :specimen_parent_ids, EIP, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_parent_ids, Array[EIP], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Type
   attribute :specimen_type, CWE, minOccurs: "1", maxOccurs: "1"
   # Specimen Type Modifier
-  attribute :specimen_type_modifier, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_type_modifiers, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Additives
-  attribute :specimen_additives, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_additives, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Collection Method
   attribute :specimen_collection_method, CWE, minOccurs: "0", maxOccurs: "1"
   # Specimen Source Site
   attribute :specimen_source_site, CWE, minOccurs: "0", maxOccurs: "1"
   # Specimen Source Site Modifier
-  attribute :specimen_source_site_modifier, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_source_site_modifiers, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Collection Site
   attribute :specimen_collection_site, CWE, minOccurs: "0", maxOccurs: "1"
   # Specimen Role
-  attribute :specimen_role, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_roles, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Collection Amount
   attribute :specimen_collection_amount, CQ, minOccurs: "0", maxOccurs: "1"
   # Grouped Specimen Count
   attribute :grouped_specimen_count, NM, minOccurs: "0", maxOccurs: "1"
   # Specimen Description
-  attribute :specimen_description, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_descriptions, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Handling Code
-  attribute :specimen_handling_code, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_handling_codes, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Risk Code
-  attribute :specimen_risk_code, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_risk_codes, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Collection Date/Time
   attribute :specimen_collection_date_time, DR, minOccurs: "0", maxOccurs: "1"
   # Specimen Received Date/Time
@@ -41,13 +41,13 @@ class SPM < Segment
   # Specimen Availability
   attribute :specimen_availability, ID, minOccurs: "0", maxOccurs: "1"
   # Specimen Reject Reason
-  attribute :specimen_reject_reason, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_reject_reasons, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Quality
   attribute :specimen_quality, CWE, minOccurs: "0", maxOccurs: "1"
   # Specimen Appropriateness
   attribute :specimen_appropriateness, CWE, minOccurs: "0", maxOccurs: "1"
   # Specimen Condition
-  attribute :specimen_condition, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_conditions, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Current Quantity
   attribute :specimen_current_quantity, CQ, minOccurs: "0", maxOccurs: "1"
   # Number of Specimen Containers

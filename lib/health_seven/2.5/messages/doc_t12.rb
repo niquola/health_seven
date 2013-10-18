@@ -10,9 +10,9 @@ class RESULT < SegmentGroup
   attribute :pid, PID, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :pv1, PV1, comment: nil, minOccurs: "1", maxOccurs: "1"
   attribute :txa, TXA, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :obx, OBX, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :obxes, Array[OBX], comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
-  attribute :result, RESULT, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :results, Array[RESULT], minOccurs: "1", maxOccurs: "unbounded"
   attribute :dsc, DSC, comment: nil, minOccurs: "0", maxOccurs: "1"
 end
 end

@@ -17,7 +17,7 @@ class RXG < Segment
   # Give Dosage Form
   attribute :give_dosage_form, CE, minOccurs: "0", maxOccurs: "1"
   # Administration Notes
-  attribute :administration_notes, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :administration_notes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Substitution Status
   attribute :substitution_status, ID, minOccurs: "0", maxOccurs: "1"
   # Dispense-to Location
@@ -25,7 +25,7 @@ class RXG < Segment
   # Needs Human Review
   attribute :needs_human_review, ID, minOccurs: "0", maxOccurs: "1"
   # Pharmacy/Treatment Supplier's Special Administration Instructions
-  attribute :pharmacy_treatment_supplier_s_special_administration_instructions, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :pharmacy_treatment_supplier_s_special_administration_instructions, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Give Per (Time Unit)
   attribute :give_per_time_unit, ST, minOccurs: "0", maxOccurs: "1"
   # Give Rate Amount
@@ -37,13 +37,13 @@ class RXG < Segment
   # Give Strength Units
   attribute :give_strength_units, CE, minOccurs: "0", maxOccurs: "1"
   # Substance Lot Number
-  attribute :substance_lot_number, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_lot_numbers, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Substance Expiration Date
-  attribute :substance_expiration_date, TS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_expiration_dates, Array[TS], minOccurs: "0", maxOccurs: "unbounded"
   # Substance Manufacturer Name
-  attribute :substance_manufacturer_name, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_manufacturer_names, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Indication
-  attribute :indication, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :indications, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Give Drug Strength Volume
   attribute :give_drug_strength_volume, NM, minOccurs: "0", maxOccurs: "1"
   # Give Drug Strength Volume Units

@@ -1,7 +1,7 @@
 module HealthSeven::V2_5
 class PDA < Segment
   # Death Cause Code
-  attribute :death_cause_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :death_cause_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Death Location
   attribute :death_location, PL, minOccurs: "0", maxOccurs: "1"
   # Death Certified Indicator

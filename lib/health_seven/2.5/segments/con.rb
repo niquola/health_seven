@@ -9,15 +9,15 @@ class CON < Segment
   # Consent Form Number
   attribute :consent_form_number, EI, minOccurs: "0", maxOccurs: "1"
   # Consent Text
-  attribute :consent_text, FT, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :consent_texts, Array[FT], minOccurs: "0", maxOccurs: "unbounded"
   # Subject-specific Consent Text
-  attribute :subject_specific_consent_text, FT, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :subject_specific_consent_texts, Array[FT], minOccurs: "0", maxOccurs: "unbounded"
   # Consent Background
-  attribute :consent_background, FT, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :consent_backgrounds, Array[FT], minOccurs: "0", maxOccurs: "unbounded"
   # Subject-specific Consent Background
-  attribute :subject_specific_consent_background, FT, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :subject_specific_consent_backgrounds, Array[FT], minOccurs: "0", maxOccurs: "unbounded"
   # Consenter-imposed limitations
-  attribute :consenter_imposed_limitations, FT, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :consenter_imposed_limitations, Array[FT], minOccurs: "0", maxOccurs: "unbounded"
   # Consent Mode
   attribute :consent_mode, CNE, minOccurs: "0", maxOccurs: "1"
   # Consent Status
@@ -47,8 +47,8 @@ class CON < Segment
   # Non-subject Consenter Reason
   attribute :non_subject_consenter_reason, CWE, minOccurs: "0", maxOccurs: "1"
   # Consenter ID
-  attribute :consenter_id, XPN, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :consenter_ids, Array[XPN], minOccurs: "1", maxOccurs: "unbounded"
   # Relationship to Subject Table
-  attribute :relationship_to_subject_table, IS, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :relationship_to_subject_tables, Array[IS], minOccurs: "1", maxOccurs: "unbounded"
 end
 end

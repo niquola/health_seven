@@ -5,7 +5,7 @@ class AIL < Segment
   # Segment Action Code
   attribute :segment_action_code, ID, minOccurs: "0", maxOccurs: "1"
   # Location Resource ID
-  attribute :location_resource_id, PL, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :location_resource_ids, Array[PL], minOccurs: "0", maxOccurs: "unbounded"
   # Location Type-AIL
   attribute :location_type_ail, CE, minOccurs: "0", maxOccurs: "1"
   # Location Group

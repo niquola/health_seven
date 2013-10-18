@@ -11,9 +11,9 @@ class RXO < Segment
   # Requested Dosage Form
   attribute :requested_dosage_form, CE, minOccurs: "0", maxOccurs: "1"
   # Provider's Pharmacy/Treatment Instructions
-  attribute :provider_s_pharmacy_treatment_instructions, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :provider_s_pharmacy_treatment_instructions, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Provider's Administration Instructions
-  attribute :provider_s_administration_instructions, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :provider_s_administration_instructions, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Deliver-To Location
   attribute :deliver_to_location, LA1, minOccurs: "0", maxOccurs: "1"
   # Allow Substitutions
@@ -27,9 +27,9 @@ class RXO < Segment
   # Number Of Refills
   attribute :number_of_refills, NM, minOccurs: "0", maxOccurs: "1"
   # Ordering Provider's DEA Number
-  attribute :ordering_provider_s_dea_number, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ordering_provider_s_dea_numbers, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Pharmacist/Treatment Supplier's Verifier ID
-  attribute :pharmacist_treatment_supplier_s_verifier_id, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :pharmacist_treatment_supplier_s_verifier_ids, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Needs Human Review
   attribute :needs_human_review, ID, minOccurs: "0", maxOccurs: "1"
   # Requested Give Per (Time Unit)
@@ -39,7 +39,7 @@ class RXO < Segment
   # Requested Give Strength Units
   attribute :requested_give_strength_units, CE, minOccurs: "0", maxOccurs: "1"
   # Indication
-  attribute :indication, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :indications, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Requested Give Rate Amount
   attribute :requested_give_rate_amount, ST, minOccurs: "0", maxOccurs: "1"
   # Requested Give Rate Units
@@ -47,7 +47,7 @@ class RXO < Segment
   # Total Daily Dose
   attribute :total_daily_dose, CQ, minOccurs: "0", maxOccurs: "1"
   # Supplementary Code
-  attribute :supplementary_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :supplementary_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Requested Drug Strength Volume
   attribute :requested_drug_strength_volume, NM, minOccurs: "0", maxOccurs: "1"
   # Requested Drug Strength Volume Units

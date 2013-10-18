@@ -5,7 +5,7 @@ class DB1 < Segment
   # Disabled Person Code
   attribute :disabled_person_code, IS, minOccurs: "0", maxOccurs: "1"
   # Disabled Person Identifier
-  attribute :disabled_person_identifier, CX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :disabled_person_identifiers, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Disabled Indicator
   attribute :disabled_indicator, ID, minOccurs: "0", maxOccurs: "1"
   # Disability Start Date

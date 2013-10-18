@@ -19,7 +19,7 @@ class OBR < Segment
   # Collection Volume
   attribute :collection_volume, CQ, minOccurs: "0", maxOccurs: "1"
   # Collector Identifier
-  attribute :collector_identifier, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :collector_identifiers, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Action Code
   attribute :specimen_action_code, ID, minOccurs: "0", maxOccurs: "1"
   # Danger Code
@@ -31,9 +31,9 @@ class OBR < Segment
   # Specimen Source
   attribute :specimen_source, SPS, minOccurs: "0", maxOccurs: "1"
   # Ordering Provider
-  attribute :ordering_provider, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ordering_providers, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Order Callback Phone Number
-  attribute :order_callback_phone_number, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :order_callback_phone_numbers, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Placer Field 1
   attribute :placer_field_1, ST, minOccurs: "0", maxOccurs: "1"
   # Placer Field 2
@@ -53,31 +53,31 @@ class OBR < Segment
   # Parent Result
   attribute :parent_result, PRL, minOccurs: "0", maxOccurs: "1"
   # Quantity/Timing
-  attribute :quantity_timing, TQ, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :quantity_timings, Array[TQ], minOccurs: "0", maxOccurs: "unbounded"
   # Result Copies To
-  attribute :result_copies_to, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :result_copies_tos, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Parent
   attribute :parent, EIP, minOccurs: "0", maxOccurs: "1"
   # Transportation Mode
   attribute :transportation_mode, ID, minOccurs: "0", maxOccurs: "1"
   # Reason for Study
-  attribute :reason_for_study, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :reason_for_studies, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Principal Result Interpreter
   attribute :principal_result_interpreter, NDL, minOccurs: "0", maxOccurs: "1"
   # Assistant Result Interpreter
-  attribute :assistant_result_interpreter, NDL, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :assistant_result_interpreters, Array[NDL], minOccurs: "0", maxOccurs: "unbounded"
   # Technician
-  attribute :technician, NDL, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :technicians, Array[NDL], minOccurs: "0", maxOccurs: "unbounded"
   # Transcriptionist
-  attribute :transcriptionist, NDL, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :transcriptionists, Array[NDL], minOccurs: "0", maxOccurs: "unbounded"
   # Scheduled Date/Time
   attribute :scheduled_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Number of Sample Containers *
   attribute :number_of_sample_containers, NM, minOccurs: "0", maxOccurs: "1"
   # Transport Logistics of Collected Sample
-  attribute :transport_logistics_of_collected_sample, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :transport_logistics_of_collected_samples, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Collector's Comment *
-  attribute :collector_s_comment, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :collector_s_comments, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Transport Arrangement Responsibility
   attribute :transport_arrangement_responsibility, CE, minOccurs: "0", maxOccurs: "1"
   # Transport Arranged
@@ -85,15 +85,15 @@ class OBR < Segment
   # Escort Required
   attribute :escort_required, ID, minOccurs: "0", maxOccurs: "1"
   # Planned Patient Transport Comment
-  attribute :planned_patient_transport_comment, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :planned_patient_transport_comments, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Procedure Code
   attribute :procedure_code, CE, minOccurs: "0", maxOccurs: "1"
   # Procedure Code Modifier
-  attribute :procedure_code_modifier, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedure_code_modifiers, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Placer Supplemental Service Information
-  attribute :placer_supplemental_service_information, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :placer_supplemental_service_informations, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Filler Supplemental Service Information
-  attribute :filler_supplemental_service_information, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :filler_supplemental_service_informations, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Medically Necessary Duplicate Procedure Reason.
   attribute :medically_necessary_duplicate_procedure_reason, CWE, minOccurs: "0", maxOccurs: "1"
   # Result Handling

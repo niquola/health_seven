@@ -9,7 +9,7 @@ class AIG < Segment
   # Resource Type
   attribute :resource_type, CE, minOccurs: "1", maxOccurs: "1"
   # Resource Group
-  attribute :resource_group, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :resource_groups, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Resource Quantity
   attribute :resource_quantity, NM, minOccurs: "0", maxOccurs: "1"
   # Resource Quantity Units

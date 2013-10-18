@@ -3,15 +3,15 @@ class NK1 < Segment
   # Set ID - NK1
   attribute :set_id_nk1, SI, minOccurs: "1", maxOccurs: "1"
   # Name
-  attribute :name, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :names, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Relationship
   attribute :relationship, CE, minOccurs: "0", maxOccurs: "1"
   # Address
-  attribute :address, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :addresses, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Phone Number
-  attribute :phone_number, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :phone_numbers, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Business Phone Number
-  attribute :business_phone_number, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :business_phone_numbers, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Contact Role
   attribute :contact_role, CE, minOccurs: "0", maxOccurs: "1"
   # Start Date
@@ -25,7 +25,7 @@ class NK1 < Segment
   # Next of Kin / Associated Parties Employee Number
   attribute :next_of_kin_associated_parties_employee_number, CX, minOccurs: "0", maxOccurs: "1"
   # Organization Name - NK1
-  attribute :organization_name_nk1, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :organization_name_nk1s, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Marital Status
   attribute :marital_status, CE, minOccurs: "0", maxOccurs: "1"
   # Administrative Sex
@@ -33,11 +33,11 @@ class NK1 < Segment
   # Date/Time of Birth
   attribute :date_time_of_birth, TS, minOccurs: "0", maxOccurs: "1"
   # Living Dependency
-  attribute :living_dependency, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :living_dependencies, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Ambulatory Status
-  attribute :ambulatory_status, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ambulatory_statuses, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Citizenship
-  attribute :citizenship, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :citizenships, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Primary Language
   attribute :primary_language, CE, minOccurs: "0", maxOccurs: "1"
   # Living Arrangement
@@ -51,25 +51,25 @@ class NK1 < Segment
   # Religion
   attribute :religion, CE, minOccurs: "0", maxOccurs: "1"
   # Mother's Maiden Name
-  attribute :mother_s_maiden_name, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :mother_s_maiden_names, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Nationality
   attribute :nationality, CE, minOccurs: "0", maxOccurs: "1"
   # Ethnic Group
-  attribute :ethnic_group, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ethnic_groups, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Contact Reason
-  attribute :contact_reason, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_reasons, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Contact Person's Name
-  attribute :contact_person_s_name, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_person_s_names, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Contact Person's Telephone Number
-  attribute :contact_person_s_telephone_number, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_person_s_telephone_numbers, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Contact Person's Address
-  attribute :contact_person_s_address, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_person_s_addresses, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Next of Kin/Associated Party's Identifiers
-  attribute :next_of_kin_associated_party_s_identifiers, CX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :next_of_kin_associated_party_s_identifiers, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Job Status
   attribute :job_status, IS, minOccurs: "0", maxOccurs: "1"
   # Race
-  attribute :race, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :races, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Handicap
   attribute :handicap, IS, minOccurs: "0", maxOccurs: "1"
   # Contact Person Social Security Number

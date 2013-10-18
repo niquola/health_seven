@@ -7,10 +7,10 @@ class VAR < Segment
   # Stated Variance Date/Time
   attribute :stated_variance_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Variance Originator
-  attribute :variance_originator, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :variance_originators, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Variance Classification
   attribute :variance_classification, CE, minOccurs: "0", maxOccurs: "1"
   # Variance Description
-  attribute :variance_description, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :variance_descriptions, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

@@ -7,6 +7,6 @@ class CM2 < Segment
   # Description of Time Point
   attribute :description_of_time_point, ST, minOccurs: "0", maxOccurs: "1"
   # Events Scheduled This Time Point
-  attribute :events_scheduled_this_time_point, CE, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :events_scheduled_this_time_points, Array[CE], minOccurs: "1", maxOccurs: "unbounded"
 end
 end

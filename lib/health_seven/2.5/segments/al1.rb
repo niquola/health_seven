@@ -9,7 +9,7 @@ class AL1 < Segment
   # Allergy Severity Code
   attribute :allergy_severity_code, CE, minOccurs: "0", maxOccurs: "1"
   # Allergy Reaction Code
-  attribute :allergy_reaction_code, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :allergy_reaction_codes, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Identification Date
   attribute :identification_date, DT, minOccurs: "0", maxOccurs: "1"
 end

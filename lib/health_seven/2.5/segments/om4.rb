@@ -25,7 +25,7 @@ class OM4 < Segment
   # Specimen Requirements
   attribute :specimen_requirements, TX, minOccurs: "0", maxOccurs: "1"
   # Specimen Priorities
-  attribute :specimen_priorities, ID, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :specimen_priorities, Array[ID], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Retention Time
   attribute :specimen_retention_time, CQ, minOccurs: "0", maxOccurs: "1"
 end

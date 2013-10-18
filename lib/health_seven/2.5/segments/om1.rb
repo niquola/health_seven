@@ -5,7 +5,7 @@ class OM1 < Segment
   # Producer's Service/Test/Observation ID
   attribute :producer_s_service_test_observation_id, CE, minOccurs: "1", maxOccurs: "1"
   # Permitted Data Types
-  attribute :permitted_data_types, ID, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :permitted_data_types, Array[ID], minOccurs: "0", maxOccurs: "unbounded"
   # Specimen Required
   attribute :specimen_required, ID, minOccurs: "1", maxOccurs: "1"
   # Producer ID
@@ -15,7 +15,7 @@ class OM1 < Segment
   # Other Service/Test/Observation IDs for the Observation
   attribute :other_service_test_observation_ids_for_the_observation, CE, minOccurs: "0", maxOccurs: "1"
   # Other Names
-  attribute :other_names, ST, minOccurs: "1", maxOccurs: "unbounded"
+  attribute :other_names, Array[ST], minOccurs: "1", maxOccurs: "unbounded"
   # Preferred Report Name for the Observation
   attribute :preferred_report_name_for_the_observation, ST, minOccurs: "0", maxOccurs: "1"
   # Preferred Short Name or Mnemonic for Observation
@@ -25,13 +25,13 @@ class OM1 < Segment
   # Orderability
   attribute :orderability, ID, minOccurs: "0", maxOccurs: "1"
   # Identity of Instrument Used to Perform this Study
-  attribute :identity_of_instrument_used_to_perform_this_study, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :identity_of_instrument_used_to_perform_this_studies, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Coded Representation of Method
-  attribute :coded_representation_of_method, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :coded_representation_of_methods, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Portable Device Indicator
   attribute :portable_device_indicator, ID, minOccurs: "0", maxOccurs: "1"
   # Observation Producing Department/Section
-  attribute :observation_producing_department_section, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :observation_producing_department_sections, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Telephone Number of Section
   attribute :telephone_number_of_section, XTN, minOccurs: "0", maxOccurs: "1"
   # Nature of Service/Test/Observation
@@ -49,13 +49,13 @@ class OM1 < Segment
   # Processing Time
   attribute :processing_time, NM, minOccurs: "0", maxOccurs: "1"
   # Processing Priority
-  attribute :processing_priority, ID, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :processing_priorities, Array[ID], minOccurs: "0", maxOccurs: "unbounded"
   # Reporting Priority
   attribute :reporting_priority, ID, minOccurs: "0", maxOccurs: "1"
   # Outside Site(s) Where Observation may be Performed
-  attribute :outside_site_s_where_observation_may_be_performed, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :outside_site_s_where_observation_may_be_performeds, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Address of Outside Site(s)
-  attribute :address_of_outside_site_s, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :address_of_outside_site_s, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Phone Number of Outside Site
   attribute :phone_number_of_outside_site, XTN, minOccurs: "0", maxOccurs: "1"
   # Confidentiality Code
@@ -67,7 +67,7 @@ class OM1 < Segment
   # Contraindications to Observations
   attribute :contraindications_to_observations, CE, minOccurs: "0", maxOccurs: "1"
   # Reflex Tests/Observations
-  attribute :reflex_tests_observations, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :reflex_tests_observations, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Rules that Trigger Reflex Testing
   attribute :rules_that_trigger_reflex_testing, TX, minOccurs: "0", maxOccurs: "1"
   # Fixed Canned Message
@@ -79,7 +79,7 @@ class OM1 < Segment
   # Factors that may Affect the Observation
   attribute :factors_that_may_affect_the_observation, TX, minOccurs: "0", maxOccurs: "1"
   # Service/Test/Observation Performance Schedule
-  attribute :service_test_observation_performance_schedule, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :service_test_observation_performance_schedules, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Description of Test Methods
   attribute :description_of_test_methods, TX, minOccurs: "0", maxOccurs: "1"
   # Kind of Quantity Observed

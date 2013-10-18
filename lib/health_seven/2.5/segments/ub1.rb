@@ -13,13 +13,13 @@ class UB1 < Segment
   # Co-Insurance Days (25)
   attribute :co_insurance_days_25, NM, minOccurs: "0", maxOccurs: "1"
   # Condition Code (35-39)
-  attribute :condition_code_35_39, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :condition_code_35_39s, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Covered Days - (23)
   attribute :covered_days_23, NM, minOccurs: "0", maxOccurs: "1"
   # Non Covered Days - (24)
   attribute :non_covered_days_24, NM, minOccurs: "0", maxOccurs: "1"
   # Value Amount  Code (46-49)
-  attribute :value_amount_code_46_49, UVC, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :value_amount_code_46_49s, Array[UVC], minOccurs: "0", maxOccurs: "unbounded"
   # Number Of Grace Days (90)
   attribute :number_of_grace_days_90, NM, minOccurs: "0", maxOccurs: "1"
   # Special Program Indicator (44)
@@ -31,7 +31,7 @@ class UB1 < Segment
   # PSRO/UR Approved Stay-To (89)
   attribute :psro_ur_approved_stay_to_89, DT, minOccurs: "0", maxOccurs: "1"
   # Occurrence (28-32)
-  attribute :occurrence_28_32, OCD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :occurrence_28_32s, Array[OCD], minOccurs: "0", maxOccurs: "unbounded"
   # Occurrence Span (33)
   attribute :occurrence_span_33, CE, minOccurs: "0", maxOccurs: "1"
   # Occur Span Start Date(33)

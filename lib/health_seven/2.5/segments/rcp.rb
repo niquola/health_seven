@@ -11,8 +11,8 @@ class RCP < Segment
   # Modify Indicator
   attribute :modify_indicator, ID, minOccurs: "0", maxOccurs: "1"
   # Sort-by Field
-  attribute :sort_by_field, SRT, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :sort_by_fields, Array[SRT], minOccurs: "0", maxOccurs: "unbounded"
   # Segment group inclusion
-  attribute :segment_group_inclusion, ID, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :segment_group_inclusions, Array[ID], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

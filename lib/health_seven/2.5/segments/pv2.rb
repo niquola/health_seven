@@ -9,11 +9,11 @@ class PV2 < Segment
   # Transfer Reason
   attribute :transfer_reason, CE, minOccurs: "0", maxOccurs: "1"
   # Patient Valuables
-  attribute :patient_valuables, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :patient_valuables, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Patient Valuables Location
   attribute :patient_valuables_location, ST, minOccurs: "0", maxOccurs: "1"
   # Visit User Code
-  attribute :visit_user_code, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :visit_user_codes, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Expected Admit Date/Time
   attribute :expected_admit_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Expected Discharge Date/Time
@@ -25,7 +25,7 @@ class PV2 < Segment
   # Visit Description
   attribute :visit_description, ST, minOccurs: "0", maxOccurs: "1"
   # Referral Source Code
-  attribute :referral_source_code, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :referral_source_codes, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Previous Service Date
   attribute :previous_service_date, DT, minOccurs: "0", maxOccurs: "1"
   # Employment Illness Related Indicator
@@ -45,7 +45,7 @@ class PV2 < Segment
   # Visit Protection Indicator
   attribute :visit_protection_indicator, ID, minOccurs: "0", maxOccurs: "1"
   # Clinic Organization Name
-  attribute :clinic_organization_name, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :clinic_organization_names, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Patient Status Code
   attribute :patient_status_code, IS, minOccurs: "0", maxOccurs: "1"
   # Visit Priority Code
@@ -77,11 +77,11 @@ class PV2 < Segment
   # Mode of Arrival Code
   attribute :mode_of_arrival_code, CE, minOccurs: "0", maxOccurs: "1"
   # Recreational Drug Use Code
-  attribute :recreational_drug_use_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :recreational_drug_use_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Admission Level of Care Code
   attribute :admission_level_of_care_code, CE, minOccurs: "0", maxOccurs: "1"
   # Precaution Code
-  attribute :precaution_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :precaution_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Patient Condition Code
   attribute :patient_condition_code, CE, minOccurs: "0", maxOccurs: "1"
   # Living Will Code
@@ -89,7 +89,7 @@ class PV2 < Segment
   # Organ Donor Code
   attribute :organ_donor_code, IS, minOccurs: "0", maxOccurs: "1"
   # Advance Directive Code
-  attribute :advance_directive_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :advance_directive_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Patient Status Effective Date
   attribute :patient_status_effective_date, DT, minOccurs: "0", maxOccurs: "1"
   # Expected LOA Return Date/Time
@@ -97,6 +97,6 @@ class PV2 < Segment
   # Expected Pre-admission Testing Date/Time
   attribute :expected_pre_admission_testing_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Notify Clergy Code
-  attribute :notify_clergy_code, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :notify_clergy_codes, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

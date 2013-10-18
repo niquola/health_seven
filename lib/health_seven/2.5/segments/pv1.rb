@@ -13,11 +13,11 @@ class PV1 < Segment
   # Prior Patient Location
   attribute :prior_patient_location, PL, minOccurs: "0", maxOccurs: "1"
   # Attending Doctor
-  attribute :attending_doctor, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :attending_doctors, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Referring Doctor
-  attribute :referring_doctor, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :referring_doctors, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Consulting Doctor
-  attribute :consulting_doctor, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :consulting_doctors, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Hospital Service
   attribute :hospital_service, IS, minOccurs: "0", maxOccurs: "1"
   # Temporary Location
@@ -29,17 +29,17 @@ class PV1 < Segment
   # Admit Source
   attribute :admit_source, IS, minOccurs: "0", maxOccurs: "1"
   # Ambulatory Status
-  attribute :ambulatory_status, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ambulatory_statuses, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # VIP Indicator
   attribute :vip_indicator, IS, minOccurs: "0", maxOccurs: "1"
   # Admitting Doctor
-  attribute :admitting_doctor, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :admitting_doctors, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Patient Type
   attribute :patient_type, IS, minOccurs: "0", maxOccurs: "1"
   # Visit Number
   attribute :visit_number, CX, minOccurs: "0", maxOccurs: "1"
   # Financial Class
-  attribute :financial_class, FC, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :financial_classes, Array[FC], minOccurs: "0", maxOccurs: "unbounded"
   # Charge Price Indicator
   attribute :charge_price_indicator, IS, minOccurs: "0", maxOccurs: "1"
   # Courtesy Code
@@ -47,13 +47,13 @@ class PV1 < Segment
   # Credit Rating
   attribute :credit_rating, IS, minOccurs: "0", maxOccurs: "1"
   # Contract Code
-  attribute :contract_code, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contract_codes, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Contract Effective Date
-  attribute :contract_effective_date, DT, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contract_effective_dates, Array[DT], minOccurs: "0", maxOccurs: "unbounded"
   # Contract Amount
-  attribute :contract_amount, NM, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contract_amounts, Array[NM], minOccurs: "0", maxOccurs: "unbounded"
   # Contract Period
-  attribute :contract_period, NM, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contract_periods, Array[NM], minOccurs: "0", maxOccurs: "unbounded"
   # Interest Code
   attribute :interest_code, IS, minOccurs: "0", maxOccurs: "1"
   # Transfer to Bad Debt Code
@@ -89,7 +89,7 @@ class PV1 < Segment
   # Admit Date/Time
   attribute :admit_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Discharge Date/Time
-  attribute :discharge_date_time, TS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :discharge_date_times, Array[TS], minOccurs: "0", maxOccurs: "unbounded"
   # Current Patient Balance
   attribute :current_patient_balance, NM, minOccurs: "0", maxOccurs: "1"
   # Total Charges
@@ -103,6 +103,6 @@ class PV1 < Segment
   # Visit Indicator
   attribute :visit_indicator, IS, minOccurs: "0", maxOccurs: "1"
   # Other Healthcare Provider
-  attribute :other_healthcare_provider, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :other_healthcare_providers, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

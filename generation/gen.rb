@@ -78,13 +78,22 @@ module Gen
     fwrite(base_path(version, 'segments', "all.rb"), segments_require_code)
   end
 
-  def generate_attribute(db, el_ref)
+  def generate_attribute_by_el_ref(db, el_ref)
     tp = find_type_by_el(db, el_ref)
     tname = normalize_name(type_desc(tp) || ref(el_ref))
-    gattr(tname, (base_type(tp) || name(tp).split('.').first).camelize,
-          comment: type_desc(tp),
-          minOccurs: el_ref[:minOccurs],
-          maxOccurs: el_ref[:maxOccurs])
+    type = (base_type(tp) || name(tp).split('.').first).camelize
+    generate_attribute(tname, type,
+                       comment: type_desc(tp),
+                       minOccurs: el_ref[:minOccurs],
+                       maxOccurs: el_ref[:maxOccurs])
+  end
+
+  def generate_attribute(aname, type, opts)
+    if is_collection?(opts)
+      aname = aname.pluralize
+      type = "Array[#{type}]"
+    end
+    gattr(aname, type, opts)
   end
 
   def generate_class_recursively(db, tp)
@@ -97,10 +106,12 @@ module Gen
           gklass(nil, type_class_name, 'SegmentGroup') do
             generate_class_recursively(db, find_type_by_el(db, el_ref))
           end,
-          gattr(type_class_name.underscore, type_class_name, minOccurs: el_ref[:minOccurs], maxOccurs: el_ref[:maxOccurs])
+          generate_attribute(type_class_name.underscore, type_class_name,
+                             minOccurs: el_ref[:minOccurs],
+                             maxOccurs: el_ref[:maxOccurs])
         ].join("\n")
       else
-        generate_attribute(db, el_ref)
+        generate_attribute_by_el_ref(db, el_ref)
       end
     end.join("\n")
   end
@@ -110,7 +121,7 @@ module Gen
       if ref(el_ref) == "ED"
         next "# TODO: Encapsulated data segment"
       end
-      generate_attribute(db, el_ref)
+      generate_attribute_by_el_ref(db, el_ref)
     end.compact.join("\n")
     #FIXME: add attribute annotations
     #FIXME: collections
@@ -124,6 +135,10 @@ module Gen
 
   def root_datatype?(name)
     not name =~ /CONTENT$/
+  end
+
+  def is_collection?(el_ref)
+    el_ref[:maxOccurs] == 'unbounded'
   end
 
   def find_type_by_el(db, node)

@@ -11,11 +11,11 @@ class IPC < Segment
   # Modality
   attribute :modality, CE, minOccurs: "0", maxOccurs: "1"
   # Protocol Code
-  attribute :protocol_code, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :protocol_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Scheduled Station Name
   attribute :scheduled_station_name, EI, minOccurs: "0", maxOccurs: "1"
   # Scheduled Procedure Step Location
-  attribute :scheduled_procedure_step_location, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :scheduled_procedure_step_locations, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Scheduled AE Title
   attribute :scheduled_ae_title, ST, minOccurs: "0", maxOccurs: "1"
 end

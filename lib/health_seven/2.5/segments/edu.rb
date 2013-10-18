@@ -17,6 +17,6 @@ class EDU < Segment
   # School Address
   attribute :school_address, XAD, minOccurs: "0", maxOccurs: "1"
   # Major Field of Study
-  attribute :major_field_of_study, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :major_field_of_studies, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

@@ -35,12 +35,12 @@ class MSH < Segment
   # Country Code
   attribute :country_code, ID, minOccurs: "0", maxOccurs: "1"
   # Character Set
-  attribute :character_set, ID, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :character_sets, Array[ID], minOccurs: "0", maxOccurs: "unbounded"
   # Principal Language Of Message
   attribute :principal_language_of_message, CE, minOccurs: "0", maxOccurs: "1"
   # Alternate Character Set Handling Scheme
   attribute :alternate_character_set_handling_scheme, ID, minOccurs: "0", maxOccurs: "1"
   # Message Profile Identifier
-  attribute :message_profile_identifier, EI, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :message_profile_identifiers, Array[EI], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

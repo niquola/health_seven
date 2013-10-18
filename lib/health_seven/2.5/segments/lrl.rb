@@ -9,7 +9,7 @@ class LRL < Segment
   # Location Relationship ID
   attribute :location_relationship_id, CE, minOccurs: "1", maxOccurs: "1"
   # Organizational Location Relationship Value
-  attribute :organizational_location_relationship_value, XON, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :organizational_location_relationship_values, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Patient Location Relationship Value
   attribute :patient_location_relationship_value, PL, minOccurs: "0", maxOccurs: "1"
 end

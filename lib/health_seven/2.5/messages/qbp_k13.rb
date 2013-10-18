@@ -7,7 +7,7 @@ class QBP_K13 < Message
   attribute :qpd, QPD, comment: nil, minOccurs: "1", maxOccurs: "1"
 class ROW_DEFINITION < SegmentGroup
   attribute :rdf, RDF, comment: nil, minOccurs: "1", maxOccurs: "1"
-  attribute :rdt, RDT, comment: nil, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :rdts, Array[RDT], comment: nil, minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :row_definition, ROW_DEFINITION, minOccurs: "0", maxOccurs: "1"
   attribute :dsc, DSC, comment: nil, minOccurs: "0", maxOccurs: "1"

@@ -33,14 +33,14 @@ class GOL < Segment
   # Goal Evaluation
   attribute :goal_evaluation, CE, minOccurs: "0", maxOccurs: "1"
   # Goal Evaluation Comment
-  attribute :goal_evaluation_comment, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :goal_evaluation_comments, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Goal Life Cycle Status
   attribute :goal_life_cycle_status, CE, minOccurs: "0", maxOccurs: "1"
   # Goal Life Cycle Status Date/Time
   attribute :goal_life_cycle_status_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Goal Target Type
-  attribute :goal_target_type, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :goal_target_types, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Goal Target Name
-  attribute :goal_target_name, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :goal_target_names, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

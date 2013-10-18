@@ -5,7 +5,7 @@ class NTE < Segment
   # Source of Comment
   attribute :source_of_comment, ID, minOccurs: "0", maxOccurs: "1"
   # Comment
-  attribute :comment, FT, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :comments, Array[FT], minOccurs: "0", maxOccurs: "unbounded"
   # Comment Type
   attribute :comment_type, CE, minOccurs: "0", maxOccurs: "1"
 end

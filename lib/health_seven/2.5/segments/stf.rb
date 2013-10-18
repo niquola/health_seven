@@ -3,11 +3,11 @@ class STF < Segment
   # Primary Key Value - STF
   attribute :primary_key_value_stf, CE, minOccurs: "0", maxOccurs: "1"
   # Staff Identifier List
-  attribute :staff_identifier_list, CX, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :staff_identifier_lists, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Staff Name
-  attribute :staff_name, XPN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :staff_names, Array[XPN], minOccurs: "0", maxOccurs: "unbounded"
   # Staff Type
-  attribute :staff_type, IS, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :staff_types, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Administrative Sex
   attribute :administrative_sex, IS, minOccurs: "0", maxOccurs: "1"
   # Date/Time of Birth
@@ -15,21 +15,21 @@ class STF < Segment
   # Active/Inactive Flag
   attribute :active_inactive_flag, ID, minOccurs: "0", maxOccurs: "1"
   # Department
-  attribute :department, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :departments, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Hospital Service - STF
-  attribute :hospital_service_stf, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :hospital_service_stfs, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Phone
-  attribute :phone, XTN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :phones, Array[XTN], minOccurs: "0", maxOccurs: "unbounded"
   # Office/Home Address/Birthplace
-  attribute :office_home_address_birthplace, XAD, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :office_home_address_birthplaces, Array[XAD], minOccurs: "0", maxOccurs: "unbounded"
   # Institution Activation Date
-  attribute :institution_activation_date, DIN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :institution_activation_dates, Array[DIN], minOccurs: "0", maxOccurs: "unbounded"
   # Institution Inactivation Date
-  attribute :institution_inactivation_date, DIN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :institution_inactivation_dates, Array[DIN], minOccurs: "0", maxOccurs: "unbounded"
   # Backup Person ID
-  attribute :backup_person_id, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :backup_person_ids, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # E-Mail Address
-  attribute :e_mail_address, ST, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :e_mail_addresses, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
   # Preferred Method of Contact
   attribute :preferred_method_of_contact, CE, minOccurs: "0", maxOccurs: "1"
   # Marital Status
@@ -59,7 +59,7 @@ class STF < Segment
   # Re-activation Approval Indicator
   attribute :re_activation_approval_indicator, ID, minOccurs: "0", maxOccurs: "1"
   # Citizenship
-  attribute :citizenship, CE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :citizenships, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Death Date and Time
   attribute :death_date_and_time, TS, minOccurs: "0", maxOccurs: "1"
   # Death Indicator
@@ -71,7 +71,7 @@ class STF < Segment
   # Expected Return Date
   attribute :expected_return_date, DT, minOccurs: "0", maxOccurs: "1"
   # Cost Center Code
-  attribute :cost_center_code, CWE, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :cost_center_codes, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # Generic Classification Indicator
   attribute :generic_classification_indicator, ID, minOccurs: "0", maxOccurs: "1"
   # Inactive Reason Code

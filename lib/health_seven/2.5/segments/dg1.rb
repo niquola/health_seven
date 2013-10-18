@@ -31,7 +31,7 @@ class DG1 < Segment
   # Diagnosis Priority
   attribute :diagnosis_priority, ID, minOccurs: "0", maxOccurs: "1"
   # Diagnosing Clinician
-  attribute :diagnosing_clinician, XCN, minOccurs: "0", maxOccurs: "unbounded"
+  attribute :diagnosing_clinicians, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Diagnosis Classification
   attribute :diagnosis_classification, IS, minOccurs: "0", maxOccurs: "1"
   # Confidential Indicator
