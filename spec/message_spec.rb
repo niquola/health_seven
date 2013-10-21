@@ -66,7 +66,8 @@ describe 'parsing' do
     content = fixture('2.7','adt')
     message =  HealthSeven::Message.parse(content)
     obx =  message.obxes.first
-    p obx.value_type
+    obx.units.identifier.value.should == "kg"
+    obx.observation_identifier.identifier.value.should == '1010.1'
   end
 
   it 'should parse adt 2.7' do
