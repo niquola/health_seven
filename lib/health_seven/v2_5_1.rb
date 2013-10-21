@@ -15,7 +15,9 @@ module HealthSeven
     class ST < ::HealthSeven::SimpleType; end
     class TM < ::HealthSeven::SimpleType; end
     class TN < ::HealthSeven::SimpleType; end
-    class NUL < ::HealthSeven::SimpleType; end
     class TX < ::HealthSeven::SimpleType; end
+    class NUL < ::HealthSeven::SimpleType; end
+    class SNM < ::HealthSeven::SimpleType; end
+    class AnyType < ::HealthSeven::SimpleType; end
   end
 end

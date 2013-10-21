@@ -60,7 +60,6 @@ module HealthSeven
 
         case type(attribute)
         when :attribute
-          p name.to_s.upcase
           if attribute.options[:minOccurs].to_i != 0 && !next_segment.start_with?(name.to_s.upcase)
             puts  "WARN: Required segment not found: #{name}!"
           end
@@ -68,13 +67,14 @@ module HealthSeven
             message[name] = parse_segment(version, segments_tail.shift)
           end
         when :attribute_collection
-          while next_segment.start_with?(name.to_s.first(3).upcase)
+          while next_segment && next_segment.start_with?(name.to_s.first(3).upcase)
             (message[name] ||= [])<< parse_segment(version, segments_tail.shift)
             next_segment = segments_tail.first
           end
         when :group
           as = attribute.primitive.attribute_set
-          message[name] = process(version, {}, segments_tail, as.to_a)
+          res =  process(version, {}, segments_tail, as.to_a)
+          message[name] = res unless res.empty?
         when :group_collection
           as = attribute.coercer.type.member_type.attribute_set
           until (res = process(version, {}, segments_tail, as.to_a)).empty?

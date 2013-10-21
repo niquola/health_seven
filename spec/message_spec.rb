@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'parsing' do
   before :all do
-    # Gen.generate_all
+    Gen.generate_all
   end
 
   def fixture(ver, name)
@@ -78,7 +78,21 @@ describe 'parsing' do
   it 'should parse rsp_k11 2.6' do
     content = fixture('2.6','REF_I12')
     message =  HealthSeven::Message.parse(content)
-    name = message
-    #name.should == 'Request Immunization History'
+    provider_contact =  message.provider_contacts.first.prd
+    role =  provider_contact.provider_roles.first
+    role.text.value.should == 'Referring Provider'
+    role.identifier.value.should == 'RP'
+
+    message.ntes.map do |nte|
+      nte.comment_type.text.value.should be_present
+    end
+  end
+
+  it 'should parse obx 2.6' do
+    content = fixture('2.7','adt').gsub('|2.7', '|2.6')
+    message =  HealthSeven::Message.parse(content)
+    obx =  message.obxes.first
+    obx.units.identifier.value.should == "kg"
+    obx.observation_identifier.identifier.value.should == '1010.1'
   end
 end

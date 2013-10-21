@@ -6,7 +6,7 @@ module HealthSeven
 
     class DT < ::HealthSeven::SimpleType; end
     class DTM < ::HealthSeven::SimpleType; end
-    # class FT < ::HealthSeven::SimpleType; end
+    
     class GTS < ::HealthSeven::SimpleType; end
     class ID < ::HealthSeven::SimpleType; end
     class IS < ::HealthSeven::SimpleType; end
