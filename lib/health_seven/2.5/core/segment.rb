@@ -2,7 +2,7 @@ require 'virtus'
 
 module HealthSeven::V2_5
   class Segment
-    include Virtus
+    include Virtus.model
 
     def self.parse(content)
       fields = content.split('|')
@@ -10,9 +10,9 @@ module HealthSeven::V2_5
         .build(fields)
     end
 
-    def self.parse_field(type, content)
+    def self.build_field(type, content)
       return unless content
-      type.parse(content)
+      type.build(content)
     end
 
     def self.build(fields)
@@ -20,15 +20,16 @@ module HealthSeven::V2_5
       self.attribute_set.each_with_index do |attr, index|
         collection = attr.options[:maxOccurs] == 'unbounded'
         field = fields[index]
-        if collection
-          if field.present?
-            parts = field.split('~').map do |str|
-              parse_field(attr.coercer.type.member_type, str)
+        if field.present?
+          if collection
+            acc[attr.name] = field.split('~').map do |str|
+              build_field(attr.coercer.type.member_type, str)
             end
-            acc[attr.name] = parts
+          else
+            acc[attr.name] = build_field(attr.primitive, field.presence)
           end
-        else
-          acc[attr.name] = parse_field(attr.primitive, field.presence)
+        elsif attr.options[:minOccurs].to_i != 0
+          fail "Missing field #{attr.primitive} in #{self.inspect} '#{fields.join('|')}'"
         end
       end
       self.new(acc) if acc.present?

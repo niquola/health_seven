@@ -3,7 +3,7 @@ require 'health_seven'
 
 module HealthSeven::V2_5
 class Message
-  include Virtus
+  include Virtus.model
 
   def self.parse(content)
     class_name =  content.split("\r", 2).first

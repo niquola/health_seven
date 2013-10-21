@@ -2,29 +2,30 @@ require 'virtus'
 
 module HealthSeven::V2_5
   class DataType
-    include Virtus::ValueObject
+    include Virtus.model
 
     def initialize(*args)
       super(*args)
     end
 
-    def self.parse(string, sep = '^')
+    def self.build(string, sep = '^')
       return unless string
       fields = string.split(sep)
       acc = {}
       self.attribute_set.each_with_index do |attr, index|
         field = fields[index]
-        if attr.primitive < SimpleType
-          acc[attr.name] = field.presence
-        else
-          acc[attr.name] = attr.primitive.parse(field, '&')
-        end
+        acc[attr.name] = if attr.primitive < SimpleType
+                            field.presence
+                          else
+                            attr.primitive.build(field, '&')
+                          end
       end
       self.new(acc)
     end
   end
 
   class SimpleType < DataType
+    attr :value
     def initialize(string)
       @value = string
     end
