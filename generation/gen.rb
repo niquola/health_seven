@@ -12,7 +12,7 @@ module Gen
   include IO
 
   def generate_all
-    ['2.1', '2.2', '2.3','2.3.1','2.4', '2.5', '2.5.1'].each do |ver|
+    ['2.3','2.3.1','2.4', '2.5', '2.5.1'].each do |ver|
       generate(ver)
     end
   end
@@ -20,12 +20,42 @@ module Gen
   def generate(version)
     db = full_db(version)
 
+    generate_module(version)
     generate_datatypes(version, db)
     generate_segments(version, db)
     generate_messages(version, db)
   end
 
   protected
+
+  def generate_module(version)
+    ver = 'v' + version.gsub('.','_')
+    path = from_root_path("lib/health_seven/#{ver}.rb")
+
+    open(path, 'w') do |f|
+      f<< <<-RUBY
+module HealthSeven
+  module #{ver.upcase}
+    require 'health_seven/#{version}/datatypes.rb'
+    require 'health_seven/#{version}/segments.rb'
+    require 'health_seven/#{version}/messages.rb'
+
+    class DT < ::HealthSeven::SimpleType; end
+    class DTM < ::HealthSeven::SimpleType; end
+    # class FT < ::HealthSeven::SimpleType; end
+    class GTS < ::HealthSeven::SimpleType; end
+    class ID < ::HealthSeven::SimpleType; end
+    class IS < ::HealthSeven::SimpleType; end
+    class NM < ::HealthSeven::SimpleType; end
+    class SI < ::HealthSeven::SimpleType; end
+    class ST < ::HealthSeven::SimpleType; end
+    class TM < ::HealthSeven::SimpleType; end
+    class TN < ::HealthSeven::SimpleType; end
+  end
+end
+      RUBY
+    end
+  end
 
   def generate_messages(version, db)
     FileUtils.rm_rf(base_path(version, 'messages'))
@@ -164,7 +194,7 @@ module Gen
   end
 
   def full_db(version)
-    @full_db ||= Dir[from_root_path("vendor/#{version}/**/*.xsd")].reduce({}) do |acc, file|
+    Dir[from_root_path("vendor/#{version}/**/*.xsd")].reduce({}) do |acc, file|
       acc[:types] = types_index(file, acc[:types] || {})
       acc[:els] = elements_index(file, acc[:els] || {})
       acc
