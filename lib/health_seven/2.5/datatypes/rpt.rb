@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RPT < DataType
+class RPT < ::HealthSeven::DataType
   # Repeat Pattern Code
   attribute :repeat_pattern_code, CWE, minOccurs: "1", maxOccurs: "1"
   # Calendar Alignment

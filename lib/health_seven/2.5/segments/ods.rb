@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ODS < Segment
+class ODS < ::HealthSeven::Segment
   # Type
   attribute :type, ID, minOccurs: "1", maxOccurs: "1"
   # Service Period

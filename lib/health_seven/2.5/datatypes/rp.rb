@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RP < DataType
+class RP < ::HealthSeven::DataType
   # Pointer
   attribute :pointer, ST, minOccurs: "0", maxOccurs: "1"
   # Application ID

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class MSA < Segment
+class MSA < ::HealthSeven::Segment
   # Acknowledgment Code
   attribute :acknowledgment_code, ID, minOccurs: "1", maxOccurs: "1"
   # Message Control ID

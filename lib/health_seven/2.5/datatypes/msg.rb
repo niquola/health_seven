@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class MSG < DataType
+class MSG < ::HealthSeven::DataType
   # Message Code
   attribute :message_code, ID, minOccurs: "1", maxOccurs: "1"
   # Trigger Event

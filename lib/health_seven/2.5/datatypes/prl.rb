@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PRL < DataType
+class PRL < ::HealthSeven::DataType
   # Parent Observation Identifier
   attribute :parent_observation_identifier, CE, minOccurs: "1", maxOccurs: "1"
   # Parent Observation Sub-identifier

@@ -1,9 +1,9 @@
 module HealthSeven::V2_5
-class MFN_M02 < Message
+class MFN_M02 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
   attribute :mfi, MFI, minOccurs: "1", maxOccurs: "1"
-class MF_STAFF < SegmentGroup
+class MF_STAFF < ::HealthSeven::SegmentGroup
   attribute :mfe, MFE, minOccurs: "1", maxOccurs: "1"
   attribute :stf, STF, minOccurs: "1", maxOccurs: "1"
   attribute :pras, Array[PRA], minOccurs: "0", maxOccurs: "unbounded"

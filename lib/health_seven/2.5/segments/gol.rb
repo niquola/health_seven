@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class GOL < Segment
+class GOL < ::HealthSeven::Segment
   # Action Code
   attribute :action_code, ID, minOccurs: "1", maxOccurs: "1"
   # Action Date/Time

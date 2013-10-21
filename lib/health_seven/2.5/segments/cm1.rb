@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CM1 < Segment
+class CM1 < ::HealthSeven::Segment
   # Set ID - CM1
   attribute :set_id_cm1, SI, minOccurs: "1", maxOccurs: "1"
   # Study Phase Identifier

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class TXA < Segment
+class TXA < ::HealthSeven::Segment
   # Set ID- TXA
   attribute :set_id_txa, SI, minOccurs: "1", maxOccurs: "1"
   # Document Type

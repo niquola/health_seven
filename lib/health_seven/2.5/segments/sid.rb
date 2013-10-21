@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class SID < Segment
+class SID < ::HealthSeven::Segment
   # Application / Method Identifier
   attribute :application_method_identifier, CE, minOccurs: "0", maxOccurs: "1"
   # Substance Lot Number

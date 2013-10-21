@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ABS < Segment
+class ABS < ::HealthSeven::Segment
   # Discharge Care Provider
   attribute :discharge_care_provider, XCN, minOccurs: "0", maxOccurs: "1"
   # Transfer Medical Service Code

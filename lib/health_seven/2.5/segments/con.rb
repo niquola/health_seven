@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CON < Segment
+class CON < ::HealthSeven::Segment
   # Set ID - CON
   attribute :set_id_con, SI, minOccurs: "1", maxOccurs: "1"
   # Consent Type

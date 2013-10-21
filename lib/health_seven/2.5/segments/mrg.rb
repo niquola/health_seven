@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class MRG < Segment
+class MRG < ::HealthSeven::Segment
   # Prior Patient Identifier List
   attribute :prior_patient_identifier_lists, Array[CX], minOccurs: "1", maxOccurs: "unbounded"
   # Prior Alternate Patient ID

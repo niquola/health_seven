@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class AIL < Segment
+class AIL < ::HealthSeven::Segment
   # Set ID - AIL
   attribute :set_id_ail, SI, minOccurs: "1", maxOccurs: "1"
   # Segment Action Code

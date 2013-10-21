@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class LDP < Segment
+class LDP < ::HealthSeven::Segment
   # Primary Key Value - LDP
   attribute :primary_key_value_ldp, PL, minOccurs: "1", maxOccurs: "1"
   # Location Department

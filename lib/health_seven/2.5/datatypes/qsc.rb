@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class QSC < DataType
+class QSC < ::HealthSeven::DataType
   # Segment Field Name
   attribute :segment_field_name, ST, minOccurs: "1", maxOccurs: "1"
   # Relational Operator

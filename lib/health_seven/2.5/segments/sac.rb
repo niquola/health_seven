@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class SAC < Segment
+class SAC < ::HealthSeven::Segment
   # External Accession Identifier
   attribute :external_accession_identifier, EI, minOccurs: "0", maxOccurs: "1"
   # Accession Identifier

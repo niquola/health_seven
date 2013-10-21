@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class MA < DataType
+class MA < ::HealthSeven::DataType
   # Sample 1 From Channel 1
   attribute :sample_1_from_channel_1, NM, minOccurs: "0", maxOccurs: "1"
   # Sample 1 From Channel 2

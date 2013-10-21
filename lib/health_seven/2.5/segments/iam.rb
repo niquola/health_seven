@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class IAM < Segment
+class IAM < ::HealthSeven::Segment
   # Set ID - IAM
   attribute :set_id_iam, SI, minOccurs: "1", maxOccurs: "1"
   # Allergen Type Code

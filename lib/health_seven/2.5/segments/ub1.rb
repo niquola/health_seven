@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class UB1 < Segment
+class UB1 < ::HealthSeven::Segment
   # Set ID - UB1
   attribute :set_id_ub1, SI, minOccurs: "0", maxOccurs: "1"
   # Blood Deductible  (43)

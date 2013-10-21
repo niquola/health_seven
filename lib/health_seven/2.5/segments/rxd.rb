@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RXD < Segment
+class RXD < ::HealthSeven::Segment
   # Dispense Sub-ID Counter
   attribute :dispense_sub_id_counter, NM, minOccurs: "1", maxOccurs: "1"
   # Dispense/Give Code

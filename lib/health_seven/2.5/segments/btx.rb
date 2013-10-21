@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class BTX < Segment
+class BTX < ::HealthSeven::Segment
   # Set ID - BTX
   attribute :set_id_btx, SI, minOccurs: "1", maxOccurs: "1"
   # BC Donation ID

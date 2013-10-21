@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class NR < DataType
+class NR < ::HealthSeven::DataType
   # Low Value
   attribute :low_value, NM, minOccurs: "0", maxOccurs: "1"
   # High Value

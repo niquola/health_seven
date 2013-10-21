@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class NDS < Segment
+class NDS < ::HealthSeven::Segment
   # Notification Reference Number
   attribute :notification_reference_number, NM, minOccurs: "1", maxOccurs: "1"
   # Notification Date/Time

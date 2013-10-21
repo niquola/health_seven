@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class URD < Segment
+class URD < ::HealthSeven::Segment
   # R/U Date/Time
   attribute :r_u_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Report Priority

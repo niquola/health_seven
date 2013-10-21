@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class DRG < Segment
+class DRG < ::HealthSeven::Segment
   # Diagnostic Related Group
   attribute :diagnostic_related_group, CE, minOccurs: "0", maxOccurs: "1"
   # DRG Assigned Date/Time

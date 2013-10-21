@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class OSD < DataType
+class OSD < ::HealthSeven::DataType
   # Sequence/Results Flag
   attribute :sequence_results_flag, ID, minOccurs: "1", maxOccurs: "1"
   # Placer Order Number: Entity Identifier

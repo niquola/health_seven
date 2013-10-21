@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class IIM < Segment
+class IIM < ::HealthSeven::Segment
   # Primary Key Value - IIM
   attribute :primary_key_value_iim, CWE, minOccurs: "1", maxOccurs: "1"
   # Service Item Code

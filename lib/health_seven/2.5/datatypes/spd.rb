@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class SPD < DataType
+class SPD < ::HealthSeven::DataType
   # Specialty Name
   attribute :specialty_name, ST, minOccurs: "1", maxOccurs: "1"
   # Governing Board

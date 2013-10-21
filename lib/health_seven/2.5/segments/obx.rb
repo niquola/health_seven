@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class OBX < Segment
+class OBX < ::HealthSeven::Segment
   # Set ID - OBX
   attribute :set_id_obx, SI, minOccurs: "0", maxOccurs: "1"
   # Value Type

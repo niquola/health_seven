@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class AD < DataType
+class AD < ::HealthSeven::DataType
   # Street Address
   attribute :street_address, ST, minOccurs: "0", maxOccurs: "1"
   # Other Designation

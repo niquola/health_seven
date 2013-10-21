@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class DFT_P11 < Message
+class DFT_P11 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
   attribute :evn, EVN, minOccurs: "1", maxOccurs: "1"
@@ -10,19 +10,19 @@ class DFT_P11 < Message
   attribute :pv2, PV2, minOccurs: "0", maxOccurs: "1"
   attribute :rols, Array[ROL], minOccurs: "0", maxOccurs: "unbounded"
   attribute :db1s, Array[DB1], minOccurs: "0", maxOccurs: "unbounded"
-class COMMON_ORDER < SegmentGroup
+class COMMON_ORDER < ::HealthSeven::SegmentGroup
   attribute :orc, ORC, minOccurs: "0", maxOccurs: "1"
-class TIMING_QUANTITY < SegmentGroup
+class TIMING_QUANTITY < ::HealthSeven::SegmentGroup
   attribute :tq1, TQ1, minOccurs: "1", maxOccurs: "1"
   attribute :tq2s, Array[TQ2], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :timing_quantities, Array[TIMING_QUANTITY], minOccurs: "0", maxOccurs: "unbounded"
-class ORDER < SegmentGroup
+class ORDER < ::HealthSeven::SegmentGroup
   attribute :obr, OBR, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :order, ORDER, minOccurs: "0", maxOccurs: "1"
-class OBSERVATION < SegmentGroup
+class OBSERVATION < ::HealthSeven::SegmentGroup
   attribute :obx, OBX, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
@@ -32,7 +32,7 @@ end
   attribute :dg1s, Array[DG1], minOccurs: "0", maxOccurs: "unbounded"
   attribute :drg, DRG, minOccurs: "0", maxOccurs: "1"
   attribute :gt1s, Array[GT1], minOccurs: "0", maxOccurs: "unbounded"
-class INSURANCE < SegmentGroup
+class INSURANCE < ::HealthSeven::SegmentGroup
   attribute :in1, IN1, minOccurs: "1", maxOccurs: "1"
   attribute :in2, IN2, minOccurs: "0", maxOccurs: "1"
   attribute :in3s, Array[IN3], minOccurs: "0", maxOccurs: "unbounded"
@@ -40,26 +40,26 @@ class INSURANCE < SegmentGroup
 end
   attribute :insurances, Array[INSURANCE], minOccurs: "0", maxOccurs: "unbounded"
   attribute :acc, ACC, minOccurs: "0", maxOccurs: "1"
-class FINANCIAL < SegmentGroup
+class FINANCIAL < ::HealthSeven::SegmentGroup
   attribute :ft1, FT1, minOccurs: "1", maxOccurs: "1"
-class FINANCIAL_PROCEDURE < SegmentGroup
+class FINANCIAL_PROCEDURE < ::HealthSeven::SegmentGroup
   attribute :pr1, PR1, minOccurs: "1", maxOccurs: "1"
   attribute :rols, Array[ROL], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :financial_procedures, Array[FINANCIAL_PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
-class FINANCIAL_COMMON_ORDER < SegmentGroup
+class FINANCIAL_COMMON_ORDER < ::HealthSeven::SegmentGroup
   attribute :orc, ORC, minOccurs: "0", maxOccurs: "1"
-class FINANCIAL_TIMING_QUANTITY < SegmentGroup
+class FINANCIAL_TIMING_QUANTITY < ::HealthSeven::SegmentGroup
   attribute :tq1, TQ1, minOccurs: "1", maxOccurs: "1"
   attribute :tq2s, Array[TQ2], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :financial_timing_quantities, Array[FINANCIAL_TIMING_QUANTITY], minOccurs: "0", maxOccurs: "unbounded"
-class FINANCIAL_ORDER < SegmentGroup
+class FINANCIAL_ORDER < ::HealthSeven::SegmentGroup
   attribute :obr, OBR, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :financial_order, FINANCIAL_ORDER, minOccurs: "0", maxOccurs: "1"
-class FINANCIAL_OBSERVATION < SegmentGroup
+class FINANCIAL_OBSERVATION < ::HealthSeven::SegmentGroup
   attribute :obx, OBX, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
@@ -69,7 +69,7 @@ end
   attribute :dg1s, Array[DG1], minOccurs: "0", maxOccurs: "unbounded"
   attribute :drg, DRG, minOccurs: "0", maxOccurs: "1"
   attribute :gt1s, Array[GT1], minOccurs: "0", maxOccurs: "unbounded"
-class FINANCIAL_INSURANCE < SegmentGroup
+class FINANCIAL_INSURANCE < ::HealthSeven::SegmentGroup
   attribute :in1, IN1, minOccurs: "1", maxOccurs: "1"
   attribute :in2, IN2, minOccurs: "0", maxOccurs: "1"
   attribute :in3s, Array[IN3], minOccurs: "0", maxOccurs: "unbounded"

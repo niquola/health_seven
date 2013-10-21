@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PTA < DataType
+class PTA < ::HealthSeven::DataType
   # Policy Type
   attribute :policy_type, IS, minOccurs: "1", maxOccurs: "1"
   # Amount Class

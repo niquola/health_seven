@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class LCC < Segment
+class LCC < ::HealthSeven::Segment
   # Primary Key Value - LCC
   attribute :primary_key_value_lcc, PL, minOccurs: "1", maxOccurs: "1"
   # Location Department

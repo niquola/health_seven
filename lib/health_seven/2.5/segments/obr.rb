@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class OBR < Segment
+class OBR < ::HealthSeven::Segment
   # Set ID - OBR
   attribute :set_id_obr, SI, minOccurs: "0", maxOccurs: "1"
   # Placer Order Number

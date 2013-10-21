@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RQD < Segment
+class RQD < ::HealthSeven::Segment
   # Requisition Line Number
   attribute :requisition_line_number, SI, minOccurs: "0", maxOccurs: "1"
   # Item Code - Internal

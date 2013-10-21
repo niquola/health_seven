@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class DB1 < Segment
+class DB1 < ::HealthSeven::Segment
   # Set ID - DB1
   attribute :set_id_db1, SI, minOccurs: "1", maxOccurs: "1"
   # Disabled Person Code

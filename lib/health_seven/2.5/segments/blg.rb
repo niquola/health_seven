@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class BLG < Segment
+class BLG < ::HealthSeven::Segment
   # When to Charge
   attribute :when_to_charge, CCD, minOccurs: "0", maxOccurs: "1"
   # Charge Type

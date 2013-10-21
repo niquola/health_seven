@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RDF < Segment
+class RDF < ::HealthSeven::Segment
   # Number of Columns per Row
   attribute :number_of_columns_per_row, NM, minOccurs: "1", maxOccurs: "1"
   # Column Description

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class EI < DataType
+class EI < ::HealthSeven::DataType
   # Entity Identifier
   attribute :entity_identifier, ST, minOccurs: "0", maxOccurs: "1"
   # Namespace ID

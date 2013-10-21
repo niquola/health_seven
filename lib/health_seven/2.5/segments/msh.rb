@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class MSH < Segment
+class MSH < ::HealthSeven::Segment
   # Field Separator
   attribute :field_separator, ST, minOccurs: "1", maxOccurs: "1"
   # Encoding Characters

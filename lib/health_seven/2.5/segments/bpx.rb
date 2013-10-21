@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class BPX < Segment
+class BPX < ::HealthSeven::Segment
   # Set ID - BPX
   attribute :set_id_bpx, SI, minOccurs: "1", maxOccurs: "1"
   # BP Dispense Status

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class EQU < Segment
+class EQU < ::HealthSeven::Segment
   # Equipment Instance Identifier
   attribute :equipment_instance_identifier, EI, minOccurs: "1", maxOccurs: "1"
   # Event Date/Time

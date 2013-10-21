@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class SPS < DataType
+class SPS < ::HealthSeven::DataType
   # Specimen Source Name or Code
   attribute :specimen_source_name_or_code, CWE, minOccurs: "0", maxOccurs: "1"
   # Additives

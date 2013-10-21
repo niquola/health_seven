@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class QRF < Segment
+class QRF < ::HealthSeven::Segment
   # Where Subject Filter
   attribute :where_subject_filters, Array[ST], minOccurs: "1", maxOccurs: "unbounded"
   # When Data Start Date/Time

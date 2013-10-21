@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PD1 < Segment
+class PD1 < ::HealthSeven::Segment
   # Living Dependency
   attribute :living_dependencies, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
   # Living Arrangement

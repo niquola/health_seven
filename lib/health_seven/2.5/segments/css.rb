@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CSS < Segment
+class CSS < ::HealthSeven::Segment
   # Study Scheduled Time Point
   attribute :study_scheduled_time_point, CE, minOccurs: "1", maxOccurs: "1"
   # Study Scheduled Patient Time Point

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ACC < Segment
+class ACC < ::HealthSeven::Segment
   # Accident Date/Time
   attribute :accident_date_time, TS, minOccurs: "0", maxOccurs: "1"
   # Accident Code

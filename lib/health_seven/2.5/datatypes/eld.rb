@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ELD < DataType
+class ELD < ::HealthSeven::DataType
   # Segment ID
   attribute :segment_id, ST, minOccurs: "0", maxOccurs: "1"
   # Segment Sequence

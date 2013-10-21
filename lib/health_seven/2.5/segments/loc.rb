@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class LOC < Segment
+class LOC < ::HealthSeven::Segment
   # Primary Key Value - LOC
   attribute :primary_key_value_loc, PL, minOccurs: "1", maxOccurs: "1"
   # Location Description

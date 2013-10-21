@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class GP2 < Segment
+class GP2 < ::HealthSeven::Segment
   # Revenue Code
   attribute :revenue_code, IS, minOccurs: "0", maxOccurs: "1"
   # Number of Service Units

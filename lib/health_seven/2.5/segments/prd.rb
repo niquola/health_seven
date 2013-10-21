@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PRD < Segment
+class PRD < ::HealthSeven::Segment
   # Provider Role
   attribute :provider_roles, Array[CE], minOccurs: "1", maxOccurs: "unbounded"
   # Provider Name

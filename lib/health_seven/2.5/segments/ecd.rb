@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ECD < Segment
+class ECD < ::HealthSeven::Segment
   # Reference Command Number
   attribute :reference_command_number, NM, minOccurs: "1", maxOccurs: "1"
   # Remote Control Command

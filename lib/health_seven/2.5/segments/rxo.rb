@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RXO < Segment
+class RXO < ::HealthSeven::Segment
   # Requested Give Code
   attribute :requested_give_code, CE, minOccurs: "0", maxOccurs: "1"
   # Requested Give Amount - Minimum

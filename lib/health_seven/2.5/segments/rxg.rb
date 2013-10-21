@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RXG < Segment
+class RXG < ::HealthSeven::Segment
   # Give Sub-ID Counter
   attribute :give_sub_id_counter, NM, minOccurs: "1", maxOccurs: "1"
   # Dispense Sub-ID Counter

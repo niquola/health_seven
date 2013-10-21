@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RXR < Segment
+class RXR < ::HealthSeven::Segment
   # Route
   attribute :route, CE, minOccurs: "1", maxOccurs: "1"
   # Administration Site

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RMI < Segment
+class RMI < ::HealthSeven::Segment
   # Risk Management Incident Code
   attribute :risk_management_incident_code, CE, minOccurs: "0", maxOccurs: "1"
   # Date/Time Incident

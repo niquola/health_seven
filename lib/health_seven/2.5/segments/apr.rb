@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class APR < Segment
+class APR < ::HealthSeven::Segment
   # Time Selection Criteria
   attribute :time_selection_criteria, Array[SCV], minOccurs: "0", maxOccurs: "unbounded"
   # Resource Selection Criteria

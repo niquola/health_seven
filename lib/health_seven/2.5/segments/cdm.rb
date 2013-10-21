@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CDM < Segment
+class CDM < ::HealthSeven::Segment
   # Primary Key Value - CDM
   attribute :primary_key_value_cdm, CE, minOccurs: "1", maxOccurs: "1"
   # Charge Code Alias

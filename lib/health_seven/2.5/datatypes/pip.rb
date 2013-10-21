@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PIP < DataType
+class PIP < ::HealthSeven::DataType
   # Privilege
   attribute :privilege, CE, minOccurs: "1", maxOccurs: "1"
   # Privilege Class

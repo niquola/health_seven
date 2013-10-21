@@ -1,13 +1,13 @@
 module HealthSeven::V2_5
-class MDM_T01 < Message
+class MDM_T01 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
   attribute :evn, EVN, minOccurs: "1", maxOccurs: "1"
   attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
   attribute :pv1, PV1, minOccurs: "1", maxOccurs: "1"
-class COMMON_ORDER < SegmentGroup
+class COMMON_ORDER < ::HealthSeven::SegmentGroup
   attribute :orc, ORC, minOccurs: "1", maxOccurs: "1"
-class TIMING < SegmentGroup
+class TIMING < ::HealthSeven::SegmentGroup
   attribute :tq1, TQ1, minOccurs: "1", maxOccurs: "1"
   attribute :tq2s, Array[TQ2], minOccurs: "0", maxOccurs: "unbounded"
 end

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class VAR < Segment
+class VAR < ::HealthSeven::Segment
   # Variance Instance ID
   attribute :variance_instance_id, EI, minOccurs: "1", maxOccurs: "1"
   # Documented Date/Time

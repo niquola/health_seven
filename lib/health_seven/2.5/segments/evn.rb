@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class EVN < Segment
+class EVN < ::HealthSeven::Segment
   # Event Type Code
   attribute :event_type_code, ID, minOccurs: "0", maxOccurs: "1"
   # Recorded Date/Time

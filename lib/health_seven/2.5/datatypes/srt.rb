@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class SRT < DataType
+class SRT < ::HealthSeven::DataType
   # Sort-by Field
   attribute :sort_by_field, ST, minOccurs: "1", maxOccurs: "1"
   # Sequencing

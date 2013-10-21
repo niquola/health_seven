@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RXE < Segment
+class RXE < ::HealthSeven::Segment
   # Quantity/Timing
   attribute :quantity_timing, TQ, minOccurs: "0", maxOccurs: "1"
   # Give Code

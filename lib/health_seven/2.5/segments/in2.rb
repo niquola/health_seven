@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class IN2 < Segment
+class IN2 < ::HealthSeven::Segment
   # Insured's Employee ID
   attribute :insured_s_employee_ids, Array[CX], minOccurs: "0", maxOccurs: "unbounded"
   # Insured's Social Security Number

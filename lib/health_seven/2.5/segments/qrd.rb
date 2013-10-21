@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class QRD < Segment
+class QRD < ::HealthSeven::Segment
   # Query Date/Time
   attribute :query_date_time, TS, minOccurs: "1", maxOccurs: "1"
   # Query Format Code

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CNS < Segment
+class CNS < ::HealthSeven::Segment
   # Starting Notification Reference Number
   attribute :starting_notification_reference_number, NM, minOccurs: "0", maxOccurs: "1"
   # Ending Notification Reference Number

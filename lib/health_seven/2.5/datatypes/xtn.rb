@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class XTN < DataType
+class XTN < ::HealthSeven::DataType
   # Telephone Number
   attribute :telephone_number, ST, minOccurs: "0", maxOccurs: "1"
   # Telecommunication Use Code

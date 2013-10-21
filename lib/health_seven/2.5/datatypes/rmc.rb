@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RMC < DataType
+class RMC < ::HealthSeven::DataType
   # Room Type
   attribute :room_type, IS, minOccurs: "1", maxOccurs: "1"
   # Amount Type

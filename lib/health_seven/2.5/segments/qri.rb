@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class QRI < Segment
+class QRI < ::HealthSeven::Segment
   # Candidate Confidence
   attribute :candidate_confidence, NM, minOccurs: "0", maxOccurs: "1"
   # Match Reason Code

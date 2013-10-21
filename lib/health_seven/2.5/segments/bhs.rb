@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class BHS < Segment
+class BHS < ::HealthSeven::Segment
   # Batch Field Separator
   attribute :batch_field_separator, ST, minOccurs: "1", maxOccurs: "1"
   # Batch Encoding Characters

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RFR < DataType
+class RFR < ::HealthSeven::DataType
   # Numeric Range
   attribute :numeric_range, NR, minOccurs: "1", maxOccurs: "1"
   # Administrative Sex

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class OM3 < Segment
+class OM3 < ::HealthSeven::Segment
   # Sequence Number - Test/Observation Master File
   attribute :sequence_number_test_observation_master_file, NM, minOccurs: "0", maxOccurs: "1"
   # Preferred Coding System

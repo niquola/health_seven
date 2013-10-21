@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PRC < Segment
+class PRC < ::HealthSeven::Segment
   # Primary Key Value - PRC
   attribute :primary_key_value_prc, CE, minOccurs: "1", maxOccurs: "1"
   # Facility ID - PRC

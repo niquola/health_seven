@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class QPD < Segment
+class QPD < ::HealthSeven::Segment
   # Message Query Name
   attribute :message_query_name, CE, minOccurs: "1", maxOccurs: "1"
   # Query Tag

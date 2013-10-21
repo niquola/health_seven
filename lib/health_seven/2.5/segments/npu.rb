@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class NPU < Segment
+class NPU < ::HealthSeven::Segment
   # Bed Location
   attribute :bed_location, PL, minOccurs: "1", maxOccurs: "1"
   # Bed Status

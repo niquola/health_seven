@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class NSC < Segment
+class NSC < ::HealthSeven::Segment
   # Application Change Type
   attribute :application_change_type, IS, minOccurs: "1", maxOccurs: "1"
   # Current CPU

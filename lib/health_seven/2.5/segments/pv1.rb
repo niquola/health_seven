@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PV1 < Segment
+class PV1 < ::HealthSeven::Segment
   # Set ID - PV1
   attribute :set_id_pv1, SI, minOccurs: "0", maxOccurs: "1"
   # Patient Class

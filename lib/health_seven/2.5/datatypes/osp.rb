@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class OSP < DataType
+class OSP < ::HealthSeven::DataType
   # Occurrence Span Code
   attribute :occurrence_span_code, CNE, minOccurs: "1", maxOccurs: "1"
   # Occurrence Span Start Date

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class LAN < Segment
+class LAN < ::HealthSeven::Segment
   # Set ID - LAN
   attribute :set_id_lan, SI, minOccurs: "1", maxOccurs: "1"
   # Language Code

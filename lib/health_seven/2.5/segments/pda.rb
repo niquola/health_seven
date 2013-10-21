@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PDA < Segment
+class PDA < ::HealthSeven::Segment
   # Death Cause Code
   attribute :death_cause_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Death Location

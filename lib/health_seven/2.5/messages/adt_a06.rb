@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ADT_A06 < Message
+class ADT_A06 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
   attribute :evn, EVN, minOccurs: "1", maxOccurs: "1"
@@ -16,13 +16,13 @@ class ADT_A06 < Message
   attribute :al1s, Array[AL1], minOccurs: "0", maxOccurs: "unbounded"
   attribute :dg1s, Array[DG1], minOccurs: "0", maxOccurs: "unbounded"
   attribute :drg, DRG, minOccurs: "0", maxOccurs: "1"
-class PROCEDURE < SegmentGroup
+class PROCEDURE < ::HealthSeven::SegmentGroup
   attribute :pr1, PR1, minOccurs: "1", maxOccurs: "1"
   attribute :rols, Array[ROL], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :procedures, Array[PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
   attribute :gt1s, Array[GT1], minOccurs: "0", maxOccurs: "unbounded"
-class INSURANCE < SegmentGroup
+class INSURANCE < ::HealthSeven::SegmentGroup
   attribute :in1, IN1, minOccurs: "1", maxOccurs: "1"
   attribute :in2, IN2, minOccurs: "0", maxOccurs: "1"
   attribute :in3s, Array[IN3], minOccurs: "0", maxOccurs: "unbounded"

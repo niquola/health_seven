@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CWE < DataType
+class CWE < ::HealthSeven::DataType
   # Identifier
   attribute :identifier, ST, minOccurs: "0", maxOccurs: "1"
   # Text

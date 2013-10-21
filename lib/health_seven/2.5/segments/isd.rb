@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ISD < Segment
+class ISD < ::HealthSeven::Segment
   # Reference Interaction Number (unique identifier)
   attribute :reference_interaction_number_unique_identifier, NM, minOccurs: "1", maxOccurs: "1"
   # Interaction Type Identifier

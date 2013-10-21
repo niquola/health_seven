@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class MFI < Segment
+class MFI < ::HealthSeven::Segment
   # Master File Identifier
   attribute :master_file_identifier, CE, minOccurs: "1", maxOccurs: "1"
   # Master File Application Identifier

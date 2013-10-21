@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class AIS < Segment
+class AIS < ::HealthSeven::Segment
   # Set ID - AIS
   attribute :set_id_ais, SI, minOccurs: "1", maxOccurs: "1"
   # Segment Action Code

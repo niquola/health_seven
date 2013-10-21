@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CER < Segment
+class CER < ::HealthSeven::Segment
   # Set ID - CER
   attribute :set_id_cer, SI, minOccurs: "1", maxOccurs: "1"
   # Serial Number

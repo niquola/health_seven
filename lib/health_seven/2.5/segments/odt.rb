@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ODT < Segment
+class ODT < ::HealthSeven::Segment
   # Tray Type
   attribute :tray_type, CE, minOccurs: "1", maxOccurs: "1"
   # Service Period

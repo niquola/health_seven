@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RCD < DataType
+class RCD < ::HealthSeven::DataType
   # Segment Field Name
   attribute :segment_field_name, ST, minOccurs: "0", maxOccurs: "1"
   # HL7 Data Type

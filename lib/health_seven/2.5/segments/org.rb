@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ORG < Segment
+class ORG < ::HealthSeven::Segment
   # Set ID - ORG
   attribute :set_id_org, SI, minOccurs: "1", maxOccurs: "1"
   # Organization Unit Code

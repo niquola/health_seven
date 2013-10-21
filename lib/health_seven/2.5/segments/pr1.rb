@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PR1 < Segment
+class PR1 < ::HealthSeven::Segment
   # Set ID - PR1
   attribute :set_id_pr1, SI, minOccurs: "1", maxOccurs: "1"
   # Procedure Coding Method

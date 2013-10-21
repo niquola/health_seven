@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class URS < Segment
+class URS < ::HealthSeven::Segment
   # R/U Where Subject Definition
   attribute :r_u_where_subject_definitions, Array[ST], minOccurs: "1", maxOccurs: "unbounded"
   # R/U When Data Start Date/Time

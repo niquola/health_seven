@@ -1,6 +1,6 @@
 require 'virtus'
 
-module HealthSeven::V2_5
+module HealthSeven
   class DataType
     include Virtus.model
 
@@ -21,7 +21,7 @@ module HealthSeven::V2_5
                             attr.primitive.build(field, '&')
                           end
                          elsif attr.options[:minOccurs].to_i != 0
-                           fail "Missing required subcomponent #{attr.name} #{attr.primitive} in #{self.inspect} '#{string}'"
+                           puts "WARN: Missing required subcomponent #{attr.name} #{attr.primitive} in #{self.inspect} '#{string}'"
                          end
       end
       self.new(acc)

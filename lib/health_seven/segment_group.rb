@@ -1,6 +1,6 @@
 require 'virtus'
 
-module HealthSeven::V2_5
+module HealthSeven
   class SegmentGroup
     include Virtus.model
   end

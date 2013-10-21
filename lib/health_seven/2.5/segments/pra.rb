@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PRA < Segment
+class PRA < ::HealthSeven::Segment
   # Primary Key Value - PRA
   attribute :primary_key_value_pra, CE, minOccurs: "0", maxOccurs: "1"
   # Practitioner Group

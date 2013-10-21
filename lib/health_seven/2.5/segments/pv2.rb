@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PV2 < Segment
+class PV2 < ::HealthSeven::Segment
   # Prior Pending Location
   attribute :prior_pending_location, PL, minOccurs: "0", maxOccurs: "1"
   # Accommodation Code

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class AUI < DataType
+class AUI < ::HealthSeven::DataType
   # Authorization Number
   attribute :authorization_number, ST, minOccurs: "0", maxOccurs: "1"
   # Date

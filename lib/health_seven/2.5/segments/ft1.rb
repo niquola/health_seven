@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class FT1 < Segment
+class FT1 < ::HealthSeven::Segment
   # Set ID - FT1
   attribute :set_id_ft1, SI, minOccurs: "0", maxOccurs: "1"
   # Transaction ID

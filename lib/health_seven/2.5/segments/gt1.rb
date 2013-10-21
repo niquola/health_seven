@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class GT1 < Segment
+class GT1 < ::HealthSeven::Segment
   # Set ID - GT1
   attribute :set_id_gt1, SI, minOccurs: "1", maxOccurs: "1"
   # Guarantor Number

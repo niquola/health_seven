@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class BPO < Segment
+class BPO < ::HealthSeven::Segment
   # Set ID - BPO
   attribute :set_id_bpo, SI, minOccurs: "1", maxOccurs: "1"
   # BP Universal Service ID

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class OM1 < Segment
+class OM1 < ::HealthSeven::Segment
   # Sequence Number - Test/Observation Master File
   attribute :sequence_number_test_observation_master_file, NM, minOccurs: "1", maxOccurs: "1"
   # Producer's Service/Test/Observation ID

@@ -1,30 +1,30 @@
 module HealthSeven::V2_5
-class SQM_S25 < Message
+class SQM_S25 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :qrd, QRD, minOccurs: "1", maxOccurs: "1"
   attribute :qrf, QRF, minOccurs: "0", maxOccurs: "1"
-class REQUEST < SegmentGroup
+class REQUEST < ::HealthSeven::SegmentGroup
   attribute :arq, ARQ, minOccurs: "1", maxOccurs: "1"
   attribute :apr, APR, minOccurs: "0", maxOccurs: "1"
   attribute :pid, PID, minOccurs: "0", maxOccurs: "1"
-class RESOURCES < SegmentGroup
+class RESOURCES < ::HealthSeven::SegmentGroup
   attribute :rgs, RGS, minOccurs: "1", maxOccurs: "1"
-class SERVICE < SegmentGroup
+class SERVICE < ::HealthSeven::SegmentGroup
   attribute :ais, AIS, minOccurs: "1", maxOccurs: "1"
   attribute :apr, APR, minOccurs: "0", maxOccurs: "1"
 end
   attribute :services, Array[SERVICE], minOccurs: "0", maxOccurs: "unbounded"
-class GENERAL_RESOURCE < SegmentGroup
+class GENERAL_RESOURCE < ::HealthSeven::SegmentGroup
   attribute :aig, AIG, minOccurs: "1", maxOccurs: "1"
   attribute :apr, APR, minOccurs: "0", maxOccurs: "1"
 end
   attribute :general_resources, Array[GENERAL_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
-class PERSONNEL_RESOURCE < SegmentGroup
+class PERSONNEL_RESOURCE < ::HealthSeven::SegmentGroup
   attribute :aip, AIP, minOccurs: "1", maxOccurs: "1"
   attribute :apr, APR, minOccurs: "0", maxOccurs: "1"
 end
   attribute :personnel_resources, Array[PERSONNEL_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
-class LOCATION_RESOURCE < SegmentGroup
+class LOCATION_RESOURCE < ::HealthSeven::SegmentGroup
   attribute :ail, AIL, minOccurs: "1", maxOccurs: "1"
   attribute :apr, APR, minOccurs: "0", maxOccurs: "1"
 end

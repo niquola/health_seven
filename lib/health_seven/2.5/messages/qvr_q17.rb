@@ -1,9 +1,9 @@
 module HealthSeven::V2_5
-class QVR_Q17 < Message
+class QVR_Q17 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
   attribute :qpd, QPD, minOccurs: "1", maxOccurs: "1"
-class QBP < SegmentGroup
+class QBP < ::HealthSeven::SegmentGroup
   attribute :anyhl7segment, AnyHL7Segment, minOccurs: "0", maxOccurs: "1"
 end
   attribute :qbp, QBP, minOccurs: "0", maxOccurs: "1"

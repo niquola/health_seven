@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class IPC < Segment
+class IPC < ::HealthSeven::Segment
   # Accession Identifier
   attribute :accession_identifier, EI, minOccurs: "1", maxOccurs: "1"
   # Requested Procedure ID

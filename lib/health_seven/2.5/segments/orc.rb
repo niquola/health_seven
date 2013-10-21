@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ORC < Segment
+class ORC < ::HealthSeven::Segment
   # Order Control
   attribute :order_control, ID, minOccurs: "1", maxOccurs: "1"
   # Placer Order Number

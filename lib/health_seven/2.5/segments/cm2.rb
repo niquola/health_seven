@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CM2 < Segment
+class CM2 < ::HealthSeven::Segment
   # Set ID- CM2
   attribute :set_id_cm2, SI, minOccurs: "0", maxOccurs: "1"
   # Scheduled Time Point

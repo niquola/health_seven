@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CP < DataType
+class CP < ::HealthSeven::DataType
   # Price
   attribute :price, MO, minOccurs: "1", maxOccurs: "1"
   # Price Type

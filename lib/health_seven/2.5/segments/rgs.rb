@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RGS < Segment
+class RGS < ::HealthSeven::Segment
   # Set ID - RGS
   attribute :set_id_rgs, SI, minOccurs: "1", maxOccurs: "1"
   # Segment Action Code

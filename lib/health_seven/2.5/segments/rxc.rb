@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RXC < Segment
+class RXC < ::HealthSeven::Segment
   # RX Component Type
   attribute :rx_component_type, ID, minOccurs: "1", maxOccurs: "1"
   # Component Code

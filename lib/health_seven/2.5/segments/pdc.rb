@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PDC < Segment
+class PDC < ::HealthSeven::Segment
   # Manufacturer/Distributor
   attribute :manufacturer_distributors, Array[XON], minOccurs: "1", maxOccurs: "unbounded"
   # Country

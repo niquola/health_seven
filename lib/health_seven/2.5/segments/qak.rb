@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class QAK < Segment
+class QAK < ::HealthSeven::Segment
   # Query Tag
   attribute :query_tag, ST, minOccurs: "0", maxOccurs: "1"
   # Query Response Status

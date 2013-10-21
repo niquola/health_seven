@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class DG1 < Segment
+class DG1 < ::HealthSeven::Segment
   # Set ID - DG1
   attribute :set_id_dg1, SI, minOccurs: "1", maxOccurs: "1"
   # Diagnosis Coding Method

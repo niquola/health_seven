@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class NK1 < Segment
+class NK1 < ::HealthSeven::Segment
   # Set ID - NK1
   attribute :set_id_nk1, SI, minOccurs: "1", maxOccurs: "1"
   # Name

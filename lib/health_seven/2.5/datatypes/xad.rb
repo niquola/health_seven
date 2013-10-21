@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class XAD < DataType
+class XAD < ::HealthSeven::DataType
   # Street Address
   attribute :street_address, SAD, minOccurs: "0", maxOccurs: "1"
   # Other Designation

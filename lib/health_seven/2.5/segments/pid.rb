@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PID < Segment
+class PID < ::HealthSeven::Segment
   # Set ID - PID
   attribute :set_id_pid, SI, minOccurs: "0", maxOccurs: "1"
   # Patient ID

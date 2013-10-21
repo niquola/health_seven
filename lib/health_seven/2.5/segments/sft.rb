@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class SFT < Segment
+class SFT < ::HealthSeven::Segment
   # Software Vendor Organization
   attribute :software_vendor_organization, XON, minOccurs: "1", maxOccurs: "1"
   # Software Certified Version or Release Number

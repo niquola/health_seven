@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class LA1 < DataType
+class LA1 < ::HealthSeven::DataType
   # Point of Care
   attribute :point_of_care, IS, minOccurs: "0", maxOccurs: "1"
   # Room

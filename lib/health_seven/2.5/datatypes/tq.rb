@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class TQ < DataType
+class TQ < ::HealthSeven::DataType
   # Quantity
   attribute :quantity, CQ, minOccurs: "0", maxOccurs: "1"
   # Interval

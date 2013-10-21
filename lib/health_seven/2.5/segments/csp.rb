@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CSP < Segment
+class CSP < ::HealthSeven::Segment
   # Study Phase Identifier
   attribute :study_phase_identifier, CE, minOccurs: "1", maxOccurs: "1"
   # Date/time Study Phase Began

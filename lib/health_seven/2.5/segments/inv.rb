@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class INV < Segment
+class INV < ::HealthSeven::Segment
   # Substance Identifier
   attribute :substance_identifier, CE, minOccurs: "1", maxOccurs: "1"
   # Substance Status

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class MFR_M01 < Message
+class MFR_M01 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
   attribute :msa, MSA, minOccurs: "1", maxOccurs: "1"
@@ -8,7 +8,7 @@ class MFR_M01 < Message
   attribute :qrd, QRD, minOccurs: "1", maxOccurs: "1"
   attribute :qrf, QRF, minOccurs: "0", maxOccurs: "1"
   attribute :mfi, MFI, minOccurs: "1", maxOccurs: "1"
-class MF_QUERY < SegmentGroup
+class MF_QUERY < ::HealthSeven::SegmentGroup
   attribute :mfe, MFE, minOccurs: "1", maxOccurs: "1"
   attribute :anyhl7segment, AnyHL7Segment, minOccurs: "0", maxOccurs: "1"
 end

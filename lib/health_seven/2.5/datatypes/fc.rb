@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class FC < DataType
+class FC < ::HealthSeven::DataType
   # Financial Class Code
   attribute :financial_class_code, IS, minOccurs: "1", maxOccurs: "1"
   # Effective Date

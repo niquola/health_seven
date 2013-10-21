@@ -1,38 +1,38 @@
 module HealthSeven::V2_5
-class SQR_S25 < Message
+class SQR_S25 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :msa, MSA, minOccurs: "1", maxOccurs: "1"
   attribute :errs, Array[ERR], minOccurs: "0", maxOccurs: "unbounded"
   attribute :qak, QAK, minOccurs: "1", maxOccurs: "1"
-class SCHEDULE < SegmentGroup
+class SCHEDULE < ::HealthSeven::SegmentGroup
   attribute :sch, SCH, minOccurs: "1", maxOccurs: "1"
   attribute :tq1s, Array[TQ1], minOccurs: "0", maxOccurs: "unbounded"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
-class PATIENT < SegmentGroup
+class PATIENT < ::HealthSeven::SegmentGroup
   attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
   attribute :pv1, PV1, minOccurs: "0", maxOccurs: "1"
   attribute :pv2, PV2, minOccurs: "0", maxOccurs: "1"
   attribute :dg1, DG1, minOccurs: "0", maxOccurs: "1"
 end
   attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
-class RESOURCES < SegmentGroup
+class RESOURCES < ::HealthSeven::SegmentGroup
   attribute :rgs, RGS, minOccurs: "1", maxOccurs: "1"
-class SERVICE < SegmentGroup
+class SERVICE < ::HealthSeven::SegmentGroup
   attribute :ais, AIS, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :services, Array[SERVICE], minOccurs: "0", maxOccurs: "unbounded"
-class GENERAL_RESOURCE < SegmentGroup
+class GENERAL_RESOURCE < ::HealthSeven::SegmentGroup
   attribute :aig, AIG, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :general_resources, Array[GENERAL_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
-class PERSONNEL_RESOURCE < SegmentGroup
+class PERSONNEL_RESOURCE < ::HealthSeven::SegmentGroup
   attribute :aip, AIP, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :personnel_resources, Array[PERSONNEL_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
-class LOCATION_RESOURCE < SegmentGroup
+class LOCATION_RESOURCE < ::HealthSeven::SegmentGroup
   attribute :ail, AIL, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end

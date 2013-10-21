@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class XON < DataType
+class XON < ::HealthSeven::DataType
   # Organization Name
   attribute :organization_name, ST, minOccurs: "0", maxOccurs: "1"
   # Organization Name Type Code

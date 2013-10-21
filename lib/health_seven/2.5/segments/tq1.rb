@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class TQ1 < Segment
+class TQ1 < ::HealthSeven::Segment
   # Set ID - TQ1
   attribute :set_id_tq1, SI, minOccurs: "0", maxOccurs: "1"
   # Quantity

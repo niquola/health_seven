@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CM0 < Segment
+class CM0 < ::HealthSeven::Segment
   # Set ID - CM0
   attribute :set_id_cm0, SI, minOccurs: "0", maxOccurs: "1"
   # Sponsor Study ID

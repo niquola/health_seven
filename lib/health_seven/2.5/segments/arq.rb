@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ARQ < Segment
+class ARQ < ::HealthSeven::Segment
   # Placer Appointment ID
   attribute :placer_appointment_id, EI, minOccurs: "1", maxOccurs: "1"
   # Filler Appointment ID

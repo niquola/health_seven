@@ -27,7 +27,7 @@ module Gen
 
     messages_db(version).each do |name, message|
       class_name = ref(message)
-      code = gklass(module_name(version), class_name, 'Message') do
+      code = gklass(module_name(version), class_name, '::HealthSeven::Message') do
         generate_class_recursively(db, find_type_by_el(db, message))
       end
       fwrite(base_path(version, 'messages', "#{class_name.underscore}.rb"), code)
@@ -47,7 +47,7 @@ module Gen
     complex_types = datatypes_db(version).select { |n, t| complex_type?(t) && root_datatype?(n)}
     complex_types.each do |name, tp|
       class_name = name.camelize
-      code = gklass(module_name(version), class_name, 'DataType') do
+      code = gklass(module_name(version), class_name, '::HealthSeven::DataType') do
         generate_class_body(db, tp)
       end
       fwrite(base_path(version, 'datatypes', "#{class_name.underscore}.rb"), code)
@@ -66,7 +66,7 @@ module Gen
 
     segments_db(version).each do |name, el|
       class_name = name.camelize
-      code = gklass(module_name(version), class_name, 'Segment') do
+      code = gklass(module_name(version), class_name, '::HealthSeven::Segment') do
         tp = find_type(db, type(el))
         generate_class_body(db, tp)
       end
@@ -98,7 +98,7 @@ module Gen
       elsif ref(el_ref) =~ /\.\w+$/
         type_class_name = ref(el_ref).split('.').last
         [
-          gklass(nil, type_class_name, 'SegmentGroup') do
+          gklass(nil, type_class_name, '::HealthSeven::SegmentGroup') do
             generate_class_recursively(db, find_type_by_el(db, el_ref))
           end,
           generate_attribute(type_class_name.underscore, type_class_name,

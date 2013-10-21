@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class LCH < Segment
+class LCH < ::HealthSeven::Segment
   # Primary Key Value - LCH
   attribute :primary_key_value_lch, PL, minOccurs: "1", maxOccurs: "1"
   # Segment Action Code

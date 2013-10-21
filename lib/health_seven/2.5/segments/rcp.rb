@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RCP < Segment
+class RCP < ::HealthSeven::Segment
   # Query Priority
   attribute :query_priority, ID, minOccurs: "0", maxOccurs: "1"
   # Quantity Limited Request

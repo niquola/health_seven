@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class TCC < Segment
+class TCC < ::HealthSeven::Segment
   # Universal Service Identifier
   attribute :universal_service_identifier, CE, minOccurs: "1", maxOccurs: "1"
   # Test Application Identifier

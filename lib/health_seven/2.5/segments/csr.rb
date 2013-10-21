@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CSR < Segment
+class CSR < ::HealthSeven::Segment
   # Sponsor Study ID
   attribute :sponsor_study_id, EI, minOccurs: "1", maxOccurs: "1"
   # Alternate Study ID

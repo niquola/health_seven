@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class AL1 < Segment
+class AL1 < ::HealthSeven::Segment
   # Set ID - AL1
   attribute :set_id_al1, SI, minOccurs: "1", maxOccurs: "1"
   # Allergen Type Code

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class AUT < Segment
+class AUT < ::HealthSeven::Segment
   # Authorizing Payor, Plan ID
   attribute :authorizing_payor_plan_id, CE, minOccurs: "0", maxOccurs: "1"
   # Authorizing Payor, Company ID

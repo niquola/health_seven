@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CD < DataType
+class CD < ::HealthSeven::DataType
   # Channel Identifier
   attribute :channel_identifier, WVI, minOccurs: "0", maxOccurs: "1"
   # Waveform Source

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class FAC < Segment
+class FAC < ::HealthSeven::Segment
   # Facility ID-FAC
   attribute :facility_id_fac, EI, minOccurs: "1", maxOccurs: "1"
   # Facility Type

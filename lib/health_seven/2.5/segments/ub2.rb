@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class UB2 < Segment
+class UB2 < ::HealthSeven::Segment
   # Set ID - UB2
   attribute :set_id_ub2, SI, minOccurs: "0", maxOccurs: "1"
   # Co-Insurance Days (9)

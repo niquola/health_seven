@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class DLT < DataType
+class DLT < ::HealthSeven::DataType
   # Normal Range
   attribute :normal_range, NR, minOccurs: "0", maxOccurs: "1"
   # Numeric Threshold

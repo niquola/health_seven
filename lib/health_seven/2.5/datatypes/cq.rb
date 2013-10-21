@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CQ < DataType
+class CQ < ::HealthSeven::DataType
   # Quantity
   attribute :quantity, NM, minOccurs: "0", maxOccurs: "1"
   # Units

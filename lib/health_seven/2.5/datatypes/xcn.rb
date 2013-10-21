@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class XCN < DataType
+class XCN < ::HealthSeven::DataType
   # ID Number
   attribute :id_number, ST, minOccurs: "0", maxOccurs: "1"
   # Family Name

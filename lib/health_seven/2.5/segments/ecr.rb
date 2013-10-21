@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ECR < Segment
+class ECR < ::HealthSeven::Segment
   # Command Response
   attribute :command_response, CE, minOccurs: "1", maxOccurs: "1"
   # Date/Time Completed

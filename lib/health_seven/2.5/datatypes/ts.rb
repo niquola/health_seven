@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class TS < DataType
+class TS < ::HealthSeven::DataType
   # Time
   attribute :time, DTM, minOccurs: "1", maxOccurs: "1"
   # Degree of Precision

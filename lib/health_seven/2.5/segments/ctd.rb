@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CTD < Segment
+class CTD < ::HealthSeven::Segment
   # Contact Role
   attribute :contact_roles, Array[CE], minOccurs: "1", maxOccurs: "unbounded"
   # Contact Name

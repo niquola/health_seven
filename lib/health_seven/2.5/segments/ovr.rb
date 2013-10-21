@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class OVR < Segment
+class OVR < ::HealthSeven::Segment
   # Business Rule Override Type
   attribute :business_rule_override_type, CWE, minOccurs: "0", maxOccurs: "1"
   # Business Rule Override Code

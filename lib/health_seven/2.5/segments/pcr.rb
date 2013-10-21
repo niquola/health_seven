@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PCR < Segment
+class PCR < ::HealthSeven::Segment
   # Implicated Product
   attribute :implicated_product, CE, minOccurs: "1", maxOccurs: "1"
   # Generic Product

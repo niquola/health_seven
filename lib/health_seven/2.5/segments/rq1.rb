@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class RQ1 < Segment
+class RQ1 < ::HealthSeven::Segment
   # Anticipated Price
   attribute :anticipated_price, ST, minOccurs: "0", maxOccurs: "1"
   # Manufacturer Identifier

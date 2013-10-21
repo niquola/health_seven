@@ -1,8 +1,8 @@
 module HealthSeven::V2_5
-class RQP_I04 < Message
+class RQP_I04 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
-class PROVIDER < SegmentGroup
+class PROVIDER < ::HealthSeven::SegmentGroup
   attribute :prd, PRD, minOccurs: "1", maxOccurs: "1"
   attribute :ctds, Array[CTD], minOccurs: "0", maxOccurs: "unbounded"
 end

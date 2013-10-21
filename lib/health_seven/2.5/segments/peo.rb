@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PEO < Segment
+class PEO < ::HealthSeven::Segment
   # Event Identifiers Used
   attribute :event_identifiers_useds, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
   # Event Symptom/Diagnosis Code

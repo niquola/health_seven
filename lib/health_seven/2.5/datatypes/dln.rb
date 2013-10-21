@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class DLN < DataType
+class DLN < ::HealthSeven::DataType
   # License Number
   attribute :license_number, ST, minOccurs: "1", maxOccurs: "1"
   # Issuing State, Province, Country

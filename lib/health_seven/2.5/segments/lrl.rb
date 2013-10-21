@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class LRL < Segment
+class LRL < ::HealthSeven::Segment
   # Primary Key Value - LRL
   attribute :primary_key_value_lrl, PL, minOccurs: "1", maxOccurs: "1"
   # Segment Action Code

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CF < DataType
+class CF < ::HealthSeven::DataType
   # Identifier
   attribute :identifier, ST, minOccurs: "0", maxOccurs: "1"
   # Formatted Text

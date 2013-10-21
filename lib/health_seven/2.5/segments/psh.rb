@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PSH < Segment
+class PSH < ::HealthSeven::Segment
   # Report Type
   attribute :report_type, ST, minOccurs: "1", maxOccurs: "1"
   # Report Form Identifier

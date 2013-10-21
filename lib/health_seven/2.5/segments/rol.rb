@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ROL < Segment
+class ROL < ::HealthSeven::Segment
   # Role Instance ID
   attribute :role_instance_id, EI, minOccurs: "0", maxOccurs: "1"
   # Action Code

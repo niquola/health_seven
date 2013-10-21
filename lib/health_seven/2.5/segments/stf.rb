@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class STF < Segment
+class STF < ::HealthSeven::Segment
   # Primary Key Value - STF
   attribute :primary_key_value_stf, CE, minOccurs: "0", maxOccurs: "1"
   # Staff Identifier List

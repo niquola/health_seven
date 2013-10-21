@@ -1,27 +1,27 @@
 module HealthSeven::V2_5
-class ORF_R04 < Message
+class ORF_R04 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
   attribute :msa, MSA, minOccurs: "1", maxOccurs: "1"
   attribute :qrd, QRD, minOccurs: "1", maxOccurs: "1"
   attribute :qrf, QRF, minOccurs: "0", maxOccurs: "1"
-class QUERY_RESPONSE < SegmentGroup
-class PATIENT < SegmentGroup
+class QUERY_RESPONSE < ::HealthSeven::SegmentGroup
+class PATIENT < ::HealthSeven::SegmentGroup
   attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
-class ORDER < SegmentGroup
+class ORDER < ::HealthSeven::SegmentGroup
   attribute :orc, ORC, minOccurs: "0", maxOccurs: "1"
   attribute :obr, OBR, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
-class TIMING_QTY < SegmentGroup
+class TIMING_QTY < ::HealthSeven::SegmentGroup
   attribute :tq1, TQ1, minOccurs: "1", maxOccurs: "1"
   attribute :tq2s, Array[TQ2], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :timing_qties, Array[TIMING_QTY], minOccurs: "0", maxOccurs: "unbounded"
   attribute :ctd, CTD, minOccurs: "0", maxOccurs: "1"
-class OBSERVATION < SegmentGroup
+class OBSERVATION < ::HealthSeven::SegmentGroup
   attribute :obx, OBX, minOccurs: "0", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end

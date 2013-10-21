@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class DSP < Segment
+class DSP < ::HealthSeven::Segment
   # Set ID - DSP
   attribute :set_id_dsp, SI, minOccurs: "0", maxOccurs: "1"
   # Display Level

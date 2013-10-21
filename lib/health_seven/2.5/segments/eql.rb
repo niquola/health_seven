@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class EQL < Segment
+class EQL < ::HealthSeven::Segment
   # Query Tag
   attribute :query_tag, ST, minOccurs: "0", maxOccurs: "1"
   # Query/Response Format Code

@@ -1,18 +1,18 @@
 module HealthSeven::V2_5
-class ORR_O02 < Message
+class ORR_O02 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :msa, MSA, minOccurs: "1", maxOccurs: "1"
   attribute :errs, Array[ERR], minOccurs: "0", maxOccurs: "unbounded"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
-class RESPONSE < SegmentGroup
-class PATIENT < SegmentGroup
+class RESPONSE < ::HealthSeven::SegmentGroup
+class PATIENT < ::HealthSeven::SegmentGroup
   attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
-class ORDER < SegmentGroup
+class ORDER < ::HealthSeven::SegmentGroup
   attribute :orc, ORC, minOccurs: "1", maxOccurs: "1"
-class CHOICE < SegmentGroup
+class CHOICE < ::HealthSeven::SegmentGroup
 
 end
   attribute :choice, CHOICE, minOccurs: "1", maxOccurs: "1"

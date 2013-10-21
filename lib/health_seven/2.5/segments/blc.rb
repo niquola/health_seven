@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class BLC < Segment
+class BLC < ::HealthSeven::Segment
   # Blood Product Code
   attribute :blood_product_code, CE, minOccurs: "0", maxOccurs: "1"
   # Blood Amount

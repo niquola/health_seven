@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class NDL < DataType
+class NDL < ::HealthSeven::DataType
   # Name
   attribute :name, CNN, minOccurs: "0", maxOccurs: "1"
   # Start Date/time

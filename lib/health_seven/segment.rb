@@ -1,13 +1,13 @@
 require 'virtus'
 
-module HealthSeven::V2_5
+module HealthSeven
   class Segment
     include Virtus.model
 
-    def self.parse(content)
+    def self.parse(version, content)
       fields = content.split('|')
-      "HealthSeven::V2_5::#{fields.shift}".constantize
-        .build(fields)
+      "HealthSeven::V#{version}::#{fields.shift}".constantize
+        .build(version, fields)
     end
 
     def self.build_field(type, content)
@@ -15,9 +15,11 @@ module HealthSeven::V2_5
       type.build(content)
     end
 
-    def self.build(fields)
+    def self.build(version, fields)
       acc = {}
-      self.attribute_set.each_with_index do |attr, index|
+      attrs = self.attribute_set.to_a
+      attrs.shift if self.name.split('::').last == 'MSH'
+      attrs.each_with_index do |attr, index|
         collection = attr.options[:maxOccurs] == 'unbounded'
         field = fields[index]
         if field.present?
@@ -29,7 +31,7 @@ module HealthSeven::V2_5
             acc[attr.name] = build_field(attr.primitive, field.presence)
           end
         elsif attr.options[:minOccurs].to_i != 0
-          fail "Missing required field #{attr.name} #{attr.primitive} in #{self.inspect} '#{fields.join('|')}'"
+          puts "WARN: Missing required field #{attr.name} #{attr.primitive} in #{self.inspect} '#{fields.join('|')}'"
         end
       end
       self.new(acc) if acc.present?

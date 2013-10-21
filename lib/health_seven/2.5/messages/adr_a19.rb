@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ADR_A19 < Message
+class ADR_A19 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
   attribute :msa, MSA, minOccurs: "1", maxOccurs: "1"
@@ -7,7 +7,7 @@ class ADR_A19 < Message
   attribute :qak, QAK, minOccurs: "0", maxOccurs: "1"
   attribute :qrd, QRD, minOccurs: "1", maxOccurs: "1"
   attribute :qrf, QRF, minOccurs: "0", maxOccurs: "1"
-class QUERY_RESPONSE < SegmentGroup
+class QUERY_RESPONSE < ::HealthSeven::SegmentGroup
   attribute :evn, EVN, minOccurs: "0", maxOccurs: "1"
   attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
   attribute :pd1, PD1, minOccurs: "0", maxOccurs: "1"
@@ -21,13 +21,13 @@ class QUERY_RESPONSE < SegmentGroup
   attribute :al1s, Array[AL1], minOccurs: "0", maxOccurs: "unbounded"
   attribute :dg1s, Array[DG1], minOccurs: "0", maxOccurs: "unbounded"
   attribute :drg, DRG, minOccurs: "0", maxOccurs: "1"
-class PROCEDURE < SegmentGroup
+class PROCEDURE < ::HealthSeven::SegmentGroup
   attribute :pr1, PR1, minOccurs: "1", maxOccurs: "1"
   attribute :rols, Array[ROL], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :procedures, Array[PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
   attribute :gt1s, Array[GT1], minOccurs: "0", maxOccurs: "unbounded"
-class INSURANCE < SegmentGroup
+class INSURANCE < ::HealthSeven::SegmentGroup
   attribute :in1, IN1, minOccurs: "1", maxOccurs: "1"
   attribute :in2, IN2, minOccurs: "0", maxOccurs: "1"
   attribute :in3s, Array[IN3], minOccurs: "0", maxOccurs: "unbounded"

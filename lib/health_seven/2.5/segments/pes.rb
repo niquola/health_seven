@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class PES < Segment
+class PES < ::HealthSeven::Segment
   # Sender Organization Name
   attribute :sender_organization_names, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Sender Individual Name

@@ -1,14 +1,14 @@
 module HealthSeven::V2_5
-class MFN_M05 < Message
+class MFN_M05 < ::HealthSeven::Message
   attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
   attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
   attribute :mfi, MFI, minOccurs: "1", maxOccurs: "1"
-class MF_LOCATION < SegmentGroup
+class MF_LOCATION < ::HealthSeven::SegmentGroup
   attribute :mfe, MFE, minOccurs: "1", maxOccurs: "1"
   attribute :loc, LOC, minOccurs: "1", maxOccurs: "1"
   attribute :lches, Array[LCH], minOccurs: "0", maxOccurs: "unbounded"
   attribute :lrls, Array[LRL], minOccurs: "0", maxOccurs: "unbounded"
-class MF_LOC_DEPT < SegmentGroup
+class MF_LOC_DEPT < ::HealthSeven::SegmentGroup
   attribute :ldp, LDP, minOccurs: "1", maxOccurs: "1"
   attribute :lches, Array[LCH], minOccurs: "0", maxOccurs: "unbounded"
   attribute :lccs, Array[LCC], minOccurs: "0", maxOccurs: "unbounded"

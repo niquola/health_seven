@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class ED < DataType
+class ED < ::HealthSeven::DataType
   # Source Application
   attribute :source_application, HD, minOccurs: "0", maxOccurs: "1"
   # Type of Data

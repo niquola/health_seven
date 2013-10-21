@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class AIP < Segment
+class AIP < ::HealthSeven::Segment
   # Set ID - AIP
   attribute :set_id_aip, SI, minOccurs: "1", maxOccurs: "1"
   # Segment Action Code

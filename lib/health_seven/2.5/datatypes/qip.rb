@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class QIP < DataType
+class QIP < ::HealthSeven::DataType
   # Segment Field Name
   attribute :segment_field_name, ST, minOccurs: "1", maxOccurs: "1"
   # Values

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class AIG < Segment
+class AIG < ::HealthSeven::Segment
   # Set ID - AIG
   attribute :set_id_aig, SI, minOccurs: "1", maxOccurs: "1"
   # Segment Action Code

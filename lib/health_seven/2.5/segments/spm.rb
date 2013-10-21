@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class SPM < Segment
+class SPM < ::HealthSeven::Segment
   # Set ID - SPM
   attribute :set_id_spm, SI, minOccurs: "0", maxOccurs: "1"
   # Specimen ID

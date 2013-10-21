@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class IN3 < Segment
+class IN3 < ::HealthSeven::Segment
   # Set ID - IN3
   attribute :set_id_in3, SI, minOccurs: "1", maxOccurs: "1"
   # Certification Number

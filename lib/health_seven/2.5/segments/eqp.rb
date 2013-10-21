@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class EQP < Segment
+class EQP < ::HealthSeven::Segment
   # Event type
   attribute :event_type, CE, minOccurs: "1", maxOccurs: "1"
   # File Name

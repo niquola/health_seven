@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class IN1 < Segment
+class IN1 < ::HealthSeven::Segment
   # Set ID - IN1
   attribute :set_id_in1, SI, minOccurs: "1", maxOccurs: "1"
   # Insurance Plan ID

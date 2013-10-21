@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class CTI < Segment
+class CTI < ::HealthSeven::Segment
   # Sponsor Study ID
   attribute :sponsor_study_id, EI, minOccurs: "1", maxOccurs: "1"
   # Study Phase Identifier

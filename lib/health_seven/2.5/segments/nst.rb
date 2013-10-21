@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class NST < Segment
+class NST < ::HealthSeven::Segment
   # Statistics Available
   attribute :statistics_available, ID, minOccurs: "1", maxOccurs: "1"
   # Source Identifier
