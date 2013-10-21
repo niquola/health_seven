@@ -57,4 +57,11 @@ describe 'parsing' do
     namespace = message.patient_results.first.order_observations.first.obr.filler_order_number.namespace_id.value
     namespace.should == 'GHH LAB'
   end
+
+  it 'should parse rsp_k11 2.5.1' do
+    content = fixture('2.5.1','RSP_K11')
+    message =  HealthSeven::Message.parse(content)
+    p name = message.qpd.message_query_name.text.value
+    name.should == 'Request Immunization History'
+  end
 end

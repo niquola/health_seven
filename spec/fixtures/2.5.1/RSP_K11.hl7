@@ -1,0 +1,4 @@
+MSH||MYIIS|MyStateIIS||MYEHR|20091130||RSP^K11^RSP_K11|7731029|P|2.5.1|||||||||Z32^CDCPHINVS 
+MSA|AA|793543 
+QAK|37374859|OK| Z34^Request Immunization History^CDCPHINVS  
+QPD| Z34^Request Immunization History^CDCPHINVS|37374859|123456^^^MYEHR^MR|Child^Bobbie^Q^^^^L|Que^Suzy^^^^^M|20050512|M|10 East Main St^^Myfaircity^GA^^^L

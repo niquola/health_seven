@@ -51,6 +51,7 @@ module HealthSeven
     class ST < ::HealthSeven::SimpleType; end
     class TM < ::HealthSeven::SimpleType; end
     class TN < ::HealthSeven::SimpleType; end
+    class NUL < ::HealthSeven::SimpleType; end
   end
 end
       RUBY
