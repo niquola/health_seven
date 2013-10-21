@@ -7,11 +7,12 @@ module HealthSeven
     def self.parse(version, content)
       fields = content.split('|')
       "HealthSeven::V#{version}::#{fields.shift}".constantize
-        .build(version, fields)
+      .build(version, fields)
     end
 
     def self.build_field(type, content)
       return unless content
+      raise "Expected datatype not segment #{type.inspect}" unless type < DataType
       type.build(content)
     end
 
@@ -19,6 +20,7 @@ module HealthSeven
       acc = {}
       attrs = self.attribute_set.to_a
       attrs.shift if self.name.split('::').last == 'MSH'
+
       attrs.each_with_index do |attr, index|
         collection = attr.options[:maxOccurs] == 'unbounded'
         field = fields[index]

@@ -2,10 +2,7 @@ require 'spec_helper'
 
 describe 'parsing' do
   before :all do
-    # Gen.generate('2.5')
-    # require "health_seven/2.5/datatypes/all.rb"
-    # require "health_seven/2.5/segments/all.rb"
-    # require "health_seven/2.5/messages/all.rb"
+    # Gen.generate_all
   end
 
   def fixture(ver, name)
@@ -61,7 +58,19 @@ describe 'parsing' do
   it 'should parse rsp_k11 2.5.1' do
     content = fixture('2.5.1','RSP_K11')
     message =  HealthSeven::Message.parse(content)
-    p name = message.qpd.message_query_name.text.value
+    name = message.qpd.message_query_name.text.value
     name.should == 'Request Immunization History'
+  end
+
+  it 'should parse adt 2.7' do
+    content = fixture('2.7','adt')
+    message =  HealthSeven::Message.parse(content)
+    obx =  message.obxes.first
+    p obx.value_type
+  end
+
+  it 'should parse adt 2.7' do
+    content = fixture('2.7','adt').gsub('|2.7', '|2.7.1')
+    message =  HealthSeven::Message.parse(content)
   end
 end

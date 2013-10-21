@@ -12,7 +12,7 @@ module Gen
   include IO
 
   def generate_all
-    ['2.3','2.3.1','2.4', '2.5', '2.5.1'].each do |ver|
+    ['2.3','2.3.1','2.4', '2.5', '2.5.1', '2.7', '2.7.1'].each do |ver|
       generate(ver)
     end
   end
@@ -51,7 +51,10 @@ module HealthSeven
     class ST < ::HealthSeven::SimpleType; end
     class TM < ::HealthSeven::SimpleType; end
     class TN < ::HealthSeven::SimpleType; end
+    class TX < ::HealthSeven::SimpleType; end
     class NUL < ::HealthSeven::SimpleType; end
+    class SNM < ::HealthSeven::SimpleType; end
+    class AnyType < ::HealthSeven::SimpleType; end
   end
 end
       RUBY
@@ -247,13 +250,9 @@ end
   end
 
   def base_type(node)
-    node = node.xpath('./complexContent/extension').first || node.xpath('./simpleContent/extension').first
+    node = node.xpath('./complexContent/extension').first || node.xpath('./simpleContent/extension').first || node.xpath('./complexContent/restriction').first
     base = node && node[:base]
-    if base == 'xsd:string'
-      'String'
-    else
-      base
-    end
+    base && base.gsub(/^xsd:/,'')
   end
 
   def module_name(version, name=nil)

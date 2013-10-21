@@ -10,6 +10,7 @@ describe Gen do
   end
 
   example do
-    generate('2.5.1')
+    generate('2.7')
+    generate('2.7.1')
   end
 end
