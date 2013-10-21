@@ -42,7 +42,7 @@ module HealthSeven
 
     class DT < ::HealthSeven::SimpleType; end
     class DTM < ::HealthSeven::SimpleType; end
-    # class FT < ::HealthSeven::SimpleType; end
+    #{version == '2.6' ? 'class FT < ::HealthSeven::SimpleType; end' : ''}
     class GTS < ::HealthSeven::SimpleType; end
     class ID < ::HealthSeven::SimpleType; end
     class IS < ::HealthSeven::SimpleType; end
@@ -135,8 +135,8 @@ end
     elements(tp).map do |el_ref|
       if ref(el_ref) == "ED"
         next "# TODO: Encapsulated data segment"
-      elsif ref(el_ref) =~ /\.\w+$/
-        type_class_name = ref(el_ref).split('.').last
+      elsif ref(el_ref) =~ /\..+$/
+        type_class_name = ref(el_ref).split('.').last.gsub(' ', '_')
         [
           gklass(nil, type_class_name, '::HealthSeven::SegmentGroup') do
             generate_class_recursively(db, find_type_by_el(db, el_ref))

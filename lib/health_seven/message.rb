@@ -60,6 +60,7 @@ module HealthSeven
 
         case type(attribute)
         when :attribute
+          p name.to_s.upcase
           if attribute.options[:minOccurs].to_i != 0 && !next_segment.start_with?(name.to_s.upcase)
             puts  "WARN: Required segment not found: #{name}!"
           end
