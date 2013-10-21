@@ -29,7 +29,7 @@ module HealthSeven::V2_5
             acc[attr.name] = build_field(attr.primitive, field.presence)
           end
         elsif attr.options[:minOccurs].to_i != 0
-          fail "Missing field #{attr.primitive} in #{self.inspect} '#{fields.join('|')}'"
+          fail "Missing required field #{attr.name} #{attr.primitive} in #{self.inspect} '#{fields.join('|')}'"
         end
       end
       self.new(acc) if acc.present?

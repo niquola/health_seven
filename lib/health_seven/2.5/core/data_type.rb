@@ -14,11 +14,15 @@ module HealthSeven::V2_5
       acc = {}
       self.attribute_set.each_with_index do |attr, index|
         field = fields[index]
-        acc[attr.name] = if attr.primitive < SimpleType
-                            field.presence
+        acc[attr.name] = if field.present?
+                           if attr.primitive < SimpleType
+                            field
                           else
                             attr.primitive.build(field, '&')
                           end
+                         elsif attr.options[:minOccurs].to_i != 0
+                           fail "Missing required subcomponent #{attr.name} #{attr.primitive} in #{self.inspect} '#{string}'"
+                         end
       end
       self.new(acc)
     end
