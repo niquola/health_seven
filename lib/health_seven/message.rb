@@ -9,6 +9,7 @@ module HealthSeven
       def parse(content)
         msh = content.split("\r", 2).first.split("|")
         class_name =  msh[8].split('^')[2]
+        class_name ||= msh[8].split('^')[0..1].join("_").upcase
         version = msh[11].gsub('.','_').upcase
         "HealthSeven::V#{version}::#{class_name}".constantize.build(version, content)
       end
@@ -70,6 +71,9 @@ module HealthSeven
             (message[name] ||= [])<< parse_segment(version, segments_tail.shift)
             next_segment = segments_tail.first
           end
+        when :group
+          as = attribute.primitive.attribute_set
+          message[name] = process(version, {}, segments_tail, as.to_a)
         when :group_collection
           as = attribute.coercer.type.member_type.attribute_set
           until (res = process(version, {}, segments_tail, as.to_a)).empty?
