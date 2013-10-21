@@ -10,7 +10,26 @@ class PATIENT < ::HealthSeven::SegmentGroup
   attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
 class SPECIMEN < ::HealthSeven::SegmentGroup
   attribute :spm, SPM, minOccurs: "1", maxOccurs: "1"
+  attribute :obxes, Array[OBX], minOccurs: "0", maxOccurs: "unbounded"
   attribute :sacs, Array[SAC], minOccurs: "0", maxOccurs: "unbounded"
+class ORDER < ::HealthSeven::SegmentGroup
+  attribute :orc, ORC, minOccurs: "1", maxOccurs: "1"
+class TIMING < ::HealthSeven::SegmentGroup
+  attribute :tq1, TQ1, minOccurs: "1", maxOccurs: "1"
+  attribute :tq2s, Array[TQ2], minOccurs: "0", maxOccurs: "unbounded"
+end
+  attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
+class OBSERVATION_REQUEST < ::HealthSeven::SegmentGroup
+  attribute :obr, OBR, minOccurs: "1", maxOccurs: "1"
+class SPMSAC_SUPPGRP2 < ::HealthSeven::SegmentGroup
+  attribute :spm, SPM, minOccurs: "1", maxOccurs: "1"
+  attribute :sacs, Array[SAC], minOccurs: "0", maxOccurs: "unbounded"
+end
+  attribute :spmsac_suppgrp2s, Array[SPMSAC_SUPPGRP2], minOccurs: "0", maxOccurs: "unbounded"
+end
+  attribute :observation_request, OBSERVATION_REQUEST, minOccurs: "0", maxOccurs: "1"
+end
+  attribute :orders, Array[ORDER], minOccurs: "0", maxOccurs: "unbounded"
 end
   attribute :specimen, Array[SPECIMEN], minOccurs: "1", maxOccurs: "unbounded"
 end

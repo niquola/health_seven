@@ -10,9 +10,9 @@ class UB2 < ::HealthSeven::Segment
   attribute :covered_days_7, ST, minOccurs: "0", maxOccurs: "1"
   # Non-Covered Days (8)
   attribute :non_covered_days_8, ST, minOccurs: "0", maxOccurs: "1"
-  # Value Amount  Code
+  # Value Amount & Code
   attribute :value_amount_codes, Array[UVC], minOccurs: "0", maxOccurs: "unbounded"
-  # Occurrence Code  Date (32-35)
+  # Occurrence Code & Date (32-35)
   attribute :occurrence_code_date_32_35s, Array[OCD], minOccurs: "0", maxOccurs: "unbounded"
   # Occurrence Span Code/Dates (36)
   attribute :occurrence_span_code_dates_36s, Array[OSP], minOccurs: "0", maxOccurs: "unbounded"

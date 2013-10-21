@@ -18,7 +18,7 @@ class UB1 < ::HealthSeven::Segment
   attribute :covered_days_23, NM, minOccurs: "0", maxOccurs: "1"
   # Non Covered Days - (24)
   attribute :non_covered_days_24, NM, minOccurs: "0", maxOccurs: "1"
-  # Value Amount  Code (46-49)
+  # Value Amount & Code (46-49)
   attribute :value_amount_code_46_49s, Array[UVC], minOccurs: "0", maxOccurs: "unbounded"
   # Number Of Grace Days (90)
   attribute :number_of_grace_days_90, NM, minOccurs: "0", maxOccurs: "1"

@@ -75,7 +75,7 @@ class PID < ::HealthSeven::Segment
   # Strain
   attribute :strain, ST, minOccurs: "0", maxOccurs: "1"
   # Production Class Code
-  attribute :production_class_codes, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :production_class_code, CE, minOccurs: "0", maxOccurs: "1"
   # Tribal Citizenship
   attribute :tribal_citizenships, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
 end

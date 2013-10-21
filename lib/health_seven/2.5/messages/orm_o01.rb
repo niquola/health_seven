@@ -24,10 +24,10 @@ end
 class ORDER < ::HealthSeven::SegmentGroup
   attribute :orc, ORC, minOccurs: "1", maxOccurs: "1"
 class ORDER_DETAIL < ::HealthSeven::SegmentGroup
-class ORDER_CHOICE < ::HealthSeven::SegmentGroup
+class OBRRQDRQ1RXOODSODT_SUPPGRP < ::HealthSeven::SegmentGroup
 
 end
-  attribute :order_choice, ORDER_CHOICE, minOccurs: "1", maxOccurs: "1"
+  attribute :obrrqdrq1_rxoodsodt_suppgrp, OBRRQDRQ1RXOODSODT_SUPPGRP, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
   attribute :ctd, CTD, minOccurs: "0", maxOccurs: "1"
   attribute :dg1s, Array[DG1], minOccurs: "0", maxOccurs: "unbounded"

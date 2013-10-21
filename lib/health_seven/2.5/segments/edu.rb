@@ -1,6 +1,6 @@
 module HealthSeven::V2_5
 class EDU < ::HealthSeven::Segment
-  # Set ID - EDU
+  # Set ID _ EDU
   attribute :set_id_edu, SI, minOccurs: "1", maxOccurs: "1"
   # Academic Degree
   attribute :academic_degree, IS, minOccurs: "0", maxOccurs: "1"

@@ -1,7 +1,7 @@
 module HealthSeven::V2_5
 class RFR < ::HealthSeven::DataType
   # Numeric Range
-  attribute :numeric_range, NR, minOccurs: "1", maxOccurs: "1"
+  attribute :numeric_range, NR, minOccurs: "0", maxOccurs: "1"
   # Administrative Sex
   attribute :administrative_sex, IS, minOccurs: "0", maxOccurs: "1"
   # Age Range

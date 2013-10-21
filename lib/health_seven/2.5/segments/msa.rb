@@ -8,6 +8,8 @@ class MSA < ::HealthSeven::Segment
   attribute :text_message, ST, minOccurs: "0", maxOccurs: "1"
   # Expected Sequence Number
   attribute :expected_sequence_number, NM, minOccurs: "0", maxOccurs: "1"
+  # Delayed Acknowledgment Type
+  attribute :delayed_acknowledgment_type, ID, minOccurs: "0", maxOccurs: "1"
   # Error Condition
   attribute :error_condition, CE, minOccurs: "0", maxOccurs: "1"
 end

@@ -142,7 +142,7 @@ class IN2 < ::HealthSeven::Segment
   attribute :insured_employer_organization_name_and_ids, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
   # Race
   attribute :races, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
-  # CMS Patient's Relationship to Insured
+  # CMS Patient_s Relationship to Insured
   attribute :cms_patient_s_relationship_to_insured, CE, minOccurs: "0", maxOccurs: "1"
 end
 end

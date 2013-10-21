@@ -31,11 +31,11 @@ end
   attribute :al1s, Array[AL1], minOccurs: "0", maxOccurs: "unbounded"
 class PROCEDURE < ::HealthSeven::SegmentGroup
   attribute :pr1, PR1, minOccurs: "1", maxOccurs: "1"
-class AUTHORIZATION < ::HealthSeven::SegmentGroup
+class AUTCTD_SUPPGRP2 < ::HealthSeven::SegmentGroup
   attribute :aut, AUT, minOccurs: "1", maxOccurs: "1"
   attribute :ctd, CTD, minOccurs: "0", maxOccurs: "1"
 end
-  attribute :authorization, AUTHORIZATION, minOccurs: "0", maxOccurs: "1"
+  attribute :autctd_suppgrp2, AUTCTD_SUPPGRP2, minOccurs: "0", maxOccurs: "1"
 end
   attribute :procedures, Array[PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
 class OBSERVATION < ::HealthSeven::SegmentGroup

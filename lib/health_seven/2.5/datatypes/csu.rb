@@ -1,7 +1,7 @@
 module HealthSeven::V2_5
 class CSU < ::HealthSeven::DataType
   # Channel Sensitivity
-  attribute :channel_sensitivity, NM, minOccurs: "1", maxOccurs: "1"
+  attribute :channel_sensitivity, NM, minOccurs: "0", maxOccurs: "1"
   # Unit of Measure Identifier
   attribute :unit_of_measure_identifier, ST, minOccurs: "0", maxOccurs: "1"
   # Unit of Measure Description

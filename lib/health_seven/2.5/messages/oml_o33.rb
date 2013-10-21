@@ -29,11 +29,11 @@ class SPECIMEN < ::HealthSeven::SegmentGroup
   attribute :sacs, Array[SAC], minOccurs: "0", maxOccurs: "unbounded"
 class ORDER < ::HealthSeven::SegmentGroup
   attribute :orc, ORC, minOccurs: "1", maxOccurs: "1"
-class TIMING < ::HealthSeven::SegmentGroup
+class TIIMING < ::HealthSeven::SegmentGroup
   attribute :tq1, TQ1, minOccurs: "1", maxOccurs: "1"
   attribute :tq2s, Array[TQ2], minOccurs: "0", maxOccurs: "unbounded"
 end
-  attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :tiimings, Array[TIIMING], minOccurs: "0", maxOccurs: "unbounded"
 class OBSERVATION_REQUEST < ::HealthSeven::SegmentGroup
   attribute :obr, OBR, minOccurs: "1", maxOccurs: "1"
   attribute :tcd, TCD, minOccurs: "0", maxOccurs: "1"

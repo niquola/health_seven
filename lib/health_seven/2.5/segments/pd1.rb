@@ -6,7 +6,7 @@ class PD1 < ::HealthSeven::Segment
   attribute :living_arrangement, IS, minOccurs: "0", maxOccurs: "1"
   # Patient Primary Facility
   attribute :patient_primary_facilities, Array[XON], minOccurs: "0", maxOccurs: "unbounded"
-  # Patient Primary Care Provider Name  ID No.
+  # Patient Primary Care Provider Name & ID No.
   attribute :patient_primary_care_provider_name_id_nos, Array[XCN], minOccurs: "0", maxOccurs: "unbounded"
   # Student Indicator
   attribute :student_indicator, IS, minOccurs: "0", maxOccurs: "1"

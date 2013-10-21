@@ -1,7 +1,7 @@
 module HealthSeven::V2_5
 class CNE < ::HealthSeven::DataType
   # Identifier
-  attribute :identifier, ST, minOccurs: "1", maxOccurs: "1"
+  attribute :identifier, ST, minOccurs: "0", maxOccurs: "1"
   # Text
   attribute :text, ST, minOccurs: "0", maxOccurs: "1"
   # Name of Coding System

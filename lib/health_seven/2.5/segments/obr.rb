@@ -8,7 +8,7 @@ class OBR < ::HealthSeven::Segment
   attribute :filler_order_number, EI, minOccurs: "0", maxOccurs: "1"
   # Universal Service Identifier
   attribute :universal_service_identifier, CE, minOccurs: "1", maxOccurs: "1"
-  # Priority - OBR
+  # Priority _ OBR
   attribute :priority_obr, ID, minOccurs: "0", maxOccurs: "1"
   # Requested Date/Time
   attribute :requested_date_time, TS, minOccurs: "0", maxOccurs: "1"

@@ -1,7 +1,7 @@
 module HealthSeven::V2_5
 class RPT < ::HealthSeven::DataType
   # Repeat Pattern Code
-  attribute :repeat_pattern_code, CWE, minOccurs: "1", maxOccurs: "1"
+  attribute :repeat_pattern_code, CWE, minOccurs: "0", maxOccurs: "1"
   # Calendar Alignment
   attribute :calendar_alignment, ID, minOccurs: "0", maxOccurs: "1"
   # Phase Range Begin Value

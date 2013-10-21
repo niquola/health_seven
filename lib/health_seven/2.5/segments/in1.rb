@@ -102,7 +102,7 @@ class IN1 < ::HealthSeven::Segment
   attribute :signature_code, IS, minOccurs: "0", maxOccurs: "1"
   # Signature Code Date
   attribute :signature_code_date, DT, minOccurs: "0", maxOccurs: "1"
-  # Insured's Birth Place
+  # Insured_s Birth Place
   attribute :insured_s_birth_place, ST, minOccurs: "0", maxOccurs: "1"
   # VIP Indicator
   attribute :vip_indicator, IS, minOccurs: "0", maxOccurs: "1"

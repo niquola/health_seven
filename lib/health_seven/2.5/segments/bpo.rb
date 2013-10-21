@@ -1,10 +1,10 @@
 module HealthSeven::V2_5
 class BPO < ::HealthSeven::Segment
-  # Set ID - BPO
+  # Set ID _ BPO
   attribute :set_id_bpo, SI, minOccurs: "1", maxOccurs: "1"
   # BP Universal Service ID
   attribute :bp_universal_service_id, CWE, minOccurs: "1", maxOccurs: "1"
-  # BP Processing Requirements
+  # BP  Processing Requirements
   attribute :bp_processing_requirements, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
   # BP Quantity
   attribute :bp_quantity, NM, minOccurs: "1", maxOccurs: "1"

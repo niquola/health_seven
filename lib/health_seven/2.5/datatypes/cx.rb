@@ -1,7 +1,7 @@
 module HealthSeven::V2_5
 class CX < ::HealthSeven::DataType
   # ID Number
-  attribute :id_number, ST, minOccurs: "1", maxOccurs: "1"
+  attribute :id_number, ST, minOccurs: "0", maxOccurs: "1"
   # Check Digit
   attribute :check_digit, ST, minOccurs: "0", maxOccurs: "1"
   # Check Digit Scheme

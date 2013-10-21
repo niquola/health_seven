@@ -1,6 +1,6 @@
 module HealthSeven::V2_5
 class ORG < ::HealthSeven::Segment
-  # Set ID - ORG
+  # Set ID _ ORG
   attribute :set_id_org, SI, minOccurs: "1", maxOccurs: "1"
   # Organization Unit Code
   attribute :organization_unit_code, CE, minOccurs: "0", maxOccurs: "1"

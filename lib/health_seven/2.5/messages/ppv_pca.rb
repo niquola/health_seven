@@ -51,10 +51,10 @@ end
 class ORDER < ::HealthSeven::SegmentGroup
   attribute :orc, ORC, minOccurs: "1", maxOccurs: "1"
 class ORDER_DETAIL < ::HealthSeven::SegmentGroup
-class ORDER_CHOICE < ::HealthSeven::SegmentGroup
+class OBRanyHL7Segment_SUPPGRP < ::HealthSeven::SegmentGroup
 
 end
-  attribute :order_choice, ORDER_CHOICE, minOccurs: "1", maxOccurs: "1"
+  attribute :ob_rany_hl7_segment_suppgrp, OBRanyHL7Segment_SUPPGRP, minOccurs: "1", maxOccurs: "1"
   attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
   attribute :vars, Array[VAR], minOccurs: "0", maxOccurs: "unbounded"
 class ORDER_OBSERVATION < ::HealthSeven::SegmentGroup

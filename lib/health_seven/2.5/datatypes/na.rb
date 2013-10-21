@@ -1,7 +1,7 @@
 module HealthSeven::V2_5
 class NA < ::HealthSeven::DataType
   # Value1
-  attribute :value1, NM, minOccurs: "1", maxOccurs: "1"
+  attribute :value1, NM, minOccurs: "0", maxOccurs: "1"
   # Value2
   attribute :value2, NM, minOccurs: "0", maxOccurs: "1"
   # Value3

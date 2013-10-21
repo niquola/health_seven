@@ -1,7 +1,7 @@
 module HealthSeven::V2_5
 class FN < ::HealthSeven::DataType
   # Surname
-  attribute :surname, ST, minOccurs: "1", maxOccurs: "1"
+  attribute :surname, ST, minOccurs: "0", maxOccurs: "1"
   # Own Surname Prefix
   attribute :own_surname_prefix, ST, minOccurs: "0", maxOccurs: "1"
   # Own Surname

@@ -11,6 +11,12 @@ module Gen
   include Code
   include IO
 
+  def generate_all
+    ['2.1', '2.2', '2.3','2.3.1','2.4', '2.5', '2.5.1'].each do |ver|
+      generate(ver)
+    end
+  end
+
   def generate(version)
     db = full_db(version)
 
@@ -83,7 +89,7 @@ module Gen
 
   def generate_attribute_by_el_ref(db, el_ref)
     tp = find_type_by_el(db, el_ref)
-    tname = normalize_name(type_desc(tp) || ref(el_ref))
+    tname = normalize_name(type_desc(tp) || ref(el_ref) || name(el_ref))
     type = (base_type(tp) || name(tp).split('.').first).camelize
     generate_attribute(tname, type,
                        comment: type_desc(tp),
@@ -136,8 +142,11 @@ module Gen
   end
 
   def find_type_by_el(db, node)
-    element = find_el(db, ref(node))
-    find_type(db, type(element))
+    if (type_name = type(node)).present?
+      find_type(db, type_name)
+    else
+      find_type(db, type(find_el(db, ref(node))))
+    end
   end
 
   def segments_db(version)
@@ -208,7 +217,12 @@ module Gen
 
   def base_type(node)
     node = node.xpath('./complexContent/extension').first || node.xpath('./simpleContent/extension').first
-    node && node[:base]
+    base = node && node[:base]
+    if base == 'xsd:string'
+      'String'
+    else
+      base
+    end
   end
 
   def module_name(version, name=nil)

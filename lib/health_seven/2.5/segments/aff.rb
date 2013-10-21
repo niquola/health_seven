@@ -1,6 +1,6 @@
 module HealthSeven::V2_5
 class AFF < ::HealthSeven::Segment
-  # Set ID - AFF
+  # Set ID _ AFF
   attribute :set_id_aff, SI, minOccurs: "1", maxOccurs: "1"
   # Professional Organization
   attribute :professional_organization, XON, minOccurs: "1", maxOccurs: "1"
