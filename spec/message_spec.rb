@@ -70,8 +70,15 @@ describe 'parsing' do
     obx.observation_identifier.identifier.value.should == '1010.1'
   end
 
-  it 'should parse adt 2.7' do
+  it 'should parse adt 2.7.1' do
     content = fixture('2.7','adt').gsub('|2.7', '|2.7.1')
     message =  HealthSeven::Message.parse(content)
+  end
+
+  it 'should parse rsp_k11 2.6' do
+    content = fixture('2.6','REF_I12')
+    message =  HealthSeven::Message.parse(content)
+    name = message
+    #name.should == 'Request Immunization History'
   end
 end
