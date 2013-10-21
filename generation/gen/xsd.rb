@@ -27,5 +27,9 @@ module Gen::XSD
     end
   end
 
+  def xsd_path(version, file_name)
+    Gen::IO.from_root_path("vendor/#{version}/#{file_name}.xsd")
+  end
+
   extend self
 end

@@ -10,29 +10,10 @@ class Message
       .split('|')[8]
       .split('^')[2]
 
-    "HealthSeven::V2_5::#{class_name}".constantize.build_from_string(content)
+    "HealthSeven::V2_5::#{class_name}".constantize.build(content)
   end
 
-  #def self.build_from_string(string)
-  #  segments_tail = string.split("\r")
-  #  attributes_tail = self.attribute_set.to_a
-
-  #  until attributes_tail.empty?
-  #    attribute = attributes_tail.shift
-  #    next_segment = segments_tail.first
-  #    if attribute.options[:minOccurs].to_i != 0 && !next_segment.start_with?(attribute.options[:name].to_s.upcase) &&
-  #     !is_in_segment_group?(next_segment)
-  #      raise "Required segment not found: #{attribute.options[:name]}!"
-  #    end
-  #    while next_segment.start_with?(attribute.options[:name].to_s.first(3).upcase)
-  #      next_segment = segments_tail.shift
-  #    end
-  #  end
-
-  #  raise segments_tail.inspect unless segments_tail.empty?
-  #end
-
-  def self.build_from_string(string)
+  def self.build(string)
     message = {}
     segments_tail = string.split("\r")
     attributes_tail = self.attribute_set.to_a
@@ -42,8 +23,7 @@ class Message
       puts 'Not all message parsed!'
       puts segments_tail.inspect
     end
-    pp res
-    res
+    self.new(res)
   end
 
   def self.type(attribute)
@@ -63,6 +43,10 @@ class Message
    }[[group,collection]]
   end
 
+  def self.parse_segment(text)
+    Segment.parse(text)
+  end
+
   def self.process(message, segments_tail, attributes_tail)
     if attributes_tail.empty? || segments_tail.empty?
       return message
@@ -78,11 +62,11 @@ class Message
         raise "Required segment not found: #{name}!"
       end
       if next_segment.start_with?(name.to_s.upcase)
-        message[name] = segments_tail.shift
+        message[name] = parse_segment(segments_tail.shift)
       end
     when :attribute_collection
       while next_segment.start_with?(name.to_s.first(3).upcase)
-        (message[name] ||= [])<< segments_tail.shift
+        (message[name] ||= [])<< parse_segment(segments_tail.shift)
         next_segment = segments_tail.first
       end
     when :group_collection
