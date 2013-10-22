@@ -246,7 +246,6 @@ end
   end
 
   def types_index(file, index = {})
-    raise "Ups no file #{file}"  unless File.exists?(file)
     index_for(['/schema/complexType', '/schema/simpleType'], file, index) do |el|
       name(el)
     end
@@ -297,7 +296,7 @@ end
 module #{module_name(version)}
 #{autoloads_string}
 end
-RUBY
+      RUBY
   end
 
   extend self
