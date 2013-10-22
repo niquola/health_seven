@@ -84,11 +84,22 @@ describe 'parsing' do
     end
   end
 
-  it 'should parse obx 2.6' do
+  it 'should parse adt 2.6' do
     content = fixture('2.7','adt').gsub('|2.7', '|2.6')
     message =  HealthSeven::Message.parse(content)
     obx =  message.obxes.first
     obx.units.identifier.value.should == "kg"
     obx.observation_identifier.identifier.value.should == '1010.1'
+  end
+
+  scenario 'warn on non existing required segment' do
+    example 'message has top-level required segment' do
+      class TestMessage < HealthSeven::Message
+        attribute :msh, String, minOccurs: "1", maxOccurs: "1"
+      end
+      let(:hl7_message) {
+
+      }
+    end
   end
 end

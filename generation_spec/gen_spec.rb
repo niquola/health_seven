@@ -5,4 +5,6 @@ describe Gen do
   example do
     generate_all
   end
+
+  example { generate('2.5')}
 end

@@ -1,10 +1,11 @@
 require 'active_support/core_ext'
 module Gen::Code
-  def gklass(mod, name, parent, includes = [], &block)
+  def gklass(mod, name, parent, indent = 0, includes = [], &block)
     content = []
     content<< "module #{mod}" if mod
     content<< "class #{name}"
     content.last<< " < #{parent}" if parent
+    content.last <<  "# indent: #{indent}"
     includes.each do |inc|
       content<< indent("incldue #{inc}")
     end
@@ -12,6 +13,9 @@ module Gen::Code
     content<< "end"
     content<< "end" if mod
     content.join("\n")
+           .split("\n")
+           .map { |l| (' ' * indent) + l }
+           .join("\n")
   end
 
   def normalize_name(name)
@@ -24,10 +28,10 @@ module Gen::Code
       type = "Array[#{type}]"
     end
 
-    res = ''
+    res = []
     comment = opts.delete(:comment)
-    res<< indent("# #{comment.gsub(/\s+$/,'')}\n") if comment.present?
-    res<< indent("attribute :#{normalize_name(aname)}, #{type}, #{meta(opts)}")
+    res<< "# #{comment.gsub(/\s+$/,'')}" if comment.present?
+    res<< "attribute :#{normalize_name(aname)}, #{type}, #{meta(opts)}"
   end
 
   def indent(str)

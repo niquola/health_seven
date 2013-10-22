@@ -49,7 +49,11 @@ module HealthSeven
         Segment.parse(version, text)
       end
 
-      def process(version, message, segments_tail, attributes_tail)
+      def required?(attribute)
+        attribute.options[:minOccurs].to_i != 0
+      end
+
+      def process(version, message, segments_tail, attributes_tail, parent_required = true)
         if attributes_tail.empty? || segments_tail.empty?
           return message
         end
@@ -60,7 +64,10 @@ module HealthSeven
 
         case type(attribute)
         when :attribute
-          if attribute.options[:minOccurs].to_i != 0 && !next_segment.start_with?(name.to_s.upcase)
+          if required?(attribute) &&
+            !next_segment.start_with?(name.to_s.upcase) &&
+            parent_required
+
             puts  "WARN: Required segment not found: #{name}!"
           end
           if next_segment.start_with?(name.to_s.upcase)
@@ -73,15 +80,15 @@ module HealthSeven
           end
         when :group
           as = attribute.primitive.attribute_set
-          res =  process(version, {}, segments_tail, as.to_a)
+          res =  process(version, {}, segments_tail, as.to_a, required?(attribute))
           message[name] = res unless res.empty?
         when :group_collection
           as = attribute.coercer.type.member_type.attribute_set
-          until (res = process(version, {}, segments_tail, as.to_a)).empty?
+          until (res = process(version, {}, segments_tail, as.to_a, required?(attribute))).empty?
             (message[name] ||= [])<< res
           end
         end
-        process(version, message, segments_tail, attributes_tail)
+        process(version, message, segments_tail, attributes_tail, parent_required)
       end
     end
   end

@@ -152,15 +152,15 @@ end
                        maxOccurs: el_ref[:maxOccurs])
   end
 
-  def generate_class_recursively(db, tp)
+  def generate_class_recursively(db, tp, indent = 0)
     elements(tp).map do |el_ref|
       if ref(el_ref) == "ED"
         next "# TODO: Encapsulated data segment"
       elsif ref(el_ref) =~ /\..+$/
         type_class_name = ref(el_ref).split('.').last.gsub(' ', '_')
         [
-          gklass(nil, type_class_name, '::HealthSeven::SegmentGroup') do
-            generate_class_recursively(db, find_type_by_el(db, el_ref))
+          gklass(nil, type_class_name, '::HealthSeven::SegmentGroup', indent) do
+            generate_class_recursively(db, find_type_by_el(db, el_ref), indent + 2)
           end,
           generate_attribute(type_class_name.underscore, type_class_name,
                              minOccurs: el_ref[:minOccurs] || "0",
