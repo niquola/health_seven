@@ -75,7 +75,7 @@ end
       fwrite(base_path(version, 'messages', "#{class_name.underscore}.rb"), code)
     end
 
-    messages_autoload_code = autoloads(version, messages_db(version).keys, 'messages')
+    messages_autoload_code = autoloads(version, base_path(version, 'messages'))
     fwrite(base_path(version, "messages.rb"), messages_autoload_code)
 
     messages_require_code = requires(messages_db(version).keys)
@@ -95,7 +95,7 @@ end
       fwrite(base_path(version, 'datatypes', "#{class_name.underscore}.rb"), code)
     end
 
-    datatypes_autoload_code = autoloads(version, complex_types.keys.map(&:camelize), 'datatypes')
+    datatypes_autoload_code = autoloads(version, base_path(version, 'datatypes'))
     fwrite(base_path(version, "datatypes.rb"), datatypes_autoload_code)
 
     datatypes_require_code = requires(complex_types.keys)
@@ -104,8 +104,9 @@ end
 
   def generate_base_datatypes(version, db)
     dir = 'base_datatypes'
-    # FileUtils.rm_rf(base_path(version, dir))
-    FileUtils.mkdir_p(base_path(version, dir))
+    base_dir_path = base_path(version, dir)
+    # FileUtils.rm_rf(base_dir_path)
+    FileUtils.mkdir_p(base_path(base_dir_path))
     simple_types = datatypes_db(version)
     .select { |n, t| root_datatype?(n) && ! complex_type?(t)}
 
@@ -114,10 +115,10 @@ end
       code = gklass(module_name(version), class_name, '::HealthSeven::SimpleType') do
         generate_class_body(db, tp)
       end
-      path  = base_path(version, dir, "#{class_name.underscore}.rb")
+      path = base_path(version, dir, "#{class_name.underscore}.rb")
       fwrite(path, code) unless File.exists?(path)
     end
-    datatypes_autoload_code = autoloads(version, simple_types.keys.map(&:camelize), dir)
+    datatypes_autoload_code = autoloads(version, base_dir_path)
     fwrite(base_path(version, "base_datatypes.rb"), datatypes_autoload_code)
   end
 
@@ -135,7 +136,8 @@ end
     end
 
     fixed_keys = segments_db(version).keys.map { |k| k.gsub(/^any/, 'Any') }
-    segments_autoload_code = autoloads(version, fixed_keys, 'segments')
+    p base_path('segments')
+    segments_autoload_code = autoloads(version, base_path(version, 'segments'))
     fwrite(base_path(version, "segments.rb"), segments_autoload_code)
 
     segments_require_code = requires(fixed_keys)
@@ -288,9 +290,12 @@ end
 
   end
 
-  def autoloads(version, types, dir)
-    autoloads_string = types.map do |type|
-      "autoload :#{type}, base_dir + '/#{dir}/#{type.underscore}.rb'"
+  def autoloads(version, dir)
+    autoloads_string = Dir[dir + "/*.rb"].sort.map do |file|
+      file_basename = File.basename(file, '.rb')
+      rel_path = "#{File.basename(dir)}/#{file_basename}"
+      class_name = file_basename.size > 3 ? file_basename.camelize : file_basename.upcase
+      "autoload :#{class_name}, File.dirname(__FILE__) + '/#{rel_path}'"
     end.join("\n")
 
       <<-RUBY
