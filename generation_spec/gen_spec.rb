@@ -9,6 +9,11 @@ describe Gen do
 
   example do
     generate('2.5')
+    $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+    require 'health_seven'
+    Dir["#{File.dirname(__FILE__)}/../lib/health_seven/v2_5/**/*rb"].each do |f|
+      require f
+    end
   end
 
   example '#autoloads should build code using files in specified directory' do

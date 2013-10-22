@@ -2,15 +2,6 @@ require 'nokogiri'
 require 'active_support/core_ext'
 
 module Gen
-  ROOT = File.dirname(__FILE__)
-  autoload :XSD, ROOT + '/gen/xsd.rb'
-  autoload :Code, ROOT + '/gen/code.rb'
-  autoload :IO, ROOT + '/gen/io.rb'
-
-  include XSD
-  include Code
-  include IO
-
   def generate_all
     ['2.3','2.3.1','2.4', '2.5', '2.5.1', '2.6', '2.7', '2.7.1'].each do |ver|
       generate(ver)
@@ -19,7 +10,6 @@ module Gen
 
   def generate(version)
     db = full_db(version)
-
     generate_module(version)
     generate_base_datatypes(version, db)
     generate_datatypes(version, db)
@@ -27,12 +17,9 @@ module Gen
     generate_messages(version, db)
   end
 
-  protected
-
   def generate_module(version)
     ver = 'v' + version.gsub('.','_')
     path = from_root_path("lib/health_seven/#{ver}.rb")
-
       open(path, 'w') do |f|
       f<< <<-RUBY
 module HealthSeven
@@ -46,28 +33,6 @@ module HealthSeven
   end
 end
   RUBY
-    end
-    # class DT < ::HealthSeven::SimpleType; end
-    # class DTM < ::HealthSeven::SimpleType; end
-    # #{version == '2.6' ? 'class FT < ::HealthSeven::SimpleType; end' : ''}
-    # class GTS < ::HealthSeven::SimpleType; end
-    # class ID < ::HealthSeven::SimpleType; end
-    # class IS < ::HealthSeven::SimpleType; end
-    # class NM < ::HealthSeven::SimpleType; end
-    # class SI < ::HealthSeven::SimpleType; end
-    # class ST < ::HealthSeven::SimpleType; end
-    # class TM < ::HealthSeven::SimpleType; end
-    # class TN < ::HealthSeven::SimpleType; end
-    # class TX < ::HealthSeven::SimpleType; end
-    # class NUL < ::HealthSeven::SimpleType; end
-    # class SNM < ::HealthSeven::SimpleType; end
-  end
-
-  def mk_class_name(name)
-    if name =~ /^[_A-Z0-9]+$/
-      name.downcase.camelize
-    else
-      name.camelize
     end
   end
 
@@ -150,6 +115,108 @@ end
     segments_require_code = requires(fixed_keys)
     fwrite(base_path(version, 'segments', "all.rb"), segments_require_code)
   end
+
+  def mk_class_name(name)
+    if name =~ /^[_A-Z0-9]+$/
+      name.downcase.camelize
+    else
+      name.camelize
+    end
+  end
+
+
+  def from_root_path(path)
+    File.dirname(__FILE__) + "/../#{path}"
+  end
+
+  def attr(node, attr)
+    node[attr]
+  end
+
+  def ref(node)
+    attr(node, :ref)
+  end
+
+  def name(node)
+    attr(node, :name)
+  end
+
+  def type(node)
+    attr(node, :type)
+  end
+
+  def elements(node)
+    node.xpath('./sequence/element')
+  end
+
+  def parse_doc(path)
+    raise "No such file #{path}" unless File.exists?(path)
+    Nokogiri::XML(open(path).read).tap do |doc|
+      doc.remove_namespaces!
+    end
+  end
+
+  def xsd_path(version, file_name)
+    Gen::IO.from_root_path("vendor/#{version}/#{file_name}.xsd")
+  end
+
+
+  def fwrite(path, content)
+    open(path, 'w'){|f| f<< content }
+  end
+
+  def base_path(version, *dirs)
+    path = dirs.join('/')
+    from_root_path("lib/health_seven/#{version}/#{path}")
+  end
+
+  def gklass(mod, name, parent, indent = 0, includes = [], &block)
+    content = []
+    content<< "module #{mod}" if mod
+    content<< "class #{name}"
+    content.last<< " < #{parent}" if parent
+    content.last <<  "# indent: #{indent}"
+    includes.each do |inc|
+      content<< indent("incldue #{inc}")
+    end
+    content<< block.call if block
+    content<< "end"
+    content<< "end" if mod
+    content.join("\n")
+           .split("\n")
+           .map { |l| (' ' * indent) + l }
+           .join("\n")
+  end
+
+  def normalize_name(name)
+    name.downcase.chomp.gsub(/[^\w]/,'_').gsub(/_+/,'_').gsub(/_$/,'')
+  end
+
+  def generate_attribute(aname, type, opts)
+    if is_collection?(opts)
+      aname = aname.pluralize
+      type = "Array[#{type}]"
+    end
+
+    res = []
+    comment = opts.delete(:comment)
+    res<< "# #{comment.gsub(/\s+$/,'')}" if comment.present?
+    res<< "attribute :#{normalize_name(aname)}, #{type}, #{meta(opts)}"
+  end
+
+  def indent(str)
+    "  " + str
+  end
+
+  def meta(hash)
+    hash.map do |k,v|
+      "#{k}: #{v.inspect}"
+    end.join(', ')
+  end
+
+
+
+  protected
 
   def generate_attribute_by_el_ref(db, el_ref)
     tp = find_type_by_el(db, el_ref)
