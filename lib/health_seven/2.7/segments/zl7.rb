@@ -1,5 +1,5 @@
 module HealthSeven::V2_7
-class Zl7 < ::HealthSeven::Segment# indent: 0
+class Zl7 < ::HealthSeven::Segment
 
 end
 end

@@ -1,5 +1,5 @@
 module HealthSeven::V2_7
-class Qrf < ::HealthSeven::Segment# indent: 0
+class Qrf < ::HealthSeven::Segment
 
 end
 end

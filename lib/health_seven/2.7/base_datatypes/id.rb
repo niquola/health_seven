@@ -1,5 +1,5 @@
 module HealthSeven::V2_7
-class Id < ::HealthSeven::SimpleType# indent: 0
+class Id < ::HealthSeven::SimpleType
 
 end
 end

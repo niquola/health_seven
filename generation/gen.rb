@@ -170,22 +170,15 @@ end
     from_root_path("lib/health_seven/#{version}/#{path}")
   end
 
-  def gklass(mod, name, parent, indent = 0, includes = [], &block)
+  def gklass(mod, name, parent, &block)
     content = []
     content<< "module #{mod}" if mod
     content<< "class #{name}"
     content.last<< " < #{parent}" if parent
-    content.last <<  "# indent: #{indent}"
-    includes.each do |inc|
-      content<< indent("incldue #{inc}")
-    end
-    content<< block.call if block
+    content<< indent(block.call, 2) if block
     content<< "end"
     content<< "end" if mod
     content.join("\n")
-           .split("\n")
-           .map { |l| (' ' * indent) + l }
-           .join("\n")
   end
 
   def normalize_name(name)
@@ -204,8 +197,8 @@ end
     res<< "attribute :#{normalize_name(aname)}, #{type}, #{meta(opts)}"
   end
 
-  def indent(str)
-    "  " + str
+  def indent(str, size)
+    str.split("\n").map { |s| (' ' * size) + s}.join("\n")
   end
 
   def meta(hash)
@@ -228,15 +221,15 @@ end
                        maxOccurs: el_ref[:maxOccurs])
   end
 
-  def generate_class_recursively(db, tp, indent = 0)
+  def generate_class_recursively(db, tp)
     elements(tp).map do |el_ref|
       if ref(el_ref) == "ED"
         next "# TODO: Encapsulated data segment"
       elsif ref(el_ref) =~ /\..+$/
         type_class_name = ref(el_ref).split('.').last.gsub(' ', '_')
         [
-          gklass(nil, type_class_name, '::HealthSeven::SegmentGroup', indent) do
-            generate_class_recursively(db, find_type_by_el(db, el_ref), indent + 2)
+          gklass(nil, type_class_name, '::HealthSeven::SegmentGroup') do
+            generate_class_recursively(db, find_type_by_el(db, el_ref))
           end,
           generate_attribute(type_class_name.underscore, type_class_name,
                              minOccurs: el_ref[:minOccurs] || "0",
