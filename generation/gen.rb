@@ -12,7 +12,7 @@ module Gen
   include IO
 
   def generate_all
-    ['2.3','2.3.1','2.4', '2.5', '2.5.1', '2.7', '2.7.1'].each do |ver|
+    ['2.3','2.3.1','2.4', '2.5', '2.5.1', '2.6', '2.7', '2.7.1'].each do |ver|
       generate(ver)
     end
   end
@@ -247,7 +247,6 @@ end
   end
 
   def types_index(file, index = {})
-    raise "Ups no file #{file}"  unless File.exists?(file)
     index_for(['/schema/complexType', '/schema/simpleType'], file, index) do |el|
       name(el)
     end
@@ -284,21 +283,23 @@ end
   end
 
   def requires(types)
-    types.map do |type|
-      "require File.dirname(__FILE__) + '/#{type.underscore}.rb'"
-    end.join("\n")
+    types.map { |type| "require base_dir + '/#{type.underscore}.rb'" }
+      .unshift('base_dir = File.dirname(__FILE__)')
+      .join("\n")
+
   end
 
   def autoloads(version, types, dir)
     autoloads_string = types.map do |type|
-      "autoload :#{type}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
+      "autoload :#{type}, base_dir + '/#{dir}/#{type.underscore}.rb'"
     end.join("\n")
 
       <<-RUBY
 module #{module_name(version)}
+base_dir = File.dirname(__FILE__)
 #{autoloads_string}
 end
-RUBY
+      RUBY
   end
 
   extend self
