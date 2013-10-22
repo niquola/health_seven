@@ -1,5 +1,5 @@
 module HealthSeven::V2_7
-class TX < ::HealthSeven::SimpleType
+class Tx < ::HealthSeven::SimpleType# indent: 0
 
 end
 end

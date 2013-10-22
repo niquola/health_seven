@@ -1,12 +1,12 @@
 module HealthSeven::V2_3
-class CMDlt < ::HealthSeven::DataType
-  # Range
-  attribute :range, CMRange, minOccurs: "0", maxOccurs: "1"
-  # numeric threshold
-  attribute :numeric_threshold, NM, minOccurs: "0", maxOccurs: "1"
-  # change
-  attribute :change, ST, minOccurs: "0", maxOccurs: "1"
-  # length of time-days
-  attribute :length_of_time_days, NM, minOccurs: "0", maxOccurs: "1"
+class CmDlt < ::HealthSeven::DataType# indent: 0
+# Range
+attribute :range, CmRange, minOccurs: "0", maxOccurs: "1"
+# numeric threshold
+attribute :numeric_threshold, Nm, minOccurs: "0", maxOccurs: "1"
+# change
+attribute :change, St, minOccurs: "0", maxOccurs: "1"
+# length of time-days
+attribute :length_of_time_days, Nm, minOccurs: "0", maxOccurs: "1"
 end
 end

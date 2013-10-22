@@ -1,5 +1,5 @@
 module HealthSeven::V2_7
-class SNM < ::HealthSeven::SimpleType
+class Snm < ::HealthSeven::SimpleType# indent: 0
 
 end
 end

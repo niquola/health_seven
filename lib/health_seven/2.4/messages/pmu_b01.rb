@@ -1,12 +1,12 @@
 module HealthSeven::V2_4
-class PMU_B01 < ::HealthSeven::Message
-  attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, EVN, minOccurs: "1", maxOccurs: "1"
-  attribute :stf, STF, minOccurs: "1", maxOccurs: "1"
-  attribute :pras, Array[PRA], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :orgs, Array[ORG], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :affs, Array[AFF], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :lans, Array[LAN], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :edus, Array[EDU], minOccurs: "0", maxOccurs: "unbounded"
+class PmuB01 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
+attribute :stf, Stf, minOccurs: "1", maxOccurs: "1"
+attribute :pras, Array[Pra], minOccurs: "0", maxOccurs: "unbounded"
+attribute :orgs, Array[Org], minOccurs: "0", maxOccurs: "unbounded"
+attribute :affs, Array[Aff], minOccurs: "0", maxOccurs: "unbounded"
+attribute :lans, Array[Lan], minOccurs: "0", maxOccurs: "unbounded"
+attribute :edus, Array[Edu], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

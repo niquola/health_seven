@@ -1,10 +1,10 @@
 module HealthSeven::V2_5_1
-class MFK_M01 < ::HealthSeven::Message
-  attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :msa, MSA, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[ERR], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :mfi, MFI, minOccurs: "1", maxOccurs: "1"
-  attribute :mfas, Array[MFA], minOccurs: "0", maxOccurs: "unbounded"
+class MfkM01 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
+attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
+attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
+attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
+attribute :mfas, Array[Mfa], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

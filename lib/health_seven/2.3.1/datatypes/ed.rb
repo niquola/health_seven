@@ -1,14 +1,14 @@
 module HealthSeven::V2_3_1
-class ED < ::HealthSeven::DataType
-  # source application
-  attribute :source_application, HD, minOccurs: "0", maxOccurs: "1"
-  # type of data
-  attribute :type_of_data, ID, minOccurs: "0", maxOccurs: "1"
-  # data
-  attribute :data, ID, minOccurs: "0", maxOccurs: "1"
-  # encoding
-  attribute :encoding, ID, minOccurs: "0", maxOccurs: "1"
-  # data
-  attribute :data, ST, minOccurs: "0", maxOccurs: "1"
+class Ed < ::HealthSeven::DataType# indent: 0
+# source application
+attribute :source_application, Hd, minOccurs: "0", maxOccurs: "1"
+# type of data
+attribute :type_of_data, Id, minOccurs: "0", maxOccurs: "1"
+# data
+attribute :data, Id, minOccurs: "0", maxOccurs: "1"
+# encoding
+attribute :encoding, Id, minOccurs: "0", maxOccurs: "1"
+# data
+attribute :data, St, minOccurs: "0", maxOccurs: "1"
 end
 end

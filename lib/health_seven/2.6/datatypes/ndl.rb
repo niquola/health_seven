@@ -1,26 +1,26 @@
 module HealthSeven::V2_6
-class NDL < ::HealthSeven::DataType
-  # Name
-  attribute :name, CNN, minOccurs: "0", maxOccurs: "1"
-  # Start Date/time
-  attribute :start_date_time, DTM, minOccurs: "0", maxOccurs: "1"
-  # End Date/time
-  attribute :end_date_time, DTM, minOccurs: "0", maxOccurs: "1"
-  # Point of Care
-  attribute :point_of_care, IS, minOccurs: "0", maxOccurs: "1"
-  # Room
-  attribute :room, IS, minOccurs: "0", maxOccurs: "1"
-  # Bed
-  attribute :bed, IS, minOccurs: "0", maxOccurs: "1"
-  # Facility
-  attribute :facility, HD, minOccurs: "0", maxOccurs: "1"
-  # Location Status
-  attribute :location_status, IS, minOccurs: "0", maxOccurs: "1"
-  # Patient Location Type
-  attribute :patient_location_type, IS, minOccurs: "0", maxOccurs: "1"
-  # Building
-  attribute :building, IS, minOccurs: "0", maxOccurs: "1"
-  # Floor
-  attribute :floor, IS, minOccurs: "0", maxOccurs: "1"
+class Ndl < ::HealthSeven::DataType# indent: 0
+# Name
+attribute :name, Cnn, minOccurs: "0", maxOccurs: "1"
+# Start Date/time
+attribute :start_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+# End Date/time
+attribute :end_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+# Point of Care
+attribute :point_of_care, Is, minOccurs: "0", maxOccurs: "1"
+# Room
+attribute :room, Is, minOccurs: "0", maxOccurs: "1"
+# Bed
+attribute :bed, Is, minOccurs: "0", maxOccurs: "1"
+# Facility
+attribute :facility, Hd, minOccurs: "0", maxOccurs: "1"
+# Location Status
+attribute :location_status, Is, minOccurs: "0", maxOccurs: "1"
+# Patient Location Type
+attribute :patient_location_type, Is, minOccurs: "0", maxOccurs: "1"
+# Building
+attribute :building, Is, minOccurs: "0", maxOccurs: "1"
+# Floor
+attribute :floor, Is, minOccurs: "0", maxOccurs: "1"
 end
 end

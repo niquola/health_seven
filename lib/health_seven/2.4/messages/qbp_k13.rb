@@ -1,15 +1,15 @@
 module HealthSeven::V2_4
-class QBP_K13 < ::HealthSeven::Message
-  attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, MSA, minOccurs: "1", maxOccurs: "1"
-  attribute :err, ERR, minOccurs: "0", maxOccurs: "1"
-  attribute :qak, QAK, minOccurs: "1", maxOccurs: "1"
-  attribute :qpd, QPD, minOccurs: "1", maxOccurs: "1"
-class ROW_DEFINITION < ::HealthSeven::SegmentGroup
-  attribute :rdf, RDF, minOccurs: "1", maxOccurs: "1"
-  attribute :rdts, Array[RDT], minOccurs: "0", maxOccurs: "unbounded"
+class QbpK13 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
+attribute :err, Err, minOccurs: "0", maxOccurs: "1"
+attribute :qak, Qak, minOccurs: "1", maxOccurs: "1"
+attribute :qpd, Qpd, minOccurs: "1", maxOccurs: "1"
+class ROW_DEFINITION < ::HealthSeven::SegmentGroup# indent: 0
+attribute :rdf, Rdf, minOccurs: "1", maxOccurs: "1"
+attribute :rdts, Array[Rdt], minOccurs: "0", maxOccurs: "unbounded"
 end
-  attribute :row_definition, ROW_DEFINITION, minOccurs: "0", maxOccurs: "1"
-  attribute :dsc, DSC, minOccurs: "0", maxOccurs: "1"
+attribute :row_definition, ROW_DEFINITION, minOccurs: "0", maxOccurs: "1"
+attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
 end
 end

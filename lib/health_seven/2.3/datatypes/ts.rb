@@ -1,8 +1,8 @@
 module HealthSeven::V2_3
-class TS < ::HealthSeven::DataType
-  # time of an event
-  attribute :time_of_an_event, ST, minOccurs: "0", maxOccurs: "1"
-  # degree of precision
-  attribute :degree_of_precision, ST, minOccurs: "0", maxOccurs: "1"
+class Ts < ::HealthSeven::DataType# indent: 0
+# time of an event
+attribute :time_of_an_event, St, minOccurs: "0", maxOccurs: "1"
+# degree of precision
+attribute :degree_of_precision, St, minOccurs: "0", maxOccurs: "1"
 end
 end

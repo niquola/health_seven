@@ -1,14 +1,14 @@
 module HealthSeven::V2_5
-class RPR_I03 < ::HealthSeven::Message# indent: 0
-attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
-attribute :msa, MSA, minOccurs: "1", maxOccurs: "1"
+class RprI03 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
+attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
 class PROVIDER < ::HealthSeven::SegmentGroup# indent: 0
-attribute :prd, PRD, minOccurs: "1", maxOccurs: "1"
-attribute :ctds, Array[CTD], minOccurs: "0", maxOccurs: "unbounded"
+attribute :prd, Prd, minOccurs: "1", maxOccurs: "1"
+attribute :ctds, Array[Ctd], minOccurs: "0", maxOccurs: "unbounded"
 end
 attribute :providers, Array[PROVIDER], minOccurs: "1", maxOccurs: "unbounded"
-attribute :pids, Array[PID], minOccurs: "0", maxOccurs: "unbounded"
-attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
+attribute :pids, Array[Pid], minOccurs: "0", maxOccurs: "unbounded"
+attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

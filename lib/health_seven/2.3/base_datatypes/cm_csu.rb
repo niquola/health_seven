@@ -1,5 +1,5 @@
 module HealthSeven::V2_3
-class CMCsu < ::HealthSeven::SimpleType
+class CmCsu < ::HealthSeven::SimpleType# indent: 0
 
 end
 end

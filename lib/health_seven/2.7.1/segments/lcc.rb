@@ -1,12 +1,12 @@
 module HealthSeven::V2_7_1
-class LCC < ::HealthSeven::Segment
-  # Primary Key Value - LCC
-  attribute :primary_key_value_lcc, PL, minOccurs: "1", maxOccurs: "1"
-  # Location Department
-  attribute :location_department, CWE, minOccurs: "1", maxOccurs: "1"
-  # Accommodation Type
-  attribute :accommodation_types, Array[CWE], minOccurs: "0", maxOccurs: "unbounded"
-  # Charge Code
-  attribute :charge_codes, Array[CWE], minOccurs: "1", maxOccurs: "unbounded"
+class Lcc < ::HealthSeven::Segment# indent: 0
+# Primary Key Value - LCC
+attribute :primary_key_value_lcc, Pl, minOccurs: "1", maxOccurs: "1"
+# Location Department
+attribute :location_department, Cwe, minOccurs: "1", maxOccurs: "1"
+# Accommodation Type
+attribute :accommodation_types, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+# Charge Code
+attribute :charge_codes, Array[Cwe], minOccurs: "1", maxOccurs: "unbounded"
 end
 end

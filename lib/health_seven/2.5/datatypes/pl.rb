@@ -1,26 +1,26 @@
 module HealthSeven::V2_5
-class PL < ::HealthSeven::DataType# indent: 0
+class Pl < ::HealthSeven::DataType# indent: 0
 # Point of Care
-attribute :point_of_care, IS, minOccurs: "0", maxOccurs: "1"
+attribute :point_of_care, Is, minOccurs: "0", maxOccurs: "1"
 # Room
-attribute :room, IS, minOccurs: "0", maxOccurs: "1"
+attribute :room, Is, minOccurs: "0", maxOccurs: "1"
 # Bed
-attribute :bed, IS, minOccurs: "0", maxOccurs: "1"
+attribute :bed, Is, minOccurs: "0", maxOccurs: "1"
 # Facility
-attribute :facility, HD, minOccurs: "0", maxOccurs: "1"
+attribute :facility, Hd, minOccurs: "0", maxOccurs: "1"
 # Location Status
-attribute :location_status, IS, minOccurs: "0", maxOccurs: "1"
+attribute :location_status, Is, minOccurs: "0", maxOccurs: "1"
 # Person Location Type
-attribute :person_location_type, IS, minOccurs: "0", maxOccurs: "1"
+attribute :person_location_type, Is, minOccurs: "0", maxOccurs: "1"
 # Building
-attribute :building, IS, minOccurs: "0", maxOccurs: "1"
+attribute :building, Is, minOccurs: "0", maxOccurs: "1"
 # Floor
-attribute :floor, IS, minOccurs: "0", maxOccurs: "1"
+attribute :floor, Is, minOccurs: "0", maxOccurs: "1"
 # Location Description
-attribute :location_description, ST, minOccurs: "0", maxOccurs: "1"
+attribute :location_description, St, minOccurs: "0", maxOccurs: "1"
 # Comprehensive Location Identifier
-attribute :comprehensive_location_identifier, EI, minOccurs: "0", maxOccurs: "1"
+attribute :comprehensive_location_identifier, Ei, minOccurs: "0", maxOccurs: "1"
 # Assigning Authority for Location
-attribute :assigning_authority_for_location, HD, minOccurs: "0", maxOccurs: "1"
+attribute :assigning_authority_for_location, Hd, minOccurs: "0", maxOccurs: "1"
 end
 end

@@ -1,10 +1,10 @@
 module HealthSeven::V2_3
-class CMRmc < ::HealthSeven::DataType
-  # room type
-  attribute :room_type, IS, minOccurs: "0", maxOccurs: "1"
-  # amount type
-  attribute :amount_type, IS, minOccurs: "0", maxOccurs: "1"
-  # coverage amount
-  attribute :coverage_amount, NM, minOccurs: "0", maxOccurs: "1"
+class CmRmc < ::HealthSeven::DataType# indent: 0
+# room type
+attribute :room_type, Is, minOccurs: "0", maxOccurs: "1"
+# amount type
+attribute :amount_type, Is, minOccurs: "0", maxOccurs: "1"
+# coverage amount
+attribute :coverage_amount, Nm, minOccurs: "0", maxOccurs: "1"
 end
 end

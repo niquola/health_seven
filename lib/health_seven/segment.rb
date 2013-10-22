@@ -6,7 +6,7 @@ module HealthSeven
 
     def self.parse(version, content)
       fields = content.split('|')
-      "HealthSeven::V#{version.gsub('.','_').upcase}::#{fields.shift}".constantize
+      "HealthSeven::V#{version.gsub('.','_').upcase}::#{HealthSeven.normalize_class_name(fields.shift)}".constantize
       .build(version, fields)
     end
 
@@ -19,7 +19,7 @@ module HealthSeven
     def self.build(version, fields)
       acc = {}
       attrs = self.attribute_set.to_a
-      attrs.shift if self.name.split('::').last == 'MSH'
+      attrs.shift if self.name.split('::').last == 'Msh'
 
       attrs.each_with_index do |attr, index|
         collection = attr.options[:maxOccurs] == 'unbounded'

@@ -1,8 +1,8 @@
 module HealthSeven::V2_4
-class SSR_U04 < ::HealthSeven::Message
-  attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-  attribute :equ, EQU, minOccurs: "1", maxOccurs: "1"
-  attribute :sacs, Array[SAC], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :rol, ROL, minOccurs: "0", maxOccurs: "1"
+class SsrU04 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :equ, Equ, minOccurs: "1", maxOccurs: "1"
+attribute :sacs, Array[Sac], minOccurs: "1", maxOccurs: "unbounded"
+attribute :rol, Rol, minOccurs: "0", maxOccurs: "1"
 end
 end

@@ -11,7 +11,7 @@ module HealthSeven
         class_name =  msh[8].split('^')[2]
         class_name ||= msh[8].split('^')[0..1].join("_").upcase
         version = msh[11].gsub('.','_').upcase
-        "HealthSeven::V#{version}::#{class_name}".constantize.build(version, content)
+        "HealthSeven::V#{version}::#{HealthSeven.normalize_class_name(class_name)}".constantize.build(version, content)
       end
 
       protected

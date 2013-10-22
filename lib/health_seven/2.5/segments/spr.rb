@@ -1,12 +1,12 @@
 module HealthSeven::V2_5
-class SPR < ::HealthSeven::Segment# indent: 0
+class Spr < ::HealthSeven::Segment# indent: 0
 # Query Tag
-attribute :query_tag, ST, minOccurs: "0", maxOccurs: "1"
+attribute :query_tag, St, minOccurs: "0", maxOccurs: "1"
 # Query/Response Format Code
-attribute :query_response_format_code, ID, minOccurs: "1", maxOccurs: "1"
+attribute :query_response_format_code, Id, minOccurs: "1", maxOccurs: "1"
 # Stored Procedure Name
-attribute :stored_procedure_name, CE, minOccurs: "1", maxOccurs: "1"
+attribute :stored_procedure_name, Ce, minOccurs: "1", maxOccurs: "1"
 # Input Parameter List
-attribute :input_parameter_lists, Array[QIP], minOccurs: "0", maxOccurs: "unbounded"
+attribute :input_parameter_lists, Array[Qip], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

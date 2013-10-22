@@ -92,14 +92,11 @@ describe 'parsing' do
     obx.observation_identifier.identifier.value.should == '1010.1'
   end
 
-  scenario 'warn on non existing required segment' do
+  describe 'warn on non existing required segment' do
     example 'message has top-level required segment' do
       class TestMessage < HealthSeven::Message
         attribute :msh, String, minOccurs: "1", maxOccurs: "1"
       end
-      let(:hl7_message) {
-
-      }
     end
   end
 end

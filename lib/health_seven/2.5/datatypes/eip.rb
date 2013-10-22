@@ -1,8 +1,8 @@
 module HealthSeven::V2_5
-class EIP < ::HealthSeven::DataType# indent: 0
+class Eip < ::HealthSeven::DataType# indent: 0
 # Placer Assigned Identifier
-attribute :placer_assigned_identifier, EI, minOccurs: "0", maxOccurs: "1"
+attribute :placer_assigned_identifier, Ei, minOccurs: "0", maxOccurs: "1"
 # Filler Assigned Identifier
-attribute :filler_assigned_identifier, EI, minOccurs: "0", maxOccurs: "1"
+attribute :filler_assigned_identifier, Ei, minOccurs: "0", maxOccurs: "1"
 end
 end

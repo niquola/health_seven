@@ -1,5 +1,5 @@
 module HealthSeven::V2_6
-class DTM < ::HealthSeven::SimpleType
+class Dtm < ::HealthSeven::SimpleType# indent: 0
 
 end
 end

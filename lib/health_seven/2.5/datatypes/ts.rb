@@ -1,8 +1,8 @@
 module HealthSeven::V2_5
-class TS < ::HealthSeven::DataType# indent: 0
+class Ts < ::HealthSeven::DataType# indent: 0
 # Time
-attribute :time, DTM, minOccurs: "0", maxOccurs: "1"
+attribute :time, Dtm, minOccurs: "0", maxOccurs: "1"
 # Degree of Precision
-attribute :degree_of_precision, ID, minOccurs: "0", maxOccurs: "1"
+attribute :degree_of_precision, Id, minOccurs: "0", maxOccurs: "1"
 end
 end

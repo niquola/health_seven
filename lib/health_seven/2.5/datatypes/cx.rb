@@ -1,24 +1,24 @@
 module HealthSeven::V2_5
-class CX < ::HealthSeven::DataType# indent: 0
+class Cx < ::HealthSeven::DataType# indent: 0
 # ID Number
-attribute :id_number, ST, minOccurs: "0", maxOccurs: "1"
+attribute :id_number, St, minOccurs: "0", maxOccurs: "1"
 # Check Digit
-attribute :check_digit, ST, minOccurs: "0", maxOccurs: "1"
+attribute :check_digit, St, minOccurs: "0", maxOccurs: "1"
 # Check Digit Scheme
-attribute :check_digit_scheme, ID, minOccurs: "0", maxOccurs: "1"
+attribute :check_digit_scheme, Id, minOccurs: "0", maxOccurs: "1"
 # Assigning Authority
-attribute :assigning_authority, HD, minOccurs: "0", maxOccurs: "1"
+attribute :assigning_authority, Hd, minOccurs: "0", maxOccurs: "1"
 # Identifier Type Code
-attribute :identifier_type_code, ID, minOccurs: "0", maxOccurs: "1"
+attribute :identifier_type_code, Id, minOccurs: "0", maxOccurs: "1"
 # Assigning Facility
-attribute :assigning_facility, HD, minOccurs: "0", maxOccurs: "1"
+attribute :assigning_facility, Hd, minOccurs: "0", maxOccurs: "1"
 # Effective Date
-attribute :effective_date, DT, minOccurs: "0", maxOccurs: "1"
+attribute :effective_date, Dt, minOccurs: "0", maxOccurs: "1"
 # Expiration Date
-attribute :expiration_date, DT, minOccurs: "0", maxOccurs: "1"
+attribute :expiration_date, Dt, minOccurs: "0", maxOccurs: "1"
 # Assigning Jurisdiction
-attribute :assigning_jurisdiction, CWE, minOccurs: "0", maxOccurs: "1"
+attribute :assigning_jurisdiction, Cwe, minOccurs: "0", maxOccurs: "1"
 # Assigning Agency or Department
-attribute :assigning_agency_or_department, CWE, minOccurs: "0", maxOccurs: "1"
+attribute :assigning_agency_or_department, Cwe, minOccurs: "0", maxOccurs: "1"
 end
 end

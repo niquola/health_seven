@@ -1,12 +1,12 @@
 module HealthSeven::V2_5
-class EI < ::HealthSeven::DataType# indent: 0
+class Ei < ::HealthSeven::DataType# indent: 0
 # Entity Identifier
-attribute :entity_identifier, ST, minOccurs: "0", maxOccurs: "1"
+attribute :entity_identifier, St, minOccurs: "0", maxOccurs: "1"
 # Namespace ID
-attribute :namespace_id, IS, minOccurs: "0", maxOccurs: "1"
+attribute :namespace_id, Is, minOccurs: "0", maxOccurs: "1"
 # Universal ID
-attribute :universal_id, ST, minOccurs: "0", maxOccurs: "1"
+attribute :universal_id, St, minOccurs: "0", maxOccurs: "1"
 # Universal ID Type
-attribute :universal_id_type, ID, minOccurs: "0", maxOccurs: "1"
+attribute :universal_id_type, Id, minOccurs: "0", maxOccurs: "1"
 end
 end

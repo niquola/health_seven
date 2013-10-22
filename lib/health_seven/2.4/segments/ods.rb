@@ -1,12 +1,12 @@
 module HealthSeven::V2_4
-class ODS < ::HealthSeven::Segment
-  # Type
-  attribute :type, ID, minOccurs: "1", maxOccurs: "1"
-  # Service Period
-  attribute :service_periods, Array[CE], minOccurs: "0", maxOccurs: "unbounded"
-  # Diet, Supplement, or Preference Code
-  attribute :diet_supplement_or_preference_codes, Array[CE], minOccurs: "1", maxOccurs: "unbounded"
-  # Text Instruction
-  attribute :text_instructions, Array[ST], minOccurs: "0", maxOccurs: "unbounded"
+class Ods < ::HealthSeven::Segment# indent: 0
+# Type
+attribute :type, Id, minOccurs: "1", maxOccurs: "1"
+# Service Period
+attribute :service_periods, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+# Diet, Supplement, or Preference Code
+attribute :diet_supplement_or_preference_codes, Array[Ce], minOccurs: "1", maxOccurs: "unbounded"
+# Text Instruction
+attribute :text_instructions, Array[St], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

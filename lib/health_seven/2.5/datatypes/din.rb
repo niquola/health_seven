@@ -1,8 +1,8 @@
 module HealthSeven::V2_5
-class DIN < ::HealthSeven::DataType# indent: 0
+class Din < ::HealthSeven::DataType# indent: 0
 # Date
-attribute :date, TS, minOccurs: "0", maxOccurs: "1"
+attribute :date, Ts, minOccurs: "0", maxOccurs: "1"
 # Institution Name
-attribute :institution_name, CE, minOccurs: "0", maxOccurs: "1"
+attribute :institution_name, Ce, minOccurs: "0", maxOccurs: "1"
 end
 end

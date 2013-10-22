@@ -1,8 +1,8 @@
 module HealthSeven::V2_3_1
-class MO < ::HealthSeven::DataType
-  # quantity
-  attribute :quantity, NM, minOccurs: "0", maxOccurs: "1"
-  # denomination
-  attribute :denomination, ID, minOccurs: "0", maxOccurs: "1"
+class Mo < ::HealthSeven::DataType# indent: 0
+# quantity
+attribute :quantity, Nm, minOccurs: "0", maxOccurs: "1"
+# denomination
+attribute :denomination, Id, minOccurs: "0", maxOccurs: "1"
 end
 end

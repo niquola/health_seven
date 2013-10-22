@@ -1,5 +1,5 @@
 module HealthSeven::V2_4
-class TX < ::HealthSeven::DataType
-  attribute :escapes, Array[String], minOccurs: "0", maxOccurs: "unbounded"
+class Tx < ::HealthSeven::DataType# indent: 0
+attribute :escapes, Array[String], minOccurs: "0", maxOccurs: "unbounded"
 end
 end

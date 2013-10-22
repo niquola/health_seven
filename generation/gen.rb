@@ -63,12 +63,20 @@ end
     # class SNM < ::HealthSeven::SimpleType; end
   end
 
+  def mk_class_name(name)
+    if name =~ /^[_A-Z0-9]+$/
+      name.downcase.camelize
+    else
+      name.camelize
+    end
+  end
+
   def generate_messages(version, db)
     FileUtils.rm_rf(base_path(version, 'messages'))
     FileUtils.mkdir_p(base_path(version, 'messages'))
 
     messages_db(version).each do |name, message|
-      class_name = ref(message)
+      class_name = mk_class_name(ref(message))
       code = gklass(module_name(version), class_name, '::HealthSeven::Message') do
         generate_class_recursively(db, find_type_by_el(db, message))
       end
@@ -88,7 +96,7 @@ end
 
     complex_types = datatypes_db(version).select { |n, t| complex_type?(t) && root_datatype?(n)}
     complex_types.each do |name, tp|
-      class_name = name.camelize
+      class_name = mk_class_name(name)
       code = gklass(module_name(version), class_name, '::HealthSeven::DataType') do
         generate_class_body(db, tp)
       end
@@ -105,13 +113,13 @@ end
   def generate_base_datatypes(version, db)
     dir = 'base_datatypes'
     base_dir_path = base_path(version, dir)
-    # FileUtils.rm_rf(base_dir_path)
-    FileUtils.mkdir_p(base_path(base_dir_path))
+    FileUtils.rm_rf(base_dir_path)
+    FileUtils.mkdir_p(base_dir_path)
     simple_types = datatypes_db(version)
     .select { |n, t| root_datatype?(n) && ! complex_type?(t)}
 
     simple_types.each do |name, tp|
-      class_name = name.camelize
+      class_name = mk_class_name(name)
       code = gklass(module_name(version), class_name, '::HealthSeven::SimpleType') do
         generate_class_body(db, tp)
       end
@@ -127,7 +135,7 @@ end
     FileUtils.mkdir_p(base_path(version, 'segments'))
 
     segments_db(version).each do |name, el|
-      class_name = name.camelize
+      class_name = mk_class_name(name)
       code = gklass(module_name(version), class_name, '::HealthSeven::Segment') do
         tp = find_type(db, type(el))
         generate_class_body(db, tp)
@@ -136,7 +144,6 @@ end
     end
 
     fixed_keys = segments_db(version).keys.map { |k| k.gsub(/^any/, 'Any') }
-    p base_path('segments')
     segments_autoload_code = autoloads(version, base_path(version, 'segments'))
     fwrite(base_path(version, "segments.rb"), segments_autoload_code)
 
@@ -147,7 +154,7 @@ end
   def generate_attribute_by_el_ref(db, el_ref)
     tp = find_type_by_el(db, el_ref)
     tname = normalize_name(type_desc(tp) || ref(el_ref) || name(el_ref))
-    type = (base_type(tp) || name(tp).split('.').first).camelize
+    type = mk_class_name(base_type(tp) || name(tp).split('.').first)
     generate_attribute(tname, type,
                        comment: type_desc(tp),
                        minOccurs: el_ref[:minOccurs] || "0",
@@ -294,7 +301,7 @@ end
     autoloads_string = Dir[dir + "/*.rb"].sort.map do |file|
       file_basename = File.basename(file, '.rb')
       rel_path = "#{File.basename(dir)}/#{file_basename}"
-      class_name = file_basename.size > 3 ? file_basename.camelize : file_basename.upcase
+      class_name = mk_class_name(file_basename)
       "autoload :#{class_name}, File.dirname(__FILE__) + '/#{rel_path}'"
     end.join("\n")
 

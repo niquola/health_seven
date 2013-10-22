@@ -16,4 +16,11 @@ module HealthSeven
   autoload :DataType, "health_seven/data_type.rb"
   autoload :SimpleType, "health_seven/data_type.rb"
 
+  def self.normalize_class_name(name)
+    if name =~ /^[_A-Z0-9]+$/
+      name.downcase.camelize
+    else
+      name.camelize
+    end
+  end
 end

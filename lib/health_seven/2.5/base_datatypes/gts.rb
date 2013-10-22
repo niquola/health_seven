@@ -1,5 +1,5 @@
 module HealthSeven::V2_5
-class GTS < ::HealthSeven::SimpleType
+class Gts < ::HealthSeven::SimpleType# indent: 0
 
 end
 end

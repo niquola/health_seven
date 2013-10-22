@@ -7,6 +7,10 @@ describe Gen do
     generate_all
   end
 
+  example do
+    generate('2.5')
+  end
+
   example '#autoloads should build code using files in specified directory' do
     Dir.mktmpdir('test-dir') do |test_dir|
       autoloads_dir = "#{test_dir}/test-autoload"

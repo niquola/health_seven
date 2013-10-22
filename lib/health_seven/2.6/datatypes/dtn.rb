@@ -1,8 +1,8 @@
 module HealthSeven::V2_6
-class DTN < ::HealthSeven::DataType
-  # Day Type
-  attribute :day_type, IS, minOccurs: "1", maxOccurs: "1"
-  # Number of Days
-  attribute :number_of_days, NM, minOccurs: "1", maxOccurs: "1"
+class Dtn < ::HealthSeven::DataType# indent: 0
+# Day Type
+attribute :day_type, Is, minOccurs: "1", maxOccurs: "1"
+# Number of Days
+attribute :number_of_days, Nm, minOccurs: "1", maxOccurs: "1"
 end
 end

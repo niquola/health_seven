@@ -1,5 +1,5 @@
 module HealthSeven::V2_7
-class FT < ::HealthSeven::SimpleType
+class Ft < ::HealthSeven::SimpleType# indent: 0
 
 end
 end

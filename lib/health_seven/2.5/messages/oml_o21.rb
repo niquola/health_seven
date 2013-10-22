@@ -1,81 +1,81 @@
 module HealthSeven::V2_5
-class OML_O21 < ::HealthSeven::Message# indent: 0
-attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
-attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
+class OmlO21 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
+attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
 class PATIENT < ::HealthSeven::SegmentGroup# indent: 0
-attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
-attribute :pd1, PD1, minOccurs: "0", maxOccurs: "1"
-attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
-attribute :nk1s, Array[NK1], minOccurs: "0", maxOccurs: "unbounded"
+attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
+attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
+attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+attribute :nk1s, Array[Nk1], minOccurs: "0", maxOccurs: "unbounded"
   class PATIENT_VISIT < ::HealthSeven::SegmentGroup# indent: 2
-  attribute :pv1, PV1, minOccurs: "1", maxOccurs: "1"
-  attribute :pv2, PV2, minOccurs: "0", maxOccurs: "1"
+  attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
+  attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
   end
 attribute :patient_visit, PATIENT_VISIT, minOccurs: "0", maxOccurs: "1"
   class INSURANCE < ::HealthSeven::SegmentGroup# indent: 2
-  attribute :in1, IN1, minOccurs: "1", maxOccurs: "1"
-  attribute :in2, IN2, minOccurs: "0", maxOccurs: "1"
-  attribute :in3, IN3, minOccurs: "0", maxOccurs: "1"
+  attribute :in1, In1, minOccurs: "1", maxOccurs: "1"
+  attribute :in2, In2, minOccurs: "0", maxOccurs: "1"
+  attribute :in3, In3, minOccurs: "0", maxOccurs: "1"
   end
 attribute :insurances, Array[INSURANCE], minOccurs: "0", maxOccurs: "unbounded"
-attribute :gt1, GT1, minOccurs: "0", maxOccurs: "1"
-attribute :al1s, Array[AL1], minOccurs: "0", maxOccurs: "unbounded"
+attribute :gt1, Gt1, minOccurs: "0", maxOccurs: "1"
+attribute :al1s, Array[Al1], minOccurs: "0", maxOccurs: "unbounded"
 end
 attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
 class ORDER < ::HealthSeven::SegmentGroup# indent: 0
-attribute :orc, ORC, minOccurs: "1", maxOccurs: "1"
+attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
   class TIIMING < ::HealthSeven::SegmentGroup# indent: 2
-  attribute :tq1, TQ1, minOccurs: "1", maxOccurs: "1"
-  attribute :tq2s, Array[TQ2], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
+  attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
   end
 attribute :tiimings, Array[TIIMING], minOccurs: "0", maxOccurs: "unbounded"
   class OBSERVATION_REQUEST < ::HealthSeven::SegmentGroup# indent: 2
-  attribute :obr, OBR, minOccurs: "1", maxOccurs: "1"
-  attribute :tcd, TCD, minOccurs: "0", maxOccurs: "1"
-  attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :ctd, CTD, minOccurs: "0", maxOccurs: "1"
-  attribute :dg1s, Array[DG1], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
+  attribute :tcd, Tcd, minOccurs: "0", maxOccurs: "1"
+  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ctd, Ctd, minOccurs: "0", maxOccurs: "1"
+  attribute :dg1s, Array[Dg1], minOccurs: "0", maxOccurs: "unbounded"
       class OBSERVATION < ::HealthSeven::SegmentGroup# indent: 4
-      attribute :obx, OBX, minOccurs: "1", maxOccurs: "1"
-      attribute :tcd, TCD, minOccurs: "0", maxOccurs: "1"
-      attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
+      attribute :tcd, Tcd, minOccurs: "0", maxOccurs: "1"
+      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
       end
   attribute :observations, Array[OBSERVATION], minOccurs: "0", maxOccurs: "unbounded"
       class SPECIMEN < ::HealthSeven::SegmentGroup# indent: 4
-      attribute :spm, SPM, minOccurs: "1", maxOccurs: "1"
-      attribute :obxes, Array[OBX], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :spm, Spm, minOccurs: "1", maxOccurs: "1"
+      attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
             class CONTAINER < ::HealthSeven::SegmentGroup# indent: 6
-            attribute :sac, SAC, minOccurs: "1", maxOccurs: "1"
-            attribute :obxes, Array[OBX], minOccurs: "0", maxOccurs: "unbounded"
+            attribute :sac, Sac, minOccurs: "1", maxOccurs: "1"
+            attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
             end
       attribute :containers, Array[CONTAINER], minOccurs: "0", maxOccurs: "unbounded"
       end
   attribute :specimen, Array[SPECIMEN], minOccurs: "0", maxOccurs: "unbounded"
       class PRIOR_RESULT < ::HealthSeven::SegmentGroup# indent: 4
             class PATIENT_PRIOR < ::HealthSeven::SegmentGroup# indent: 6
-            attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
-            attribute :pd1, PD1, minOccurs: "0", maxOccurs: "1"
+            attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
+            attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
             end
       attribute :patient_prior, PATIENT_PRIOR, minOccurs: "0", maxOccurs: "1"
             class PATIENT_VISIT_PRIOR < ::HealthSeven::SegmentGroup# indent: 6
-            attribute :pv1, PV1, minOccurs: "1", maxOccurs: "1"
-            attribute :pv2, PV2, minOccurs: "0", maxOccurs: "1"
+            attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
+            attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
             end
       attribute :patient_visit_prior, PATIENT_VISIT_PRIOR, minOccurs: "0", maxOccurs: "1"
-      attribute :al1s, Array[AL1], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :al1s, Array[Al1], minOccurs: "0", maxOccurs: "unbounded"
             class ORDER_PRIOR < ::HealthSeven::SegmentGroup# indent: 6
-            attribute :orc, ORC, minOccurs: "0", maxOccurs: "1"
-            attribute :obr, OBR, minOccurs: "1", maxOccurs: "1"
-            attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
+            attribute :orc, Orc, minOccurs: "0", maxOccurs: "1"
+            attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
+            attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
                     class TIMING_PRIOR < ::HealthSeven::SegmentGroup# indent: 8
-                    attribute :tq1, TQ1, minOccurs: "1", maxOccurs: "1"
-                    attribute :tq2s, Array[TQ2], minOccurs: "0", maxOccurs: "unbounded"
+                    attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
+                    attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
                     end
             attribute :timing_priors, Array[TIMING_PRIOR], minOccurs: "0", maxOccurs: "unbounded"
                     class OBSERVATION_PRIOR < ::HealthSeven::SegmentGroup# indent: 8
-                    attribute :obx, OBX, minOccurs: "1", maxOccurs: "1"
-                    attribute :ntes, Array[NTE], minOccurs: "0", maxOccurs: "unbounded"
+                    attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
+                    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
                     end
             attribute :observation_priors, Array[OBSERVATION_PRIOR], minOccurs: "1", maxOccurs: "unbounded"
             end
@@ -84,9 +84,9 @@ attribute :tiimings, Array[TIIMING], minOccurs: "0", maxOccurs: "unbounded"
   attribute :prior_results, Array[PRIOR_RESULT], minOccurs: "0", maxOccurs: "unbounded"
   end
 attribute :observation_request, OBSERVATION_REQUEST, minOccurs: "0", maxOccurs: "1"
-attribute :ft1s, Array[FT1], minOccurs: "0", maxOccurs: "unbounded"
-attribute :ctis, Array[CTI], minOccurs: "0", maxOccurs: "unbounded"
-attribute :blg, BLG, minOccurs: "0", maxOccurs: "1"
+attribute :ft1s, Array[Ft1], minOccurs: "0", maxOccurs: "unbounded"
+attribute :ctis, Array[Cti], minOccurs: "0", maxOccurs: "unbounded"
+attribute :blg, Blg, minOccurs: "0", maxOccurs: "1"
 end
 attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
 end

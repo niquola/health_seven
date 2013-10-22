@@ -1,7 +1,7 @@
 module HealthSeven::V2_3
-class QRY_PC4 < ::HealthSeven::Message
-  attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-  attribute :qrd, QRD, minOccurs: "1", maxOccurs: "1"
-  attribute :qrf, QRF, minOccurs: "0", maxOccurs: "1"
+class QryPc4 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
+attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
 end
 end

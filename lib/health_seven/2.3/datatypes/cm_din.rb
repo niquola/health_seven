@@ -1,8 +1,8 @@
 module HealthSeven::V2_3
-class CMDin < ::HealthSeven::DataType
-  # date
-  attribute :date, TS, minOccurs: "0", maxOccurs: "1"
-  # institution name
-  attribute :institution_name, CE, minOccurs: "0", maxOccurs: "1"
+class CmDin < ::HealthSeven::DataType# indent: 0
+# date
+attribute :date, Ts, minOccurs: "0", maxOccurs: "1"
+# institution name
+attribute :institution_name, Ce, minOccurs: "0", maxOccurs: "1"
 end
 end

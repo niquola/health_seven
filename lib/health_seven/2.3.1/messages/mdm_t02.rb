@@ -1,10 +1,10 @@
 module HealthSeven::V2_3_1
-class MDM_T02 < ::HealthSeven::Message
-  attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, EVN, minOccurs: "1", maxOccurs: "1"
-  attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
-  attribute :pv1, PV1, minOccurs: "1", maxOccurs: "1"
-  attribute :txa, TXA, minOccurs: "1", maxOccurs: "1"
-  attribute :obxes, Array[OBX], minOccurs: "1", maxOccurs: "unbounded"
+class MdmT02 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
+attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
+attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
+attribute :txa, Txa, minOccurs: "1", maxOccurs: "1"
+attribute :obxes, Array[Obx], minOccurs: "1", maxOccurs: "unbounded"
 end
 end

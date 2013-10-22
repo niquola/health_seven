@@ -1,12 +1,12 @@
 module HealthSeven::V2_5
-class VH < ::HealthSeven::DataType# indent: 0
+class Vh < ::HealthSeven::DataType# indent: 0
 # Start Day Range
-attribute :start_day_range, ID, minOccurs: "0", maxOccurs: "1"
+attribute :start_day_range, Id, minOccurs: "0", maxOccurs: "1"
 # End Day Range
-attribute :end_day_range, ID, minOccurs: "0", maxOccurs: "1"
+attribute :end_day_range, Id, minOccurs: "0", maxOccurs: "1"
 # Start Hour Range
-attribute :start_hour_range, TM, minOccurs: "0", maxOccurs: "1"
+attribute :start_hour_range, Tm, minOccurs: "0", maxOccurs: "1"
 # End Hour Range
-attribute :end_hour_range, TM, minOccurs: "0", maxOccurs: "1"
+attribute :end_hour_range, Tm, minOccurs: "0", maxOccurs: "1"
 end
 end

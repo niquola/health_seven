@@ -1,28 +1,28 @@
 module HealthSeven::V2_5
-class ORG < ::HealthSeven::Segment# indent: 0
+class Org < ::HealthSeven::Segment# indent: 0
 # Set ID _ ORG
-attribute :set_id_org, SI, minOccurs: "1", maxOccurs: "1"
+attribute :set_id_org, Si, minOccurs: "1", maxOccurs: "1"
 # Organization Unit Code
-attribute :organization_unit_code, CE, minOccurs: "0", maxOccurs: "1"
+attribute :organization_unit_code, Ce, minOccurs: "0", maxOccurs: "1"
 # Organization Unit Type Code
-attribute :organization_unit_type_code, CE, minOccurs: "0", maxOccurs: "1"
+attribute :organization_unit_type_code, Ce, minOccurs: "0", maxOccurs: "1"
 # Primary Org Unit Indicator
-attribute :primary_org_unit_indicator, ID, minOccurs: "0", maxOccurs: "1"
+attribute :primary_org_unit_indicator, Id, minOccurs: "0", maxOccurs: "1"
 # Practitioner Org Unit Identifier
-attribute :practitioner_org_unit_identifier, CX, minOccurs: "0", maxOccurs: "1"
+attribute :practitioner_org_unit_identifier, Cx, minOccurs: "0", maxOccurs: "1"
 # Health Care Provider Type Code
-attribute :health_care_provider_type_code, CE, minOccurs: "0", maxOccurs: "1"
+attribute :health_care_provider_type_code, Ce, minOccurs: "0", maxOccurs: "1"
 # Health Care Provider Classification Code
-attribute :health_care_provider_classification_code, CE, minOccurs: "0", maxOccurs: "1"
+attribute :health_care_provider_classification_code, Ce, minOccurs: "0", maxOccurs: "1"
 # Health Care Provider Area of Specialization Code
-attribute :health_care_provider_area_of_specialization_code, CE, minOccurs: "0", maxOccurs: "1"
+attribute :health_care_provider_area_of_specialization_code, Ce, minOccurs: "0", maxOccurs: "1"
 # Effective Date Range
-attribute :effective_date_range, DR, minOccurs: "0", maxOccurs: "1"
+attribute :effective_date_range, Dr, minOccurs: "0", maxOccurs: "1"
 # Employment Status Code
-attribute :employment_status_code, CE, minOccurs: "0", maxOccurs: "1"
+attribute :employment_status_code, Ce, minOccurs: "0", maxOccurs: "1"
 # Board Approval Indicator
-attribute :board_approval_indicator, ID, minOccurs: "0", maxOccurs: "1"
+attribute :board_approval_indicator, Id, minOccurs: "0", maxOccurs: "1"
 # Primary Care Physician Indicator
-attribute :primary_care_physician_indicator, ID, minOccurs: "0", maxOccurs: "1"
+attribute :primary_care_physician_indicator, Id, minOccurs: "0", maxOccurs: "1"
 end
 end

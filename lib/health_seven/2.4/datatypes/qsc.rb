@@ -1,12 +1,12 @@
 module HealthSeven::V2_4
-class QSC < ::HealthSeven::DataType
-  # segment field name
-  attribute :segment_field_name, ST, minOccurs: "0", maxOccurs: "1"
-  # relational operator
-  attribute :relational_operator, ID, minOccurs: "0", maxOccurs: "1"
-  # Value
-  attribute :value, ST, minOccurs: "0", maxOccurs: "1"
-  # relational conjunction
-  attribute :relational_conjunction, ID, minOccurs: "0", maxOccurs: "1"
+class Qsc < ::HealthSeven::DataType# indent: 0
+# segment field name
+attribute :segment_field_name, St, minOccurs: "0", maxOccurs: "1"
+# relational operator
+attribute :relational_operator, Id, minOccurs: "0", maxOccurs: "1"
+# Value
+attribute :value, St, minOccurs: "0", maxOccurs: "1"
+# relational conjunction
+attribute :relational_conjunction, Id, minOccurs: "0", maxOccurs: "1"
 end
 end

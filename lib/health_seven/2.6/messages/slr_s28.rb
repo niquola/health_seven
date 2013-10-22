@@ -1,8 +1,8 @@
 module HealthSeven::V2_6
-class SLR_S28 < ::HealthSeven::Message
-  attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[SFT], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, UAC, minOccurs: "0", maxOccurs: "1"
-  attribute :slts, Array[SLT], minOccurs: "1", maxOccurs: "unbounded"
+class SlrS28 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
+attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
+attribute :slts, Array[Slt], minOccurs: "1", maxOccurs: "unbounded"
 end
 end

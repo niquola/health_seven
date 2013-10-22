@@ -1,22 +1,22 @@
 module HealthSeven::V2_7_1
-class XON < ::HealthSeven::DataType
-  # Organization Name
-  attribute :organization_name, ST, minOccurs: "0", maxOccurs: "1"
-  # Organization Name Type Code
-  attribute :organization_name_type_code, CWE, minOccurs: "0", maxOccurs: "1"
-  # Identifier Check Digit
-  attribute :identifier_check_digit, NM, minOccurs: "0", maxOccurs: "1"
-  # Check Digit Scheme
-  attribute :check_digit_scheme, ID, minOccurs: "0", maxOccurs: "1"
-  # Assigning Authority
-  attribute :assigning_authority, HD, minOccurs: "0", maxOccurs: "1"
-  # Identifier Type Code
-  attribute :identifier_type_code, ID, minOccurs: "0", maxOccurs: "1"
-  # Assigning Facility
-  attribute :assigning_facility, HD, minOccurs: "0", maxOccurs: "1"
-  # Name Representation Code
-  attribute :name_representation_code, ID, minOccurs: "0", maxOccurs: "1"
-  # Organization Identifier
-  attribute :organization_identifier, ST, minOccurs: "0", maxOccurs: "1"
+class Xon < ::HealthSeven::DataType# indent: 0
+# Organization Name
+attribute :organization_name, St, minOccurs: "0", maxOccurs: "1"
+# Organization Name Type Code
+attribute :organization_name_type_code, Cwe, minOccurs: "0", maxOccurs: "1"
+# Identifier Check Digit
+attribute :identifier_check_digit, Nm, minOccurs: "0", maxOccurs: "1"
+# Check Digit Scheme
+attribute :check_digit_scheme, Id, minOccurs: "0", maxOccurs: "1"
+# Assigning Authority
+attribute :assigning_authority, Hd, minOccurs: "0", maxOccurs: "1"
+# Identifier Type Code
+attribute :identifier_type_code, Id, minOccurs: "0", maxOccurs: "1"
+# Assigning Facility
+attribute :assigning_facility, Hd, minOccurs: "0", maxOccurs: "1"
+# Name Representation Code
+attribute :name_representation_code, Id, minOccurs: "0", maxOccurs: "1"
+# Organization Identifier
+attribute :organization_identifier, St, minOccurs: "0", maxOccurs: "1"
 end
 end

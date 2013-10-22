@@ -1,5 +1,5 @@
 module HealthSeven::V2_3
-class CMCcp < ::HealthSeven::SimpleType
+class CmCcp < ::HealthSeven::SimpleType# indent: 0
 
 end
 end

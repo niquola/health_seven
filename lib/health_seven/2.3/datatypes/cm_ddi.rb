@@ -1,10 +1,10 @@
 module HealthSeven::V2_3
-class CMDdi < ::HealthSeven::DataType
-  # delay days
-  attribute :delay_days, NM, minOccurs: "0", maxOccurs: "1"
-  # amount
-  attribute :amount, NM, minOccurs: "0", maxOccurs: "1"
-  # number of days
-  attribute :number_of_days, NM, minOccurs: "0", maxOccurs: "1"
+class CmDdi < ::HealthSeven::DataType# indent: 0
+# delay days
+attribute :delay_days, Nm, minOccurs: "0", maxOccurs: "1"
+# amount
+attribute :amount, Nm, minOccurs: "0", maxOccurs: "1"
+# number of days
+attribute :number_of_days, Nm, minOccurs: "0", maxOccurs: "1"
 end
 end

@@ -1,5 +1,5 @@
 module HealthSeven::V2_7_1
-class URS < ::HealthSeven::Segment
+class Urs < ::HealthSeven::Segment# indent: 0
 
 end
 end

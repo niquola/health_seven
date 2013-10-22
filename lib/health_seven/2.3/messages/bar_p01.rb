@@ -1,34 +1,34 @@
 module HealthSeven::V2_3
-class BAR_P01 < ::HealthSeven::Message
-  attribute :msh, MSH, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, EVN, minOccurs: "1", maxOccurs: "1"
-  attribute :pid, PID, minOccurs: "1", maxOccurs: "1"
-  attribute :pd1, PD1, minOccurs: "0", maxOccurs: "1"
-class VISIT < ::HealthSeven::SegmentGroup
-  attribute :pv1, PV1, minOccurs: "0", maxOccurs: "1"
-  attribute :pv2, PV2, minOccurs: "0", maxOccurs: "1"
-  attribute :db1s, Array[DB1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :obxes, Array[OBX], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :al1s, Array[AL1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :dg1s, Array[DG1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :drg, DRG, minOccurs: "0", maxOccurs: "1"
-class PROCEDURE < ::HealthSeven::SegmentGroup
-  attribute :pr1, PR1, minOccurs: "1", maxOccurs: "1"
-  attribute :rols, Array[ROL], minOccurs: "0", maxOccurs: "unbounded"
+class BarP01 < ::HealthSeven::Message# indent: 0
+attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
+attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
+attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
+class VISIT < ::HealthSeven::SegmentGroup# indent: 0
+attribute :pv1, Pv1, minOccurs: "0", maxOccurs: "1"
+attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+attribute :db1s, Array[Db1], minOccurs: "0", maxOccurs: "unbounded"
+attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
+attribute :al1s, Array[Al1], minOccurs: "0", maxOccurs: "unbounded"
+attribute :dg1s, Array[Dg1], minOccurs: "0", maxOccurs: "unbounded"
+attribute :drg, Drg, minOccurs: "0", maxOccurs: "1"
+  class PROCEDURE < ::HealthSeven::SegmentGroup# indent: 2
+  attribute :pr1, Pr1, minOccurs: "1", maxOccurs: "1"
+  attribute :rols, Array[Rol], minOccurs: "0", maxOccurs: "unbounded"
+  end
+attribute :procedures, Array[PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
+attribute :gt1s, Array[Gt1], minOccurs: "0", maxOccurs: "unbounded"
+attribute :nk1s, Array[Nk1], minOccurs: "0", maxOccurs: "unbounded"
+  class INSURANCE < ::HealthSeven::SegmentGroup# indent: 2
+  attribute :in1, In1, minOccurs: "1", maxOccurs: "1"
+  attribute :in2, In2, minOccurs: "0", maxOccurs: "1"
+  attribute :in3, In3, minOccurs: "0", maxOccurs: "1"
+  end
+attribute :insurances, Array[INSURANCE], minOccurs: "0", maxOccurs: "unbounded"
+attribute :acc, Acc, minOccurs: "0", maxOccurs: "1"
+attribute :ub1, Ub1, minOccurs: "0", maxOccurs: "1"
+attribute :ub2, Ub2, minOccurs: "0", maxOccurs: "1"
 end
-  attribute :procedures, Array[PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :gt1s, Array[GT1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :nk1s, Array[NK1], minOccurs: "0", maxOccurs: "unbounded"
-class INSURANCE < ::HealthSeven::SegmentGroup
-  attribute :in1, IN1, minOccurs: "1", maxOccurs: "1"
-  attribute :in2, IN2, minOccurs: "0", maxOccurs: "1"
-  attribute :in3, IN3, minOccurs: "0", maxOccurs: "1"
-end
-  attribute :insurances, Array[INSURANCE], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :acc, ACC, minOccurs: "0", maxOccurs: "1"
-  attribute :ub1, UB1, minOccurs: "0", maxOccurs: "1"
-  attribute :ub2, UB2, minOccurs: "0", maxOccurs: "1"
-end
-  attribute :visits, Array[VISIT], minOccurs: "1", maxOccurs: "unbounded"
+attribute :visits, Array[VISIT], minOccurs: "1", maxOccurs: "unbounded"
 end
 end

@@ -1,5 +1,5 @@
 module HealthSeven::V2_5_1
-class NUL < ::HealthSeven::SimpleType
+class Nul < ::HealthSeven::SimpleType# indent: 0
 
 end
 end

@@ -1,8 +1,8 @@
 module HealthSeven::V2_4
-class OCD < ::HealthSeven::DataType
-  # occurrence code
-  attribute :occurrence_code, IS, minOccurs: "0", maxOccurs: "1"
-  # occurrence date
-  attribute :occurrence_date, DT, minOccurs: "0", maxOccurs: "1"
+class Ocd < ::HealthSeven::DataType# indent: 0
+# occurrence code
+attribute :occurrence_code, Is, minOccurs: "0", maxOccurs: "1"
+# occurrence date
+attribute :occurrence_date, Dt, minOccurs: "0", maxOccurs: "1"
 end
 end

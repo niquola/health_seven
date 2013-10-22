@@ -1,10 +1,10 @@
 module HealthSeven::V2_5
-class VID < ::HealthSeven::DataType# indent: 0
+class Vid < ::HealthSeven::DataType# indent: 0
 # Version ID
-attribute :version_id, ID, minOccurs: "0", maxOccurs: "1"
+attribute :version_id, Id, minOccurs: "0", maxOccurs: "1"
 # Internationalization Code
-attribute :internationalization_code, CE, minOccurs: "0", maxOccurs: "1"
+attribute :internationalization_code, Ce, minOccurs: "0", maxOccurs: "1"
 # International Version ID
-attribute :international_version_id, CE, minOccurs: "0", maxOccurs: "1"
+attribute :international_version_id, Ce, minOccurs: "0", maxOccurs: "1"
 end
 end

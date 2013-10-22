@@ -1,10 +1,10 @@
 module HealthSeven::V2_5
-class QRI < ::HealthSeven::Segment# indent: 0
+class Qri < ::HealthSeven::Segment# indent: 0
 # Candidate Confidence
-attribute :candidate_confidence, NM, minOccurs: "0", maxOccurs: "1"
+attribute :candidate_confidence, Nm, minOccurs: "0", maxOccurs: "1"
 # Match Reason Code
-attribute :match_reason_codes, Array[IS], minOccurs: "0", maxOccurs: "unbounded"
+attribute :match_reason_codes, Array[Is], minOccurs: "0", maxOccurs: "unbounded"
 # Algorithm Descriptor
-attribute :algorithm_descriptor, CE, minOccurs: "0", maxOccurs: "1"
+attribute :algorithm_descriptor, Ce, minOccurs: "0", maxOccurs: "1"
 end
 end

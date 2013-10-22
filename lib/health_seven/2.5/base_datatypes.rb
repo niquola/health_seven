@@ -1,12 +1,12 @@
 module HealthSeven::V2_5
 base_dir = File.dirname(__FILE__)
-autoload :DT, base_dir + '/base_datatypes/dt.rb'
-autoload :DTM, base_dir + '/base_datatypes/dtm.rb'
-autoload :GTS, base_dir + '/base_datatypes/gts.rb'
-autoload :ID, base_dir + '/base_datatypes/id.rb'
-autoload :IS, base_dir + '/base_datatypes/is.rb'
-autoload :NM, base_dir + '/base_datatypes/nm.rb'
-autoload :SI, base_dir + '/base_datatypes/si.rb'
-autoload :ST, base_dir + '/base_datatypes/st.rb'
-autoload :TM, base_dir + '/base_datatypes/tm.rb'
+autoload :Dt, File.dirname(__FILE__) + '/base_datatypes/dt'
+autoload :Dtm, File.dirname(__FILE__) + '/base_datatypes/dtm'
+autoload :Gts, File.dirname(__FILE__) + '/base_datatypes/gts'
+autoload :Id, File.dirname(__FILE__) + '/base_datatypes/id'
+autoload :Is, File.dirname(__FILE__) + '/base_datatypes/is'
+autoload :Nm, File.dirname(__FILE__) + '/base_datatypes/nm'
+autoload :Si, File.dirname(__FILE__) + '/base_datatypes/si'
+autoload :St, File.dirname(__FILE__) + '/base_datatypes/st'
+autoload :Tm, File.dirname(__FILE__) + '/base_datatypes/tm'
 end

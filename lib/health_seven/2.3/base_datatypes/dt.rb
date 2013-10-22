@@ -1,5 +1,5 @@
 module HealthSeven::V2_3
-class DT < ::HealthSeven::SimpleType
+class Dt < ::HealthSeven::SimpleType# indent: 0
 
 end
 end
