@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe 'parsing' do
-  before :all do
-    Gen.generate_all
-  end
-
   def fixture(ver, name)
     path = File.dirname(__FILE__) + "/fixtures/#{ver}/#{name}.hl7"
     File.readlines(path).map(&:chomp).join("\r")

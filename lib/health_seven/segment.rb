@@ -6,7 +6,7 @@ module HealthSeven
 
     def self.parse(version, content)
       fields = content.split('|')
-      "HealthSeven::V#{version}::#{fields.shift}".constantize
+      "HealthSeven::V#{version.gsub('.','_').upcase}::#{fields.shift}".constantize
       .build(version, fields)
     end
 

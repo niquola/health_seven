@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative 'gen_spec_helper'
 
 describe Gen::Code do
   include described_class

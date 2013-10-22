@@ -21,6 +21,7 @@ module Gen
     db = full_db(version)
 
     generate_module(version)
+    generate_base_datatypes(version, db)
     generate_datatypes(version, db)
     generate_segments(version, db)
     generate_messages(version, db)
@@ -32,33 +33,34 @@ module Gen
     ver = 'v' + version.gsub('.','_')
     path = from_root_path("lib/health_seven/#{ver}.rb")
 
-    open(path, 'w') do |f|
+      open(path, 'w') do |f|
       f<< <<-RUBY
 module HealthSeven
   module #{ver.upcase}
+    require 'health_seven/#{version}/base_datatypes.rb'
     require 'health_seven/#{version}/datatypes.rb'
     require 'health_seven/#{version}/segments.rb'
     require 'health_seven/#{version}/messages.rb'
 
-    class DT < ::HealthSeven::SimpleType; end
-    class DTM < ::HealthSeven::SimpleType; end
-    #{version == '2.6' ? 'class FT < ::HealthSeven::SimpleType; end' : ''}
-    class GTS < ::HealthSeven::SimpleType; end
-    class ID < ::HealthSeven::SimpleType; end
-    class IS < ::HealthSeven::SimpleType; end
-    class NM < ::HealthSeven::SimpleType; end
-    class SI < ::HealthSeven::SimpleType; end
-    class ST < ::HealthSeven::SimpleType; end
-    class TM < ::HealthSeven::SimpleType; end
-    class TN < ::HealthSeven::SimpleType; end
-    class TX < ::HealthSeven::SimpleType; end
-    class NUL < ::HealthSeven::SimpleType; end
-    class SNM < ::HealthSeven::SimpleType; end
     class AnyType < ::HealthSeven::SimpleType; end
   end
 end
-      RUBY
+  RUBY
     end
+    # class DT < ::HealthSeven::SimpleType; end
+    # class DTM < ::HealthSeven::SimpleType; end
+    # #{version == '2.6' ? 'class FT < ::HealthSeven::SimpleType; end' : ''}
+    # class GTS < ::HealthSeven::SimpleType; end
+    # class ID < ::HealthSeven::SimpleType; end
+    # class IS < ::HealthSeven::SimpleType; end
+    # class NM < ::HealthSeven::SimpleType; end
+    # class SI < ::HealthSeven::SimpleType; end
+    # class ST < ::HealthSeven::SimpleType; end
+    # class TM < ::HealthSeven::SimpleType; end
+    # class TN < ::HealthSeven::SimpleType; end
+    # class TX < ::HealthSeven::SimpleType; end
+    # class NUL < ::HealthSeven::SimpleType; end
+    # class SNM < ::HealthSeven::SimpleType; end
   end
 
   def generate_messages(version, db)
@@ -98,6 +100,25 @@ end
 
     datatypes_require_code = requires(complex_types.keys)
     fwrite(base_path(version, 'datatypes', "all.rb"), datatypes_require_code)
+  end
+
+  def generate_base_datatypes(version, db)
+    dir = 'base_datatypes'
+    # FileUtils.rm_rf(base_path(version, dir))
+    FileUtils.mkdir_p(base_path(version, dir))
+    simple_types = datatypes_db(version)
+    .select { |n, t| root_datatype?(n) && ! complex_type?(t)}
+
+    simple_types.each do |name, tp|
+      class_name = name.camelize
+      code = gklass(module_name(version), class_name, '::HealthSeven::SimpleType') do
+        generate_class_body(db, tp)
+      end
+      path  = base_path(version, dir, "#{class_name.underscore}.rb")
+      fwrite(path, code) unless File.exists?(path)
+    end
+    datatypes_autoload_code = autoloads(version, simple_types.keys.map(&:camelize), dir)
+    fwrite(base_path(version, "base_datatypes.rb"), datatypes_autoload_code)
   end
 
   def generate_segments(version, db)
@@ -192,7 +213,7 @@ end
   end
 
   def messages_db(version)
-    index_for(['/schema/group/choice/element'], "vendor/#{version}/messages.xsd") do |el|
+    index_for(['/schema/group/choice/element'], from_root_path("vendor/#{version}/messages.xsd")) do |el|
       ref(el)
     end
   end
@@ -206,6 +227,7 @@ end
   end
 
   def index_for(xpathes, file, index = {})
+    raise "Ups could not fild #{file}" unless File.exists?(file)
     Dir[file].each do |file_path|
       doc = parse_doc(file_path)
       xpathes.each do |xp|
@@ -224,6 +246,7 @@ end
   end
 
   def types_index(file, index = {})
+    raise "Ups no file #{file}"  unless File.exists?(file)
     index_for(['/schema/complexType', '/schema/simpleType'], file, index) do |el|
       name(el)
     end
@@ -270,11 +293,11 @@ end
       "autoload :#{type}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
     end.join("\n")
 
-    <<-RUBY
+      <<-RUBY
 module #{module_name(version)}
 #{autoloads_string}
 end
-    RUBY
+RUBY
   end
 
   extend self
