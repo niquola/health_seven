@@ -362,7 +362,7 @@ end
       file_basename = File.basename(file, '.rb')
       rel_path = "#{File.basename(dir)}/#{file_basename}"
       class_name = mk_class_name(file_basename)
-      "autoload :#{class_name}, File.dirname(__FILE__) + '/#{rel_path}'"
+      "autoload :#{class_name}, base_dir + '/#{rel_path}'"
     end.join("\n")
 
       <<-RUBY
