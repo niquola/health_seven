@@ -282,18 +282,20 @@ end
   end
 
   def requires(types)
-    types.map do |type|
-      "require File.dirname(__FILE__) + '/#{type.underscore}.rb'"
-    end.join("\n")
+    types.map { |type| "require base_dir + '/#{type.underscore}.rb'" }
+      .unshift('base_dir = File.dirname(__FILE__)')
+      .join("\n")
+
   end
 
   def autoloads(version, types, dir)
     autoloads_string = types.map do |type|
-      "autoload :#{type}, File.dirname(__FILE__) + '/#{dir}/#{type.underscore}.rb'"
+      "autoload :#{type}, base_dir + '/#{dir}/#{type.underscore}.rb'"
     end.join("\n")
 
       <<-RUBY
 module #{module_name(version)}
+base_dir = File.dirname(__FILE__)
 #{autoloads_string}
 end
       RUBY
