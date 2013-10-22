@@ -117,6 +117,7 @@ end
       path  = base_path(version, dir, "#{class_name.underscore}.rb")
       fwrite(path, code) unless File.exists?(path)
     end
+    #FIXME: generate autoload by folder, not data
     datatypes_autoload_code = autoloads(version, simple_types.keys.map(&:camelize), dir)
     fwrite(base_path(version, "base_datatypes.rb"), datatypes_autoload_code)
   end
