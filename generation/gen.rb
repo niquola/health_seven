@@ -12,7 +12,7 @@ module Gen
   include IO
 
   def generate_all
-    ['2.3','2.3.1','2.4', '2.5', '2.5.1', '2.7', '2.7.1'].each do |ver|
+    ['2.3','2.3.1','2.4', '2.5', '2.5.1', '2.6', '2.7', '2.7.1'].each do |ver|
       generate(ver)
     end
   end
