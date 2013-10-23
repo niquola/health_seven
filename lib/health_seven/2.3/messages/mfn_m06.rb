@@ -1,12 +1,12 @@
 module HealthSeven::V2_3
 class MfnM06 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :mfi, Mfi, position: "MFI", require: true
   class MF_CDM < ::HealthSeven::SegmentGroup
-    attribute :mfe, Mfe, minOccurs: "1", maxOccurs: "1"
-    attribute :cdm, Cdm, minOccurs: "1", maxOccurs: "1"
-    attribute :prcs, Array[Prc], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :mfe, Mfe, position: "MFE", require: true
+    attribute :cdm, Cdm, position: "CDM", require: true
+    attribute :prcs, Array[Prc], position: "PRC", multiple: true
   end
-  attribute :mf_cdms, Array[MF_CDM], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :mf_cdms, Array[MF_CDM], position: "MFN_M06.MF_CDM", require: true, multiple: true
 end
 end

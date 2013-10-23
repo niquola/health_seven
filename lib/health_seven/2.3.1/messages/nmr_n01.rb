@@ -1,17 +1,17 @@
 module HealthSeven::V2_3_1
 class NmrN01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :qrd, Qrd, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :qrd, Qrd, position: "QRD"
   class CLOCK_AND_STATS_WITH_NOTES_ALT < ::HealthSeven::SegmentGroup
-    attribute :nck, Nck, minOccurs: "0", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :nst, Nst, minOccurs: "0", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :nsc, Nsc, minOccurs: "0", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :nck, Nck, position: "NCK"
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
+    attribute :nst, Nst, position: "NST"
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
+    attribute :nsc, Nsc, position: "NSC"
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
   end
-  attribute :clock_and_stats_with_notes_alts, Array[CLOCK_AND_STATS_WITH_NOTES_ALT], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :clock_and_stats_with_notes_alts, Array[CLOCK_AND_STATS_WITH_NOTES_ALT], position: "NMR_N01.CLOCK_AND_STATS_WITH_NOTES_ALT", require: true, multiple: true
 end
 end

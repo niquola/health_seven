@@ -1,12 +1,12 @@
 module HealthSeven::V2_7_1
 class Pce < ::HealthSeven::Segment
   # Set ID - PCE
-  attribute :set_id_pce, Si, minOccurs: "1", maxOccurs: "1"
+  attribute :set_id_pce, Si, position: "PCE.1", require: true
   # Cost Center Account Number
-  attribute :cost_center_account_number, Cx, minOccurs: "0", maxOccurs: "1"
+  attribute :cost_center_account_number, Cx, position: "PCE.2"
   # Transaction Code
-  attribute :transaction_code, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :transaction_code, Cwe, position: "PCE.3"
   # Transaction amount - unit
-  attribute :transaction_amount_unit, Cp, minOccurs: "0", maxOccurs: "1"
+  attribute :transaction_amount_unit, Cp, position: "PCE.4"
 end
 end

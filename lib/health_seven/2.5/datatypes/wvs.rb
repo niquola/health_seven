@@ -1,8 +1,8 @@
 module HealthSeven::V2_5
 class Wvs < ::HealthSeven::DataType
   # Source One Name
-  attribute :source_one_name, St, minOccurs: "0", maxOccurs: "1"
+  attribute :source_one_name, St, position: "WVS.1"
   # Source Two Name
-  attribute :source_two_name, St, minOccurs: "0", maxOccurs: "1"
+  attribute :source_two_name, St, position: "WVS.2"
 end
 end

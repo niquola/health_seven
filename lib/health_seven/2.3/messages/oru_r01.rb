@@ -1,32 +1,32 @@
 module HealthSeven::V2_3
 class OruR01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
   class RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :pd1, Pd1, position: "PD1"
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
       class VISIT < ::HealthSeven::SegmentGroup
-        attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-        attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+        attribute :pv1, Pv1, position: "PV1", require: true
+        attribute :pv2, Pv2, position: "PV2"
       end
-      attribute :visit, VISIT, minOccurs: "0", maxOccurs: "1"
+      attribute :visit, VISIT, position: "ORU_R01.VISIT"
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "ORU_R01.PATIENT"
     class ORDER_OBSERVATION < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "0", maxOccurs: "1"
-      attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :orc, Orc, position: "ORC"
+      attribute :obr, Obr, position: "OBR", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
       class OBSERVATION < ::HealthSeven::SegmentGroup
-        attribute :obx, Obx, minOccurs: "0", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :obx, Obx, position: "OBX"
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :observations, Array[OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
-      attribute :ctis, Array[Cti], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :observations, Array[OBSERVATION], position: "ORU_R01.OBSERVATION", require: true, multiple: true
+      attribute :ctis, Array[Cti], position: "CTI", multiple: true
     end
-    attribute :order_observations, Array[ORDER_OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :order_observations, Array[ORDER_OBSERVATION], position: "ORU_R01.ORDER_OBSERVATION", require: true, multiple: true
   end
-  attribute :responses, Array[RESPONSE], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :responses, Array[RESPONSE], position: "ORU_R01.RESPONSE", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

@@ -1,22 +1,22 @@
 module HealthSeven::V2_7
 class La1 < ::HealthSeven::DataType
   # Point of Care
-  attribute :point_of_care, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :point_of_care, Is, position: "LA1.1"
   # Room
-  attribute :room, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :room, Is, position: "LA1.2"
   # Bed
-  attribute :bed, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :bed, Is, position: "LA1.3"
   # Facility
-  attribute :facility, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :facility, Hd, position: "LA1.4"
   # Location Status
-  attribute :location_status, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :location_status, Is, position: "LA1.5"
   # Patient Location Type
-  attribute :patient_location_type, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :patient_location_type, Is, position: "LA1.6"
   # Building
-  attribute :building, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :building, Is, position: "LA1.7"
   # Floor
-  attribute :floor, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :floor, Is, position: "LA1.8"
   # Address
-  attribute :address, Ad, minOccurs: "0", maxOccurs: "1"
+  attribute :address, Ad, position: "LA1.9"
 end
 end

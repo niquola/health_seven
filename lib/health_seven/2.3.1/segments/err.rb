@@ -1,6 +1,6 @@
 module HealthSeven::V2_3_1
 class Err < ::HealthSeven::Segment
   # Error Code and Location
-  attribute :error_code_and_locations, Array[Eld], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :error_code_and_locations, Array[Eld], position: "ERR.1", require: true, multiple: true
 end
 end

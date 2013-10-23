@@ -1,13 +1,13 @@
 module HealthSeven::V2_7_1
 class RTBKnn < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :err, Err, minOccurs: "0", maxOccurs: "1"
-  attribute :qak, Qak, minOccurs: "1", maxOccurs: "1"
-  attribute :qpd, Qpd, minOccurs: "1", maxOccurs: "1"
-  attribute :anyhl7segment, AnyHL7Segment, minOccurs: "1", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :err, Err, position: "ERR"
+  attribute :qak, Qak, position: "QAK", require: true
+  attribute :qpd, Qpd, position: "QPD", require: true
+  attribute :anyhl7segment, AnyHL7Segment, position: "anyHL7Segment", require: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

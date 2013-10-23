@@ -1,11 +1,11 @@
 module HealthSeven::V2_3_1
 class BarP06 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :evn, Evn, position: "EVN", require: true
   class PATIENT < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-    attribute :pv1, Pv1, minOccurs: "0", maxOccurs: "1"
+    attribute :pid, Pid, position: "PID", require: true
+    attribute :pv1, Pv1, position: "PV1"
   end
-  attribute :patients, Array[PATIENT], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :patients, Array[PATIENT], position: "BAR_P06.PATIENT", require: true, multiple: true
 end
 end

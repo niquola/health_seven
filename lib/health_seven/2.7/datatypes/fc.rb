@@ -1,8 +1,8 @@
 module HealthSeven::V2_7
 class Fc < ::HealthSeven::DataType
   # Financial Class Code
-  attribute :financial_class_code, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :financial_class_code, Cwe, position: "FC.1", require: true
   # Effective Date
-  attribute :effective_date, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :effective_date, Dtm, position: "FC.2"
 end
 end

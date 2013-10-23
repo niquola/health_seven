@@ -1,16 +1,16 @@
 module HealthSeven::V2_5_1
 class Sft < ::HealthSeven::Segment
   # Software Vendor Organization
-  attribute :software_vendor_organization, Xon, minOccurs: "1", maxOccurs: "1"
+  attribute :software_vendor_organization, Xon, position: "SFT.1", require: true
   # Software Certified Version or Release Number
-  attribute :software_certified_version_or_release_number, St, minOccurs: "1", maxOccurs: "1"
+  attribute :software_certified_version_or_release_number, St, position: "SFT.2", require: true
   # Software Product Name
-  attribute :software_product_name, St, minOccurs: "1", maxOccurs: "1"
+  attribute :software_product_name, St, position: "SFT.3", require: true
   # Software Binary ID
-  attribute :software_binary_id, St, minOccurs: "1", maxOccurs: "1"
+  attribute :software_binary_id, St, position: "SFT.4", require: true
   # Software Product Information
-  attribute :software_product_information, Tx, minOccurs: "0", maxOccurs: "1"
+  attribute :software_product_information, Tx, position: "SFT.5"
   # Software Install Date
-  attribute :software_install_date, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :software_install_date, Ts, position: "SFT.6"
 end
 end

@@ -1,8 +1,8 @@
 module HealthSeven::V2_7
 class Dld < ::HealthSeven::DataType
   # Discharge to Location
-  attribute :discharge_to_location, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :discharge_to_location, Cwe, position: "DLD.1", require: true
   # Effective Date
-  attribute :effective_date, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :effective_date, Dtm, position: "DLD.2"
 end
 end

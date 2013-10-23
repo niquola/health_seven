@@ -1,16 +1,16 @@
 module HealthSeven::V2_7_1
 class RplI02 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :msa, Msa, position: "MSA", require: true
   class PROVIDER < ::HealthSeven::SegmentGroup
-    attribute :prd, Prd, minOccurs: "1", maxOccurs: "1"
-    attribute :ctds, Array[Ctd], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :prd, Prd, position: "PRD", require: true
+    attribute :ctds, Array[Ctd], position: "CTD", multiple: true
   end
-  attribute :providers, Array[PROVIDER], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :dsps, Array[Dsp], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :providers, Array[PROVIDER], position: "RPL_I02.PROVIDER", require: true, multiple: true
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
+  attribute :dsps, Array[Dsp], position: "DSP", multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

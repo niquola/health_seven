@@ -1,20 +1,20 @@
 module HealthSeven::V2_4
 class RspK25 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :err, Err, minOccurs: "0", maxOccurs: "1"
-  attribute :qak, Qak, minOccurs: "1", maxOccurs: "1"
-  attribute :qpd, Qpd, minOccurs: "1", maxOccurs: "1"
-  attribute :rcp, Rcp, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :err, Err, position: "ERR"
+  attribute :qak, Qak, position: "QAK", require: true
+  attribute :qpd, Qpd, position: "QPD", require: true
+  attribute :rcp, Rcp, position: "RCP", require: true
   class STAFF < ::HealthSeven::SegmentGroup
-    attribute :stf, Stf, minOccurs: "1", maxOccurs: "1"
-    attribute :pra, Pra, minOccurs: "0", maxOccurs: "1"
-    attribute :orgs, Array[Org], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :affs, Array[Aff], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :lans, Array[Lan], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :edus, Array[Edu], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :stf, Stf, position: "STF", require: true
+    attribute :pra, Pra, position: "PRA"
+    attribute :orgs, Array[Org], position: "ORG", multiple: true
+    attribute :affs, Array[Aff], position: "AFF", multiple: true
+    attribute :lans, Array[Lan], position: "LAN", multiple: true
+    attribute :edus, Array[Edu], position: "EDU", multiple: true
   end
-  attribute :staffs, Array[STAFF], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :staffs, Array[STAFF], position: "RSP_K25.STAFF", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

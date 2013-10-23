@@ -1,9 +1,9 @@
 module HealthSeven::V2_7_1
 class AdtA20 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :npu, Npu, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :npu, Npu, position: "NPU", require: true
 end
 end

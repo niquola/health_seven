@@ -1,16 +1,16 @@
 module HealthSeven::V2_5
 class BarP10 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-  attribute :dg1s, Array[Dg1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :gp1, Gp1, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :pv1, Pv1, position: "PV1", require: true
+  attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
+  attribute :gp1, Gp1, position: "GP1", require: true
   class PROCEDURE < ::HealthSeven::SegmentGroup
-    attribute :pr1, Pr1, minOccurs: "1", maxOccurs: "1"
-    attribute :gp2, Gp2, minOccurs: "0", maxOccurs: "1"
+    attribute :pr1, Pr1, position: "PR1", require: true
+    attribute :gp2, Gp2, position: "GP2"
   end
-  attribute :procedures, Array[PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedures, Array[PROCEDURE], position: "BAR_P10.PROCEDURE", multiple: true
 end
 end

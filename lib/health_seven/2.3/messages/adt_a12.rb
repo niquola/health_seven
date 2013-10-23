@@ -1,13 +1,13 @@
 module HealthSeven::V2_3
 class AdtA12 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-  attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-  attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
-  attribute :db1s, Array[Db1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :dg1, Dg1, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :pd1, Pd1, position: "PD1"
+  attribute :pv1, Pv1, position: "PV1", require: true
+  attribute :pv2, Pv2, position: "PV2"
+  attribute :db1s, Array[Db1], position: "DB1", multiple: true
+  attribute :obxes, Array[Obx], position: "OBX", multiple: true
+  attribute :dg1, Dg1, position: "DG1"
 end
 end

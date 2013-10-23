@@ -1,12 +1,12 @@
 module HealthSeven::V2_5
 class Eld < ::HealthSeven::DataType
   # Segment ID
-  attribute :segment_id, St, minOccurs: "0", maxOccurs: "1"
+  attribute :segment_id, St, position: "ELD.1"
   # Segment Sequence
-  attribute :segment_sequence, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :segment_sequence, Nm, position: "ELD.2"
   # Field Position
-  attribute :field_position, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :field_position, Nm, position: "ELD.3"
   # Code Identifying Error
-  attribute :code_identifying_error, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :code_identifying_error, Ce, position: "ELD.4"
 end
 end

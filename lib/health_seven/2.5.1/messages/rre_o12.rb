@@ -1,37 +1,37 @@
 module HealthSeven::V2_5_1
 class RreO12 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "RRE_O12.PATIENT"
     class ORDER < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+      attribute :orc, Orc, position: "ORC", require: true
       class TIMING < ::HealthSeven::SegmentGroup
-        attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-        attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :tq1, Tq1, position: "TQ1", require: true
+        attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :timings, Array[TIMING], position: "RRE_O12.TIMING", multiple: true
       class ENCODING < ::HealthSeven::SegmentGroup
-        attribute :rxe, Rxe, minOccurs: "1", maxOccurs: "1"
+        attribute :rxe, Rxe, position: "RXE", require: true
         class TIMING_ENCODED < ::HealthSeven::SegmentGroup
-          attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-          attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :tq1, Tq1, position: "TQ1", require: true
+          attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
         end
-        attribute :timing_encodeds, Array[TIMING_ENCODED], minOccurs: "1", maxOccurs: "unbounded"
-        attribute :rxrs, Array[Rxr], minOccurs: "1", maxOccurs: "unbounded"
-        attribute :rxcs, Array[Rxc], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :timing_encodeds, Array[TIMING_ENCODED], position: "RRE_O12.TIMING_ENCODED", require: true, multiple: true
+        attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
+        attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
       end
-      attribute :encoding, ENCODING, minOccurs: "0", maxOccurs: "1"
+      attribute :encoding, ENCODING, position: "RRE_O12.ENCODING"
     end
-    attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :orders, Array[ORDER], position: "RRE_O12.ORDER", require: true, multiple: true
   end
-  attribute :response, RESPONSE, minOccurs: "0", maxOccurs: "1"
+  attribute :response, RESPONSE, position: "RRE_O12.RESPONSE"
 end
 end

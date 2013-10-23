@@ -1,19 +1,19 @@
 module HealthSeven::V2_3
 class AdtA03 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-  attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-  attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
-  attribute :db1s, Array[Db1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :dg1s, Array[Dg1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :drg, Drg, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :pd1, Pd1, position: "PD1"
+  attribute :pv1, Pv1, position: "PV1", require: true
+  attribute :pv2, Pv2, position: "PV2"
+  attribute :db1s, Array[Db1], position: "DB1", multiple: true
+  attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
+  attribute :drg, Drg, position: "DRG"
   class PROCEDURE < ::HealthSeven::SegmentGroup
-    attribute :pr1, Pr1, minOccurs: "1", maxOccurs: "1"
-    attribute :rols, Array[Rol], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :pr1, Pr1, position: "PR1", require: true
+    attribute :rols, Array[Rol], position: "ROL", multiple: true
   end
-  attribute :procedures, Array[PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedures, Array[PROCEDURE], position: "ADT_A03.PROCEDURE", multiple: true
+  attribute :obxes, Array[Obx], position: "OBX", multiple: true
 end
 end

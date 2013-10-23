@@ -1,48 +1,48 @@
 module HealthSeven::V2_5_1
 class OulR24 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :nte, Nte, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :nte, Nte, position: "NTE"
   class PIDPD1NTE_SUPPGRP < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-    attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :pid, Pid, position: "PID", require: true
+    attribute :pd1, Pd1, position: "PD1"
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
   end
-  attribute :pidpd1_nte_suppgrp, PIDPD1NTE_SUPPGRP, minOccurs: "0", maxOccurs: "1"
+  attribute :pidpd1_nte_suppgrp, PIDPD1NTE_SUPPGRP, position: "OUL_R24.PIDPD1NTE_SUPPGRP"
   class PV1PV2_SUPPGRP < ::HealthSeven::SegmentGroup
-    attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-    attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+    attribute :pv1, Pv1, position: "PV1", require: true
+    attribute :pv2, Pv2, position: "PV2"
   end
-  attribute :pv1_pv2_suppgrp, PV1PV2_SUPPGRP, minOccurs: "0", maxOccurs: "1"
+  attribute :pv1_pv2_suppgrp, PV1PV2_SUPPGRP, position: "OUL_R24.PV1PV2_SUPPGRP"
   class ORDER < ::HealthSeven::SegmentGroup
-    attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-    attribute :orc, Orc, minOccurs: "0", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :obr, Obr, position: "OBR", require: true
+    attribute :orc, Orc, position: "ORC"
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
     class TQ1TQ2_SUPPGRP < ::HealthSeven::SegmentGroup
-      attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-      attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :tq1, Tq1, position: "TQ1", require: true
+      attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
     end
-    attribute :tq1_tq2_suppgrps, Array[TQ1TQ2_SUPPGRP], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :tq1_tq2_suppgrps, Array[TQ1TQ2_SUPPGRP], position: "OUL_R24.TQ1TQ2_SUPPGRP", multiple: true
     class SPMOBXSACINV_SUPPGRP < ::HealthSeven::SegmentGroup
-      attribute :spm, Spm, minOccurs: "1", maxOccurs: "1"
-      attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :spm, Spm, position: "SPM", require: true
+      attribute :obxes, Array[Obx], position: "OBX", multiple: true
       class CONTAINER < ::HealthSeven::SegmentGroup
-        attribute :sac, Sac, minOccurs: "1", maxOccurs: "1"
-        attribute :inv, Inv, minOccurs: "0", maxOccurs: "1"
+        attribute :sac, Sac, position: "SAC", require: true
+        attribute :inv, Inv, position: "INV"
       end
-      attribute :containers, Array[CONTAINER], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :containers, Array[CONTAINER], position: "OUL_R24.CONTAINER", multiple: true
     end
-    attribute :spmobxsacinv_suppgrps, Array[SPMOBXSACINV_SUPPGRP], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :spmobxsacinv_suppgrps, Array[SPMOBXSACINV_SUPPGRP], position: "OUL_R24.SPMOBXSACINV_SUPPGRP", multiple: true
     class OBXTCDSIDNTE_SUPPGRP < ::HealthSeven::SegmentGroup
-      attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-      attribute :tcd, Tcd, minOccurs: "0", maxOccurs: "1"
-      attribute :sids, Array[Sid], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :obx, Obx, position: "OBX", require: true
+      attribute :tcd, Tcd, position: "TCD"
+      attribute :sids, Array[Sid], position: "SID", multiple: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :obxtcdsidnte_suppgrps, Array[OBXTCDSIDNTE_SUPPGRP], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :ctis, Array[Cti], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :obxtcdsidnte_suppgrps, Array[OBXTCDSIDNTE_SUPPGRP], position: "OUL_R24.OBXTCDSIDNTE_SUPPGRP", multiple: true
+    attribute :ctis, Array[Cti], position: "CTI", multiple: true
   end
-  attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :orders, Array[ORDER], position: "OUL_R24.ORDER", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

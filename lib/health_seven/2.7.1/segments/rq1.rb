@@ -1,18 +1,18 @@
 module HealthSeven::V2_7_1
 class Rq1 < ::HealthSeven::Segment
   # Anticipated Price
-  attribute :anticipated_price, St, minOccurs: "0", maxOccurs: "1"
+  attribute :anticipated_price, St, position: "RQ1.1"
   # Manufacturer Identifier
-  attribute :manufacturer_identifier, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :manufacturer_identifier, Cwe, position: "RQ1.2"
   # Manufacturer's Catalog
-  attribute :manufacturer_s_catalog, St, minOccurs: "0", maxOccurs: "1"
+  attribute :manufacturer_s_catalog, St, position: "RQ1.3"
   # Vendor ID
-  attribute :vendor_id, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :vendor_id, Cwe, position: "RQ1.4"
   # Vendor Catalog
-  attribute :vendor_catalog, St, minOccurs: "0", maxOccurs: "1"
+  attribute :vendor_catalog, St, position: "RQ1.5"
   # Taxable
-  attribute :taxable, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :taxable, Id, position: "RQ1.6"
   # Substitute Allowed
-  attribute :substitute_allowed, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :substitute_allowed, Id, position: "RQ1.7"
 end
 end

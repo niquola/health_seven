@@ -1,8 +1,8 @@
 module HealthSeven::V2_7
 class CcfI22 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :pid, Pid, position: "PID", require: true
 end
 end

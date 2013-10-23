@@ -1,7 +1,7 @@
 module HealthSeven::V2_4
 class PmuB03 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :stf, Stf, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :stf, Stf, position: "STF", require: true
 end
 end

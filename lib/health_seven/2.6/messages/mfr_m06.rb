@@ -1,23 +1,23 @@
 module HealthSeven::V2_6
 class MfrM06 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :qak, Qak, minOccurs: "0", maxOccurs: "1"
-  attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
-  attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
-  attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :qak, Qak, position: "QAK"
+  attribute :qrd, Qrd, position: "QRD", require: true
+  attribute :qrf, Qrf, position: "QRF"
+  attribute :mfi, Mfi, position: "MFI", require: true
   class MF_QUERY < ::HealthSeven::SegmentGroup
-    attribute :mfe, Mfe, minOccurs: "1", maxOccurs: "1"
-    attribute :cm0, Cm0, minOccurs: "1", maxOccurs: "1"
+    attribute :mfe, Mfe, position: "MFE", require: true
+    attribute :cm0, Cm0, position: "CM0", require: true
     class MF_PHASE_SCHED_DETAIL < ::HealthSeven::SegmentGroup
-      attribute :cm1, Cm1, minOccurs: "1", maxOccurs: "1"
-      attribute :cm2s, Array[Cm2], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :cm1, Cm1, position: "CM1", require: true
+      attribute :cm2s, Array[Cm2], position: "CM2", multiple: true
     end
-    attribute :mf_phase_sched_details, Array[MF_PHASE_SCHED_DETAIL], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :mf_phase_sched_details, Array[MF_PHASE_SCHED_DETAIL], position: "MFR_M06.MF_PHASE_SCHED_DETAIL", multiple: true
   end
-  attribute :mf_queries, Array[MF_QUERY], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :mf_queries, Array[MF_QUERY], position: "MFR_M06.MF_QUERY", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

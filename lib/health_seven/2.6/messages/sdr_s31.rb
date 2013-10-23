@@ -1,11 +1,11 @@
 module HealthSeven::V2_6
 class SdrS31 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
   class ANTI-MICROBIAL_DEVICE_DATA < ::HealthSeven::SegmentGroup
   
   end
-  attribute :anti_microbial_device_data, ANTI-MICROBIAL_DEVICE_DATA, minOccurs: "1", maxOccurs: "1"
+  attribute :anti_microbial_device_data, ANTI-MICROBIAL_DEVICE_DATA, position: "SDR_S31.ANTI-MICROBIAL DEVICE DATA", require: true
 end
 end

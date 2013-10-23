@@ -1,16 +1,16 @@
 module HealthSeven::V2_7
 class MfnM08 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :mfi, Mfi, position: "MFI", require: true
   class MF_TEST_NUMERIC < ::HealthSeven::SegmentGroup
-    attribute :mfe, Mfe, minOccurs: "1", maxOccurs: "1"
-    attribute :om1, Om1, minOccurs: "1", maxOccurs: "1"
-    attribute :om2, Om2, minOccurs: "0", maxOccurs: "1"
-    attribute :om3, Om3, minOccurs: "0", maxOccurs: "1"
-    attribute :om4, Om4, minOccurs: "0", maxOccurs: "1"
+    attribute :mfe, Mfe, position: "MFE", require: true
+    attribute :om1, Om1, position: "OM1", require: true
+    attribute :om2, Om2, position: "OM2"
+    attribute :om3, Om3, position: "OM3"
+    attribute :om4, Om4, position: "OM4"
   end
-  attribute :mf_test_numerics, Array[MF_TEST_NUMERIC], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :mf_test_numerics, Array[MF_TEST_NUMERIC], position: "MFN_M08.MF_TEST_NUMERIC", require: true, multiple: true
 end
 end

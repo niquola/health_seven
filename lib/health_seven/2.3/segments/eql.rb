@@ -1,12 +1,12 @@
 module HealthSeven::V2_3
 class Eql < ::HealthSeven::Segment
   # Query tag
-  attribute :query_tag, St, minOccurs: "0", maxOccurs: "1"
+  attribute :query_tag, St, position: "EQL.1"
   # Query/ Response Format Code
-  attribute :query_response_format_code, Id, minOccurs: "1", maxOccurs: "1"
+  attribute :query_response_format_code, Id, position: "EQL.2", require: true
   # EQL Query Name
-  attribute :eql_query_name, Ce, minOccurs: "1", maxOccurs: "1"
+  attribute :eql_query_name, Ce, position: "EQL.3", require: true
   # EQL Query Statement
-  attribute :eql_query_statement, St, minOccurs: "1", maxOccurs: "1"
+  attribute :eql_query_statement, St, position: "EQL.4", require: true
 end
 end

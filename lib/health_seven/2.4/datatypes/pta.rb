@@ -1,10 +1,10 @@
 module HealthSeven::V2_4
 class Pta < ::HealthSeven::DataType
   # policy type
-  attribute :policy_type, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :policy_type, Is, position: "PTA.1"
   # amount class
-  attribute :amount_class, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :amount_class, Is, position: "PTA.2"
   # amount
-  attribute :amount, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :amount, Nm, position: "PTA.3"
 end
 end

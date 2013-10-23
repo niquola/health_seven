@@ -1,66 +1,66 @@
 module HealthSeven::V2_5
 class RspK31 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :qak, Qak, minOccurs: "1", maxOccurs: "1"
-  attribute :qpd, Qpd, minOccurs: "1", maxOccurs: "1"
-  attribute :rcp, Rcp, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :qak, Qak, position: "QAK", require: true
+  attribute :qpd, Qpd, position: "QPD", require: true
+  attribute :rcp, Rcp, position: "RCP", require: true
   class RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :al1s, Array[Al1], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :pd1, Pd1, position: "PD1"
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
+      attribute :al1s, Array[Al1], position: "AL1", multiple: true
       class PATIENT_VISIT < ::HealthSeven::SegmentGroup
-        attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-        attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+        attribute :pv1, Pv1, position: "PV1", require: true
+        attribute :pv2, Pv2, position: "PV2"
       end
-      attribute :patient_visit, PATIENT_VISIT, minOccurs: "0", maxOccurs: "1"
+      attribute :patient_visit, PATIENT_VISIT, position: "RSP_K31.PATIENT_VISIT"
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "RSP_K31.PATIENT"
     class ORDER < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+      attribute :orc, Orc, position: "ORC", require: true
       class TIMING < ::HealthSeven::SegmentGroup
-        attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-        attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :tq1, Tq1, position: "TQ1", require: true
+        attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :timings, Array[TIMING], position: "RSP_K31.TIMING", multiple: true
       class ORDER_DETAIL < ::HealthSeven::SegmentGroup
-        attribute :rxo, Rxo, minOccurs: "1", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-        attribute :rxrs, Array[Rxr], minOccurs: "1", maxOccurs: "unbounded"
+        attribute :rxo, Rxo, position: "RXO", require: true
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
+        attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
         class COMPONENTS < ::HealthSeven::SegmentGroup
-          attribute :rxc, Rxc, minOccurs: "1", maxOccurs: "1"
-          attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :rxc, Rxc, position: "RXC", require: true
+          attribute :ntes, Array[Nte], position: "NTE", multiple: true
         end
-        attribute :components, Array[COMPONENTS], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :components, Array[COMPONENTS], position: "RSP_K31.COMPONENTS", multiple: true
       end
-      attribute :order_detail, ORDER_DETAIL, minOccurs: "0", maxOccurs: "1"
+      attribute :order_detail, ORDER_DETAIL, position: "RSP_K31.ORDER_DETAIL"
       class ENCODING < ::HealthSeven::SegmentGroup
-        attribute :rxe, Rxe, minOccurs: "1", maxOccurs: "1"
+        attribute :rxe, Rxe, position: "RXE", require: true
         class TIMING_ENCODED < ::HealthSeven::SegmentGroup
-          attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-          attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :tq1, Tq1, position: "TQ1", require: true
+          attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
         end
-        attribute :timing_encodeds, Array[TIMING_ENCODED], minOccurs: "1", maxOccurs: "unbounded"
-        attribute :rxrs, Array[Rxr], minOccurs: "1", maxOccurs: "unbounded"
-        attribute :rxcs, Array[Rxc], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :timing_encodeds, Array[TIMING_ENCODED], position: "RSP_K31.TIMING_ENCODED", require: true, multiple: true
+        attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
+        attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
       end
-      attribute :encoding, ENCODING, minOccurs: "0", maxOccurs: "1"
-      attribute :rxd, Rxd, minOccurs: "1", maxOccurs: "1"
-      attribute :rxrs, Array[Rxr], minOccurs: "1", maxOccurs: "unbounded"
-      attribute :rxcs, Array[Rxc], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :encoding, ENCODING, position: "RSP_K31.ENCODING"
+      attribute :rxd, Rxd, position: "RXD", require: true
+      attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
+      attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
       class OBSERVATION < ::HealthSeven::SegmentGroup
-        attribute :obx, Obx, minOccurs: "0", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :obx, Obx, position: "OBX"
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :observations, Array[OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
+      attribute :observations, Array[OBSERVATION], position: "RSP_K31.OBSERVATION", require: true, multiple: true
     end
-    attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :orders, Array[ORDER], position: "RSP_K31.ORDER", require: true, multiple: true
   end
-  attribute :responses, Array[RESPONSE], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :responses, Array[RESPONSE], position: "RSP_K31.RESPONSE", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

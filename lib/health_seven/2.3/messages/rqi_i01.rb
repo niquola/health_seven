@@ -1,23 +1,23 @@
 module HealthSeven::V2_3
 class RqiI01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
   class PROVIDER < ::HealthSeven::SegmentGroup
-    attribute :prd, Prd, minOccurs: "1", maxOccurs: "1"
-    attribute :ctds, Array[Ctd], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :prd, Prd, position: "PRD", require: true
+    attribute :ctds, Array[Ctd], position: "CTD", multiple: true
   end
-  attribute :providers, Array[PROVIDER], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :nk1s, Array[Nk1], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :providers, Array[PROVIDER], position: "RQI_I01.PROVIDER", require: true, multiple: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :nk1s, Array[Nk1], position: "NK1", multiple: true
   class GUARANTOR_INSURANCE < ::HealthSeven::SegmentGroup
-    attribute :gt1s, Array[Gt1], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :gt1s, Array[Gt1], position: "GT1", multiple: true
     class INSURANCE < ::HealthSeven::SegmentGroup
-      attribute :in1, In1, minOccurs: "1", maxOccurs: "1"
-      attribute :in2, In2, minOccurs: "0", maxOccurs: "1"
-      attribute :in3, In3, minOccurs: "0", maxOccurs: "1"
+      attribute :in1, In1, position: "IN1", require: true
+      attribute :in2, In2, position: "IN2"
+      attribute :in3, In3, position: "IN3"
     end
-    attribute :insurances, Array[INSURANCE], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :insurances, Array[INSURANCE], position: "RQI_I01.INSURANCE", require: true, multiple: true
   end
-  attribute :guarantor_insurance, GUARANTOR_INSURANCE, minOccurs: "0", maxOccurs: "1"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_insurance, GUARANTOR_INSURANCE, position: "RQI_I01.GUARANTOR_INSURANCE"
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
 end
 end

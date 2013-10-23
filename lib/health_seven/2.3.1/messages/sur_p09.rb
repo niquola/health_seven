@@ -1,21 +1,21 @@
 module HealthSeven::V2_3_1
 class SurP09 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
   class FACILITY < ::HealthSeven::SegmentGroup
-    attribute :fac, Fac, minOccurs: "1", maxOccurs: "1"
+    attribute :fac, Fac, position: "FAC", require: true
     class PRODUCT < ::HealthSeven::SegmentGroup
-      attribute :psh, Psh, minOccurs: "1", maxOccurs: "1"
-      attribute :pdc, Pdc, minOccurs: "1", maxOccurs: "1"
+      attribute :psh, Psh, position: "PSH", require: true
+      attribute :pdc, Pdc, position: "PDC", require: true
     end
-    attribute :products, Array[PRODUCT], minOccurs: "1", maxOccurs: "unbounded"
-    attribute :psh, Psh, minOccurs: "1", maxOccurs: "1"
+    attribute :products, Array[PRODUCT], position: "SUR_P09.PRODUCT", require: true, multiple: true
+    attribute :psh, Psh, position: "PSH", require: true
     class FACILITY_DETAIL < ::HealthSeven::SegmentGroup
-      attribute :fac, Fac, minOccurs: "1", maxOccurs: "1"
-      attribute :pdc, Pdc, minOccurs: "1", maxOccurs: "1"
-      attribute :nte, Nte, minOccurs: "1", maxOccurs: "1"
+      attribute :fac, Fac, position: "FAC", require: true
+      attribute :pdc, Pdc, position: "PDC", require: true
+      attribute :nte, Nte, position: "NTE", require: true
     end
-    attribute :facility_details, Array[FACILITY_DETAIL], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :facility_details, Array[FACILITY_DETAIL], position: "SUR_P09.FACILITY_DETAIL", require: true, multiple: true
   end
-  attribute :facilities, Array[FACILITY], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :facilities, Array[FACILITY], position: "SUR_P09.FACILITY", require: true, multiple: true
 end
 end

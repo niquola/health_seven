@@ -1,17 +1,17 @@
 module HealthSeven::V2_4
 class MfrM01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :err, Err, minOccurs: "0", maxOccurs: "1"
-  attribute :qak, Qak, minOccurs: "0", maxOccurs: "1"
-  attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
-  attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
-  attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :err, Err, position: "ERR"
+  attribute :qak, Qak, position: "QAK"
+  attribute :qrd, Qrd, position: "QRD", require: true
+  attribute :qrf, Qrf, position: "QRF"
+  attribute :mfi, Mfi, position: "MFI", require: true
   class MF_QUERY < ::HealthSeven::SegmentGroup
-    attribute :mfe, Mfe, minOccurs: "1", maxOccurs: "1"
-    attribute :anyzsegment, AnyZSegment, minOccurs: "0", maxOccurs: "1"
+    attribute :mfe, Mfe, position: "MFE", require: true
+    attribute :anyzsegment, AnyZSegment, position: "anyZSegment"
   end
-  attribute :mf_queries, Array[MF_QUERY], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :mf_queries, Array[MF_QUERY], position: "MFR_M01.MF_QUERY", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

@@ -1,16 +1,16 @@
 module HealthSeven::V2_5_1
 class Rxr < ::HealthSeven::Segment
   # Route
-  attribute :route, Ce, minOccurs: "1", maxOccurs: "1"
+  attribute :route, Ce, position: "RXR.1", require: true
   # Administration Site
-  attribute :administration_site, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :administration_site, Cwe, position: "RXR.2"
   # Administration Device
-  attribute :administration_device, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :administration_device, Ce, position: "RXR.3"
   # Administration Method
-  attribute :administration_method, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :administration_method, Cwe, position: "RXR.4"
   # Routing Instruction
-  attribute :routing_instruction, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :routing_instruction, Ce, position: "RXR.5"
   # Administration Site Modifier
-  attribute :administration_site_modifier, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :administration_site_modifier, Cwe, position: "RXR.6"
 end
 end

@@ -1,8 +1,8 @@
 module HealthSeven::V2_3_1
 class QryQ01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
-  attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :qrd, Qrd, position: "QRD", require: true
+  attribute :qrf, Qrf, position: "QRF"
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

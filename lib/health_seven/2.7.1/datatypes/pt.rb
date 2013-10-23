@@ -1,8 +1,8 @@
 module HealthSeven::V2_7_1
 class Pt < ::HealthSeven::DataType
   # Processing ID
-  attribute :processing_id, Id, minOccurs: "1", maxOccurs: "1"
+  attribute :processing_id, Id, position: "PT.1", require: true
   # Processing Mode
-  attribute :processing_mode, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :processing_mode, Id, position: "PT.2"
 end
 end

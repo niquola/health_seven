@@ -1,15 +1,15 @@
 module HealthSeven::V2_7
 class AdtA44 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :evn, Evn, position: "EVN", require: true
   class PATIENT < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-    attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-    attribute :arvs, Array[Arv], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :mrg, Mrg, minOccurs: "1", maxOccurs: "1"
+    attribute :pid, Pid, position: "PID", require: true
+    attribute :pd1, Pd1, position: "PD1"
+    attribute :arvs, Array[Arv], position: "ARV", multiple: true
+    attribute :mrg, Mrg, position: "MRG", require: true
   end
-  attribute :patients, Array[PATIENT], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :patients, Array[PATIENT], position: "ADT_A44.PATIENT", require: true, multiple: true
 end
 end

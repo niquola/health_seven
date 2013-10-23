@@ -1,86 +1,86 @@
 module HealthSeven::V2_7_1
 class PexP07 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-  attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :pd1, Pd1, position: "PD1"
+  attribute :prts, Array[Prt], position: "PRT", multiple: true
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class VISIT < ::HealthSeven::SegmentGroup
-    attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-    attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
-    attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :pv1, Pv1, position: "PV1", require: true
+    attribute :pv2, Pv2, position: "PV2"
+    attribute :prts, Array[Prt], position: "PRT", multiple: true
   end
-  attribute :visit, VISIT, minOccurs: "0", maxOccurs: "1"
+  attribute :visit, VISIT, position: "PEX_P07.VISIT"
   class EXPERIENCE < ::HealthSeven::SegmentGroup
-    attribute :pes, Pes, minOccurs: "1", maxOccurs: "1"
+    attribute :pes, Pes, position: "PES", require: true
     class PEX_OBSERVATION < ::HealthSeven::SegmentGroup
-      attribute :peo, Peo, minOccurs: "1", maxOccurs: "1"
+      attribute :peo, Peo, position: "PEO", require: true
       class PEX_CAUSE < ::HealthSeven::SegmentGroup
-        attribute :pcr, Pcr, minOccurs: "1", maxOccurs: "1"
+        attribute :pcr, Pcr, position: "PCR", require: true
         class RX_ORDER < ::HealthSeven::SegmentGroup
-          attribute :rxe, Rxe, minOccurs: "1", maxOccurs: "1"
-          attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :rxe, Rxe, position: "RXE", require: true
+          attribute :prts, Array[Prt], position: "PRT", multiple: true
           class TIMING_QTY < ::HealthSeven::SegmentGroup
-            attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-            attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+            attribute :tq1, Tq1, position: "TQ1", require: true
+            attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
           end
-          attribute :timing_qties, Array[TIMING_QTY], minOccurs: "1", maxOccurs: "unbounded"
-          attribute :rxrs, Array[Rxr], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :timing_qties, Array[TIMING_QTY], position: "PEX_P07.TIMING_QTY", require: true, multiple: true
+          attribute :rxrs, Array[Rxr], position: "RXR", multiple: true
         end
-        attribute :rx_order, RX_ORDER, minOccurs: "0", maxOccurs: "1"
+        attribute :rx_order, RX_ORDER, position: "PEX_P07.RX_ORDER"
         class RX_ADMINISTRATION < ::HealthSeven::SegmentGroup
-          attribute :rxa, Rxa, minOccurs: "1", maxOccurs: "1"
-          attribute :rxr, Rxr, minOccurs: "0", maxOccurs: "1"
-          attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :rxa, Rxa, position: "RXA", require: true
+          attribute :rxr, Rxr, position: "RXR"
+          attribute :prts, Array[Prt], position: "PRT", multiple: true
         end
-        attribute :rx_administrations, Array[RX_ADMINISTRATION], minOccurs: "0", maxOccurs: "unbounded"
-        attribute :prbs, Array[Prb], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :rx_administrations, Array[RX_ADMINISTRATION], position: "PEX_P07.RX_ADMINISTRATION", multiple: true
+        attribute :prbs, Array[Prb], position: "PRB", multiple: true
         class OBSERVATION < ::HealthSeven::SegmentGroup
-          attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-          attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :obx, Obx, position: "OBX", require: true
+          attribute :prts, Array[Prt], position: "PRT", multiple: true
         end
-        attribute :observations, Array[OBSERVATION], minOccurs: "0", maxOccurs: "unbounded"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :observations, Array[OBSERVATION], position: "PEX_P07.OBSERVATION", multiple: true
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
         class ASSOCIATED_PERSON < ::HealthSeven::SegmentGroup
-          attribute :nk1, Nk1, minOccurs: "1", maxOccurs: "1"
+          attribute :nk1, Nk1, position: "NK1", require: true
           class ASSOCIATED_RX_ORDER < ::HealthSeven::SegmentGroup
-            attribute :rxe, Rxe, minOccurs: "1", maxOccurs: "1"
-            attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
+            attribute :rxe, Rxe, position: "RXE", require: true
+            attribute :prts, Array[Prt], position: "PRT", multiple: true
             class NK1_TIMING_QTY < ::HealthSeven::SegmentGroup
-              attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-              attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+              attribute :tq1, Tq1, position: "TQ1", require: true
+              attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
             end
-            attribute :nk1_timing_qties, Array[NK1_TIMING_QTY], minOccurs: "1", maxOccurs: "unbounded"
-            attribute :rxrs, Array[Rxr], minOccurs: "0", maxOccurs: "unbounded"
+            attribute :nk1_timing_qties, Array[NK1_TIMING_QTY], position: "PEX_P07.NK1_TIMING_QTY", require: true, multiple: true
+            attribute :rxrs, Array[Rxr], position: "RXR", multiple: true
           end
-          attribute :associated_rx_order, ASSOCIATED_RX_ORDER, minOccurs: "0", maxOccurs: "1"
+          attribute :associated_rx_order, ASSOCIATED_RX_ORDER, position: "PEX_P07.ASSOCIATED_RX_ORDER"
           class ASSOCIATED_RX_ADMIN < ::HealthSeven::SegmentGroup
-            attribute :rxa, Rxa, minOccurs: "1", maxOccurs: "1"
-            attribute :rxr, Rxr, minOccurs: "0", maxOccurs: "1"
-            attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
+            attribute :rxa, Rxa, position: "RXA", require: true
+            attribute :rxr, Rxr, position: "RXR"
+            attribute :prts, Array[Prt], position: "PRT", multiple: true
           end
-          attribute :associated_rx_admins, Array[ASSOCIATED_RX_ADMIN], minOccurs: "0", maxOccurs: "unbounded"
-          attribute :prbs, Array[Prb], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :associated_rx_admins, Array[ASSOCIATED_RX_ADMIN], position: "PEX_P07.ASSOCIATED_RX_ADMIN", multiple: true
+          attribute :prbs, Array[Prb], position: "PRB", multiple: true
           class ASSOCIATED_OBSERVATION < ::HealthSeven::SegmentGroup
-            attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-            attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
+            attribute :obx, Obx, position: "OBX", require: true
+            attribute :prts, Array[Prt], position: "PRT", multiple: true
           end
-          attribute :associated_observations, Array[ASSOCIATED_OBSERVATION], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :associated_observations, Array[ASSOCIATED_OBSERVATION], position: "PEX_P07.ASSOCIATED_OBSERVATION", multiple: true
         end
-        attribute :associated_person, ASSOCIATED_PERSON, minOccurs: "0", maxOccurs: "1"
+        attribute :associated_person, ASSOCIATED_PERSON, position: "PEX_P07.ASSOCIATED_PERSON"
         class STUDY < ::HealthSeven::SegmentGroup
-          attribute :csr, Csr, minOccurs: "1", maxOccurs: "1"
-          attribute :csps, Array[Csp], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :csr, Csr, position: "CSR", require: true
+          attribute :csps, Array[Csp], position: "CSP", multiple: true
         end
-        attribute :studies, Array[STUDY], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :studies, Array[STUDY], position: "PEX_P07.STUDY", multiple: true
       end
-      attribute :pex_causes, Array[PEX_CAUSE], minOccurs: "1", maxOccurs: "unbounded"
+      attribute :pex_causes, Array[PEX_CAUSE], position: "PEX_P07.PEX_CAUSE", require: true, multiple: true
     end
-    attribute :pex_observations, Array[PEX_OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :pex_observations, Array[PEX_OBSERVATION], position: "PEX_P07.PEX_OBSERVATION", require: true, multiple: true
   end
-  attribute :experiences, Array[EXPERIENCE], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :experiences, Array[EXPERIENCE], position: "PEX_P07.EXPERIENCE", require: true, multiple: true
 end
 end

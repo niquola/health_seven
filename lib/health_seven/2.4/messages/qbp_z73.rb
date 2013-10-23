@@ -1,7 +1,7 @@
 module HealthSeven::V2_4
 class QbpZ73 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :qpd, Qpd, minOccurs: "1", maxOccurs: "1"
-  attribute :rcp, Rcp, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :qpd, Qpd, position: "QPD", require: true
+  attribute :rcp, Rcp, position: "RCP", require: true
 end
 end

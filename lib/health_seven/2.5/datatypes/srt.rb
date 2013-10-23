@@ -1,8 +1,8 @@
 module HealthSeven::V2_5
 class Srt < ::HealthSeven::DataType
   # Sort-by Field
-  attribute :sort_by_field, St, minOccurs: "0", maxOccurs: "1"
+  attribute :sort_by_field, St, position: "SRT.1"
   # Sequencing
-  attribute :sequencing, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :sequencing, Id, position: "SRT.2"
 end
 end

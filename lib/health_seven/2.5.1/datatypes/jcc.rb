@@ -1,10 +1,10 @@
 module HealthSeven::V2_5_1
 class Jcc < ::HealthSeven::DataType
   # Job Code
-  attribute :job_code, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :job_code, Is, position: "JCC.1"
   # Job Class
-  attribute :job_class, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :job_class, Is, position: "JCC.2"
   # Job Description Text
-  attribute :job_description_text, Tx, minOccurs: "0", maxOccurs: "1"
+  attribute :job_description_text, Tx, position: "JCC.3"
 end
 end

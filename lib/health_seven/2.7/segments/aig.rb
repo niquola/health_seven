@@ -1,32 +1,32 @@
 module HealthSeven::V2_7
 class Aig < ::HealthSeven::Segment
   # Set ID - AIG
-  attribute :set_id_aig, Si, minOccurs: "1", maxOccurs: "1"
+  attribute :set_id_aig, Si, position: "AIG.1", require: true
   # Segment Action Code
-  attribute :segment_action_code, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :segment_action_code, Id, position: "AIG.2"
   # Resource ID
-  attribute :resource_id, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :resource_id, Cwe, position: "AIG.3"
   # Resource Type
-  attribute :resource_type, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :resource_type, Cwe, position: "AIG.4", require: true
   # Resource Group
-  attribute :resource_groups, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :resource_groups, Array[Cwe], position: "AIG.5", multiple: true
   # Resource Quantity
-  attribute :resource_quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :resource_quantity, Nm, position: "AIG.6"
   # Resource Quantity Units
-  attribute :resource_quantity_units, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :resource_quantity_units, Cne, position: "AIG.7"
   # Start Date/Time
-  attribute :start_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :start_date_time, Dtm, position: "AIG.8"
   # Start Date/Time Offset
-  attribute :start_date_time_offset, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :start_date_time_offset, Nm, position: "AIG.9"
   # Start Date/Time Offset Units
-  attribute :start_date_time_offset_units, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :start_date_time_offset_units, Cne, position: "AIG.10"
   # Duration
-  attribute :duration, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :duration, Nm, position: "AIG.11"
   # Duration Units
-  attribute :duration_units, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :duration_units, Cne, position: "AIG.12"
   # Allow Substitution Code
-  attribute :allow_substitution_code, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :allow_substitution_code, Cwe, position: "AIG.13"
   # Filler Status Code
-  attribute :filler_status_code, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :filler_status_code, Cwe, position: "AIG.14"
 end
 end

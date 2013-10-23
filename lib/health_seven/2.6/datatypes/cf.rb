@@ -1,16 +1,16 @@
 module HealthSeven::V2_6
 class Cf < ::HealthSeven::DataType
   # Identifier
-  attribute :identifier, St, minOccurs: "0", maxOccurs: "1"
+  attribute :identifier, St, position: "CF.1"
   # Formatted Text
-  attribute :formatted_text, Ft, minOccurs: "0", maxOccurs: "1"
+  attribute :formatted_text, Ft, position: "CF.2"
   # Name of Coding System
-  attribute :name_of_coding_system, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :name_of_coding_system, Id, position: "CF.3"
   # Alternate Identifier
-  attribute :alternate_identifier, St, minOccurs: "0", maxOccurs: "1"
+  attribute :alternate_identifier, St, position: "CF.4"
   # Alternate Formatted Text
-  attribute :alternate_formatted_text, Ft, minOccurs: "0", maxOccurs: "1"
+  attribute :alternate_formatted_text, Ft, position: "CF.5"
   # Name of Alternate Coding System
-  attribute :name_of_alternate_coding_system, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :name_of_alternate_coding_system, Id, position: "CF.6"
 end
 end

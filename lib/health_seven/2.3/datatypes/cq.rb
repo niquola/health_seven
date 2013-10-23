@@ -1,8 +1,8 @@
 module HealthSeven::V2_3
 class Cq < ::HealthSeven::DataType
   # quantity
-  attribute :quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :quantity, Nm, position: "CQ.1"
   # units
-  attribute :units, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :units, Ce, position: "CQ.2"
 end
 end

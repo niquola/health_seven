@@ -1,49 +1,49 @@
 module HealthSeven::V2_5
 class RspZ90 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :err, Err, minOccurs: "0", maxOccurs: "1"
-  attribute :qak, Qak, minOccurs: "1", maxOccurs: "1"
-  attribute :qpd, Qpd, minOccurs: "1", maxOccurs: "1"
-  attribute :rcp, Rcp, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :err, Err, position: "ERR"
+  attribute :qak, Qak, position: "QAK", require: true
+  attribute :qpd, Qpd, position: "QPD", require: true
+  attribute :rcp, Rcp, position: "RCP", require: true
   class QUERY_RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-      attribute :nk1s, Array[Nk1], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :pd1, Pd1, position: "PD1"
+      attribute :nk1s, Array[Nk1], position: "NK1", multiple: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
       class VISIT < ::HealthSeven::SegmentGroup
-        attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-        attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+        attribute :pv1, Pv1, position: "PV1", require: true
+        attribute :pv2, Pv2, position: "PV2"
       end
-      attribute :visit, VISIT, minOccurs: "0", maxOccurs: "1"
+      attribute :visit, VISIT, position: "RSP_Z90.VISIT"
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "RSP_Z90.PATIENT"
     class COMMON_ORDER < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+      attribute :orc, Orc, position: "ORC", require: true
       class TIMING < ::HealthSeven::SegmentGroup
-        attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-        attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :tq1, Tq1, position: "TQ1", require: true
+        attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :ctd, Ctd, minOccurs: "0", maxOccurs: "1"
+      attribute :timings, Array[TIMING], position: "RSP_Z90.TIMING", multiple: true
+      attribute :obr, Obr, position: "OBR", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
+      attribute :ctd, Ctd, position: "CTD"
       class OBSERVATION < ::HealthSeven::SegmentGroup
-        attribute :obx, Obx, minOccurs: "0", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :obx, Obx, position: "OBX"
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :observations, Array[OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
+      attribute :observations, Array[OBSERVATION], position: "RSP_Z90.OBSERVATION", require: true, multiple: true
     end
-    attribute :common_orders, Array[COMMON_ORDER], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :common_orders, Array[COMMON_ORDER], position: "RSP_Z90.COMMON_ORDER", require: true, multiple: true
     class SPECIMEN < ::HealthSeven::SegmentGroup
-      attribute :spm, Spm, minOccurs: "1", maxOccurs: "1"
-      attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :spm, Spm, position: "SPM", require: true
+      attribute :obxes, Array[Obx], position: "OBX", multiple: true
     end
-    attribute :specimen, Array[SPECIMEN], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :specimen, Array[SPECIMEN], position: "RSP_Z90.SPECIMEN", multiple: true
   end
-  attribute :query_responses, Array[QUERY_RESPONSE], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "1", maxOccurs: "1"
+  attribute :query_responses, Array[QUERY_RESPONSE], position: "RSP_Z90.QUERY_RESPONSE", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC", require: true
 end
 end

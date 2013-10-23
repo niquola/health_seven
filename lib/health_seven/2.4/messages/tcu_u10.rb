@@ -1,8 +1,8 @@
 module HealthSeven::V2_4
 class TcuU10 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :equ, Equ, minOccurs: "1", maxOccurs: "1"
-  attribute :tccs, Array[Tcc], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :rol, Rol, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :equ, Equ, position: "EQU", require: true
+  attribute :tccs, Array[Tcc], position: "TCC", require: true, multiple: true
+  attribute :rol, Rol, position: "ROL"
 end
 end

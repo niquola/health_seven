@@ -1,58 +1,58 @@
 module HealthSeven::V2_6
 class OpuR25 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :nte, Nte, minOccurs: "0", maxOccurs: "1"
-  attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-  attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
-  attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :rols, Array[Rol], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :nte, Nte, position: "NTE"
+  attribute :pv1, Pv1, position: "PV1", require: true
+  attribute :pv2, Pv2, position: "PV2"
+  attribute :obxes, Array[Obx], position: "OBX", multiple: true
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
+  attribute :rols, Array[Rol], position: "ROL", require: true, multiple: true
   class ACCESSION_DETAIL < ::HealthSeven::SegmentGroup
-    attribute :nk1s, Array[Nk1], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :nk1s, Array[Nk1], position: "NK1", require: true, multiple: true
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :pd1, Pd1, position: "PD1"
       class PATIENT_OBSERVATION < ::HealthSeven::SegmentGroup
-        attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :obx, Obx, position: "OBX", require: true
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :patient_observations, Array[PATIENT_OBSERVATION], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :patient_observations, Array[PATIENT_OBSERVATION], position: "OPU_R25.PATIENT_OBSERVATION", multiple: true
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "OPU_R25.PATIENT"
     class SPECIMEN < ::HealthSeven::SegmentGroup
-      attribute :spm, Spm, minOccurs: "1", maxOccurs: "1"
+      attribute :spm, Spm, position: "SPM", require: true
       class SPECIMEN_OBSERVATION < ::HealthSeven::SegmentGroup
-        attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :obx, Obx, position: "OBX", require: true
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :specimen_observations, Array[SPECIMEN_OBSERVATION], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :specimen_observations, Array[SPECIMEN_OBSERVATION], position: "OPU_R25.SPECIMEN_OBSERVATION", multiple: true
       class CONTAINER < ::HealthSeven::SegmentGroup
-        attribute :sac, Sac, minOccurs: "1", maxOccurs: "1"
-        attribute :inv, Inv, minOccurs: "0", maxOccurs: "1"
+        attribute :sac, Sac, position: "SAC", require: true
+        attribute :inv, Inv, position: "INV"
       end
-      attribute :containers, Array[CONTAINER], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :containers, Array[CONTAINER], position: "OPU_R25.CONTAINER", multiple: true
       class ORDER < ::HealthSeven::SegmentGroup
-        attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-        attribute :orc, Orc, minOccurs: "0", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-        attribute :rols, Array[Rol], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :obr, Obr, position: "OBR", require: true
+        attribute :orc, Orc, position: "ORC"
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
+        attribute :rols, Array[Rol], position: "ROL", multiple: true
         class TIMING_QTY < ::HealthSeven::SegmentGroup
-          attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-          attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :tq1, Tq1, position: "TQ1", require: true
+          attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
         end
-        attribute :timing_qties, Array[TIMING_QTY], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :timing_qties, Array[TIMING_QTY], position: "OPU_R25.TIMING_QTY", multiple: true
         class RESULT < ::HealthSeven::SegmentGroup
-          attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-          attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :obx, Obx, position: "OBX", require: true
+          attribute :ntes, Array[Nte], position: "NTE", multiple: true
         end
-        attribute :results, Array[RESULT], minOccurs: "1", maxOccurs: "unbounded"
+        attribute :results, Array[RESULT], position: "OPU_R25.RESULT", require: true, multiple: true
       end
-      attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
+      attribute :orders, Array[ORDER], position: "OPU_R25.ORDER", require: true, multiple: true
     end
-    attribute :specimen, Array[SPECIMEN], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :specimen, Array[SPECIMEN], position: "OPU_R25.SPECIMEN", require: true, multiple: true
   end
-  attribute :accession_details, Array[ACCESSION_DETAIL], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :accession_details, Array[ACCESSION_DETAIL], position: "OPU_R25.ACCESSION_DETAIL", require: true, multiple: true
 end
 end

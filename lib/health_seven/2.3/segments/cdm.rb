@@ -1,30 +1,30 @@
 module HealthSeven::V2_3
 class Cdm < ::HealthSeven::Segment
   # Primary Key Value
-  attribute :primary_key_value, Ce, minOccurs: "1", maxOccurs: "1"
+  attribute :primary_key_value, Ce, position: "CDM.1", require: true
   # Charge Code Alias
-  attribute :charge_code_aliases, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :charge_code_aliases, Array[Ce], position: "CDM.2", multiple: true
   # Charge Description Short
-  attribute :charge_description_short, St, minOccurs: "1", maxOccurs: "1"
+  attribute :charge_description_short, St, position: "CDM.3", require: true
   # Charge Description Long
-  attribute :charge_description_long, St, minOccurs: "0", maxOccurs: "1"
+  attribute :charge_description_long, St, position: "CDM.4"
   # Description Override Indicator
-  attribute :description_override_indicator, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :description_override_indicator, Id, position: "CDM.5"
   # Exploding Charges
-  attribute :exploding_charges, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :exploding_charges, Array[Ce], position: "CDM.6", multiple: true
   # Procedure Code
-  attribute :procedure_codes, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedure_codes, Array[Ce], position: "CDM.7", multiple: true
   # Active/Inactive Flag
-  attribute :active_inactive_flag, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :active_inactive_flag, Id, position: "CDM.8"
   # Inventory Number
-  attribute :inventory_numbers, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :inventory_numbers, Array[Ce], position: "CDM.9", multiple: true
   # Resource Load
-  attribute :resource_load, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :resource_load, Nm, position: "CDM.10"
   # Contract Number
-  attribute :contract_numbers, Array[Ck], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contract_numbers, Array[Ck], position: "CDM.11", multiple: true
   # Contract Organization
-  attribute :contract_organization, Xon, minOccurs: "0", maxOccurs: "1"
+  attribute :contract_organization, Xon, position: "CDM.12"
   # Room Fee Indicator
-  attribute :room_fee_indicator, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :room_fee_indicator, Id, position: "CDM.13"
 end
 end

@@ -1,34 +1,34 @@
 module HealthSeven::V2_4
 class VxrV03 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
-  attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-  attribute :nk1s, Array[Nk1], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :qrd, Qrd, position: "QRD", require: true
+  attribute :qrf, Qrf, position: "QRF"
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :pd1, Pd1, position: "PD1"
+  attribute :nk1s, Array[Nk1], position: "NK1", multiple: true
   class PATIENT_VISIT < ::HealthSeven::SegmentGroup
-    attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-    attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+    attribute :pv1, Pv1, position: "PV1", require: true
+    attribute :pv2, Pv2, position: "PV2"
   end
-  attribute :patient_visit, PATIENT_VISIT, minOccurs: "0", maxOccurs: "1"
-  attribute :gt1s, Array[Gt1], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :patient_visit, PATIENT_VISIT, position: "VXR_V03.PATIENT_VISIT"
+  attribute :gt1s, Array[Gt1], position: "GT1", multiple: true
   class INSURANCE < ::HealthSeven::SegmentGroup
-    attribute :in1, In1, minOccurs: "1", maxOccurs: "1"
-    attribute :in2, In2, minOccurs: "0", maxOccurs: "1"
-    attribute :in3, In3, minOccurs: "0", maxOccurs: "1"
+    attribute :in1, In1, position: "IN1", require: true
+    attribute :in2, In2, position: "IN2"
+    attribute :in3, In3, position: "IN3"
   end
-  attribute :insurances, Array[INSURANCE], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :insurances, Array[INSURANCE], position: "VXR_V03.INSURANCE", multiple: true
   class ORDER < ::HealthSeven::SegmentGroup
-    attribute :orc, Orc, minOccurs: "0", maxOccurs: "1"
-    attribute :rxa, Rxa, minOccurs: "1", maxOccurs: "1"
-    attribute :rxr, Rxr, minOccurs: "0", maxOccurs: "1"
+    attribute :orc, Orc, position: "ORC"
+    attribute :rxa, Rxa, position: "RXA", require: true
+    attribute :rxr, Rxr, position: "RXR"
     class OBSERVATION < ::HealthSeven::SegmentGroup
-      attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :obx, Obx, position: "OBX", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :observations, Array[OBSERVATION], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :observations, Array[OBSERVATION], position: "VXR_V03.OBSERVATION", multiple: true
   end
-  attribute :orders, Array[ORDER], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :orders, Array[ORDER], position: "VXR_V03.ORDER", multiple: true
 end
 end

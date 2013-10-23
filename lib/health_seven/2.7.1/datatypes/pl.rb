@@ -1,26 +1,26 @@
 module HealthSeven::V2_7_1
 class Pl < ::HealthSeven::DataType
   # Point of Care
-  attribute :point_of_care, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :point_of_care, Hd, position: "PL.1"
   # Room
-  attribute :room, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :room, Hd, position: "PL.2"
   # Bed
-  attribute :bed, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :bed, Hd, position: "PL.3"
   # Facility
-  attribute :facility, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :facility, Hd, position: "PL.4"
   # Location Status
-  attribute :location_status, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :location_status, Is, position: "PL.5"
   # Person Location Type
-  attribute :person_location_type, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :person_location_type, Is, position: "PL.6"
   # Building
-  attribute :building, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :building, Hd, position: "PL.7"
   # Floor
-  attribute :floor, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :floor, Hd, position: "PL.8"
   # Location Description
-  attribute :location_description, St, minOccurs: "0", maxOccurs: "1"
+  attribute :location_description, St, position: "PL.9"
   # Comprehensive Location Identifier
-  attribute :comprehensive_location_identifier, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :comprehensive_location_identifier, Ei, position: "PL.10"
   # Assigning Authority for Location
-  attribute :assigning_authority_for_location, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :assigning_authority_for_location, Hd, position: "PL.11"
 end
 end

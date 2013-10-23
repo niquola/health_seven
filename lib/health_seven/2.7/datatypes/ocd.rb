@@ -1,8 +1,8 @@
 module HealthSeven::V2_7
 class Ocd < ::HealthSeven::DataType
   # Occurrence Code
-  attribute :occurrence_code, Cne, minOccurs: "1", maxOccurs: "1"
+  attribute :occurrence_code, Cne, position: "OCD.1", require: true
   # Occurrence Date
-  attribute :occurrence_date, Dt, minOccurs: "1", maxOccurs: "1"
+  attribute :occurrence_date, Dt, position: "OCD.2", require: true
 end
 end

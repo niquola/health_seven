@@ -1,30 +1,30 @@
 module HealthSeven::V2_7_1
 class Pes < ::HealthSeven::Segment
   # Sender Organization Name
-  attribute :sender_organization_names, Array[Xon], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :sender_organization_names, Array[Xon], position: "PES.1", multiple: true
   # Sender Individual Name
-  attribute :sender_individual_names, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :sender_individual_names, Array[Xcn], position: "PES.2", multiple: true
   # Sender Address
-  attribute :sender_addresses, Array[Xad], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :sender_addresses, Array[Xad], position: "PES.3", multiple: true
   # Sender Telephone
-  attribute :sender_telephones, Array[Xtn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :sender_telephones, Array[Xtn], position: "PES.4", multiple: true
   # Sender Event Identifier
-  attribute :sender_event_identifier, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :sender_event_identifier, Ei, position: "PES.5"
   # Sender Sequence Number
-  attribute :sender_sequence_number, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :sender_sequence_number, Nm, position: "PES.6"
   # Sender Event Description
-  attribute :sender_event_descriptions, Array[Ft], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :sender_event_descriptions, Array[Ft], position: "PES.7", multiple: true
   # Sender Comment
-  attribute :sender_comment, Ft, minOccurs: "0", maxOccurs: "1"
+  attribute :sender_comment, Ft, position: "PES.8"
   # Sender Aware Date/Time
-  attribute :sender_aware_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :sender_aware_date_time, Dtm, position: "PES.9"
   # Event Report Date
-  attribute :event_report_date, Dtm, minOccurs: "1", maxOccurs: "1"
+  attribute :event_report_date, Dtm, position: "PES.10", require: true
   # Event Report Timing/Type
-  attribute :event_report_timing_type, Id, minOccurs: "0", maxOccurs: "2"
+  attribute :event_report_timing_type, Id, position: "PES.11"
   # Event Report Source
-  attribute :event_report_source, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :event_report_source, Id, position: "PES.12"
   # Event Reported To
-  attribute :event_reported_tos, Array[Id], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :event_reported_tos, Array[Id], position: "PES.13", multiple: true
 end
 end

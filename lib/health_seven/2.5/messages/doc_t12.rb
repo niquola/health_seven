@@ -1,18 +1,18 @@
 module HealthSeven::V2_5
 class DocT12 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :err, Err, minOccurs: "0", maxOccurs: "1"
-  attribute :qak, Qak, minOccurs: "0", maxOccurs: "1"
-  attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :err, Err, position: "ERR"
+  attribute :qak, Qak, position: "QAK"
+  attribute :qrd, Qrd, position: "QRD", require: true
   class RESULT < ::HealthSeven::SegmentGroup
-    attribute :evn, Evn, minOccurs: "0", maxOccurs: "1"
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-    attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-    attribute :txa, Txa, minOccurs: "1", maxOccurs: "1"
-    attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :evn, Evn, position: "EVN"
+    attribute :pid, Pid, position: "PID", require: true
+    attribute :pv1, Pv1, position: "PV1", require: true
+    attribute :txa, Txa, position: "TXA", require: true
+    attribute :obxes, Array[Obx], position: "OBX", multiple: true
   end
-  attribute :results, Array[RESULT], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :results, Array[RESULT], position: "DOC_T12.RESULT", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

@@ -1,13 +1,13 @@
 module HealthSeven::V2_5
 class CrmC01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
   class PATIENT < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-    attribute :pv1, Pv1, minOccurs: "0", maxOccurs: "1"
-    attribute :csr, Csr, minOccurs: "1", maxOccurs: "1"
-    attribute :csps, Array[Csp], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :pid, Pid, position: "PID", require: true
+    attribute :pv1, Pv1, position: "PV1"
+    attribute :csr, Csr, position: "CSR", require: true
+    attribute :csps, Array[Csp], position: "CSP", multiple: true
   end
-  attribute :patients, Array[PATIENT], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :patients, Array[PATIENT], position: "CRM_C01.PATIENT", require: true, multiple: true
 end
 end

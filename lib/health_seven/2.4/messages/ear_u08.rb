@@ -1,13 +1,13 @@
 module HealthSeven::V2_4
 class EarU08 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :equ, Equ, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :equ, Equ, position: "EQU", require: true
   class COMMAND_RESPONSE < ::HealthSeven::SegmentGroup
-    attribute :ecd, Ecd, minOccurs: "1", maxOccurs: "1"
-    attribute :sac, Sac, minOccurs: "0", maxOccurs: "1"
-    attribute :ecr, Ecr, minOccurs: "1", maxOccurs: "1"
+    attribute :ecd, Ecd, position: "ECD", require: true
+    attribute :sac, Sac, position: "SAC"
+    attribute :ecr, Ecr, position: "ECR", require: true
   end
-  attribute :command_responses, Array[COMMAND_RESPONSE], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :rol, Rol, minOccurs: "0", maxOccurs: "1"
+  attribute :command_responses, Array[COMMAND_RESPONSE], position: "EAR_U08.COMMAND_RESPONSE", require: true, multiple: true
+  attribute :rol, Rol, position: "ROL"
 end
 end

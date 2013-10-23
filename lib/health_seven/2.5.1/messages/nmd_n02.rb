@@ -1,24 +1,24 @@
 module HealthSeven::V2_5_1
 class NmdN02 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
   class CLOCK_AND_STATS_WITH_NOTES < ::HealthSeven::SegmentGroup
     class CLOCK < ::HealthSeven::SegmentGroup
-      attribute :nck, Nck, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :nck, Nck, position: "NCK", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :clock, CLOCK, minOccurs: "0", maxOccurs: "1"
+    attribute :clock, CLOCK, position: "NMD_N02.CLOCK"
     class APP_STATS < ::HealthSeven::SegmentGroup
-      attribute :nst, Nst, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :nst, Nst, position: "NST", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :app_stats, APP_STATS, minOccurs: "0", maxOccurs: "1"
+    attribute :app_stats, APP_STATS, position: "NMD_N02.APP_STATS"
     class APP_STATUS < ::HealthSeven::SegmentGroup
-      attribute :nsc, Nsc, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :nsc, Nsc, position: "NSC", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :app_status, APP_STATUS, minOccurs: "0", maxOccurs: "1"
+    attribute :app_status, APP_STATUS, position: "NMD_N02.APP_STATUS"
   end
-  attribute :clock_and_stats_with_notes, Array[CLOCK_AND_STATS_WITH_NOTES], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :clock_and_stats_with_notes, Array[CLOCK_AND_STATS_WITH_NOTES], position: "NMD_N02.CLOCK_AND_STATS_WITH_NOTES", require: true, multiple: true
 end
 end

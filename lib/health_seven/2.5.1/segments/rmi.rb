@@ -1,10 +1,10 @@
 module HealthSeven::V2_5_1
 class Rmi < ::HealthSeven::Segment
   # Risk Management Incident Code
-  attribute :risk_management_incident_code, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :risk_management_incident_code, Ce, position: "RMI.1"
   # Date/Time Incident
-  attribute :date_time_incident, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :date_time_incident, Ts, position: "RMI.2"
   # Incident Type Code
-  attribute :incident_type_code, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :incident_type_code, Ce, position: "RMI.3"
 end
 end

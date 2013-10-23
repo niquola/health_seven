@@ -1,47 +1,47 @@
 module HealthSeven::V2_6
 class OmiO23 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class PATIENT < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-    attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :pid, Pid, position: "PID", require: true
+    attribute :pd1, Pd1, position: "PD1"
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
     class PATIENT_VISIT < ::HealthSeven::SegmentGroup
-      attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-      attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+      attribute :pv1, Pv1, position: "PV1", require: true
+      attribute :pv2, Pv2, position: "PV2"
     end
-    attribute :patient_visit, PATIENT_VISIT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient_visit, PATIENT_VISIT, position: "OMI_O23.PATIENT_VISIT"
     class INSURANCE < ::HealthSeven::SegmentGroup
-      attribute :in1, In1, minOccurs: "1", maxOccurs: "1"
-      attribute :in2, In2, minOccurs: "0", maxOccurs: "1"
-      attribute :in3, In3, minOccurs: "0", maxOccurs: "1"
+      attribute :in1, In1, position: "IN1", require: true
+      attribute :in2, In2, position: "IN2"
+      attribute :in3, In3, position: "IN3"
     end
-    attribute :insurances, Array[INSURANCE], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :gt1, Gt1, minOccurs: "0", maxOccurs: "1"
-    attribute :al1s, Array[Al1], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :insurances, Array[INSURANCE], position: "OMI_O23.INSURANCE", multiple: true
+    attribute :gt1, Gt1, position: "GT1"
+    attribute :al1s, Array[Al1], position: "AL1", multiple: true
   end
-  attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+  attribute :patient, PATIENT, position: "OMI_O23.PATIENT"
   class ORDER < ::HealthSeven::SegmentGroup
-    attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+    attribute :orc, Orc, position: "ORC", require: true
     class TIMING < ::HealthSeven::SegmentGroup
-      attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-      attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :tq1, Tq1, position: "TQ1", require: true
+      attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
     end
-    attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :rols, Array[Rol], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :ctd, Ctd, minOccurs: "0", maxOccurs: "1"
-    attribute :dg1s, Array[Dg1], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :timings, Array[TIMING], position: "OMI_O23.TIMING", multiple: true
+    attribute :obr, Obr, position: "OBR", require: true
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
+    attribute :rols, Array[Rol], position: "ROL", multiple: true
+    attribute :ctd, Ctd, position: "CTD"
+    attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
     class OBSERVATION < ::HealthSeven::SegmentGroup
-      attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :obx, Obx, position: "OBX", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :observations, Array[OBSERVATION], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :ipcs, Array[Ipc], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :observations, Array[OBSERVATION], position: "OMI_O23.OBSERVATION", multiple: true
+    attribute :ipcs, Array[Ipc], position: "IPC", require: true, multiple: true
   end
-  attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :orders, Array[ORDER], position: "OMI_O23.ORDER", require: true, multiple: true
 end
 end

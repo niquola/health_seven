@@ -1,86 +1,86 @@
 module HealthSeven::V2_7
 class Nk1 < ::HealthSeven::Segment
   # Set ID - NK1
-  attribute :set_id_nk1, Si, minOccurs: "1", maxOccurs: "1"
+  attribute :set_id_nk1, Si, position: "NK1.1", require: true
   # Name
-  attribute :names, Array[Xpn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :names, Array[Xpn], position: "NK1.2", multiple: true
   # Relationship
-  attribute :relationship, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :relationship, Cwe, position: "NK1.3"
   # Address
-  attribute :addresses, Array[Xad], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :addresses, Array[Xad], position: "NK1.4", multiple: true
   # Phone Number
-  attribute :phone_numbers, Array[Xtn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :phone_numbers, Array[Xtn], position: "NK1.5", multiple: true
   # Business Phone Number
-  attribute :business_phone_numbers, Array[Xtn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :business_phone_numbers, Array[Xtn], position: "NK1.6", multiple: true
   # Contact Role
-  attribute :contact_role, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :contact_role, Cwe, position: "NK1.7"
   # Start Date
-  attribute :start_date, Dt, minOccurs: "0", maxOccurs: "1"
+  attribute :start_date, Dt, position: "NK1.8"
   # End Date
-  attribute :end_date, Dt, minOccurs: "0", maxOccurs: "1"
+  attribute :end_date, Dt, position: "NK1.9"
   # Next of Kin / Associated Parties Job Title
-  attribute :next_of_kin_associated_parties_job_title, St, minOccurs: "0", maxOccurs: "1"
+  attribute :next_of_kin_associated_parties_job_title, St, position: "NK1.10"
   # Next of Kin / Associated Parties Job Code/Class
-  attribute :next_of_kin_associated_parties_job_code_class, Jcc, minOccurs: "0", maxOccurs: "1"
+  attribute :next_of_kin_associated_parties_job_code_class, Jcc, position: "NK1.11"
   # Next of Kin / Associated Parties Employee Number
-  attribute :next_of_kin_associated_parties_employee_number, Cx, minOccurs: "0", maxOccurs: "1"
+  attribute :next_of_kin_associated_parties_employee_number, Cx, position: "NK1.12"
   # Organization Name - NK1
-  attribute :organization_name_nk1s, Array[Xon], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :organization_name_nk1s, Array[Xon], position: "NK1.13", multiple: true
   # Marital Status
-  attribute :marital_status, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :marital_status, Cwe, position: "NK1.14"
   # Administrative Sex
-  attribute :administrative_sex, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :administrative_sex, Cwe, position: "NK1.15"
   # Date/Time of Birth
-  attribute :date_time_of_birth, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :date_time_of_birth, Dtm, position: "NK1.16"
   # Living Dependency
-  attribute :living_dependencies, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :living_dependencies, Array[Cwe], position: "NK1.17", multiple: true
   # Ambulatory Status
-  attribute :ambulatory_statuses, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ambulatory_statuses, Array[Cwe], position: "NK1.18", multiple: true
   # Citizenship
-  attribute :citizenships, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :citizenships, Array[Cwe], position: "NK1.19", multiple: true
   # Primary Language
-  attribute :primary_language, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :primary_language, Cwe, position: "NK1.20"
   # Living Arrangement
-  attribute :living_arrangement, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :living_arrangement, Cwe, position: "NK1.21"
   # Publicity Code
-  attribute :publicity_code, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :publicity_code, Cwe, position: "NK1.22"
   # Protection Indicator
-  attribute :protection_indicator, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :protection_indicator, Id, position: "NK1.23"
   # Student Indicator
-  attribute :student_indicator, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :student_indicator, Cwe, position: "NK1.24"
   # Religion
-  attribute :religion, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :religion, Cwe, position: "NK1.25"
   # Mother's Maiden Name
-  attribute :mother_s_maiden_names, Array[Xpn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :mother_s_maiden_names, Array[Xpn], position: "NK1.26", multiple: true
   # Nationality
-  attribute :nationality, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :nationality, Cwe, position: "NK1.27"
   # Ethnic Group
-  attribute :ethnic_groups, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ethnic_groups, Array[Cwe], position: "NK1.28", multiple: true
   # Contact Reason
-  attribute :contact_reasons, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_reasons, Array[Cwe], position: "NK1.29", multiple: true
   # Contact Person's Name
-  attribute :contact_person_s_names, Array[Xpn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_person_s_names, Array[Xpn], position: "NK1.30", multiple: true
   # Contact Person's Telephone Number
-  attribute :contact_person_s_telephone_numbers, Array[Xtn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_person_s_telephone_numbers, Array[Xtn], position: "NK1.31", multiple: true
   # Contact Person's Address
-  attribute :contact_person_s_addresses, Array[Xad], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :contact_person_s_addresses, Array[Xad], position: "NK1.32", multiple: true
   # Next of Kin/Associated Party's Identifiers
-  attribute :next_of_kin_associated_party_s_identifiers, Array[Cx], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :next_of_kin_associated_party_s_identifiers, Array[Cx], position: "NK1.33", multiple: true
   # Job Status
-  attribute :job_status, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :job_status, Cwe, position: "NK1.34"
   # Race
-  attribute :races, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :races, Array[Cwe], position: "NK1.35", multiple: true
   # Handicap
-  attribute :handicap, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :handicap, Cwe, position: "NK1.36"
   # Contact Person Social Security Number
-  attribute :contact_person_social_security_number, St, minOccurs: "0", maxOccurs: "1"
+  attribute :contact_person_social_security_number, St, position: "NK1.37"
   # Next of Kin Birth Place
-  attribute :next_of_kin_birth_place, St, minOccurs: "0", maxOccurs: "1"
+  attribute :next_of_kin_birth_place, St, position: "NK1.38"
   # VIP Indicator
-  attribute :vip_indicator, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :vip_indicator, Cwe, position: "NK1.39"
   # Next of Kin Telecommunication Information
-  attribute :next_of_kin_telecommunication_information, Xtn, minOccurs: "0", maxOccurs: "1"
+  attribute :next_of_kin_telecommunication_information, Xtn, position: "NK1.40"
   # Contact Person's Telecommunication Information
-  attribute :contact_person_s_telecommunication_information, Xtn, minOccurs: "0", maxOccurs: "1"
+  attribute :contact_person_s_telecommunication_information, Xtn, position: "NK1.41"
 end
 end

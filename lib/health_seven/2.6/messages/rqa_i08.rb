@@ -1,59 +1,59 @@
 module HealthSeven::V2_6
 class RqaI08 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :rf1, Rf1, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :rf1, Rf1, position: "RF1"
   class AUTHORIZATION < ::HealthSeven::SegmentGroup
-    attribute :aut, Aut, minOccurs: "1", maxOccurs: "1"
-    attribute :ctd, Ctd, minOccurs: "0", maxOccurs: "1"
+    attribute :aut, Aut, position: "AUT", require: true
+    attribute :ctd, Ctd, position: "CTD"
   end
-  attribute :authorization, AUTHORIZATION, minOccurs: "0", maxOccurs: "1"
+  attribute :authorization, AUTHORIZATION, position: "RQA_I08.AUTHORIZATION"
   class PROVIDER < ::HealthSeven::SegmentGroup
-    attribute :prd, Prd, minOccurs: "1", maxOccurs: "1"
-    attribute :ctds, Array[Ctd], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :prd, Prd, position: "PRD", require: true
+    attribute :ctds, Array[Ctd], position: "CTD", multiple: true
   end
-  attribute :providers, Array[PROVIDER], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :nk1s, Array[Nk1], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :providers, Array[PROVIDER], position: "RQA_I08.PROVIDER", require: true, multiple: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :nk1s, Array[Nk1], position: "NK1", multiple: true
   class GUARANTOR_INSURANCE < ::HealthSeven::SegmentGroup
-    attribute :gt1s, Array[Gt1], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :gt1s, Array[Gt1], position: "GT1", multiple: true
     class INSURANCE < ::HealthSeven::SegmentGroup
-      attribute :in1, In1, minOccurs: "1", maxOccurs: "1"
-      attribute :in2, In2, minOccurs: "0", maxOccurs: "1"
-      attribute :in3, In3, minOccurs: "0", maxOccurs: "1"
+      attribute :in1, In1, position: "IN1", require: true
+      attribute :in2, In2, position: "IN2"
+      attribute :in3, In3, position: "IN3"
     end
-    attribute :insurances, Array[INSURANCE], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :insurances, Array[INSURANCE], position: "RQA_I08.INSURANCE", require: true, multiple: true
   end
-  attribute :guarantor_insurance, GUARANTOR_INSURANCE, minOccurs: "0", maxOccurs: "1"
-  attribute :acc, Acc, minOccurs: "0", maxOccurs: "1"
-  attribute :dg1s, Array[Dg1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :drgs, Array[Drg], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :al1s, Array[Al1], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :guarantor_insurance, GUARANTOR_INSURANCE, position: "RQA_I08.GUARANTOR_INSURANCE"
+  attribute :acc, Acc, position: "ACC"
+  attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
+  attribute :drgs, Array[Drg], position: "DRG", multiple: true
+  attribute :al1s, Array[Al1], position: "AL1", multiple: true
   class PROCEDURE < ::HealthSeven::SegmentGroup
-    attribute :pr1, Pr1, minOccurs: "1", maxOccurs: "1"
+    attribute :pr1, Pr1, position: "PR1", require: true
     class AUTHORIZATION < ::HealthSeven::SegmentGroup
-      attribute :aut, Aut, minOccurs: "1", maxOccurs: "1"
-      attribute :ctd, Ctd, minOccurs: "0", maxOccurs: "1"
+      attribute :aut, Aut, position: "AUT", require: true
+      attribute :ctd, Ctd, position: "CTD"
     end
-    attribute :authorization, AUTHORIZATION, minOccurs: "0", maxOccurs: "1"
+    attribute :authorization, AUTHORIZATION, position: "RQA_I08.AUTHORIZATION"
   end
-  attribute :procedures, Array[PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedures, Array[PROCEDURE], position: "RQA_I08.PROCEDURE", multiple: true
   class OBSERVATION < ::HealthSeven::SegmentGroup
-    attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :obr, Obr, position: "OBR", require: true
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
     class RESULTS < ::HealthSeven::SegmentGroup
-      attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :obx, Obx, position: "OBX", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :results, Array[RESULTS], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :results, Array[RESULTS], position: "RQA_I08.RESULTS", multiple: true
   end
-  attribute :observations, Array[OBSERVATION], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :observations, Array[OBSERVATION], position: "RQA_I08.OBSERVATION", multiple: true
   class VISIT < ::HealthSeven::SegmentGroup
-    attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-    attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+    attribute :pv1, Pv1, position: "PV1", require: true
+    attribute :pv2, Pv2, position: "PV2"
   end
-  attribute :visit, VISIT, minOccurs: "0", maxOccurs: "1"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :visit, VISIT, position: "RQA_I08.VISIT"
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
 end
 end

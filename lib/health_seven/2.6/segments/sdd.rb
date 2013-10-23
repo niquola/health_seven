@@ -1,18 +1,18 @@
 module HealthSeven::V2_6
 class Sdd < ::HealthSeven::Segment
   # Lot Number
-  attribute :lot_number, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :lot_number, Ei, position: "SDD.1"
   # Device Number
-  attribute :device_number, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :device_number, Ei, position: "SDD.2"
   # Device Name
-  attribute :device_name, St, minOccurs: "0", maxOccurs: "1"
+  attribute :device_name, St, position: "SDD.3"
   # Device Data State
-  attribute :device_data_state, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :device_data_state, Is, position: "SDD.4"
   # Load Status
-  attribute :load_status, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :load_status, Is, position: "SDD.5"
   # Control Code
-  attribute :control_code, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :control_code, Nm, position: "SDD.6"
   # Operator Name
-  attribute :operator_name, St, minOccurs: "0", maxOccurs: "1"
+  attribute :operator_name, St, position: "SDD.7"
 end
 end

@@ -1,44 +1,44 @@
 module HealthSeven::V2_6
 class Inv < ::HealthSeven::Segment
   # Substance Identifier
-  attribute :substance_identifier, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :substance_identifier, Cwe, position: "INV.1", require: true
   # Substance Status
-  attribute :substance_statuses, Array[Cwe], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :substance_statuses, Array[Cwe], position: "INV.2", require: true, multiple: true
   # Substance Type
-  attribute :substance_type, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :substance_type, Cwe, position: "INV.3"
   # Inventory Container Identifier
-  attribute :inventory_container_identifier, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :inventory_container_identifier, Cwe, position: "INV.4"
   # Container Carrier Identifier
-  attribute :container_carrier_identifier, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :container_carrier_identifier, Cwe, position: "INV.5"
   # Position on Carrier
-  attribute :position_on_carrier, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :position_on_carrier, Cwe, position: "INV.6"
   # Initial Quantity
-  attribute :initial_quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :initial_quantity, Nm, position: "INV.7"
   # Current Quantity
-  attribute :current_quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :current_quantity, Nm, position: "INV.8"
   # Available Quantity
-  attribute :available_quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :available_quantity, Nm, position: "INV.9"
   # Consumption Quantity
-  attribute :consumption_quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :consumption_quantity, Nm, position: "INV.10"
   # Quantity Units
-  attribute :quantity_units, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :quantity_units, Cwe, position: "INV.11"
   # Expiration Date/Time
-  attribute :expiration_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :expiration_date_time, Dtm, position: "INV.12"
   # First Used Date/Time
-  attribute :first_used_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :first_used_date_time, Dtm, position: "INV.13"
   # On Board Stability Duration
-  attribute :on_board_stability_duration, Tq, minOccurs: "0", maxOccurs: "1"
+  attribute :on_board_stability_duration, Tq, position: "INV.14"
   # Test/Fluid Identifier(s)
-  attribute :test_fluid_identifier_s, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :test_fluid_identifier_s, Array[Cwe], position: "INV.15", multiple: true
   # Manufacturer Lot Number
-  attribute :manufacturer_lot_number, St, minOccurs: "0", maxOccurs: "1"
+  attribute :manufacturer_lot_number, St, position: "INV.16"
   # Manufacturer Identifier
-  attribute :manufacturer_identifier, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :manufacturer_identifier, Cwe, position: "INV.17"
   # Supplier Identifier
-  attribute :supplier_identifier, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :supplier_identifier, Cwe, position: "INV.18"
   # On Board Stability Time
-  attribute :on_board_stability_time, Cq, minOccurs: "0", maxOccurs: "1"
+  attribute :on_board_stability_time, Cq, position: "INV.19"
   # Target Value
-  attribute :target_value, Cq, minOccurs: "0", maxOccurs: "1"
+  attribute :target_value, Cq, position: "INV.20"
 end
 end

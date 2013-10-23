@@ -1,34 +1,34 @@
 module HealthSeven::V2_6
 class OrlO34 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class RESPONSE < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
+    attribute :pid, Pid, position: "PID", require: true
     class SPECIMEN < ::HealthSeven::SegmentGroup
-      attribute :spm, Spm, minOccurs: "1", maxOccurs: "1"
-      attribute :obxes, Array[Obx], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :sacs, Array[Sac], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :spm, Spm, position: "SPM", require: true
+      attribute :obxes, Array[Obx], position: "OBX", multiple: true
+      attribute :sacs, Array[Sac], position: "SAC", multiple: true
       class ORDER < ::HealthSeven::SegmentGroup
-        attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+        attribute :orc, Orc, position: "ORC", require: true
         class TIMING < ::HealthSeven::SegmentGroup
-          attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-          attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :tq1, Tq1, position: "TQ1", require: true
+          attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
         end
-        attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :timings, Array[TIMING], position: "ORL_O34.TIMING", multiple: true
         class OBSERVATION_REQUEST < ::HealthSeven::SegmentGroup
-          attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-          attribute :rols, Array[Rol], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :obr, Obr, position: "OBR", require: true
+          attribute :rols, Array[Rol], position: "ROL", multiple: true
         end
-        attribute :observation_request, OBSERVATION_REQUEST, minOccurs: "0", maxOccurs: "1"
+        attribute :observation_request, OBSERVATION_REQUEST, position: "ORL_O34.OBSERVATION_REQUEST"
       end
-      attribute :orders, Array[ORDER], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :orders, Array[ORDER], position: "ORL_O34.ORDER", multiple: true
     end
-    attribute :specimen, Array[SPECIMEN], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :specimen, Array[SPECIMEN], position: "ORL_O34.SPECIMEN", require: true, multiple: true
   end
-  attribute :response, RESPONSE, minOccurs: "0", maxOccurs: "1"
+  attribute :response, RESPONSE, position: "ORL_O34.RESPONSE"
 end
 end

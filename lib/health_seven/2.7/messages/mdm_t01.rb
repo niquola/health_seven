@@ -1,23 +1,23 @@
 module HealthSeven::V2_7
 class MdmT01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :pv1, Pv1, position: "PV1", require: true
   class COMMON_ORDER < ::HealthSeven::SegmentGroup
-    attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+    attribute :orc, Orc, position: "ORC", require: true
     class TIMING < ::HealthSeven::SegmentGroup
-      attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-      attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :tq1, Tq1, position: "TQ1", require: true
+      attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
     end
-    attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :timings, Array[TIMING], position: "MDM_T01.TIMING", multiple: true
+    attribute :obr, Obr, position: "OBR", require: true
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
   end
-  attribute :common_orders, Array[COMMON_ORDER], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :txa, Txa, minOccurs: "1", maxOccurs: "1"
-  attribute :cons, Array[Con], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :common_orders, Array[COMMON_ORDER], position: "MDM_T01.COMMON_ORDER", multiple: true
+  attribute :txa, Txa, position: "TXA", require: true
+  attribute :cons, Array[Con], position: "CON", multiple: true
 end
 end

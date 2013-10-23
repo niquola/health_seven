@@ -1,13 +1,13 @@
 module HealthSeven::V2_5_1
 class QvrQ17 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :qpd, Qpd, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :qpd, Qpd, position: "QPD", require: true
   class QBP < ::HealthSeven::SegmentGroup
-    attribute :anyhl7segment, AnyHL7Segment, minOccurs: "1", maxOccurs: "1"
+    attribute :anyhl7segment, AnyHL7Segment, position: "anyHL7Segment", require: true
   end
-  attribute :qbp, QBP, minOccurs: "0", maxOccurs: "1"
-  attribute :rcp, Rcp, minOccurs: "1", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :qbp, QBP, position: "QVR_Q17.QBP"
+  attribute :rcp, Rcp, position: "RCP", require: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

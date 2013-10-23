@@ -1,28 +1,28 @@
 module HealthSeven::V2_7
 class Cx < ::HealthSeven::DataType
   # ID Number
-  attribute :id_number, St, minOccurs: "1", maxOccurs: "1"
+  attribute :id_number, St, position: "CX.1", require: true
   # Identifier Check Digit
-  attribute :identifier_check_digit, St, minOccurs: "0", maxOccurs: "1"
+  attribute :identifier_check_digit, St, position: "CX.2"
   # Check Digit Scheme
-  attribute :check_digit_scheme, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :check_digit_scheme, Id, position: "CX.3"
   # Assigning Authority
-  attribute :assigning_authority, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :assigning_authority, Hd, position: "CX.4"
   # Identifier Type Code
-  attribute :identifier_type_code, Id, minOccurs: "1", maxOccurs: "1"
+  attribute :identifier_type_code, Id, position: "CX.5", require: true
   # Assigning Facility
-  attribute :assigning_facility, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :assigning_facility, Hd, position: "CX.6"
   # Effective Date
-  attribute :effective_date, Dt, minOccurs: "0", maxOccurs: "1"
+  attribute :effective_date, Dt, position: "CX.7"
   # Expiration Date
-  attribute :expiration_date, Dt, minOccurs: "0", maxOccurs: "1"
+  attribute :expiration_date, Dt, position: "CX.8"
   # Assigning Jurisdiction
-  attribute :assigning_jurisdiction, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :assigning_jurisdiction, Cwe, position: "CX.9"
   # Assigning Agency or Department
-  attribute :assigning_agency_or_department, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :assigning_agency_or_department, Cwe, position: "CX.10"
   # Security Check
-  attribute :security_check, St, minOccurs: "0", maxOccurs: "1"
+  attribute :security_check, St, position: "CX.11"
   # Security Check Scheme
-  attribute :security_check_scheme, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :security_check_scheme, Id, position: "CX.12"
 end
 end

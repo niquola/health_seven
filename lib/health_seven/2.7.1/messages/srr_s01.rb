@@ -1,44 +1,44 @@
 module HealthSeven::V2_7_1
 class SrrS01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
   class SCHEDULE < ::HealthSeven::SegmentGroup
-    attribute :sch, Sch, minOccurs: "1", maxOccurs: "1"
-    attribute :tq1s, Array[Tq1], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :sch, Sch, position: "SCH", require: true
+    attribute :tq1s, Array[Tq1], position: "TQ1", multiple: true
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :pv1, Pv1, minOccurs: "0", maxOccurs: "1"
-      attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
-      attribute :dg1s, Array[Dg1], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :pv1, Pv1, position: "PV1"
+      attribute :pv2, Pv2, position: "PV2"
+      attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
     end
-    attribute :patients, Array[PATIENT], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :patients, Array[PATIENT], position: "SRR_S01.PATIENT", multiple: true
     class RESOURCE < ::HealthSeven::SegmentGroup
-      attribute :rgs, Rgs, minOccurs: "1", maxOccurs: "1"
+      attribute :rgs, Rgs, position: "RGS", require: true
       class SERVICE < ::HealthSeven::SegmentGroup
-        attribute :ais, Ais, minOccurs: "1", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :ais, Ais, position: "AIS", require: true
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :services, Array[SERVICE], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :services, Array[SERVICE], position: "SRR_S01.SERVICE", multiple: true
       class GENERAL_RESOURCE < ::HealthSeven::SegmentGroup
-        attribute :aig, Aig, minOccurs: "1", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :aig, Aig, position: "AIG", require: true
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :general_resources, Array[GENERAL_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :general_resources, Array[GENERAL_RESOURCE], position: "SRR_S01.GENERAL_RESOURCE", multiple: true
       class LOCATION_RESOURCE < ::HealthSeven::SegmentGroup
-        attribute :ail, Ail, minOccurs: "1", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :ail, Ail, position: "AIL", require: true
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :location_resources, Array[LOCATION_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :location_resources, Array[LOCATION_RESOURCE], position: "SRR_S01.LOCATION_RESOURCE", multiple: true
       class PERSONNEL_RESOURCE < ::HealthSeven::SegmentGroup
-        attribute :aip, Aip, minOccurs: "1", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :aip, Aip, position: "AIP", require: true
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :personnel_resources, Array[PERSONNEL_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :personnel_resources, Array[PERSONNEL_RESOURCE], position: "SRR_S01.PERSONNEL_RESOURCE", multiple: true
     end
-    attribute :resources, Array[RESOURCE], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :resources, Array[RESOURCE], position: "SRR_S01.RESOURCE", require: true, multiple: true
   end
-  attribute :schedule, SCHEDULE, minOccurs: "0", maxOccurs: "1"
+  attribute :schedule, SCHEDULE, position: "SRR_S01.SCHEDULE"
 end
 end

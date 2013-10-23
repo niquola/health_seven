@@ -1,18 +1,18 @@
 module HealthSeven::V2_5
 class EarU08 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :equ, Equ, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :equ, Equ, position: "EQU", require: true
   class COMMAND_RESPONSE < ::HealthSeven::SegmentGroup
-    attribute :ecd, Ecd, minOccurs: "1", maxOccurs: "1"
+    attribute :ecd, Ecd, position: "ECD", require: true
     class SPECIMEN_CONTAINER < ::HealthSeven::SegmentGroup
-      attribute :sac, Sac, minOccurs: "1", maxOccurs: "1"
-      attribute :spms, Array[Spm], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :sac, Sac, position: "SAC", require: true
+      attribute :spms, Array[Spm], position: "SPM", multiple: true
     end
-    attribute :specimen_container, SPECIMEN_CONTAINER, minOccurs: "0", maxOccurs: "1"
-    attribute :ecr, Ecr, minOccurs: "1", maxOccurs: "1"
+    attribute :specimen_container, SPECIMEN_CONTAINER, position: "EAR_U08.SPECIMEN_CONTAINER"
+    attribute :ecr, Ecr, position: "ECR", require: true
   end
-  attribute :command_responses, Array[COMMAND_RESPONSE], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :rol, Rol, minOccurs: "0", maxOccurs: "1"
+  attribute :command_responses, Array[COMMAND_RESPONSE], position: "EAR_U08.COMMAND_RESPONSE", require: true, multiple: true
+  attribute :rol, Rol, position: "ROL"
 end
 end

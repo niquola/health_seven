@@ -1,12 +1,12 @@
 module HealthSeven::V2_7
 class Sn < ::HealthSeven::DataType
   # Comparator
-  attribute :comparator, St, minOccurs: "0", maxOccurs: "1"
+  attribute :comparator, St, position: "SN.1"
   # Num1
-  attribute :num1, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :num1, Nm, position: "SN.2"
   # Separator/Suffix
-  attribute :separator_suffix, St, minOccurs: "0", maxOccurs: "1"
+  attribute :separator_suffix, St, position: "SN.3"
   # Num2
-  attribute :num2, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :num2, Nm, position: "SN.4"
 end
 end

@@ -1,10 +1,10 @@
 module HealthSeven::V2_7
 class Rmc < ::HealthSeven::DataType
   # Room Type
-  attribute :room_type, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :room_type, Cwe, position: "RMC.1", require: true
   # Amount Type
-  attribute :amount_type, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :amount_type, Cwe, position: "RMC.2"
   # Money or Percentage
-  attribute :money_or_percentage, Mop, minOccurs: "1", maxOccurs: "1"
+  attribute :money_or_percentage, Mop, position: "RMC.4", require: true
 end
 end

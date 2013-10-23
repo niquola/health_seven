@@ -1,25 +1,25 @@
 module HealthSeven::V2_7
 class RspK25 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :qak, Qak, minOccurs: "1", maxOccurs: "1"
-  attribute :qpd, Qpd, minOccurs: "1", maxOccurs: "1"
-  attribute :rcp, Rcp, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :qak, Qak, position: "QAK", require: true
+  attribute :qpd, Qpd, position: "QPD", require: true
+  attribute :rcp, Rcp, position: "RCP", require: true
   class STAFF < ::HealthSeven::SegmentGroup
-    attribute :stf, Stf, minOccurs: "1", maxOccurs: "1"
-    attribute :pras, Array[Pra], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :orgs, Array[Org], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :affs, Array[Aff], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :lans, Array[Lan], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :edus, Array[Edu], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :cers, Array[Cer], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :nk1s, Array[Nk1], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :rols, Array[Rol], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :stf, Stf, position: "STF", require: true
+    attribute :pras, Array[Pra], position: "PRA", multiple: true
+    attribute :orgs, Array[Org], position: "ORG", multiple: true
+    attribute :affs, Array[Aff], position: "AFF", multiple: true
+    attribute :lans, Array[Lan], position: "LAN", multiple: true
+    attribute :edus, Array[Edu], position: "EDU", multiple: true
+    attribute :cers, Array[Cer], position: "CER", multiple: true
+    attribute :nk1s, Array[Nk1], position: "NK1", multiple: true
+    attribute :rols, Array[Rol], position: "ROL", multiple: true
   end
-  attribute :staffs, Array[STAFF], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :staffs, Array[STAFF], position: "RSP_K25.STAFF", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

@@ -1,7 +1,7 @@
 module HealthSeven::V2_3_1
 class AdtA20 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :npu, Npu, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :npu, Npu, position: "NPU", require: true
 end
 end

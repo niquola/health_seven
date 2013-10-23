@@ -22,7 +22,7 @@ module HealthSeven
       attrs.shift if self.name.split('::').last == 'Msh'
 
       attrs.each_with_index do |attr, index|
-        collection = attr.options[:maxOccurs] == 'unbounded'
+        collection = attr.options[:multiple]
         field = fields[index]
         if field.present?
           if collection
@@ -32,8 +32,8 @@ module HealthSeven
           else
             acc[attr.name] = build_field(attr.primitive, field.presence)
           end
-        elsif attr.options[:minOccurs].to_i != 0
-          puts "WARN: Missing required field #{attr.name} #{attr.primitive} in #{self.inspect} '#{fields.join('|')}'"
+        elsif attr.options[:require].present?
+          puts "WARN: Missing required field #{attr.name}[#{attr.options[:position]}] #{attr.primitive} in #{self.inspect} '#{fields.join('|')}'"
         end
       end
       self.new(acc) if acc.present?

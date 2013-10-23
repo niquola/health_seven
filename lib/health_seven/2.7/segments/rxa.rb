@@ -1,60 +1,60 @@
 module HealthSeven::V2_7
 class Rxa < ::HealthSeven::Segment
   # Give Sub-ID Counter
-  attribute :give_sub_id_counter, Nm, minOccurs: "1", maxOccurs: "1"
+  attribute :give_sub_id_counter, Nm, position: "RXA.1", require: true
   # Administration Sub-ID Counter
-  attribute :administration_sub_id_counter, Nm, minOccurs: "1", maxOccurs: "1"
+  attribute :administration_sub_id_counter, Nm, position: "RXA.2", require: true
   # Date/Time Start of Administration
-  attribute :date_time_start_of_administration, Dtm, minOccurs: "1", maxOccurs: "1"
+  attribute :date_time_start_of_administration, Dtm, position: "RXA.3", require: true
   # Date/Time End of Administration
-  attribute :date_time_end_of_administration, Dtm, minOccurs: "1", maxOccurs: "1"
+  attribute :date_time_end_of_administration, Dtm, position: "RXA.4", require: true
   # Administered Code
-  attribute :administered_code, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :administered_code, Cwe, position: "RXA.5", require: true
   # Administered Amount
-  attribute :administered_amount, Nm, minOccurs: "1", maxOccurs: "1"
+  attribute :administered_amount, Nm, position: "RXA.6", require: true
   # Administered Units
-  attribute :administered_units, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_units, Cwe, position: "RXA.7"
   # Administered Dosage Form
-  attribute :administered_dosage_form, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_dosage_form, Cwe, position: "RXA.8"
   # Administration Notes
-  attribute :administration_notes, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :administration_notes, Array[Cwe], position: "RXA.9", multiple: true
   # Administering Provider
-  attribute :administering_providers, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :administering_providers, Array[Xcn], position: "RXA.10", multiple: true
   # Administered-at Location
-  attribute :administered_at_location, La2, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_at_location, La2, position: "RXA.11"
   # Administered Per (Time Unit)
-  attribute :administered_per_time_unit, St, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_per_time_unit, St, position: "RXA.12"
   # Administered Strength
-  attribute :administered_strength, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_strength, Nm, position: "RXA.13"
   # Administered Strength Units
-  attribute :administered_strength_units, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_strength_units, Cwe, position: "RXA.14"
   # Substance Lot Number
-  attribute :substance_lot_numbers, Array[St], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_lot_numbers, Array[St], position: "RXA.15", multiple: true
   # Substance Expiration Date
-  attribute :substance_expiration_dates, Array[Dtm], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_expiration_dates, Array[Dtm], position: "RXA.16", multiple: true
   # Substance Manufacturer Name
-  attribute :substance_manufacturer_names, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_manufacturer_names, Array[Cwe], position: "RXA.17", multiple: true
   # Substance/Treatment Refusal Reason
-  attribute :substance_treatment_refusal_reasons, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :substance_treatment_refusal_reasons, Array[Cwe], position: "RXA.18", multiple: true
   # Indication
-  attribute :indications, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :indications, Array[Cwe], position: "RXA.19", multiple: true
   # Completion Status
-  attribute :completion_status, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :completion_status, Id, position: "RXA.20"
   # Action Code - RXA
-  attribute :action_code_rxa, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :action_code_rxa, Id, position: "RXA.21"
   # System Entry Date/Time
-  attribute :system_entry_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :system_entry_date_time, Dtm, position: "RXA.22"
   # Administered Drug Strength Volume
-  attribute :administered_drug_strength_volume, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_drug_strength_volume, Nm, position: "RXA.23"
   # Administered Drug Strength Volume Units
-  attribute :administered_drug_strength_volume_units, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_drug_strength_volume_units, Cwe, position: "RXA.24"
   # Administered Barcode Identifier
-  attribute :administered_barcode_identifier, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_barcode_identifier, Cwe, position: "RXA.25"
   # Pharmacy Order Type
-  attribute :pharmacy_order_type, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :pharmacy_order_type, Id, position: "RXA.26"
   # Administer-at
-  attribute :administer_at, Pl, minOccurs: "0", maxOccurs: "1"
+  attribute :administer_at, Pl, position: "RXA.27"
   # Administered-at Address
-  attribute :administered_at_address, Xad, minOccurs: "0", maxOccurs: "1"
+  attribute :administered_at_address, Xad, position: "RXA.28"
 end
 end

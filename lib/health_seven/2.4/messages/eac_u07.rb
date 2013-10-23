@@ -1,10 +1,10 @@
 module HealthSeven::V2_4
 class EacU07 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :equ, Equ, minOccurs: "1", maxOccurs: "1"
-  attribute :ecds, Array[Ecd], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :sac, Sac, minOccurs: "0", maxOccurs: "1"
-  attribute :cns, Cns, minOccurs: "0", maxOccurs: "1"
-  attribute :rol, Rol, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :equ, Equ, position: "EQU", require: true
+  attribute :ecds, Array[Ecd], position: "ECD", require: true, multiple: true
+  attribute :sac, Sac, position: "SAC"
+  attribute :cns, Cns, position: "CNS"
+  attribute :rol, Rol, position: "ROL"
 end
 end

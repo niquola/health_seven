@@ -1,8 +1,8 @@
 module HealthSeven::V2_3_1
 class SpqQ08 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :spr, Spr, minOccurs: "1", maxOccurs: "1"
-  attribute :rdf, Rdf, minOccurs: "0", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :spr, Spr, position: "SPR", require: true
+  attribute :rdf, Rdf, position: "RDF"
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

@@ -1,8 +1,8 @@
 module HealthSeven::V2_3_1
 class Mop < ::HealthSeven::DataType
   # money or percentage indicator
-  attribute :money_or_percentage_indicator, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :money_or_percentage_indicator, Is, position: "MOP.1"
   # money or percentage quantity
-  attribute :money_or_percentage_quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :money_or_percentage_quantity, Nm, position: "MOP.2"
 end
 end

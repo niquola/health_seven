@@ -1,42 +1,42 @@
 module HealthSeven::V2_3
 class Dg1 < ::HealthSeven::Segment
   # Set ID - Diagnosis
-  attribute :set_id_diagnosis, Si, minOccurs: "1", maxOccurs: "1"
+  attribute :set_id_diagnosis, Si, position: "DG1.1", require: true
   # Diagnosis Coding Method
-  attribute :diagnosis_coding_method, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_coding_method, Id, position: "DG1.2"
   # Diagnosis Code
-  attribute :diagnosis_code, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_code, Ce, position: "DG1.3"
   # Diagnosis Description
-  attribute :diagnosis_description, St, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_description, St, position: "DG1.4"
   # Diagnosis Date/Time
-  attribute :diagnosis_date_time, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_date_time, Ts, position: "DG1.5"
   # Diagnosis Type
-  attribute :diagnosis_type, Is, minOccurs: "1", maxOccurs: "1"
+  attribute :diagnosis_type, Is, position: "DG1.6", require: true
   # Major Diagnostic Category
-  attribute :major_diagnostic_category, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :major_diagnostic_category, Ce, position: "DG1.7"
   # Diagnostic Related Group
-  attribute :diagnostic_related_group, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnostic_related_group, Ce, position: "DG1.8"
   # DRG Approval Indicator
-  attribute :drg_approval_indicator, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :drg_approval_indicator, Id, position: "DG1.9"
   # DRG Grouper Review Code
-  attribute :drg_grouper_review_code, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :drg_grouper_review_code, Is, position: "DG1.10"
   # Outlier Type
-  attribute :outlier_type, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :outlier_type, Ce, position: "DG1.11"
   # Outlier Days
-  attribute :outlier_days, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :outlier_days, Nm, position: "DG1.12"
   # Outlier Cost
-  attribute :outlier_cost, Cp, minOccurs: "0", maxOccurs: "1"
+  attribute :outlier_cost, Cp, position: "DG1.13"
   # Grouper Version and Type
-  attribute :grouper_version_and_type, St, minOccurs: "0", maxOccurs: "1"
+  attribute :grouper_version_and_type, St, position: "DG1.14"
   # Diagnosis Priority
-  attribute :diagnosis_priority, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_priority, Nm, position: "DG1.15"
   # Diagnosing Clinician
-  attribute :diagnosing_clinicians, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :diagnosing_clinicians, Array[Xcn], position: "DG1.16", multiple: true
   # Diagnosis Classification
-  attribute :diagnosis_classification, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_classification, Is, position: "DG1.17"
   # Confidential Indicator
-  attribute :confidential_indicator, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :confidential_indicator, Id, position: "DG1.18"
   # Attestation Date/Time
-  attribute :attestation_date_time, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :attestation_date_time, Ts, position: "DG1.19"
 end
 end

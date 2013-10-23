@@ -1,11 +1,11 @@
 module HealthSeven::V2_4
 class AdtA61 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-  attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-  attribute :rols, Array[Rol], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :pd1, Pd1, position: "PD1"
+  attribute :pv1, Pv1, position: "PV1", require: true
+  attribute :rols, Array[Rol], position: "ROL", multiple: true
+  attribute :pv2, Pv2, position: "PV2"
 end
 end

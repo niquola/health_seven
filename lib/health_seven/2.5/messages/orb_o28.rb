@@ -1,26 +1,26 @@
 module HealthSeven::V2_5
 class OrbO28 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
+      attribute :pid, Pid, position: "PID", require: true
       class ORDER < ::HealthSeven::SegmentGroup
-        attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+        attribute :orc, Orc, position: "ORC", require: true
         class TIMING < ::HealthSeven::SegmentGroup
-          attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-          attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+          attribute :tq1, Tq1, position: "TQ1", require: true
+          attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
         end
-        attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
-        attribute :bpo, Bpo, minOccurs: "0", maxOccurs: "1"
+        attribute :timings, Array[TIMING], position: "ORB_O28.TIMING", multiple: true
+        attribute :bpo, Bpo, position: "BPO"
       end
-      attribute :orders, Array[ORDER], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :orders, Array[ORDER], position: "ORB_O28.ORDER", multiple: true
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "ORB_O28.PATIENT"
   end
-  attribute :response, RESPONSE, minOccurs: "0", maxOccurs: "1"
+  attribute :response, RESPONSE, position: "ORB_O28.RESPONSE"
 end
 end

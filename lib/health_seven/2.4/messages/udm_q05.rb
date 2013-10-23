@@ -1,9 +1,9 @@
 module HealthSeven::V2_4
 class UdmQ05 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :urd, Urd, minOccurs: "1", maxOccurs: "1"
-  attribute :urs, Urs, minOccurs: "0", maxOccurs: "1"
-  attribute :dsps, Array[Dsp], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :urd, Urd, position: "URD", require: true
+  attribute :urs, Urs, position: "URS"
+  attribute :dsps, Array[Dsp], position: "DSP", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

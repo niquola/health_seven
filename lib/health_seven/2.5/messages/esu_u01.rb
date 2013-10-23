@@ -1,9 +1,9 @@
 module HealthSeven::V2_5
 class EsuU01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :equ, Equ, minOccurs: "1", maxOccurs: "1"
-  attribute :isds, Array[Isd], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :rol, Rol, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :equ, Equ, position: "EQU", require: true
+  attribute :isds, Array[Isd], position: "ISD", multiple: true
+  attribute :rol, Rol, position: "ROL"
 end
 end

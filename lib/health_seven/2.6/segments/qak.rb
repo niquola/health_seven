@@ -1,16 +1,16 @@
 module HealthSeven::V2_6
 class Qak < ::HealthSeven::Segment
   # Query Tag
-  attribute :query_tag, St, minOccurs: "0", maxOccurs: "1"
+  attribute :query_tag, St, position: "QAK.1"
   # Query Response Status
-  attribute :query_response_status, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :query_response_status, Id, position: "QAK.2"
   # Message Query Name
-  attribute :message_query_name, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :message_query_name, Cwe, position: "QAK.3"
   # Hit Count Total
-  attribute :hit_count_total, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :hit_count_total, Nm, position: "QAK.4"
   # This payload
-  attribute :this_payload, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :this_payload, Nm, position: "QAK.5"
   # Hits remaining
-  attribute :hits_remaining, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :hits_remaining, Nm, position: "QAK.6"
 end
 end

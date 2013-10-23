@@ -1,22 +1,22 @@
 module HealthSeven::V2_6
 class Cne < ::HealthSeven::DataType
   # Identifier
-  attribute :identifier, St, minOccurs: "1", maxOccurs: "1"
+  attribute :identifier, St, position: "CNE.1", require: true
   # Text
-  attribute :text, St, minOccurs: "0", maxOccurs: "1"
+  attribute :text, St, position: "CNE.2"
   # Name of Coding System
-  attribute :name_of_coding_system, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :name_of_coding_system, Id, position: "CNE.3"
   # Alternate Identifier
-  attribute :alternate_identifier, St, minOccurs: "0", maxOccurs: "1"
+  attribute :alternate_identifier, St, position: "CNE.4"
   # Alternate Text
-  attribute :alternate_text, St, minOccurs: "0", maxOccurs: "1"
+  attribute :alternate_text, St, position: "CNE.5"
   # Name of Alternate Coding System
-  attribute :name_of_alternate_coding_system, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :name_of_alternate_coding_system, Id, position: "CNE.6"
   # Coding System Version ID
-  attribute :coding_system_version_id, St, minOccurs: "0", maxOccurs: "1"
+  attribute :coding_system_version_id, St, position: "CNE.7"
   # Alternate Coding System Version ID
-  attribute :alternate_coding_system_version_id, St, minOccurs: "0", maxOccurs: "1"
+  attribute :alternate_coding_system_version_id, St, position: "CNE.8"
   # Original Text
-  attribute :original_text, St, minOccurs: "0", maxOccurs: "1"
+  attribute :original_text, St, position: "CNE.9"
 end
 end

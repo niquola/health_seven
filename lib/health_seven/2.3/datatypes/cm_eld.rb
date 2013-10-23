@@ -1,12 +1,12 @@
 module HealthSeven::V2_3
 class CmEld < ::HealthSeven::DataType
   # segment ID
-  attribute :segment_id, St, minOccurs: "0", maxOccurs: "1"
+  attribute :segment_id, St, position: "CM_ELD.1"
   # sequence
-  attribute :sequence, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :sequence, Nm, position: "CM_ELD.2"
   # field position
-  attribute :field_position, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :field_position, Nm, position: "CM_ELD.3"
   # code identifying error
-  attribute :code_identifying_error, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :code_identifying_error, Ce, position: "CM_ELD.4"
 end
 end

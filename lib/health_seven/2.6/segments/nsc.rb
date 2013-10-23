@@ -1,22 +1,22 @@
 module HealthSeven::V2_6
 class Nsc < ::HealthSeven::Segment
   # Application Change Type
-  attribute :application_change_type, Is, minOccurs: "1", maxOccurs: "1"
+  attribute :application_change_type, Is, position: "NSC.1", require: true
   # Current CPU
-  attribute :current_cpu, St, minOccurs: "0", maxOccurs: "1"
+  attribute :current_cpu, St, position: "NSC.2"
   # Current Fileserver
-  attribute :current_fileserver, St, minOccurs: "0", maxOccurs: "1"
+  attribute :current_fileserver, St, position: "NSC.3"
   # Current Application
-  attribute :current_application, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :current_application, Hd, position: "NSC.4"
   # Current Facility
-  attribute :current_facility, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :current_facility, Hd, position: "NSC.5"
   # New CPU
-  attribute :new_cpu, St, minOccurs: "0", maxOccurs: "1"
+  attribute :new_cpu, St, position: "NSC.6"
   # New Fileserver
-  attribute :new_fileserver, St, minOccurs: "0", maxOccurs: "1"
+  attribute :new_fileserver, St, position: "NSC.7"
   # New Application
-  attribute :new_application, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :new_application, Hd, position: "NSC.8"
   # New Facility
-  attribute :new_facility, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :new_facility, Hd, position: "NSC.9"
 end
 end

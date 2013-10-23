@@ -1,7 +1,7 @@
 module HealthSeven::V2_3_1
 class RqqQ09 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :erq, Erq, minOccurs: "1", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :erq, Erq, position: "ERQ", require: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

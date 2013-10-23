@@ -1,12 +1,12 @@
 module HealthSeven::V2_7
 class Blg < ::HealthSeven::Segment
   # When to Charge
-  attribute :when_to_charge, Ccd, minOccurs: "0", maxOccurs: "1"
+  attribute :when_to_charge, Ccd, position: "BLG.1"
   # Charge Type
-  attribute :charge_type, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :charge_type, Id, position: "BLG.2"
   # Account ID
-  attribute :account_id, Cx, minOccurs: "0", maxOccurs: "1"
+  attribute :account_id, Cx, position: "BLG.3"
   # Charge Type Reason
-  attribute :charge_type_reason, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :charge_type_reason, Cwe, position: "BLG.4"
 end
 end

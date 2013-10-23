@@ -1,14 +1,14 @@
 module HealthSeven::V2_5
 class Pip < ::HealthSeven::DataType
   # Privilege
-  attribute :privilege, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :privilege, Ce, position: "PIP.1"
   # Privilege Class
-  attribute :privilege_class, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :privilege_class, Ce, position: "PIP.2"
   # Expiration Date
-  attribute :expiration_date, Dt, minOccurs: "0", maxOccurs: "1"
+  attribute :expiration_date, Dt, position: "PIP.3"
   # Activation Date
-  attribute :activation_date, Dt, minOccurs: "0", maxOccurs: "1"
+  attribute :activation_date, Dt, position: "PIP.4"
   # Facility
-  attribute :facility, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :facility, Ei, position: "PIP.5"
 end
 end

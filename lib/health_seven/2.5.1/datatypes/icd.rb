@@ -1,10 +1,10 @@
 module HealthSeven::V2_5_1
 class Icd < ::HealthSeven::DataType
   # Certification Patient Type
-  attribute :certification_patient_type, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :certification_patient_type, Is, position: "ICD.1"
   # Certification Required
-  attribute :certification_required, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :certification_required, Id, position: "ICD.2"
   # Date/Time Certification Required
-  attribute :date_time_certification_required, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :date_time_certification_required, Ts, position: "ICD.3"
 end
 end

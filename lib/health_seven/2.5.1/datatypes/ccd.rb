@@ -1,8 +1,8 @@
 module HealthSeven::V2_5_1
 class Ccd < ::HealthSeven::DataType
   # Invocation Event
-  attribute :invocation_event, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :invocation_event, Id, position: "CCD.1"
   # Date/time
-  attribute :date_time, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :date_time, Ts, position: "CCD.2"
 end
 end

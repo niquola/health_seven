@@ -1,10 +1,10 @@
 module HealthSeven::V2_7_1
 class Cm1 < ::HealthSeven::Segment
   # Set ID - CM1
-  attribute :set_id_cm1, Si, minOccurs: "1", maxOccurs: "1"
+  attribute :set_id_cm1, Si, position: "CM1.1", require: true
   # Study Phase Identifier
-  attribute :study_phase_identifier, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :study_phase_identifier, Cwe, position: "CM1.2", require: true
   # Description of Study Phase
-  attribute :description_of_study_phase, St, minOccurs: "1", maxOccurs: "1"
+  attribute :description_of_study_phase, St, position: "CM1.3", require: true
 end
 end

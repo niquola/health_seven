@@ -1,16 +1,16 @@
 module HealthSeven::V2_7_1
 class Var < ::HealthSeven::Segment
   # Variance Instance ID
-  attribute :variance_instance_id, Ei, minOccurs: "1", maxOccurs: "1"
+  attribute :variance_instance_id, Ei, position: "VAR.1", require: true
   # Documented Date/Time
-  attribute :documented_date_time, Dtm, minOccurs: "1", maxOccurs: "1"
+  attribute :documented_date_time, Dtm, position: "VAR.2", require: true
   # Stated Variance Date/Time
-  attribute :stated_variance_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :stated_variance_date_time, Dtm, position: "VAR.3"
   # Variance Originator
-  attribute :variance_originators, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :variance_originators, Array[Xcn], position: "VAR.4", multiple: true
   # Variance Classification
-  attribute :variance_classification, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :variance_classification, Cwe, position: "VAR.5"
   # Variance Description
-  attribute :variance_descriptions, Array[St], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :variance_descriptions, Array[St], position: "VAR.6", multiple: true
 end
 end

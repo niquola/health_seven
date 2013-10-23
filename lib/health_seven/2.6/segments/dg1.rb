@@ -1,36 +1,36 @@
 module HealthSeven::V2_6
 class Dg1 < ::HealthSeven::Segment
   # Set ID - DG1
-  attribute :set_id_dg1, Si, minOccurs: "1", maxOccurs: "1"
+  attribute :set_id_dg1, Si, position: "DG1.1", require: true
   # Diagnosis Code - DG1
-  attribute :diagnosis_code_dg1, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :diagnosis_code_dg1, Cwe, position: "DG1.3", require: true
   # Diagnosis Date/Time
-  attribute :diagnosis_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_date_time, Dtm, position: "DG1.5"
   # Diagnosis Type
-  attribute :diagnosis_type, Is, minOccurs: "1", maxOccurs: "1"
+  attribute :diagnosis_type, Is, position: "DG1.6", require: true
   # Diagnosis Priority
-  attribute :diagnosis_priority, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_priority, Id, position: "DG1.15"
   # Diagnosing Clinician
-  attribute :diagnosing_clinicians, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :diagnosing_clinicians, Array[Xcn], position: "DG1.16", multiple: true
   # Diagnosis Classification
-  attribute :diagnosis_classification, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_classification, Is, position: "DG1.17"
   # Confidential Indicator
-  attribute :confidential_indicator, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :confidential_indicator, Id, position: "DG1.18"
   # Attestation Date/Time
-  attribute :attestation_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :attestation_date_time, Dtm, position: "DG1.19"
   # Diagnosis Identifier
-  attribute :diagnosis_identifier, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_identifier, Ei, position: "DG1.20"
   # Diagnosis Action Code
-  attribute :diagnosis_action_code, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :diagnosis_action_code, Id, position: "DG1.21"
   # Parent Diagnosis
-  attribute :parent_diagnosis, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :parent_diagnosis, Ei, position: "DG1.22"
   # DRG CCL Value Code
-  attribute :drg_ccl_value_code, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :drg_ccl_value_code, Cwe, position: "DG1.23"
   # DRG Grouping Usage
-  attribute :drg_grouping_usage, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :drg_grouping_usage, Id, position: "DG1.24"
   # DRG Diagnosis Determination Status
-  attribute :drg_diagnosis_determination_status, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :drg_diagnosis_determination_status, Is, position: "DG1.25"
   # Present On Admission (POA) Indicator
-  attribute :present_on_admission_poa_indicator, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :present_on_admission_poa_indicator, Is, position: "DG1.26"
 end
 end

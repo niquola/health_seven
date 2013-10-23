@@ -1,17 +1,17 @@
 module HealthSeven::V2_5_1
 class NmqN01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
   class QRY_WITH_DETAIL < ::HealthSeven::SegmentGroup
-    attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
-    attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
+    attribute :qrd, Qrd, position: "QRD", require: true
+    attribute :qrf, Qrf, position: "QRF"
   end
-  attribute :qry_with_detail, QRY_WITH_DETAIL, minOccurs: "0", maxOccurs: "1"
+  attribute :qry_with_detail, QRY_WITH_DETAIL, position: "NMQ_N01.QRY_WITH_DETAIL"
   class CLOCK_AND_STATISTICS < ::HealthSeven::SegmentGroup
-    attribute :nck, Nck, minOccurs: "0", maxOccurs: "1"
-    attribute :nst, Nst, minOccurs: "0", maxOccurs: "1"
-    attribute :nsc, Nsc, minOccurs: "0", maxOccurs: "1"
+    attribute :nck, Nck, position: "NCK"
+    attribute :nst, Nst, position: "NST"
+    attribute :nsc, Nsc, position: "NSC"
   end
-  attribute :clock_and_statistics, Array[CLOCK_AND_STATISTICS], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :clock_and_statistics, Array[CLOCK_AND_STATISTICS], position: "NMQ_N01.CLOCK_AND_STATISTICS", require: true, multiple: true
 end
 end

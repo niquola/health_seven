@@ -1,8 +1,8 @@
 module HealthSeven::V2_3
 class MfkM02 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
-  attribute :mfas, Array[Mfa], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :mfi, Mfi, position: "MFI", require: true
+  attribute :mfas, Array[Mfa], position: "MFA", multiple: true
 end
 end

@@ -1,10 +1,10 @@
 module HealthSeven::V2_7_1
 class InuU05 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :equ, Equ, minOccurs: "1", maxOccurs: "1"
-  attribute :invs, Array[Inv], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :rol, Rol, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :equ, Equ, position: "EQU", require: true
+  attribute :invs, Array[Inv], position: "INV", require: true, multiple: true
+  attribute :rol, Rol, position: "ROL"
 end
 end

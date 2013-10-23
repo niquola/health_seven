@@ -1,20 +1,20 @@
 module HealthSeven::V2_6
 class Ipr < ::HealthSeven::Segment
   # IPR Identifier
-  attribute :ipr_identifier, Ei, minOccurs: "1", maxOccurs: "1"
+  attribute :ipr_identifier, Ei, position: "IPR.1", require: true
   # Provider Cross Reference Identifier
-  attribute :provider_cross_reference_identifier, Ei, minOccurs: "1", maxOccurs: "1"
+  attribute :provider_cross_reference_identifier, Ei, position: "IPR.2", require: true
   # Payer Cross Reference Identifier
-  attribute :payer_cross_reference_identifier, Ei, minOccurs: "1", maxOccurs: "1"
+  attribute :payer_cross_reference_identifier, Ei, position: "IPR.3", require: true
   # IPR Status
-  attribute :ipr_status, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :ipr_status, Cwe, position: "IPR.4", require: true
   # IPR Date/Time
-  attribute :ipr_date_time, Dtm, minOccurs: "1", maxOccurs: "1"
+  attribute :ipr_date_time, Dtm, position: "IPR.5", require: true
   # Adjudicated/Paid Amount
-  attribute :adjudicated_paid_amount, Cp, minOccurs: "0", maxOccurs: "1"
+  attribute :adjudicated_paid_amount, Cp, position: "IPR.6"
   # Expected Payment Date/Time
-  attribute :expected_payment_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :expected_payment_date_time, Dtm, position: "IPR.7"
   # IPR Checksum
-  attribute :ipr_checksum, St, minOccurs: "1", maxOccurs: "1"
+  attribute :ipr_checksum, St, position: "IPR.8", require: true
 end
 end

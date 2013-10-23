@@ -1,62 +1,62 @@
 module HealthSeven::V2_6
 class Itm < ::HealthSeven::Segment
   # Item Identifier
-  attribute :item_identifier, Ei, minOccurs: "1", maxOccurs: "1"
+  attribute :item_identifier, Ei, position: "ITM.1", require: true
   # Item Description
-  attribute :item_description, St, minOccurs: "0", maxOccurs: "1"
+  attribute :item_description, St, position: "ITM.2"
   # Item Status
-  attribute :item_status, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :item_status, Cwe, position: "ITM.3"
   # Item Type
-  attribute :item_type, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :item_type, Cwe, position: "ITM.4"
   # Item Category
-  attribute :item_category, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :item_category, Cwe, position: "ITM.5"
   # Subject to Expiration Indicator
-  attribute :subject_to_expiration_indicator, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :subject_to_expiration_indicator, Cne, position: "ITM.6"
   # Manufacturer Identifier
-  attribute :manufacturer_identifier, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :manufacturer_identifier, Ei, position: "ITM.7"
   # Manufacturer Name
-  attribute :manufacturer_name, St, minOccurs: "0", maxOccurs: "1"
+  attribute :manufacturer_name, St, position: "ITM.8"
   # Manufacturer Catalog Number
-  attribute :manufacturer_catalog_number, St, minOccurs: "0", maxOccurs: "1"
+  attribute :manufacturer_catalog_number, St, position: "ITM.9"
   # Manufacturer Labeler Identification Code
-  attribute :manufacturer_labeler_identification_code, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :manufacturer_labeler_identification_code, Cwe, position: "ITM.10"
   # Patient Chargeable Indicator
-  attribute :patient_chargeable_indicator, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :patient_chargeable_indicator, Cne, position: "ITM.11"
   # Transaction Code
-  attribute :transaction_code, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :transaction_code, Cwe, position: "ITM.12"
   # Transaction amount - unit
-  attribute :transaction_amount_unit, Cp, minOccurs: "0", maxOccurs: "1"
+  attribute :transaction_amount_unit, Cp, position: "ITM.13"
   # Stocked Item Indicator
-  attribute :stocked_item_indicator, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :stocked_item_indicator, Cne, position: "ITM.14"
   # Supply Risk Codes
-  attribute :supply_risk_codes, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :supply_risk_codes, Cwe, position: "ITM.15"
   # Approving Regulatory Agency
-  attribute :approving_regulatory_agencies, Array[Xon], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :approving_regulatory_agencies, Array[Xon], position: "ITM.16", multiple: true
   # Latex Indicator
-  attribute :latex_indicator, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :latex_indicator, Cne, position: "ITM.17"
   # Ruling Act
-  attribute :ruling_acts, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :ruling_acts, Array[Cwe], position: "ITM.18", multiple: true
   # Item Natural Account Code
-  attribute :item_natural_account_code, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :item_natural_account_code, Is, position: "ITM.19"
   # Approved To Buy Quantity
-  attribute :approved_to_buy_quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :approved_to_buy_quantity, Nm, position: "ITM.20"
   # Approved To Buy Price
-  attribute :approved_to_buy_price, Mo, minOccurs: "0", maxOccurs: "1"
+  attribute :approved_to_buy_price, Mo, position: "ITM.21"
   # Taxable Item Indicator
-  attribute :taxable_item_indicator, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :taxable_item_indicator, Cne, position: "ITM.22"
   # Freight Charge Indicator
-  attribute :freight_charge_indicator, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :freight_charge_indicator, Cne, position: "ITM.23"
   # Item Set Indicator
-  attribute :item_set_indicator, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :item_set_indicator, Cne, position: "ITM.24"
   # Item Set Identifier
-  attribute :item_set_identifier, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :item_set_identifier, Ei, position: "ITM.25"
   # Track Department Usage Indicator
-  attribute :track_department_usage_indicator, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :track_department_usage_indicator, Cne, position: "ITM.26"
   # Procedure Code
-  attribute :procedure_code, Cne, minOccurs: "0", maxOccurs: "1"
+  attribute :procedure_code, Cne, position: "ITM.27"
   # Procedure Code Modifier
-  attribute :procedure_code_modifiers, Array[Cne], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedure_code_modifiers, Array[Cne], position: "ITM.28", multiple: true
   # Special Handling Code
-  attribute :special_handling_code, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :special_handling_code, Cwe, position: "ITM.29"
 end
 end

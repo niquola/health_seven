@@ -1,12 +1,12 @@
 module HealthSeven::V2_4
 class SsuU03 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :equ, Equ, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :equ, Equ, position: "EQU", require: true
   class SPECIMEN_CONTAINER < ::HealthSeven::SegmentGroup
-    attribute :sac, Sac, minOccurs: "1", maxOccurs: "1"
-    attribute :obx, Obx, minOccurs: "0", maxOccurs: "1"
+    attribute :sac, Sac, position: "SAC", require: true
+    attribute :obx, Obx, position: "OBX"
   end
-  attribute :specimen_containers, Array[SPECIMEN_CONTAINER], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :rol, Rol, minOccurs: "0", maxOccurs: "1"
+  attribute :specimen_containers, Array[SPECIMEN_CONTAINER], position: "SSU_U03.SPECIMEN_CONTAINER", require: true, multiple: true
+  attribute :rol, Rol, position: "ROL"
 end
 end

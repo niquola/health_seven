@@ -1,43 +1,43 @@
 module HealthSeven::V2_5
 class OulR21 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :nte, Nte, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :nte, Nte, position: "NTE"
   class PATIENT < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-    attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :pid, Pid, position: "PID", require: true
+    attribute :pd1, Pd1, position: "PD1"
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
   end
-  attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+  attribute :patient, PATIENT, position: "OUL_R21.PATIENT"
   class VISIT < ::HealthSeven::SegmentGroup
-    attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-    attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+    attribute :pv1, Pv1, position: "PV1", require: true
+    attribute :pv2, Pv2, position: "PV2"
   end
-  attribute :visit, VISIT, minOccurs: "0", maxOccurs: "1"
+  attribute :visit, VISIT, position: "OUL_R21.VISIT"
   class ORDER_OBSERVATION < ::HealthSeven::SegmentGroup
     class CONTAINER < ::HealthSeven::SegmentGroup
-      attribute :sac, Sac, minOccurs: "1", maxOccurs: "1"
-      attribute :sid, Sid, minOccurs: "0", maxOccurs: "1"
+      attribute :sac, Sac, position: "SAC", require: true
+      attribute :sid, Sid, position: "SID"
     end
-    attribute :container, CONTAINER, minOccurs: "0", maxOccurs: "1"
-    attribute :orc, Orc, minOccurs: "0", maxOccurs: "1"
-    attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :container, CONTAINER, position: "OUL_R21.CONTAINER"
+    attribute :orc, Orc, position: "ORC"
+    attribute :obr, Obr, position: "OBR", require: true
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
     class TIMING_QTY < ::HealthSeven::SegmentGroup
-      attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-      attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :tq1, Tq1, position: "TQ1", require: true
+      attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
     end
-    attribute :timing_qties, Array[TIMING_QTY], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :timing_qties, Array[TIMING_QTY], position: "OUL_R21.TIMING_QTY", multiple: true
     class OBSERVATION < ::HealthSeven::SegmentGroup
-      attribute :obx, Obx, minOccurs: "0", maxOccurs: "1"
-      attribute :tcd, Tcd, minOccurs: "0", maxOccurs: "1"
-      attribute :sids, Array[Sid], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :obx, Obx, position: "OBX"
+      attribute :tcd, Tcd, position: "TCD"
+      attribute :sids, Array[Sid], position: "SID", multiple: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :observations, Array[OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
-    attribute :ctis, Array[Cti], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :observations, Array[OBSERVATION], position: "OUL_R21.OBSERVATION", require: true, multiple: true
+    attribute :ctis, Array[Cti], position: "CTI", multiple: true
   end
-  attribute :order_observations, Array[ORDER_OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :order_observations, Array[ORDER_OBSERVATION], position: "OUL_R21.ORDER_OBSERVATION", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

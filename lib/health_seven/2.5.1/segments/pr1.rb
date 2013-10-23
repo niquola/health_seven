@@ -1,44 +1,44 @@
 module HealthSeven::V2_5_1
 class Pr1 < ::HealthSeven::Segment
   # Set ID - PR1
-  attribute :set_id_pr1, Si, minOccurs: "1", maxOccurs: "1"
+  attribute :set_id_pr1, Si, position: "PR1.1", require: true
   # Procedure Coding Method
-  attribute :procedure_coding_method, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :procedure_coding_method, Is, position: "PR1.2"
   # Procedure Code
-  attribute :procedure_code, Ce, minOccurs: "1", maxOccurs: "1"
+  attribute :procedure_code, Ce, position: "PR1.3", require: true
   # Procedure Description
-  attribute :procedure_description, St, minOccurs: "0", maxOccurs: "1"
+  attribute :procedure_description, St, position: "PR1.4"
   # Procedure Date/Time
-  attribute :procedure_date_time, Ts, minOccurs: "1", maxOccurs: "1"
+  attribute :procedure_date_time, Ts, position: "PR1.5", require: true
   # Procedure Functional Type
-  attribute :procedure_functional_type, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :procedure_functional_type, Is, position: "PR1.6"
   # Procedure Minutes
-  attribute :procedure_minutes, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :procedure_minutes, Nm, position: "PR1.7"
   # Anesthesiologist
-  attribute :anesthesiologists, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :anesthesiologists, Array[Xcn], position: "PR1.8", multiple: true
   # Anesthesia Code
-  attribute :anesthesia_code, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :anesthesia_code, Is, position: "PR1.9"
   # Anesthesia Minutes
-  attribute :anesthesia_minutes, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :anesthesia_minutes, Nm, position: "PR1.10"
   # Surgeon
-  attribute :surgeons, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :surgeons, Array[Xcn], position: "PR1.11", multiple: true
   # Procedure Practitioner
-  attribute :procedure_practitioners, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedure_practitioners, Array[Xcn], position: "PR1.12", multiple: true
   # Consent Code
-  attribute :consent_code, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :consent_code, Ce, position: "PR1.13"
   # Procedure Priority
-  attribute :procedure_priority, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :procedure_priority, Id, position: "PR1.14"
   # Associated Diagnosis Code
-  attribute :associated_diagnosis_code, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :associated_diagnosis_code, Ce, position: "PR1.15"
   # Procedure Code Modifier
-  attribute :procedure_code_modifiers, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :procedure_code_modifiers, Array[Ce], position: "PR1.16", multiple: true
   # Procedure DRG Type
-  attribute :procedure_drg_type, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :procedure_drg_type, Is, position: "PR1.17"
   # Tissue Type Code
-  attribute :tissue_type_codes, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :tissue_type_codes, Array[Ce], position: "PR1.18", multiple: true
   # Procedure Identifier
-  attribute :procedure_identifier, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :procedure_identifier, Ei, position: "PR1.19"
   # Procedure Action Code
-  attribute :procedure_action_code, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :procedure_action_code, Id, position: "PR1.20"
 end
 end

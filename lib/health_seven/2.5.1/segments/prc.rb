@@ -1,40 +1,40 @@
 module HealthSeven::V2_5_1
 class Prc < ::HealthSeven::Segment
   # Primary Key Value - PRC
-  attribute :primary_key_value_prc, Ce, minOccurs: "1", maxOccurs: "1"
+  attribute :primary_key_value_prc, Ce, position: "PRC.1", require: true
   # Facility ID - PRC
-  attribute :facility_id_prcs, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :facility_id_prcs, Array[Ce], position: "PRC.2", multiple: true
   # Department
-  attribute :departments, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :departments, Array[Ce], position: "PRC.3", multiple: true
   # Valid Patient Classes
-  attribute :valid_patient_classes, Array[Is], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :valid_patient_classes, Array[Is], position: "PRC.4", multiple: true
   # Price
-  attribute :prices, Array[Cp], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :prices, Array[Cp], position: "PRC.5", multiple: true
   # Formula
-  attribute :formulas, Array[St], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :formulas, Array[St], position: "PRC.6", multiple: true
   # Minimum Quantity
-  attribute :minimum_quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :minimum_quantity, Nm, position: "PRC.7"
   # Maximum Quantity
-  attribute :maximum_quantity, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :maximum_quantity, Nm, position: "PRC.8"
   # Minimum Price
-  attribute :minimum_price, Mo, minOccurs: "0", maxOccurs: "1"
+  attribute :minimum_price, Mo, position: "PRC.9"
   # Maximum Price
-  attribute :maximum_price, Mo, minOccurs: "0", maxOccurs: "1"
+  attribute :maximum_price, Mo, position: "PRC.10"
   # Effective Start Date
-  attribute :effective_start_date, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :effective_start_date, Ts, position: "PRC.11"
   # Effective End Date
-  attribute :effective_end_date, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :effective_end_date, Ts, position: "PRC.12"
   # Price Override Flag
-  attribute :price_override_flag, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :price_override_flag, Is, position: "PRC.13"
   # Billing Category
-  attribute :billing_categories, Array[Ce], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :billing_categories, Array[Ce], position: "PRC.14", multiple: true
   # Chargeable Flag
-  attribute :chargeable_flag, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :chargeable_flag, Id, position: "PRC.15"
   # Active/Inactive Flag
-  attribute :active_inactive_flag, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :active_inactive_flag, Id, position: "PRC.16"
   # Cost
-  attribute :cost, Mo, minOccurs: "0", maxOccurs: "1"
+  attribute :cost, Mo, position: "PRC.17"
   # Charge On Indicator
-  attribute :charge_on_indicator, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :charge_on_indicator, Is, position: "PRC.18"
 end
 end

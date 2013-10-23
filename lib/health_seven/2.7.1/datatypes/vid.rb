@@ -1,10 +1,10 @@
 module HealthSeven::V2_7_1
 class Vid < ::HealthSeven::DataType
   # Version ID
-  attribute :version_id, Id, minOccurs: "1", maxOccurs: "1"
+  attribute :version_id, Id, position: "VID.1", require: true
   # Internationalization Code
-  attribute :internationalization_code, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :internationalization_code, Cwe, position: "VID.2"
   # International Version ID
-  attribute :international_version_id, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :international_version_id, Cwe, position: "VID.3"
 end
 end

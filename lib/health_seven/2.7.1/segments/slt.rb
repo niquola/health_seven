@@ -1,14 +1,14 @@
 module HealthSeven::V2_7_1
 class Slt < ::HealthSeven::Segment
   # Device Number
-  attribute :device_number, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :device_number, Ei, position: "SLT.1"
   # Device Name
-  attribute :device_name, St, minOccurs: "0", maxOccurs: "1"
+  attribute :device_name, St, position: "SLT.2"
   # Lot Number
-  attribute :lot_number, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :lot_number, Ei, position: "SLT.3"
   # Item Identifier
-  attribute :item_identifier, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :item_identifier, Ei, position: "SLT.4"
   # Bar Code
-  attribute :bar_code, St, minOccurs: "0", maxOccurs: "1"
+  attribute :bar_code, St, position: "SLT.5"
 end
 end

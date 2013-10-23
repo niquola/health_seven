@@ -1,32 +1,32 @@
 module HealthSeven::V2_5
 class Tq1 < ::HealthSeven::Segment
   # Set ID - TQ1
-  attribute :set_id_tq1, Si, minOccurs: "0", maxOccurs: "1"
+  attribute :set_id_tq1, Si, position: "TQ1.1"
   # Quantity
-  attribute :quantity, Cq, minOccurs: "0", maxOccurs: "1"
+  attribute :quantity, Cq, position: "TQ1.2"
   # Repeat Pattern
-  attribute :repeat_patterns, Array[Rpt], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :repeat_patterns, Array[Rpt], position: "TQ1.3", multiple: true
   # Explicit Time
-  attribute :explicit_times, Array[Tm], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :explicit_times, Array[Tm], position: "TQ1.4", multiple: true
   # Relative Time and Units
-  attribute :relative_time_and_units, Array[Cq], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :relative_time_and_units, Array[Cq], position: "TQ1.5", multiple: true
   # Service Duration
-  attribute :service_duration, Cq, minOccurs: "0", maxOccurs: "1"
+  attribute :service_duration, Cq, position: "TQ1.6"
   # Start date/time
-  attribute :start_date_time, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :start_date_time, Ts, position: "TQ1.7"
   # End date/time
-  attribute :end_date_time, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :end_date_time, Ts, position: "TQ1.8"
   # Priority
-  attribute :priorities, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :priorities, Array[Cwe], position: "TQ1.9", multiple: true
   # Condition text
-  attribute :condition_text, Tx, minOccurs: "0", maxOccurs: "1"
+  attribute :condition_text, Tx, position: "TQ1.10"
   # Text instruction
-  attribute :text_instruction, Tx, minOccurs: "0", maxOccurs: "1"
+  attribute :text_instruction, Tx, position: "TQ1.11"
   # Conjunction
-  attribute :conjunction, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :conjunction, Id, position: "TQ1.12"
   # Occurrence duration
-  attribute :occurrence_duration, Cq, minOccurs: "0", maxOccurs: "1"
+  attribute :occurrence_duration, Cq, position: "TQ1.13"
   # Total occurrence's
-  attribute :total_occurrence_s, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :total_occurrence_s, Nm, position: "TQ1.14"
 end
 end

@@ -1,8 +1,8 @@
 module HealthSeven::V2_3
 class CmMsg < ::HealthSeven::DataType
   # message type
-  attribute :message_type, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :message_type, Id, position: "CM_MSG.1"
   # trigger event
-  attribute :trigger_event, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :trigger_event, Id, position: "CM_MSG.2"
 end
 end

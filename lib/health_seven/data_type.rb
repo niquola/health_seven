@@ -9,7 +9,7 @@ module HealthSeven
     end
 
     def self.build(string, sep = '^')
-      return unless string
+      return unless string.present?
       fields = string.split(sep)
       acc = {}
       self.attribute_set.each_with_index do |attr, index|
@@ -20,7 +20,7 @@ module HealthSeven
                           else
                             attr.primitive.build(field, '&')
                           end
-                         elsif attr.options[:minOccurs].to_i != 0
+                         elsif attr.options[:require].present?
                            puts "WARN: Missing required subcomponent #{attr.name} #{attr.primitive} in #{self.inspect} '#{string}'"
                          end
       end

@@ -1,16 +1,16 @@
 module HealthSeven::V2_4
 class MfnM10 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :mfi, Mfi, position: "MFI", require: true
   class MF_TEST_BATTERIES < ::HealthSeven::SegmentGroup
-    attribute :mfe, Mfe, minOccurs: "1", maxOccurs: "1"
-    attribute :om1, Om1, minOccurs: "1", maxOccurs: "1"
+    attribute :mfe, Mfe, position: "MFE", require: true
+    attribute :om1, Om1, position: "OM1", require: true
     class MF_TEST_BATT_DETAIL < ::HealthSeven::SegmentGroup
-      attribute :om5, Om5, minOccurs: "1", maxOccurs: "1"
-      attribute :om4s, Array[Om4], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :om5, Om5, position: "OM5", require: true
+      attribute :om4s, Array[Om4], position: "OM4", multiple: true
     end
-    attribute :mf_test_batt_detail, MF_TEST_BATT_DETAIL, minOccurs: "0", maxOccurs: "1"
+    attribute :mf_test_batt_detail, MF_TEST_BATT_DETAIL, position: "MFN_M10.MF_TEST_BATT_DETAIL"
   end
-  attribute :mf_test_batteries, Array[MF_TEST_BATTERIES], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :mf_test_batteries, Array[MF_TEST_BATTERIES], position: "MFN_M10.MF_TEST_BATTERIES", require: true, multiple: true
 end
 end

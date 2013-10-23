@@ -1,10 +1,10 @@
 module HealthSeven::V2_5_1
 class Qri < ::HealthSeven::Segment
   # Candidate Confidence
-  attribute :candidate_confidence, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :candidate_confidence, Nm, position: "QRI.1"
   # Match Reason Code
-  attribute :match_reason_codes, Array[Is], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :match_reason_codes, Array[Is], position: "QRI.2", multiple: true
   # Algorithm Descriptor
-  attribute :algorithm_descriptor, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :algorithm_descriptor, Ce, position: "QRI.3"
 end
 end

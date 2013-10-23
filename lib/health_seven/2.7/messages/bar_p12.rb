@@ -1,18 +1,18 @@
 module HealthSeven::V2_7
 class BarP12 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-  attribute :dg1s, Array[Dg1], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :drg, Drg, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :pv1, Pv1, position: "PV1", require: true
+  attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
+  attribute :drg, Drg, position: "DRG"
   class PROCEDURE < ::HealthSeven::SegmentGroup
-    attribute :pr1, Pr1, minOccurs: "1", maxOccurs: "1"
-    attribute :rols, Array[Rol], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :pr1, Pr1, position: "PR1", require: true
+    attribute :rols, Array[Rol], position: "ROL", multiple: true
   end
-  attribute :procedures, Array[PROCEDURE], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :obx, Obx, minOccurs: "0", maxOccurs: "1"
+  attribute :procedures, Array[PROCEDURE], position: "BAR_P12.PROCEDURE", multiple: true
+  attribute :obx, Obx, position: "OBX"
 end
 end

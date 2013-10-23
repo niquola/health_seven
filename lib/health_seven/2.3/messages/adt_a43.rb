@@ -1,12 +1,12 @@
 module HealthSeven::V2_3
 class AdtA43 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :evn, Evn, position: "EVN", require: true
   class PATIENT < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-    attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-    attribute :mrg, Mrg, minOccurs: "1", maxOccurs: "1"
+    attribute :pid, Pid, position: "PID", require: true
+    attribute :pd1, Pd1, position: "PD1"
+    attribute :mrg, Mrg, position: "MRG", require: true
   end
-  attribute :patients, Array[PATIENT], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :patients, Array[PATIENT], position: "ADT_A43.PATIENT", require: true, multiple: true
 end
 end

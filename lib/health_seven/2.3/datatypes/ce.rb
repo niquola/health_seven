@@ -1,16 +1,16 @@
 module HealthSeven::V2_3
 class Ce < ::HealthSeven::DataType
   # identifier
-  attribute :identifier, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :identifier, Id, position: "CE.1"
   # text
-  attribute :text, St, minOccurs: "0", maxOccurs: "1"
+  attribute :text, St, position: "CE.2"
   # name of coding system
-  attribute :name_of_coding_system, St, minOccurs: "0", maxOccurs: "1"
+  attribute :name_of_coding_system, St, position: "CE.3"
   # alternate identifier
-  attribute :alternate_identifier, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :alternate_identifier, Id, position: "CE.4"
   # alternate text
-  attribute :alternate_text, St, minOccurs: "0", maxOccurs: "1"
+  attribute :alternate_text, St, position: "CE.5"
   # name of alternate coding system
-  attribute :name_of_alternate_coding_system, St, minOccurs: "0", maxOccurs: "1"
+  attribute :name_of_alternate_coding_system, St, position: "CE.6"
 end
 end

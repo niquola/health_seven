@@ -1,22 +1,22 @@
 module HealthSeven::V2_3_1
 class Pl < ::HealthSeven::DataType
   # point of care
-  attribute :point_of_care, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :point_of_care, Is, position: "PL.1"
   # room
-  attribute :room, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :room, Is, position: "PL.2"
   # bed
-  attribute :bed, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :bed, Is, position: "PL.3"
   # facility (HD)
-  attribute :facility_hd, Hd, minOccurs: "0", maxOccurs: "1"
+  attribute :facility_hd, Hd, position: "PL.4"
   # location status
-  attribute :location_status, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :location_status, Is, position: "PL.5"
   # person location type
-  attribute :person_location_type, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :person_location_type, Is, position: "PL.6"
   # building
-  attribute :building, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :building, Is, position: "PL.7"
   # floor
-  attribute :floor, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :floor, Is, position: "PL.8"
   # Location description
-  attribute :location_description, St, minOccurs: "0", maxOccurs: "1"
+  attribute :location_description, St, position: "PL.9"
 end
 end

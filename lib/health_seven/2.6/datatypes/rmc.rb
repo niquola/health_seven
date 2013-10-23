@@ -1,12 +1,12 @@
 module HealthSeven::V2_6
 class Rmc < ::HealthSeven::DataType
   # Room Type
-  attribute :room_type, Is, minOccurs: "1", maxOccurs: "1"
+  attribute :room_type, Is, position: "RMC.1", require: true
   # Amount Type
-  attribute :amount_type, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :amount_type, Is, position: "RMC.2"
   # Coverage Amount
-  attribute :coverage_amount, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :coverage_amount, Nm, position: "RMC.3"
   # Money or Percentage
-  attribute :money_or_percentage, Mop, minOccurs: "1", maxOccurs: "1"
+  attribute :money_or_percentage, Mop, position: "RMC.4", require: true
 end
 end

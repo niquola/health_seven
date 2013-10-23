@@ -1,8 +1,8 @@
 module HealthSeven::V2_7
 class Uac < ::HealthSeven::Segment
   # User Authentication Credential Type Code
-  attribute :user_authentication_credential_type_code, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :user_authentication_credential_type_code, Cwe, position: "UAC.1", require: true
   # User Authentication Credential
-  attribute :user_authentication_credential, Ed, minOccurs: "1", maxOccurs: "1"
+  attribute :user_authentication_credential, Ed, position: "UAC.2", require: true
 end
 end

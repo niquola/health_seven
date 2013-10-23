@@ -1,13 +1,13 @@
 module HealthSeven::V2_5_1
 class TcuU10 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :equ, Equ, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :equ, Equ, position: "EQU", require: true
   class TEST_CONFIGURATION < ::HealthSeven::SegmentGroup
-    attribute :spm, Spm, minOccurs: "0", maxOccurs: "1"
-    attribute :tccs, Array[Tcc], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :spm, Spm, position: "SPM"
+    attribute :tccs, Array[Tcc], position: "TCC", require: true, multiple: true
   end
-  attribute :test_configurations, Array[TEST_CONFIGURATION], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :rol, Rol, minOccurs: "0", maxOccurs: "1"
+  attribute :test_configurations, Array[TEST_CONFIGURATION], position: "TCU_U10.TEST_CONFIGURATION", require: true, multiple: true
+  attribute :rol, Rol, position: "ROL"
 end
 end

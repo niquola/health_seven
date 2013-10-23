@@ -1,15 +1,15 @@
 module HealthSeven::V2_7
 class PmuB07 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :evn, Evn, minOccurs: "1", maxOccurs: "1"
-  attribute :stf, Stf, minOccurs: "1", maxOccurs: "1"
-  attribute :pra, Pra, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :evn, Evn, position: "EVN", require: true
+  attribute :stf, Stf, position: "STF", require: true
+  attribute :pra, Pra, position: "PRA"
   class CERTIFICATE < ::HealthSeven::SegmentGroup
-    attribute :cer, Cer, minOccurs: "1", maxOccurs: "1"
-    attribute :rols, Array[Rol], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :cer, Cer, position: "CER", require: true
+    attribute :rols, Array[Rol], position: "ROL", multiple: true
   end
-  attribute :certificates, Array[CERTIFICATE], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :certificates, Array[CERTIFICATE], position: "PMU_B07.CERTIFICATE", multiple: true
 end
 end

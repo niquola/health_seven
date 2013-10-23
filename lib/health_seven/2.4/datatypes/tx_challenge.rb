@@ -1,8 +1,8 @@
 module HealthSeven::V2_4
 class TxChallenge < ::HealthSeven::DataType
   # ???????????
-  attribute :, Tx, minOccurs: "0", maxOccurs: "1"
+  attribute :, Tx, position: "TX_CHALLENGE.1"
   # ???????????
-  attribute :, Tx, minOccurs: "0", maxOccurs: "1"
+  attribute :, Tx, position: "TX_CHALLENGE.2"
 end
 end

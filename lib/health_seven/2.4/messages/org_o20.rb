@@ -1,23 +1,23 @@
 module HealthSeven::V2_4
 class OrgO20 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :err, Err, minOccurs: "0", maxOccurs: "1"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :err, Err, position: "ERR"
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "ORG_O20.PATIENT"
     class ORDER < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
-      attribute :obr, Obr, minOccurs: "0", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :ctis, Array[Cti], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :orc, Orc, position: "ORC", require: true
+      attribute :obr, Obr, position: "OBR"
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
+      attribute :ctis, Array[Cti], position: "CTI", multiple: true
     end
-    attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :orders, Array[ORDER], position: "ORG_O20.ORDER", require: true, multiple: true
   end
-  attribute :response, RESPONSE, minOccurs: "0", maxOccurs: "1"
+  attribute :response, RESPONSE, position: "ORG_O20.RESPONSE"
 end
 end

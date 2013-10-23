@@ -1,8 +1,8 @@
 module HealthSeven::V2_5
 class MfnM13 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
-  attribute :mves, Array[Mfe], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :mfi, Mfi, position: "MFI", require: true
+  attribute :mves, Array[Mfe], position: "MFE", require: true, multiple: true
 end
 end

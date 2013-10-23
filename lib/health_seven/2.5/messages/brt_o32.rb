@@ -1,24 +1,24 @@
 module HealthSeven::V2_5
 class BrtO32 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class RESPONSE < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "0", maxOccurs: "1"
+    attribute :pid, Pid, position: "PID"
     class ORDER < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+      attribute :orc, Orc, position: "ORC", require: true
       class TIMING < ::HealthSeven::SegmentGroup
-        attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-        attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :tq1, Tq1, position: "TQ1", require: true
+        attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :bpo, Bpo, minOccurs: "0", maxOccurs: "1"
-      attribute :btxes, Array[Btx], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :timings, Array[TIMING], position: "BRT_O32.TIMING", multiple: true
+      attribute :bpo, Bpo, position: "BPO"
+      attribute :btxes, Array[Btx], position: "BTX", multiple: true
     end
-    attribute :orders, Array[ORDER], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :orders, Array[ORDER], position: "BRT_O32.ORDER", multiple: true
   end
-  attribute :response, RESPONSE, minOccurs: "0", maxOccurs: "1"
+  attribute :response, RESPONSE, position: "BRT_O32.RESPONSE"
 end
 end

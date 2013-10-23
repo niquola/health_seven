@@ -1,40 +1,40 @@
 module HealthSeven::V2_7
 class OrgO20 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
+      attribute :prts, Array[Prt], position: "PRT", multiple: true
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "ORG_O20.PATIENT"
     class ORDER < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+      attribute :orc, Orc, position: "ORC", require: true
       class TIMING < ::HealthSeven::SegmentGroup
-        attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-        attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :tq1, Tq1, position: "TQ1", require: true
+        attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :timings, Array[TIMING], position: "ORG_O20.TIMING", multiple: true
       class OBSERVATION_GROUP < ::HealthSeven::SegmentGroup
-        attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
+        attribute :obr, Obr, position: "OBR", require: true
       end
-      attribute :observation_group, OBSERVATION_GROUP, minOccurs: "0", maxOccurs: "1"
-      attribute :prts, Array[Prt], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :ctis, Array[Cti], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :observation_group, OBSERVATION_GROUP, position: "ORG_O20.OBSERVATION_GROUP"
+      attribute :prts, Array[Prt], position: "PRT", multiple: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
+      attribute :ctis, Array[Cti], position: "CTI", multiple: true
       class SPECIMEN < ::HealthSeven::SegmentGroup
-        attribute :spm, Spm, minOccurs: "1", maxOccurs: "1"
-        attribute :sacs, Array[Sac], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :spm, Spm, position: "SPM", require: true
+        attribute :sacs, Array[Sac], position: "SAC", multiple: true
       end
-      attribute :specimen, Array[SPECIMEN], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :specimen, Array[SPECIMEN], position: "ORG_O20.SPECIMEN", multiple: true
     end
-    attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :orders, Array[ORDER], position: "ORG_O20.ORDER", require: true, multiple: true
   end
-  attribute :response, RESPONSE, minOccurs: "0", maxOccurs: "1"
+  attribute :response, RESPONSE, position: "ORG_O20.RESPONSE"
 end
 end

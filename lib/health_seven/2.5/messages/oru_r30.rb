@@ -1,26 +1,26 @@
 module HealthSeven::V2_5
 class OruR30 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-  attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :pid, Pid, position: "PID", require: true
+  attribute :pd1, Pd1, position: "PD1"
   class VISIT < ::HealthSeven::SegmentGroup
-    attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-    attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+    attribute :pv1, Pv1, position: "PV1", require: true
+    attribute :pv2, Pv2, position: "PV2"
   end
-  attribute :visit, VISIT, minOccurs: "0", maxOccurs: "1"
-  attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
-  attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :visit, VISIT, position: "ORU_R30.VISIT"
+  attribute :orc, Orc, position: "ORC", require: true
+  attribute :obr, Obr, position: "OBR", require: true
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class TIMING_QTY < ::HealthSeven::SegmentGroup
-    attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-    attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :tq1, Tq1, position: "TQ1", require: true
+    attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
   end
-  attribute :timing_qties, Array[TIMING_QTY], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :timing_qties, Array[TIMING_QTY], position: "ORU_R30.TIMING_QTY", multiple: true
   class OBSERVATION < ::HealthSeven::SegmentGroup
-    attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :obx, Obx, position: "OBX", require: true
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
   end
-  attribute :observations, Array[OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :observations, Array[OBSERVATION], position: "ORU_R30.OBSERVATION", require: true, multiple: true
 end
 end

@@ -1,10 +1,10 @@
 module HealthSeven::V2_3
 class MfnM01 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :mfi, Mfi, position: "MFI", require: true
   class MF < ::HealthSeven::SegmentGroup
-    attribute :mfe, Mfe, minOccurs: "1", maxOccurs: "1"
+    attribute :mfe, Mfe, position: "MFE", require: true
   end
-  attribute :mfs, Array[MF], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :mfs, Array[MF], position: "MFN_M01.MF", require: true, multiple: true
 end
 end

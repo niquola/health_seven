@@ -1,12 +1,12 @@
 module HealthSeven::V2_7_1
 class Ods < ::HealthSeven::Segment
   # Type
-  attribute :type, Id, minOccurs: "1", maxOccurs: "1"
+  attribute :type, Id, position: "ODS.1", require: true
   # Service Period
-  attribute :service_period, Cwe, minOccurs: "0", maxOccurs: "10"
+  attribute :service_period, Cwe, position: "ODS.2"
   # Diet, Supplement, or Preference Code
-  attribute :diet_supplement_or_preference_code, Cwe, minOccurs: "1", maxOccurs: "20"
+  attribute :diet_supplement_or_preference_code, Cwe, position: "ODS.3", require: true
   # Text Instruction
-  attribute :text_instruction, St, minOccurs: "0", maxOccurs: "2"
+  attribute :text_instruction, St, position: "ODS.4"
 end
 end

@@ -1,10 +1,10 @@
 module HealthSeven::V2_3_1
 class Aui < ::HealthSeven::DataType
   # authorization number
-  attribute :authorization_number, St, minOccurs: "0", maxOccurs: "1"
+  attribute :authorization_number, St, position: "AUI.1"
   # date
-  attribute :date, Ts, minOccurs: "0", maxOccurs: "1"
+  attribute :date, Ts, position: "AUI.2"
   # source
-  attribute :source, St, minOccurs: "0", maxOccurs: "1"
+  attribute :source, St, position: "AUI.3"
 end
 end

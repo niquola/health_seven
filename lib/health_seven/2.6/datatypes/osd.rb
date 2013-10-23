@@ -1,26 +1,26 @@
 module HealthSeven::V2_6
 class Osd < ::HealthSeven::DataType
   # Sequence/Results Flag
-  attribute :sequence_results_flag, Id, minOccurs: "1", maxOccurs: "1"
+  attribute :sequence_results_flag, Id, position: "OSD.1", require: true
   # Placer Order Number: Entity Identifier
-  attribute :placer_order_number_entity_identifier, St, minOccurs: "1", maxOccurs: "1"
+  attribute :placer_order_number_entity_identifier, St, position: "OSD.2", require: true
   # Placer Order Number: Namespace ID
-  attribute :placer_order_number_namespace_id, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :placer_order_number_namespace_id, Is, position: "OSD.3"
   # Filler Order Number: Entity Identifier
-  attribute :filler_order_number_entity_identifier, St, minOccurs: "1", maxOccurs: "1"
+  attribute :filler_order_number_entity_identifier, St, position: "OSD.4", require: true
   # Filler Order Number: Namespace ID
-  attribute :filler_order_number_namespace_id, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :filler_order_number_namespace_id, Is, position: "OSD.5"
   # Sequence Condition Value
-  attribute :sequence_condition_value, St, minOccurs: "0", maxOccurs: "1"
+  attribute :sequence_condition_value, St, position: "OSD.6"
   # Maximum Number of Repeats
-  attribute :maximum_number_of_repeats, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :maximum_number_of_repeats, Nm, position: "OSD.7"
   # Placer Order Number: Universal ID
-  attribute :placer_order_number_universal_id, St, minOccurs: "1", maxOccurs: "1"
+  attribute :placer_order_number_universal_id, St, position: "OSD.8", require: true
   # Placer Order Number: Universal ID Type
-  attribute :placer_order_number_universal_id_type, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :placer_order_number_universal_id_type, Id, position: "OSD.9"
   # Filler Order Number: Universal ID
-  attribute :filler_order_number_universal_id, St, minOccurs: "1", maxOccurs: "1"
+  attribute :filler_order_number_universal_id, St, position: "OSD.10", require: true
   # Filler Order Number: Universal ID Type
-  attribute :filler_order_number_universal_id_type, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :filler_order_number_universal_id_type, Id, position: "OSD.11"
 end
 end

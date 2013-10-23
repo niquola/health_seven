@@ -1,28 +1,28 @@
 module HealthSeven::V2_3
 class Pd1 < ::HealthSeven::Segment
   # Living Dependency
-  attribute :living_dependency, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :living_dependency, Is, position: "PD1.1"
   # Living Arrangement
-  attribute :living_arrangement, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :living_arrangement, Is, position: "PD1.2"
   # Patient Primary Facility
-  attribute :patient_primary_facilities, Array[Xon], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :patient_primary_facilities, Array[Xon], position: "PD1.3", multiple: true
   # Patient Primary Care Provider Name & ID No.
-  attribute :patient_primary_care_provider_name_id_nos, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :patient_primary_care_provider_name_id_nos, Array[Xcn], position: "PD1.4", multiple: true
   # Student Indicator
-  attribute :student_indicator, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :student_indicator, Is, position: "PD1.5"
   # Handicap
-  attribute :handicap, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :handicap, Is, position: "PD1.6"
   # Living Will
-  attribute :living_will, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :living_will, Is, position: "PD1.7"
   # Organ Donor
-  attribute :organ_donor, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :organ_donor, Is, position: "PD1.8"
   # Separate Bill
-  attribute :separate_bill, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :separate_bill, Id, position: "PD1.9"
   # Duplicate Patient
-  attribute :duplicate_patients, Array[Cx], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :duplicate_patients, Array[Cx], position: "PD1.10", multiple: true
   # Publicity Indicator
-  attribute :publicity_indicator, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :publicity_indicator, Ce, position: "PD1.11"
   # Protection Indicator
-  attribute :protection_indicator, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :protection_indicator, Id, position: "PD1.12"
 end
 end

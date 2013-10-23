@@ -36,7 +36,7 @@ module HealthSeven
                          end
 
         group = !(attribute_type < ::HealthSeven::SegmentGroup).nil?
-        collection = attribute.options[:maxOccurs] == 'unbounded'
+        collection = attribute.options[:multiple] || false
         {
           [true, true] => :group_collection,
           [true, false] => :group,
@@ -50,7 +50,7 @@ module HealthSeven
       end
 
       def required?(attribute)
-        attribute.options[:minOccurs].to_i != 0
+        attribute.options[:require].present?
       end
 
       def process(version, message, segments_tail, attributes_tail, parent_required = true)

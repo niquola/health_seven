@@ -1,20 +1,20 @@
 module HealthSeven::V2_4
 class Edu < ::HealthSeven::Segment
   # Set ID - EDU
-  attribute :set_id_edu, Si, minOccurs: "1", maxOccurs: "1"
+  attribute :set_id_edu, Si, position: "EDU.1", require: true
   # Academic Degree
-  attribute :academic_degree, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :academic_degree, Is, position: "EDU.2"
   # Academic Degree Program Date Range
-  attribute :academic_degree_program_date_range, Dr, minOccurs: "0", maxOccurs: "1"
+  attribute :academic_degree_program_date_range, Dr, position: "EDU.3"
   # Academic Degree Program Participation Date Range
-  attribute :academic_degree_program_participation_date_range, Dr, minOccurs: "0", maxOccurs: "1"
+  attribute :academic_degree_program_participation_date_range, Dr, position: "EDU.4"
   # Academic Degree Granted Date
-  attribute :academic_degree_granted_date, Dt, minOccurs: "0", maxOccurs: "1"
+  attribute :academic_degree_granted_date, Dt, position: "EDU.5"
   # School
-  attribute :school, Xon, minOccurs: "0", maxOccurs: "1"
+  attribute :school, Xon, position: "EDU.6"
   # School Type Code
-  attribute :school_type_code, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :school_type_code, Ce, position: "EDU.7"
   # School Address
-  attribute :school_address, Xad, minOccurs: "0", maxOccurs: "1"
+  attribute :school_address, Xad, position: "EDU.8"
 end
 end

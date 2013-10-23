@@ -1,9 +1,9 @@
 module HealthSeven::V2_5_1
 class VqqQ07 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :vtq, Vtq, minOccurs: "1", maxOccurs: "1"
-  attribute :rdf, Rdf, minOccurs: "0", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :vtq, Vtq, position: "VTQ", require: true
+  attribute :rdf, Rdf, position: "RDF"
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

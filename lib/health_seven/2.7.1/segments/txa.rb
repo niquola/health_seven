@@ -1,56 +1,56 @@
 module HealthSeven::V2_7_1
 class Txa < ::HealthSeven::Segment
   # Set ID- TXA
-  attribute :set_id_txa, Si, minOccurs: "1", maxOccurs: "1"
+  attribute :set_id_txa, Si, position: "TXA.1", require: true
   # Document Type
-  attribute :document_type, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :document_type, Cwe, position: "TXA.2", require: true
   # Document Content Presentation
-  attribute :document_content_presentation, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :document_content_presentation, Id, position: "TXA.3"
   # Activity Date/Time
-  attribute :activity_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :activity_date_time, Dtm, position: "TXA.4"
   # Primary Activity Provider Code/Name
-  attribute :primary_activity_provider_code_names, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :primary_activity_provider_code_names, Array[Xcn], position: "TXA.5", multiple: true
   # Origination Date/Time
-  attribute :origination_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :origination_date_time, Dtm, position: "TXA.6"
   # Transcription Date/Time
-  attribute :transcription_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :transcription_date_time, Dtm, position: "TXA.7"
   # Edit Date/Time
-  attribute :edit_date_times, Array[Dtm], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :edit_date_times, Array[Dtm], position: "TXA.8", multiple: true
   # Originator Code/Name
-  attribute :originator_code_names, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :originator_code_names, Array[Xcn], position: "TXA.9", multiple: true
   # Assigned Document Authenticator
-  attribute :assigned_document_authenticators, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :assigned_document_authenticators, Array[Xcn], position: "TXA.10", multiple: true
   # Transcriptionist Code/Name
-  attribute :transcriptionist_code_names, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :transcriptionist_code_names, Array[Xcn], position: "TXA.11", multiple: true
   # Unique Document Number
-  attribute :unique_document_number, Ei, minOccurs: "1", maxOccurs: "1"
+  attribute :unique_document_number, Ei, position: "TXA.12", require: true
   # Parent Document Number
-  attribute :parent_document_number, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :parent_document_number, Ei, position: "TXA.13"
   # Placer Order Number
-  attribute :placer_order_numbers, Array[Ei], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :placer_order_numbers, Array[Ei], position: "TXA.14", multiple: true
   # Filler Order Number
-  attribute :filler_order_number, Ei, minOccurs: "0", maxOccurs: "1"
+  attribute :filler_order_number, Ei, position: "TXA.15"
   # Unique Document File Name
-  attribute :unique_document_file_name, St, minOccurs: "0", maxOccurs: "1"
+  attribute :unique_document_file_name, St, position: "TXA.16"
   # Document Completion Status
-  attribute :document_completion_status, Id, minOccurs: "1", maxOccurs: "1"
+  attribute :document_completion_status, Id, position: "TXA.17", require: true
   # Document Confidentiality Status
-  attribute :document_confidentiality_status, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :document_confidentiality_status, Id, position: "TXA.18"
   # Document Availability Status
-  attribute :document_availability_status, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :document_availability_status, Id, position: "TXA.19"
   # Document Storage Status
-  attribute :document_storage_status, Id, minOccurs: "0", maxOccurs: "1"
+  attribute :document_storage_status, Id, position: "TXA.20"
   # Document Change Reason
-  attribute :document_change_reason, St, minOccurs: "0", maxOccurs: "1"
+  attribute :document_change_reason, St, position: "TXA.21"
   # Authentication Person, Time Stamp (set)
-  attribute :authentication_person_time_stamp_sets, Array[Ppn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :authentication_person_time_stamp_sets, Array[Ppn], position: "TXA.22", multiple: true
   # Distributed Copies (Code and Name of Recipient(s) )
-  attribute :distributed_copies_code_and_name_of_recipient_s, Array[Xcn], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :distributed_copies_code_and_name_of_recipient_s, Array[Xcn], position: "TXA.23", multiple: true
   # Folder Assignment
-  attribute :folder_assignments, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :folder_assignments, Array[Cwe], position: "TXA.24", multiple: true
   # Document Title
-  attribute :document_titles, Array[St], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :document_titles, Array[St], position: "TXA.25", multiple: true
   # Agreed Due Date/Time
-  attribute :agreed_due_date_time, Dtm, minOccurs: "0", maxOccurs: "1"
+  attribute :agreed_due_date_time, Dtm, position: "TXA.26"
 end
 end

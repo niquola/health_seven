@@ -1,31 +1,31 @@
 module HealthSeven::V2_5_1
 class RraO18 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "RRA_O18.PATIENT"
     class ORDER < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+      attribute :orc, Orc, position: "ORC", require: true
       class TIMING < ::HealthSeven::SegmentGroup
-        attribute :tq1, Tq1, minOccurs: "1", maxOccurs: "1"
-        attribute :tq2s, Array[Tq2], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :tq1, Tq1, position: "TQ1", require: true
+        attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :timings, Array[TIMING], position: "RRA_O18.TIMING", multiple: true
       class ADMINISTRATION < ::HealthSeven::SegmentGroup
-        attribute :rxas, Array[Rxa], minOccurs: "1", maxOccurs: "unbounded"
-        attribute :rxr, Rxr, minOccurs: "1", maxOccurs: "1"
+        attribute :rxas, Array[Rxa], position: "RXA", require: true, multiple: true
+        attribute :rxr, Rxr, position: "RXR", require: true
       end
-      attribute :administration, ADMINISTRATION, minOccurs: "0", maxOccurs: "1"
+      attribute :administration, ADMINISTRATION, position: "RRA_O18.ADMINISTRATION"
     end
-    attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :orders, Array[ORDER], position: "RRA_O18.ORDER", require: true, multiple: true
   end
-  attribute :response, RESPONSE, minOccurs: "0", maxOccurs: "1"
+  attribute :response, RESPONSE, position: "RRA_O18.RESPONSE"
 end
 end

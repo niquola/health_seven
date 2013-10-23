@@ -1,29 +1,29 @@
 module HealthSeven::V2_3_1
 class OsrQ06 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :err, Err, minOccurs: "0", maxOccurs: "1"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
-  attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :err, Err, position: "ERR"
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
+  attribute :qrd, Qrd, position: "QRD", require: true
+  attribute :qrf, Qrf, position: "QRF"
   class RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "OSR_Q06.PATIENT"
     class OBSERVATION < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+      attribute :orc, Orc, position: "ORC", require: true
       class CHOICE < ::HealthSeven::SegmentGroup
       
       end
-      attribute :choice, CHOICE, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :ctis, Array[Cti], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :choice, CHOICE, position: "OSR_Q06.CHOICE", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
+      attribute :ctis, Array[Cti], position: "CTI", multiple: true
     end
-    attribute :observations, Array[OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :observations, Array[OBSERVATION], position: "OSR_Q06.OBSERVATION", require: true, multiple: true
   end
-  attribute :response, RESPONSE, minOccurs: "0", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :response, RESPONSE, position: "OSR_Q06.RESPONSE"
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

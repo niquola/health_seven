@@ -1,25 +1,25 @@
 module HealthSeven::V2_6
 class RspQ11 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :uac, Uac, minOccurs: "0", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :qak, Qak, minOccurs: "1", maxOccurs: "1"
-  attribute :qpd, Qpd, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
+  attribute :uac, Uac, position: "UAC"
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :qak, Qak, position: "QAK", require: true
+  attribute :qpd, Qpd, position: "QPD", require: true
   class QUERY_RESULT_CLUSTER < ::HealthSeven::SegmentGroup
-    attribute :mfe, Mfe, minOccurs: "1", maxOccurs: "1"
-    attribute :loc, Loc, minOccurs: "1", maxOccurs: "1"
-    attribute :lches, Array[Lch], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :lrls, Array[Lrl], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :mfe, Mfe, position: "MFE", require: true
+    attribute :loc, Loc, position: "LOC", require: true
+    attribute :lches, Array[Lch], position: "LCH", multiple: true
+    attribute :lrls, Array[Lrl], position: "LRL", multiple: true
     class MF_LOC_DEPT < ::HealthSeven::SegmentGroup
-      attribute :ldp, Ldp, minOccurs: "1", maxOccurs: "1"
-      attribute :lches, Array[Lch], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :lccs, Array[Lcc], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :ldp, Ldp, position: "LDP", require: true
+      attribute :lches, Array[Lch], position: "LCH", multiple: true
+      attribute :lccs, Array[Lcc], position: "LCC", multiple: true
     end
-    attribute :mf_loc_depts, Array[MF_LOC_DEPT], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :mf_loc_depts, Array[MF_LOC_DEPT], position: "RSP_Q11.MF_LOC_DEPT", require: true, multiple: true
   end
-  attribute :query_result_cluster, QUERY_RESULT_CLUSTER, minOccurs: "0", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :query_result_cluster, QUERY_RESULT_CLUSTER, position: "RSP_Q11.QUERY_RESULT_CLUSTER"
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

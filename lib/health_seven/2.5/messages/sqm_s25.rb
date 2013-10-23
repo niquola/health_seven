@@ -1,38 +1,38 @@
 module HealthSeven::V2_5
 class SqmS25 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
-  attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :qrd, Qrd, position: "QRD", require: true
+  attribute :qrf, Qrf, position: "QRF"
   class REQUEST < ::HealthSeven::SegmentGroup
-    attribute :arq, Arq, minOccurs: "1", maxOccurs: "1"
-    attribute :apr, Apr, minOccurs: "0", maxOccurs: "1"
-    attribute :pid, Pid, minOccurs: "0", maxOccurs: "1"
+    attribute :arq, Arq, position: "ARQ", require: true
+    attribute :apr, Apr, position: "APR"
+    attribute :pid, Pid, position: "PID"
     class RESOURCES < ::HealthSeven::SegmentGroup
-      attribute :rgs, Rgs, minOccurs: "1", maxOccurs: "1"
+      attribute :rgs, Rgs, position: "RGS", require: true
       class SERVICE < ::HealthSeven::SegmentGroup
-        attribute :ais, Ais, minOccurs: "1", maxOccurs: "1"
-        attribute :apr, Apr, minOccurs: "0", maxOccurs: "1"
+        attribute :ais, Ais, position: "AIS", require: true
+        attribute :apr, Apr, position: "APR"
       end
-      attribute :services, Array[SERVICE], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :services, Array[SERVICE], position: "SQM_S25.SERVICE", multiple: true
       class GENERAL_RESOURCE < ::HealthSeven::SegmentGroup
-        attribute :aig, Aig, minOccurs: "1", maxOccurs: "1"
-        attribute :apr, Apr, minOccurs: "0", maxOccurs: "1"
+        attribute :aig, Aig, position: "AIG", require: true
+        attribute :apr, Apr, position: "APR"
       end
-      attribute :general_resources, Array[GENERAL_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :general_resources, Array[GENERAL_RESOURCE], position: "SQM_S25.GENERAL_RESOURCE", multiple: true
       class PERSONNEL_RESOURCE < ::HealthSeven::SegmentGroup
-        attribute :aip, Aip, minOccurs: "1", maxOccurs: "1"
-        attribute :apr, Apr, minOccurs: "0", maxOccurs: "1"
+        attribute :aip, Aip, position: "AIP", require: true
+        attribute :apr, Apr, position: "APR"
       end
-      attribute :personnel_resources, Array[PERSONNEL_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :personnel_resources, Array[PERSONNEL_RESOURCE], position: "SQM_S25.PERSONNEL_RESOURCE", multiple: true
       class LOCATION_RESOURCE < ::HealthSeven::SegmentGroup
-        attribute :ail, Ail, minOccurs: "1", maxOccurs: "1"
-        attribute :apr, Apr, minOccurs: "0", maxOccurs: "1"
+        attribute :ail, Ail, position: "AIL", require: true
+        attribute :apr, Apr, position: "APR"
       end
-      attribute :location_resources, Array[LOCATION_RESOURCE], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :location_resources, Array[LOCATION_RESOURCE], position: "SQM_S25.LOCATION_RESOURCE", multiple: true
     end
-    attribute :resources, Array[RESOURCES], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :resources, Array[RESOURCES], position: "SQM_S25.RESOURCES", require: true, multiple: true
   end
-  attribute :request, REQUEST, minOccurs: "0", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :request, REQUEST, position: "SQM_S25.REQUEST"
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

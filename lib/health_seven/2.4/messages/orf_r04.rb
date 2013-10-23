@@ -1,32 +1,32 @@
 module HealthSeven::V2_4
 class OrfR04 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
-  attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :qrd, Qrd, position: "QRD", require: true
+  attribute :qrf, Qrf, position: "QRF"
   class RESPONSE < ::HealthSeven::SegmentGroup
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "ORF_R04.PATIENT"
     class ORDER < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "0", maxOccurs: "1"
-      attribute :obr, Obr, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
-      attribute :ctd, Ctd, minOccurs: "0", maxOccurs: "1"
+      attribute :orc, Orc, position: "ORC"
+      attribute :obr, Obr, position: "OBR", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
+      attribute :ctd, Ctd, position: "CTD"
       class OBSERVATION < ::HealthSeven::SegmentGroup
-        attribute :obx, Obx, minOccurs: "0", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :obx, Obx, position: "OBX"
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :observations, Array[OBSERVATION], minOccurs: "1", maxOccurs: "unbounded"
-      attribute :ctis, Array[Cti], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :observations, Array[OBSERVATION], position: "ORF_R04.OBSERVATION", require: true, multiple: true
+      attribute :ctis, Array[Cti], position: "CTI", multiple: true
     end
-    attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :orders, Array[ORDER], position: "ORF_R04.ORDER", require: true, multiple: true
   end
-  attribute :responses, Array[RESPONSE], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :err, Err, minOccurs: "0", maxOccurs: "1"
-  attribute :qak, Qak, minOccurs: "0", maxOccurs: "1"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :responses, Array[RESPONSE], position: "ORF_R04.RESPONSE", require: true, multiple: true
+  attribute :err, Err, position: "ERR"
+  attribute :qak, Qak, position: "QAK"
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

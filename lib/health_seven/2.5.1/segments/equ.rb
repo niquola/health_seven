@@ -1,14 +1,14 @@
 module HealthSeven::V2_5_1
 class Equ < ::HealthSeven::Segment
   # Equipment Instance Identifier
-  attribute :equipment_instance_identifier, Ei, minOccurs: "1", maxOccurs: "1"
+  attribute :equipment_instance_identifier, Ei, position: "EQU.1", require: true
   # Event Date/Time
-  attribute :event_date_time, Ts, minOccurs: "1", maxOccurs: "1"
+  attribute :event_date_time, Ts, position: "EQU.2", require: true
   # Equipment State
-  attribute :equipment_state, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :equipment_state, Ce, position: "EQU.3"
   # Local/Remote Control State
-  attribute :local_remote_control_state, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :local_remote_control_state, Ce, position: "EQU.4"
   # Alert Level
-  attribute :alert_level, Ce, minOccurs: "0", maxOccurs: "1"
+  attribute :alert_level, Ce, position: "EQU.5"
 end
 end

@@ -1,12 +1,12 @@
 module HealthSeven::V2_3
 class CmAbsRange < ::HealthSeven::DataType
   # Range
-  attribute :range, CmRange, minOccurs: "0", maxOccurs: "1"
+  attribute :range, CmRange, position: "CM_ABS_RANGE.1"
   # Numeric Change
-  attribute :numeric_change, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :numeric_change, Nm, position: "CM_ABS_RANGE.2"
   # Percent per Change
-  attribute :percent_per_change, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :percent_per_change, Nm, position: "CM_ABS_RANGE.3"
   # Days
-  attribute :days, Nm, minOccurs: "0", maxOccurs: "1"
+  attribute :days, Nm, position: "CM_ABS_RANGE.4"
 end
 end

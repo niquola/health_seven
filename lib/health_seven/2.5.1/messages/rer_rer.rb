@@ -1,26 +1,26 @@
 module HealthSeven::V2_5_1
 class RerRer < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :msa, Msa, minOccurs: "1", maxOccurs: "1"
-  attribute :errs, Array[Err], minOccurs: "0", maxOccurs: "unbounded"
-  attribute :sfts, Array[Sft], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :msa, Msa, position: "MSA", require: true
+  attribute :errs, Array[Err], position: "ERR", multiple: true
+  attribute :sfts, Array[Sft], position: "SFT", multiple: true
   class DEFINITION < ::HealthSeven::SegmentGroup
-    attribute :qrd, Qrd, minOccurs: "1", maxOccurs: "1"
-    attribute :qrf, Qrf, minOccurs: "0", maxOccurs: "1"
+    attribute :qrd, Qrd, position: "QRD", require: true
+    attribute :qrf, Qrf, position: "QRF"
     class PATIENT < ::HealthSeven::SegmentGroup
-      attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :pid, Pid, position: "PID", require: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient, PATIENT, position: "RER_RER.PATIENT"
     class ORDER < ::HealthSeven::SegmentGroup
-      attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
-      attribute :rxe, Rxe, minOccurs: "1", maxOccurs: "1"
-      attribute :rxrs, Array[Rxr], minOccurs: "1", maxOccurs: "unbounded"
-      attribute :rxcs, Array[Rxc], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :orc, Orc, position: "ORC", require: true
+      attribute :rxe, Rxe, position: "RXE", require: true
+      attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
+      attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
     end
-    attribute :orders, Array[ORDER], minOccurs: "1", maxOccurs: "unbounded"
+    attribute :orders, Array[ORDER], position: "RER_RER.ORDER", require: true, multiple: true
   end
-  attribute :definitions, Array[DEFINITION], minOccurs: "1", maxOccurs: "unbounded"
-  attribute :dsc, Dsc, minOccurs: "0", maxOccurs: "1"
+  attribute :definitions, Array[DEFINITION], position: "RER_RER.DEFINITION", require: true, multiple: true
+  attribute :dsc, Dsc, position: "DSC"
 end
 end

@@ -1,45 +1,45 @@
 module HealthSeven::V2_4
 class OmdO03 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :ntes, Array[Nte], position: "NTE", multiple: true
   class PATIENT < ::HealthSeven::SegmentGroup
-    attribute :pid, Pid, minOccurs: "1", maxOccurs: "1"
-    attribute :pd1, Pd1, minOccurs: "0", maxOccurs: "1"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :pid, Pid, position: "PID", require: true
+    attribute :pd1, Pd1, position: "PD1"
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
     class PATIENT_VISIT < ::HealthSeven::SegmentGroup
-      attribute :pv1, Pv1, minOccurs: "1", maxOccurs: "1"
-      attribute :pv2, Pv2, minOccurs: "0", maxOccurs: "1"
+      attribute :pv1, Pv1, position: "PV1", require: true
+      attribute :pv2, Pv2, position: "PV2"
     end
-    attribute :patient_visit, PATIENT_VISIT, minOccurs: "0", maxOccurs: "1"
+    attribute :patient_visit, PATIENT_VISIT, position: "OMD_O03.PATIENT_VISIT"
     class INSURANCE < ::HealthSeven::SegmentGroup
-      attribute :in1, In1, minOccurs: "1", maxOccurs: "1"
-      attribute :in2, In2, minOccurs: "0", maxOccurs: "1"
-      attribute :in3, In3, minOccurs: "0", maxOccurs: "1"
+      attribute :in1, In1, position: "IN1", require: true
+      attribute :in2, In2, position: "IN2"
+      attribute :in3, In3, position: "IN3"
     end
-    attribute :insurances, Array[INSURANCE], minOccurs: "0", maxOccurs: "unbounded"
-    attribute :gt1, Gt1, minOccurs: "0", maxOccurs: "1"
-    attribute :al1s, Array[Al1], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :insurances, Array[INSURANCE], position: "OMD_O03.INSURANCE", multiple: true
+    attribute :gt1, Gt1, position: "GT1"
+    attribute :al1s, Array[Al1], position: "AL1", multiple: true
   end
-  attribute :patient, PATIENT, minOccurs: "0", maxOccurs: "1"
+  attribute :patient, PATIENT, position: "OMD_O03.PATIENT"
   class ORDER_DIET < ::HealthSeven::SegmentGroup
-    attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
+    attribute :orc, Orc, position: "ORC", require: true
     class DIET < ::HealthSeven::SegmentGroup
-      attribute :ods, Array[Ods], minOccurs: "1", maxOccurs: "unbounded"
-      attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :ods, Array[Ods], position: "ODS", require: true, multiple: true
+      attribute :ntes, Array[Nte], position: "NTE", multiple: true
       class OBSERVATION < ::HealthSeven::SegmentGroup
-        attribute :obx, Obx, minOccurs: "1", maxOccurs: "1"
-        attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+        attribute :obx, Obx, position: "OBX", require: true
+        attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :observations, Array[OBSERVATION], minOccurs: "0", maxOccurs: "unbounded"
+      attribute :observations, Array[OBSERVATION], position: "OMD_O03.OBSERVATION", multiple: true
     end
-    attribute :diet, DIET, minOccurs: "0", maxOccurs: "1"
+    attribute :diet, DIET, position: "OMD_O03.DIET"
   end
-  attribute :order_diets, Array[ORDER_DIET], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :order_diets, Array[ORDER_DIET], position: "OMD_O03.ORDER_DIET", require: true, multiple: true
   class ORDER_TRAY < ::HealthSeven::SegmentGroup
-    attribute :orc, Orc, minOccurs: "1", maxOccurs: "1"
-    attribute :odts, Array[Odt], minOccurs: "1", maxOccurs: "unbounded"
-    attribute :ntes, Array[Nte], minOccurs: "0", maxOccurs: "unbounded"
+    attribute :orc, Orc, position: "ORC", require: true
+    attribute :odts, Array[Odt], position: "ODT", require: true, multiple: true
+    attribute :ntes, Array[Nte], position: "NTE", multiple: true
   end
-  attribute :order_trays, Array[ORDER_TRAY], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :order_trays, Array[ORDER_TRAY], position: "OMD_O03.ORDER_TRAY", multiple: true
 end
 end

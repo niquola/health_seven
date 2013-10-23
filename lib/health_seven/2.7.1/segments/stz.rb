@@ -1,12 +1,12 @@
 module HealthSeven::V2_7_1
 class Stz < ::HealthSeven::Segment
   # Sterilization Type
-  attribute :sterilization_type, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :sterilization_type, Cwe, position: "STZ.1"
   # Sterilization Cycle
-  attribute :sterilization_cycle, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :sterilization_cycle, Cwe, position: "STZ.2"
   # Maintenance Cycle
-  attribute :maintenance_cycle, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :maintenance_cycle, Cwe, position: "STZ.3"
   # Maintenance Type
-  attribute :maintenance_type, Cwe, minOccurs: "0", maxOccurs: "1"
+  attribute :maintenance_type, Cwe, position: "STZ.4"
 end
 end

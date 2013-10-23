@@ -1,13 +1,13 @@
 module HealthSeven::V2_4
 class MfnM02 < ::HealthSeven::Message
-  attribute :msh, Msh, minOccurs: "1", maxOccurs: "1"
-  attribute :mfi, Mfi, minOccurs: "1", maxOccurs: "1"
+  attribute :msh, Msh, position: "MSH", require: true
+  attribute :mfi, Mfi, position: "MFI", require: true
   class MF_STAFF < ::HealthSeven::SegmentGroup
-    attribute :mfe, Mfe, minOccurs: "1", maxOccurs: "1"
-    attribute :stf, Stf, minOccurs: "1", maxOccurs: "1"
-    attribute :pra, Pra, minOccurs: "0", maxOccurs: "1"
-    attribute :org, Org, minOccurs: "0", maxOccurs: "1"
+    attribute :mfe, Mfe, position: "MFE", require: true
+    attribute :stf, Stf, position: "STF", require: true
+    attribute :pra, Pra, position: "PRA"
+    attribute :org, Org, position: "ORG"
   end
-  attribute :mf_staffs, Array[MF_STAFF], minOccurs: "1", maxOccurs: "unbounded"
+  attribute :mf_staffs, Array[MF_STAFF], position: "MFN_M02.MF_STAFF", require: true, multiple: true
 end
 end

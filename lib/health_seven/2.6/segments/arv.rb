@@ -1,16 +1,16 @@
 module HealthSeven::V2_6
 class Arv < ::HealthSeven::Segment
   # Set ID
-  attribute :set_id, Si, minOccurs: "0", maxOccurs: "1"
+  attribute :set_id, Si, position: "ARV.1"
   # Access Restriction Action Code
-  attribute :access_restriction_action_code, Cne, minOccurs: "1", maxOccurs: "1"
+  attribute :access_restriction_action_code, Cne, position: "ARV.2", require: true
   # Access Restriction Value
-  attribute :access_restriction_value, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :access_restriction_value, Cwe, position: "ARV.3", require: true
   # Access Restriction Reason
-  attribute :access_restriction_reasons, Array[Cwe], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :access_restriction_reasons, Array[Cwe], position: "ARV.4", multiple: true
   # Special Access Restriction Instructions
-  attribute :special_access_restriction_instructions, Array[St], minOccurs: "0", maxOccurs: "unbounded"
+  attribute :special_access_restriction_instructions, Array[St], position: "ARV.5", multiple: true
   # Access Restriction Date Range
-  attribute :access_restriction_date_range, Dr, minOccurs: "0", maxOccurs: "1"
+  attribute :access_restriction_date_range, Dr, position: "ARV.6"
 end
 end

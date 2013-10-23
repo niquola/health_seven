@@ -1,8 +1,8 @@
 module HealthSeven::V2_4
 class Scv < ::HealthSeven::DataType
   # parameter class
-  attribute :parameter_class, Is, minOccurs: "0", maxOccurs: "1"
+  attribute :parameter_class, Is, position: "SCV.1"
   # parameter value
-  attribute :parameter_value, St, minOccurs: "0", maxOccurs: "1"
+  attribute :parameter_value, St, position: "SCV.2"
 end
 end

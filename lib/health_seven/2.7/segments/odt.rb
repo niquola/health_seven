@@ -1,10 +1,10 @@
 module HealthSeven::V2_7
 class Odt < ::HealthSeven::Segment
   # Tray Type
-  attribute :tray_type, Cwe, minOccurs: "1", maxOccurs: "1"
+  attribute :tray_type, Cwe, position: "ODT.1", require: true
   # Service Period
-  attribute :service_period, Cwe, minOccurs: "0", maxOccurs: "10"
+  attribute :service_period, Cwe, position: "ODT.2"
   # Text Instruction
-  attribute :text_instruction, St, minOccurs: "0", maxOccurs: "1"
+  attribute :text_instruction, St, position: "ODT.3"
 end
 end
