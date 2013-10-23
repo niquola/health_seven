@@ -1,6 +1,25 @@
 # HealthSeven
 
-TODO: Write a gem description
+Parse & generate hl7 messages with 2.x version (2.3-2.7.1)
+
+Add semantic naming for segment's fields and datatypes attributes
+
+## Example:
+
+```
+  content = "MSH|..."
+  message =  HealthSeven::Message.parse(content)
+  name =  message.pid.patient_names.first
+  name.family_name.surname.value.should == 'EVERYPERSON'
+  name.given_name.value.should == 'ANN'
+
+  ins =  message.insurances.first
+  name  = ins.in1.insurance_company_names.first
+  name.organization_name.value.should == 'MEDICARE I/P'
+
+  pv1 = message.pv1
+  pv1.admit_date_time.time.value.should == '20110217144208'
+```
 
 ## Installation
 
@@ -18,7 +37,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+* Fix namings like (e.g)
 
 ## Contributing
 
@@ -27,3 +46,4 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+

@@ -8,18 +8,6 @@ describe 'parsing' do
 
   it 'should parse adt_a04 2.5' do
     content = fixture('2.5','ADT_A04')
-    message =  HealthSeven::Message.parse(content)
-
-    name =  message.pid.patient_names.first
-    name.family_name.surname.value.should == 'EVERYPERSON'
-    name.given_name.value.should == 'ANN'
-
-    ins =  message.insurances.first
-    name  = ins.in1.insurance_company_names.first
-    name.organization_name.value.should == 'MEDICARE I/P'
-
-    pv1 = message.pv1
-    pv1.admit_date_time.time.value.should == '20110217144208'
   end
 
   it 'should parse adt_a04 2.3' do
