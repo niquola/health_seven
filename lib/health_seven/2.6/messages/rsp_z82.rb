@@ -8,60 +8,60 @@ class RspZ82 < ::HealthSeven::Message
   attribute :qak, Qak, position: "QAK", require: true
   attribute :qpd, Qpd, position: "QPD", require: true
   attribute :rcp, Rcp, position: "RCP", require: true
-  class QUERY_RESPONSE < ::HealthSeven::SegmentGroup
-    class PATIENT < ::HealthSeven::SegmentGroup
+  class QueryResponse < ::HealthSeven::SegmentGroup
+    class Patient < ::HealthSeven::SegmentGroup
       attribute :pid, Pid, position: "PID", require: true
       attribute :pd1, Pd1, position: "PD1"
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
-      class VISIT < ::HealthSeven::SegmentGroup
+      class Visit < ::HealthSeven::SegmentGroup
         attribute :al1s, Array[Al1], position: "AL1", require: true, multiple: true
         attribute :pv1, Pv1, position: "PV1", require: true
         attribute :pv2, Pv2, position: "PV2"
       end
-      attribute :visit, VISIT, position: "RSP_Z82.VISIT"
+      attribute :visit, Visit, position: "RSP_Z82.VISIT"
     end
-    attribute :patient, PATIENT, position: "RSP_Z82.PATIENT"
-    class COMMON_ORDER < ::HealthSeven::SegmentGroup
+    attribute :patient, Patient, position: "RSP_Z82.PATIENT"
+    class CommonOrder < ::HealthSeven::SegmentGroup
       attribute :orc, Orc, position: "ORC", require: true
-      class TIMING < ::HealthSeven::SegmentGroup
+      class Timing < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], position: "RSP_Z82.TIMING", multiple: true
-      class ORDER_DETAIL < ::HealthSeven::SegmentGroup
+      attribute :timings, Array[Timing], position: "RSP_Z82.TIMING", multiple: true
+      class OrderDetail < ::HealthSeven::SegmentGroup
         attribute :rxo, Rxo, position: "RXO", require: true
         attribute :ntes, Array[Nte], position: "NTE", multiple: true
         attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
-        class TREATMENT < ::HealthSeven::SegmentGroup
+        class Treatment < ::HealthSeven::SegmentGroup
           attribute :rxcs, Array[Rxc], position: "RXC", require: true, multiple: true
           attribute :ntes, Array[Nte], position: "NTE", multiple: true
         end
-        attribute :treatment, TREATMENT, position: "RSP_Z82.TREATMENT"
+        attribute :treatment, Treatment, position: "RSP_Z82.TREATMENT"
       end
-      attribute :order_detail, ORDER_DETAIL, position: "RSP_Z82.ORDER_DETAIL"
-      class ENCODED_ORDER < ::HealthSeven::SegmentGroup
+      attribute :order_detail, OrderDetail, position: "RSP_Z82.ORDER_DETAIL"
+      class EncodedOrder < ::HealthSeven::SegmentGroup
         attribute :rxe, Rxe, position: "RXE", require: true
-        class TIMING_ENCODED < ::HealthSeven::SegmentGroup
+        class TimingEncoded < ::HealthSeven::SegmentGroup
           attribute :tq1, Tq1, position: "TQ1", require: true
           attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
         end
-        attribute :timing_encodeds, Array[TIMING_ENCODED], position: "RSP_Z82.TIMING_ENCODED", multiple: true
+        attribute :timing_encodeds, Array[TimingEncoded], position: "RSP_Z82.TIMING_ENCODED", multiple: true
         attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
         attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
       end
-      attribute :encoded_order, ENCODED_ORDER, position: "RSP_Z82.ENCODED_ORDER"
+      attribute :encoded_order, EncodedOrder, position: "RSP_Z82.ENCODED_ORDER"
       attribute :rxd, Rxd, position: "RXD", require: true
       attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
       attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
-      class OBSERVATION < ::HealthSeven::SegmentGroup
+      class Observation < ::HealthSeven::SegmentGroup
         attribute :obx, Obx, position: "OBX"
         attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :observations, Array[OBSERVATION], position: "RSP_Z82.OBSERVATION", require: true, multiple: true
+      attribute :observations, Array[Observation], position: "RSP_Z82.OBSERVATION", require: true, multiple: true
     end
-    attribute :common_orders, Array[COMMON_ORDER], position: "RSP_Z82.COMMON_ORDER", require: true, multiple: true
+    attribute :common_orders, Array[CommonOrder], position: "RSP_Z82.COMMON_ORDER", require: true, multiple: true
   end
-  attribute :query_responses, Array[QUERY_RESPONSE], position: "RSP_Z82.QUERY_RESPONSE", require: true, multiple: true
+  attribute :query_responses, Array[QueryResponse], position: "RSP_Z82.QUERY_RESPONSE", require: true, multiple: true
   attribute :dsc, Dsc, position: "DSC"
 end
 end

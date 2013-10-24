@@ -7,11 +7,11 @@ class Xpn < ::HealthSeven::DataType
   # second and further given names or initials thereof
   attribute :second_and_further_given_names_or_initials_thereof, St, position: "XPN.3"
   # suffix (e.g., JR or III)
-  attribute :suffix_e_g_jr_or_iii, St, position: "XPN.4"
+  attribute :suffix, St, position: "XPN.4"
   # prefix (e.g., DR)
-  attribute :prefix_e_g_dr, St, position: "XPN.5"
+  attribute :prefix, St, position: "XPN.5"
   # degree (e.g., MD)
-  attribute :degree_e_g_md, Is, position: "XPN.6"
+  attribute :degree, Is, position: "XPN.6"
   # name type code
   attribute :name_type_code, Id, position: "XPN.7"
   # Name Representation code

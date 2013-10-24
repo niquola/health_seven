@@ -2,72 +2,72 @@ module HealthSeven::V2_3_1
 class PppPcb < ::HealthSeven::Message
   attribute :msh, Msh, position: "MSH", require: true
   attribute :pid, Pid, position: "PID", require: true
-  class PATIENT_VISIT < ::HealthSeven::SegmentGroup
+  class PatientVisit < ::HealthSeven::SegmentGroup
     attribute :pv1, Pv1, position: "PV1", require: true
     attribute :pv2, Pv2, position: "PV2"
   end
-  attribute :patient_visit, PATIENT_VISIT, position: "PPP_PCB.PATIENT_VISIT"
-  class PATHWAY < ::HealthSeven::SegmentGroup
+  attribute :patient_visit, PatientVisit, position: "PPP_PCB.PATIENT_VISIT"
+  class Pathway < ::HealthSeven::SegmentGroup
     attribute :pth, Pth, position: "PTH", require: true
     attribute :ntes, Array[Nte], position: "NTE", multiple: true
     attribute :vars, Array[Var], position: "VAR", multiple: true
-    class PATHWAY_ROLE < ::HealthSeven::SegmentGroup
+    class PathwayRole < ::HealthSeven::SegmentGroup
       attribute :rol, Rol, position: "ROL", require: true
       attribute :vars, Array[Var], position: "VAR", multiple: true
     end
-    attribute :pathway_roles, Array[PATHWAY_ROLE], position: "PPP_PCB.PATHWAY_ROLE", multiple: true
-    class PROBLEM < ::HealthSeven::SegmentGroup
+    attribute :pathway_roles, Array[PathwayRole], position: "PPP_PCB.PATHWAY_ROLE", multiple: true
+    class Problem < ::HealthSeven::SegmentGroup
       attribute :prb, Prb, position: "PRB", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
       attribute :vars, Array[Var], position: "VAR", multiple: true
-      class PROBLEM_ROLE < ::HealthSeven::SegmentGroup
+      class ProblemRole < ::HealthSeven::SegmentGroup
         attribute :rol, Rol, position: "ROL", require: true
         attribute :vars, Array[Var], position: "VAR", multiple: true
       end
-      attribute :problem_roles, Array[PROBLEM_ROLE], position: "PPP_PCB.PROBLEM_ROLE", multiple: true
-      class PROBLEM_OBSERVATION < ::HealthSeven::SegmentGroup
+      attribute :problem_roles, Array[ProblemRole], position: "PPP_PCB.PROBLEM_ROLE", multiple: true
+      class ProblemObservation < ::HealthSeven::SegmentGroup
         attribute :obx, Obx, position: "OBX", require: true
         attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :problem_observations, Array[PROBLEM_OBSERVATION], position: "PPP_PCB.PROBLEM_OBSERVATION", multiple: true
-      class GOAL < ::HealthSeven::SegmentGroup
+      attribute :problem_observations, Array[ProblemObservation], position: "PPP_PCB.PROBLEM_OBSERVATION", multiple: true
+      class Goal < ::HealthSeven::SegmentGroup
         attribute :gol, Gol, position: "GOL", require: true
         attribute :ntes, Array[Nte], position: "NTE", multiple: true
         attribute :vars, Array[Var], position: "VAR", multiple: true
-        class GOAL_ROLE < ::HealthSeven::SegmentGroup
+        class GoalRole < ::HealthSeven::SegmentGroup
           attribute :rol, Rol, position: "ROL", require: true
           attribute :vars, Array[Var], position: "VAR", multiple: true
         end
-        attribute :goal_roles, Array[GOAL_ROLE], position: "PPP_PCB.GOAL_ROLE", multiple: true
-        class GOAL_OBSERVATION < ::HealthSeven::SegmentGroup
+        attribute :goal_roles, Array[GoalRole], position: "PPP_PCB.GOAL_ROLE", multiple: true
+        class GoalObservation < ::HealthSeven::SegmentGroup
           attribute :obx, Obx, position: "OBX", require: true
           attribute :ntes, Array[Nte], position: "NTE", multiple: true
         end
-        attribute :goal_observations, Array[GOAL_OBSERVATION], position: "PPP_PCB.GOAL_OBSERVATION", multiple: true
+        attribute :goal_observations, Array[GoalObservation], position: "PPP_PCB.GOAL_OBSERVATION", multiple: true
       end
-      attribute :goals, Array[GOAL], position: "PPP_PCB.GOAL", multiple: true
-      class ORDER < ::HealthSeven::SegmentGroup
+      attribute :goals, Array[Goal], position: "PPP_PCB.GOAL", multiple: true
+      class Order < ::HealthSeven::SegmentGroup
         attribute :orc, Orc, position: "ORC", require: true
-        class ORDER_DETAIL < ::HealthSeven::SegmentGroup
-          class CHOICE < ::HealthSeven::SegmentGroup
+        class OrderDetail < ::HealthSeven::SegmentGroup
+          class Choice < ::HealthSeven::SegmentGroup
           
           end
-          attribute :choice, CHOICE, position: "PPP_PCB.CHOICE", require: true
+          attribute :choice, Choice, position: "PPP_PCB.CHOICE", require: true
           attribute :ntes, Array[Nte], position: "NTE", multiple: true
           attribute :vars, Array[Var], position: "VAR", multiple: true
-          class ORDER_OBSERVATION < ::HealthSeven::SegmentGroup
+          class OrderObservation < ::HealthSeven::SegmentGroup
             attribute :obx, Obx, position: "OBX", require: true
             attribute :ntes, Array[Nte], position: "NTE", multiple: true
             attribute :vars, Array[Var], position: "VAR", multiple: true
           end
-          attribute :order_observations, Array[ORDER_OBSERVATION], position: "PPP_PCB.ORDER_OBSERVATION", multiple: true
+          attribute :order_observations, Array[OrderObservation], position: "PPP_PCB.ORDER_OBSERVATION", multiple: true
         end
-        attribute :order_detail, ORDER_DETAIL, position: "PPP_PCB.ORDER_DETAIL"
+        attribute :order_detail, OrderDetail, position: "PPP_PCB.ORDER_DETAIL"
       end
-      attribute :orders, Array[ORDER], position: "PPP_PCB.ORDER", multiple: true
+      attribute :orders, Array[Order], position: "PPP_PCB.ORDER", multiple: true
     end
-    attribute :problems, Array[PROBLEM], position: "PPP_PCB.PROBLEM", multiple: true
+    attribute :problems, Array[Problem], position: "PPP_PCB.PROBLEM", multiple: true
   end
-  attribute :pathways, Array[PATHWAY], position: "PPP_PCB.PATHWAY", require: true, multiple: true
+  attribute :pathways, Array[Pathway], position: "PPP_PCB.PATHWAY", require: true, multiple: true
 end
 end

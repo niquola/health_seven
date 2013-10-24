@@ -7,7 +7,7 @@ module Gen::Namings
     if name =~ /^[_A-Z0-9]+$/
       name.downcase.camelize
     else
-      name.camelize
+      name.gsub(/[^\w]/,'_').camelize
     end
   end
 
@@ -15,11 +15,20 @@ module Gen::Namings
     "HealthSeven::V#{version.gsub('.', '_')}"
   end
 
-  def normalize_name(name)
-    name.downcase.chomp
+  def normalize_name(name, nonsemantic = nil)
+    nname = name.downcase.chomp
+    .gsub(/\(e\.g\..*\)$/,'')
     .gsub(/[^\w]/,'_')
     .gsub(/_+/,'_')
     .gsub(/_$/,'')
+
+    if nname.empty? && nonsemantic.present?
+      normalize_name(nonsemantic)
+    elsif nname.present?
+      nname
+    else
+      raise "Ups empty name"
+    end
   end
 
   extend self

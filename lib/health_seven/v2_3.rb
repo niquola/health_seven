@@ -5,5 +5,6 @@ require 'health_seven/2.3/datatypes.rb'
 require 'health_seven/2.3/segments.rb'
 require 'health_seven/2.3/messages.rb'
 class AnyType < ::HealthSeven::SimpleType; end
+class AnyHL7Segment < ::HealthSeven::Segment; end
 end
 end

@@ -9,11 +9,11 @@ class Cnn < ::HealthSeven::DataType
   # Second and Further Given Names or Initials Thereof
   attribute :second_and_further_given_names_or_initials_thereof, St, position: "CNN.4"
   # Suffix (e.g., JR or III)
-  attribute :suffix_e_g_jr_or_iii, St, position: "CNN.5"
+  attribute :suffix, St, position: "CNN.5"
   # Prefix (e.g., DR)
-  attribute :prefix_e_g_dr, St, position: "CNN.6"
+  attribute :prefix, St, position: "CNN.6"
   # Degree (e.g., MD)
-  attribute :degree_e_g_md, Is, position: "CNN.7"
+  attribute :degree, Is, position: "CNN.7"
   # Source Table
   attribute :source_table, Is, position: "CNN.8"
   # Assigning Authority   - Namespace ID

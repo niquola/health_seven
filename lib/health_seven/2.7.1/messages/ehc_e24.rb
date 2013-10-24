@@ -5,9 +5,9 @@ class EhcE24 < ::HealthSeven::Message
   attribute :uacs, Array[Uac], position: "UAC", multiple: true
   attribute :msa, Msa, position: "MSA", require: true
   attribute :errs, Array[Err], position: "ERR", multiple: true
-  class AUTHORIZATION_RESPONSE_INFO < ::HealthSeven::SegmentGroup
+  class AuthorizationResponseInfo < ::HealthSeven::SegmentGroup
   
   end
-  attribute :authorization_response_info, AUTHORIZATION_RESPONSE_INFO, position: "EHC_E24.AUTHORIZATION_RESPONSE_INFO", require: true
+  attribute :authorization_response_info, AuthorizationResponseInfo, position: "EHC_E24.AUTHORIZATION_RESPONSE_INFO", require: true
 end
 end

@@ -4,53 +4,53 @@ class RefI12 < ::HealthSeven::Message
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :uac, Uac, position: "UAC"
   attribute :rf1, Rf1, position: "RF1"
-  class AUTHORIZATION_CONTACT < ::HealthSeven::SegmentGroup
+  class AuthorizationContact < ::HealthSeven::SegmentGroup
     attribute :aut, Aut, position: "AUT", require: true
     attribute :ctd, Ctd, position: "CTD"
   end
-  attribute :authorization_contact, AUTHORIZATION_CONTACT, position: "REF_I12.AUTHORIZATION_CONTACT"
-  class PROVIDER_CONTACT < ::HealthSeven::SegmentGroup
+  attribute :authorization_contact, AuthorizationContact, position: "REF_I12.AUTHORIZATION_CONTACT"
+  class ProviderContact < ::HealthSeven::SegmentGroup
     attribute :prd, Prd, position: "PRD", require: true
     attribute :ctds, Array[Ctd], position: "CTD", multiple: true
   end
-  attribute :provider_contacts, Array[PROVIDER_CONTACT], position: "REF_I12.PROVIDER_CONTACT", require: true, multiple: true
+  attribute :provider_contacts, Array[ProviderContact], position: "REF_I12.PROVIDER_CONTACT", require: true, multiple: true
   attribute :pid, Pid, position: "PID", require: true
   attribute :nk1s, Array[Nk1], position: "NK1", multiple: true
   attribute :gt1s, Array[Gt1], position: "GT1", multiple: true
-  class INSURANCE < ::HealthSeven::SegmentGroup
+  class Insurance < ::HealthSeven::SegmentGroup
     attribute :in1, In1, position: "IN1", require: true
     attribute :in2, In2, position: "IN2"
     attribute :in3, In3, position: "IN3"
   end
-  attribute :insurances, Array[INSURANCE], position: "REF_I12.INSURANCE", multiple: true
+  attribute :insurances, Array[Insurance], position: "REF_I12.INSURANCE", multiple: true
   attribute :acc, Acc, position: "ACC"
   attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
   attribute :drgs, Array[Drg], position: "DRG", multiple: true
   attribute :al1s, Array[Al1], position: "AL1", multiple: true
-  class PROCEDURE < ::HealthSeven::SegmentGroup
+  class Procedure < ::HealthSeven::SegmentGroup
     attribute :pr1, Pr1, position: "PR1", require: true
-    class AUTHORIZATION_CONTACT2 < ::HealthSeven::SegmentGroup
+    class AuthorizationContact2 < ::HealthSeven::SegmentGroup
       attribute :aut, Aut, position: "AUT", require: true
       attribute :ctd, Ctd, position: "CTD"
     end
-    attribute :authorization_contact2, AUTHORIZATION_CONTACT2, position: "REF_I12.AUTHORIZATION_CONTACT2"
+    attribute :authorization_contact2, AuthorizationContact2, position: "REF_I12.AUTHORIZATION_CONTACT2"
   end
-  attribute :procedures, Array[PROCEDURE], position: "REF_I12.PROCEDURE", multiple: true
-  class OBSERVATION < ::HealthSeven::SegmentGroup
+  attribute :procedures, Array[Procedure], position: "REF_I12.PROCEDURE", multiple: true
+  class Observation < ::HealthSeven::SegmentGroup
     attribute :obr, Obr, position: "OBR", require: true
     attribute :ntes, Array[Nte], position: "NTE", multiple: true
-    class RESULTS_NOTES < ::HealthSeven::SegmentGroup
+    class ResultsNotes < ::HealthSeven::SegmentGroup
       attribute :obx, Obx, position: "OBX", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :results_notes, Array[RESULTS_NOTES], position: "REF_I12.RESULTS_NOTES", multiple: true
+    attribute :results_notes, Array[ResultsNotes], position: "REF_I12.RESULTS_NOTES", multiple: true
   end
-  attribute :observations, Array[OBSERVATION], position: "REF_I12.OBSERVATION", multiple: true
-  class PATIENT_VISIT < ::HealthSeven::SegmentGroup
+  attribute :observations, Array[Observation], position: "REF_I12.OBSERVATION", multiple: true
+  class PatientVisit < ::HealthSeven::SegmentGroup
     attribute :pv1, Pv1, position: "PV1", require: true
     attribute :pv2, Pv2, position: "PV2"
   end
-  attribute :patient_visit, PATIENT_VISIT, position: "REF_I12.PATIENT_VISIT"
+  attribute :patient_visit, PatientVisit, position: "REF_I12.PATIENT_VISIT"
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
 end
 end

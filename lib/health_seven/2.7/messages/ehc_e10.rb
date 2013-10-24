@@ -5,27 +5,27 @@ class EhcE10 < ::HealthSeven::Message
   attribute :uacs, Array[Uac], position: "UAC", multiple: true
   attribute :msa, Msa, position: "MSA", require: true
   attribute :errs, Array[Err], position: "ERR", multiple: true
-  class INVOICE_PROCESSING_RESULTS_INFO < ::HealthSeven::SegmentGroup
+  class InvoiceProcessingResultsInfo < ::HealthSeven::SegmentGroup
     attribute :ipr, Ipr, position: "IPR", require: true
     attribute :ntes, Array[Nte], position: "NTE", multiple: true
     attribute :pye, Pye, position: "PYE", require: true
     attribute :in1, In1, position: "IN1", require: true
     attribute :in2, In2, position: "IN2"
     attribute :ivc, Ivc, position: "IVC", require: true
-    class PRODUCT_SERVICE_SECTION < ::HealthSeven::SegmentGroup
+    class ProductServiceSection < ::HealthSeven::SegmentGroup
       attribute :pss, Pss, position: "PSS", require: true
-      class PRODUCT_SERVICE_GROUP < ::HealthSeven::SegmentGroup
+      class ProductServiceGroup < ::HealthSeven::SegmentGroup
         attribute :psg, Psg, position: "PSG", require: true
-        class PRODUCT_SERVICE_LINE_INFO < ::HealthSeven::SegmentGroup
+        class ProductServiceLineInfo < ::HealthSeven::SegmentGroup
           attribute :psl, Psl, position: "PSL", require: true
           attribute :adjs, Array[Adj], position: "ADJ", multiple: true
         end
-        attribute :product_service_line_infos, Array[PRODUCT_SERVICE_LINE_INFO], position: "EHC_E10.PRODUCT_SERVICE_LINE_INFO", require: true, multiple: true
+        attribute :product_service_line_infos, Array[ProductServiceLineInfo], position: "EHC_E10.PRODUCT_SERVICE_LINE_INFO", require: true, multiple: true
       end
-      attribute :product_service_groups, Array[PRODUCT_SERVICE_GROUP], position: "EHC_E10.PRODUCT_SERVICE_GROUP", require: true, multiple: true
+      attribute :product_service_groups, Array[ProductServiceGroup], position: "EHC_E10.PRODUCT_SERVICE_GROUP", require: true, multiple: true
     end
-    attribute :product_service_sections, Array[PRODUCT_SERVICE_SECTION], position: "EHC_E10.PRODUCT_SERVICE_SECTION", require: true, multiple: true
+    attribute :product_service_sections, Array[ProductServiceSection], position: "EHC_E10.PRODUCT_SERVICE_SECTION", require: true, multiple: true
   end
-  attribute :invoice_processing_results_infos, Array[INVOICE_PROCESSING_RESULTS_INFO], position: "EHC_E10.INVOICE_PROCESSING_RESULTS_INFO", require: true, multiple: true
+  attribute :invoice_processing_results_infos, Array[InvoiceProcessingResultsInfo], position: "EHC_E10.INVOICE_PROCESSING_RESULTS_INFO", require: true, multiple: true
 end
 end

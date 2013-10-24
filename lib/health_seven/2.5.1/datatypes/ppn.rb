@@ -9,11 +9,11 @@ class Ppn < ::HealthSeven::DataType
   # Second and Further Given Names or Initials Thereof
   attribute :second_and_further_given_names_or_initials_thereof, St, position: "PPN.4"
   # Suffix (e.g., JR or III)
-  attribute :suffix_e_g_jr_or_iii, St, position: "PPN.5"
+  attribute :suffix, St, position: "PPN.5"
   # Prefix (e.g., DR)
-  attribute :prefix_e_g_dr, St, position: "PPN.6"
+  attribute :prefix, St, position: "PPN.6"
   # Degree (e.g., MD)
-  attribute :degree_e_g_md, Is, position: "PPN.7"
+  attribute :degree, Is, position: "PPN.7"
   # Source Table
   attribute :source_table, Is, position: "PPN.8"
   # Assigning Authority

@@ -12,7 +12,7 @@ module HealthSeven
 
     def self.build_field(type, content)
       return unless content
-      raise "Expected datatype not segment #{type.inspect}" unless type < DataType
+      raise "Wrong datatype #{type.inspect}" unless type < DataType || type < SimpleType
       type.build(content)
     end
 

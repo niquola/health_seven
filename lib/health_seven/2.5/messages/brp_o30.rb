@@ -5,23 +5,23 @@ class BrpO30 < ::HealthSeven::Message
   attribute :errs, Array[Err], position: "ERR", multiple: true
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
-  class RESPONSE < ::HealthSeven::SegmentGroup
-    class PATIENT < ::HealthSeven::SegmentGroup
+  class Response < ::HealthSeven::SegmentGroup
+    class Patient < ::HealthSeven::SegmentGroup
       attribute :pid, Pid, position: "PID", require: true
-      class ORDER < ::HealthSeven::SegmentGroup
+      class Order < ::HealthSeven::SegmentGroup
         attribute :orc, Orc, position: "ORC", require: true
-        class TIMING < ::HealthSeven::SegmentGroup
+        class Timing < ::HealthSeven::SegmentGroup
           attribute :tq1, Tq1, position: "TQ1", require: true
           attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
         end
-        attribute :timings, Array[TIMING], position: "BRP_O30.TIMING", multiple: true
+        attribute :timings, Array[Timing], position: "BRP_O30.TIMING", multiple: true
         attribute :bpo, Bpo, position: "BPO"
         attribute :bpxes, Array[Bpx], position: "BPX", multiple: true
       end
-      attribute :orders, Array[ORDER], position: "BRP_O30.ORDER", multiple: true
+      attribute :orders, Array[Order], position: "BRP_O30.ORDER", multiple: true
     end
-    attribute :patient, PATIENT, position: "BRP_O30.PATIENT"
+    attribute :patient, Patient, position: "BRP_O30.PATIENT"
   end
-  attribute :response, RESPONSE, position: "BRP_O30.RESPONSE"
+  attribute :response, Response, position: "BRP_O30.RESPONSE"
 end
 end

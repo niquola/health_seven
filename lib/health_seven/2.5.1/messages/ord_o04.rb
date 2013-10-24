@@ -5,35 +5,35 @@ class OrdO04 < ::HealthSeven::Message
   attribute :errs, Array[Err], position: "ERR", multiple: true
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
-  class RESPONSE < ::HealthSeven::SegmentGroup
-    class PATIENT < ::HealthSeven::SegmentGroup
+  class Response < ::HealthSeven::SegmentGroup
+    class Patient < ::HealthSeven::SegmentGroup
       attribute :pid, Pid, position: "PID", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, position: "ORD_O04.PATIENT"
-    class ORDER_DIET < ::HealthSeven::SegmentGroup
+    attribute :patient, Patient, position: "ORD_O04.PATIENT"
+    class OrderDiet < ::HealthSeven::SegmentGroup
       attribute :orc, Orc, position: "ORC", require: true
-      class TIMING_DIET < ::HealthSeven::SegmentGroup
+      class TimingDiet < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timing_diets, Array[TIMING_DIET], position: "ORD_O04.TIMING_DIET", multiple: true
+      attribute :timing_diets, Array[TimingDiet], position: "ORD_O04.TIMING_DIET", multiple: true
       attribute :ods, Array[Ods], position: "ODS", multiple: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :order_diets, Array[ORDER_DIET], position: "ORD_O04.ORDER_DIET", require: true, multiple: true
-    class ORDER_TRAY < ::HealthSeven::SegmentGroup
+    attribute :order_diets, Array[OrderDiet], position: "ORD_O04.ORDER_DIET", require: true, multiple: true
+    class OrderTray < ::HealthSeven::SegmentGroup
       attribute :orc, Orc, position: "ORC", require: true
-      class TIMING_TRAY < ::HealthSeven::SegmentGroup
+      class TimingTray < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timing_trays, Array[TIMING_TRAY], position: "ORD_O04.TIMING_TRAY", multiple: true
+      attribute :timing_trays, Array[TimingTray], position: "ORD_O04.TIMING_TRAY", multiple: true
       attribute :odts, Array[Odt], position: "ODT", multiple: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :order_trays, Array[ORDER_TRAY], position: "ORD_O04.ORDER_TRAY", multiple: true
+    attribute :order_trays, Array[OrderTray], position: "ORD_O04.ORDER_TRAY", multiple: true
   end
-  attribute :response, RESPONSE, position: "ORD_O04.RESPONSE"
+  attribute :response, Response, position: "ORD_O04.RESPONSE"
 end
 end

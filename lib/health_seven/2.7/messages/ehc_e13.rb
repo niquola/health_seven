@@ -12,17 +12,17 @@ class EhcE13 < ::HealthSeven::Message
   attribute :psg, Psg, position: "PSG", require: true
   attribute :pid, Pid, position: "PID"
   attribute :psl, Psl, position: "PSL"
-  class REQUEST < ::HealthSeven::SegmentGroup
+  class Request < ::HealthSeven::SegmentGroup
     attribute :ctd, Ctd, position: "CTD"
     attribute :obr, Obr, position: "OBR", require: true
     attribute :nte, Nte, position: "NTE"
-    class RESPONSE < ::HealthSeven::SegmentGroup
+    class Response < ::HealthSeven::SegmentGroup
       attribute :obx, Obx, position: "OBX", require: true
       attribute :nte, Nte, position: "NTE"
       attribute :txa, Txa, position: "TXA"
     end
-    attribute :responses, Array[RESPONSE], position: "EHC_E13.RESPONSE", require: true, multiple: true
+    attribute :responses, Array[Response], position: "EHC_E13.RESPONSE", require: true, multiple: true
   end
-  attribute :requests, Array[REQUEST], position: "EHC_E13.REQUEST", require: true, multiple: true
+  attribute :requests, Array[Request], position: "EHC_E13.REQUEST", require: true, multiple: true
 end
 end

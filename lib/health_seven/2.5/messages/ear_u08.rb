@@ -3,16 +3,16 @@ class EarU08 < ::HealthSeven::Message
   attribute :msh, Msh, position: "MSH", require: true
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :equ, Equ, position: "EQU", require: true
-  class COMMAND_RESPONSE < ::HealthSeven::SegmentGroup
+  class CommandResponse < ::HealthSeven::SegmentGroup
     attribute :ecd, Ecd, position: "ECD", require: true
-    class SPECIMEN_CONTAINER < ::HealthSeven::SegmentGroup
+    class SpecimenContainer < ::HealthSeven::SegmentGroup
       attribute :sac, Sac, position: "SAC", require: true
       attribute :spms, Array[Spm], position: "SPM", multiple: true
     end
-    attribute :specimen_container, SPECIMEN_CONTAINER, position: "EAR_U08.SPECIMEN_CONTAINER"
+    attribute :specimen_container, SpecimenContainer, position: "EAR_U08.SPECIMEN_CONTAINER"
     attribute :ecr, Ecr, position: "ECR", require: true
   end
-  attribute :command_responses, Array[COMMAND_RESPONSE], position: "EAR_U08.COMMAND_RESPONSE", require: true, multiple: true
+  attribute :command_responses, Array[CommandResponse], position: "EAR_U08.COMMAND_RESPONSE", require: true, multiple: true
   attribute :rol, Rol, position: "ROL"
 end
 end

@@ -10,12 +10,12 @@ class EhcE12 < ::HealthSeven::Message
   attribute :psg, Psg, position: "PSG", require: true
   attribute :pid, Pid, position: "PID"
   attribute :psls, Array[Psl], position: "PSL", multiple: true
-  class REQUEST < ::HealthSeven::SegmentGroup
+  class Request < ::HealthSeven::SegmentGroup
     attribute :ctd, Ctd, position: "CTD"
     attribute :obr, Obr, position: "OBR", require: true
     attribute :nte, Nte, position: "NTE"
     attribute :obxes, Array[Obx], position: "OBX", multiple: true
   end
-  attribute :requests, Array[REQUEST], position: "EHC_E12.REQUEST", require: true, multiple: true
+  attribute :requests, Array[Request], position: "EHC_E12.REQUEST", require: true, multiple: true
 end
 end

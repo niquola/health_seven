@@ -7,10 +7,10 @@ class RspK11 < ::HealthSeven::Message
   attribute :err, Err, position: "ERR"
   attribute :qak, Qak, position: "QAK", require: true
   attribute :qpd, Qpd, position: "QPD", require: true
-  class SEGMENT_PATTERN < ::HealthSeven::SegmentGroup
+  class SegmentPattern < ::HealthSeven::SegmentGroup
     attribute :anyhl7segment, AnyHL7Segment, position: "anyHL7Segment", require: true
   end
-  attribute :segment_pattern, SEGMENT_PATTERN, position: "RSP_K11.SEGMENT_PATTERN"
+  attribute :segment_pattern, SegmentPattern, position: "RSP_K11.SEGMENT_PATTERN"
   attribute :dsc, Dsc, position: "DSC"
 end
 end

@@ -6,34 +6,34 @@ class RreO12 < ::HealthSeven::Message
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :uac, Uac, position: "UAC"
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
-  class RESPONSE < ::HealthSeven::SegmentGroup
-    class PATIENT < ::HealthSeven::SegmentGroup
+  class Response < ::HealthSeven::SegmentGroup
+    class Patient < ::HealthSeven::SegmentGroup
       attribute :pid, Pid, position: "PID", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, position: "RRE_O12.PATIENT"
-    class ORDER < ::HealthSeven::SegmentGroup
+    attribute :patient, Patient, position: "RRE_O12.PATIENT"
+    class Order < ::HealthSeven::SegmentGroup
       attribute :orc, Orc, position: "ORC", require: true
-      class TIMING < ::HealthSeven::SegmentGroup
+      class Timing < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], position: "RRE_O12.TIMING", multiple: true
-      class ENCODING < ::HealthSeven::SegmentGroup
+      attribute :timings, Array[Timing], position: "RRE_O12.TIMING", multiple: true
+      class Encoding < ::HealthSeven::SegmentGroup
         attribute :rxe, Rxe, position: "RXE", require: true
         attribute :ntes, Array[Nte], position: "NTE", multiple: true
-        class TIMING_ENCODED < ::HealthSeven::SegmentGroup
+        class TimingEncoded < ::HealthSeven::SegmentGroup
           attribute :tq1, Tq1, position: "TQ1", require: true
           attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
         end
-        attribute :timing_encodeds, Array[TIMING_ENCODED], position: "RRE_O12.TIMING_ENCODED", require: true, multiple: true
+        attribute :timing_encodeds, Array[TimingEncoded], position: "RRE_O12.TIMING_ENCODED", require: true, multiple: true
         attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
         attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
       end
-      attribute :encoding, ENCODING, position: "RRE_O12.ENCODING"
+      attribute :encoding, Encoding, position: "RRE_O12.ENCODING"
     end
-    attribute :orders, Array[ORDER], position: "RRE_O12.ORDER", require: true, multiple: true
+    attribute :orders, Array[Order], position: "RRE_O12.ORDER", require: true, multiple: true
   end
-  attribute :response, RESPONSE, position: "RRE_O12.RESPONSE"
+  attribute :response, Response, position: "RRE_O12.RESPONSE"
 end
 end

@@ -7,29 +7,29 @@ class OsrQ06 < ::HealthSeven::Message
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
   attribute :qrd, Qrd, position: "QRD", require: true
   attribute :qrf, Qrf, position: "QRF"
-  class RESPONSE < ::HealthSeven::SegmentGroup
-    class PATIENT < ::HealthSeven::SegmentGroup
+  class Response < ::HealthSeven::SegmentGroup
+    class Patient < ::HealthSeven::SegmentGroup
       attribute :pid, Pid, position: "PID", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, position: "OSR_Q06.PATIENT"
-    class ORDER < ::HealthSeven::SegmentGroup
+    attribute :patient, Patient, position: "OSR_Q06.PATIENT"
+    class Order < ::HealthSeven::SegmentGroup
       attribute :orc, Orc, position: "ORC", require: true
-      class TIMING < ::HealthSeven::SegmentGroup
+      class Timing < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], position: "OSR_Q06.TIMING", multiple: true
-      class OBRRQDRQ1RXOODSODT_SUPPGRP < ::HealthSeven::SegmentGroup
+      attribute :timings, Array[Timing], position: "OSR_Q06.TIMING", multiple: true
+      class Obrrqdrq1rxoodsodtSuppgrp < ::HealthSeven::SegmentGroup
       
       end
-      attribute :obrrqdrq1_rxoodsodt_suppgrp, OBRRQDRQ1RXOODSODT_SUPPGRP, position: "OSR_Q06.OBRRQDRQ1RXOODSODT_SUPPGRP", require: true
+      attribute :obrrqdrq1rxoodsodt_suppgrp, Obrrqdrq1rxoodsodtSuppgrp, position: "OSR_Q06.OBRRQDRQ1RXOODSODT_SUPPGRP", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
       attribute :ctis, Array[Cti], position: "CTI", multiple: true
     end
-    attribute :orders, Array[ORDER], position: "OSR_Q06.ORDER", require: true, multiple: true
+    attribute :orders, Array[Order], position: "OSR_Q06.ORDER", require: true, multiple: true
   end
-  attribute :response, RESPONSE, position: "OSR_Q06.RESPONSE"
+  attribute :response, Response, position: "OSR_Q06.RESPONSE"
   attribute :dsc, Dsc, position: "DSC"
 end
 end

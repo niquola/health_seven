@@ -5,10 +5,10 @@ class VxxV02 < ::HealthSeven::Message
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :qrd, Qrd, position: "QRD", require: true
   attribute :qrf, Qrf, position: "QRF"
-  class PATIENT < ::HealthSeven::SegmentGroup
+  class Patient < ::HealthSeven::SegmentGroup
     attribute :pid, Pid, position: "PID", require: true
     attribute :nk1s, Array[Nk1], position: "NK1", multiple: true
   end
-  attribute :patients, Array[PATIENT], position: "VXX_V02.PATIENT", require: true, multiple: true
+  attribute :patients, Array[Patient], position: "VXX_V02.PATIENT", require: true, multiple: true
 end
 end

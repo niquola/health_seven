@@ -10,64 +10,64 @@ class DftP03 < ::HealthSeven::Message
   attribute :pv2, Pv2, position: "PV2"
   attribute :rols, Array[Rol], position: "ROL", multiple: true
   attribute :db1s, Array[Db1], position: "DB1", multiple: true
-  class COMMON_ORDER < ::HealthSeven::SegmentGroup
+  class CommonOrder < ::HealthSeven::SegmentGroup
     attribute :orc, Orc, position: "ORC"
-    class TIMING_QUANTITY < ::HealthSeven::SegmentGroup
+    class TimingQuantity < ::HealthSeven::SegmentGroup
       attribute :tq1, Tq1, position: "TQ1", require: true
       attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
     end
-    attribute :timing_quantities, Array[TIMING_QUANTITY], position: "DFT_P03.TIMING_QUANTITY", multiple: true
-    class ORDER < ::HealthSeven::SegmentGroup
+    attribute :timing_quantities, Array[TimingQuantity], position: "DFT_P03.TIMING_QUANTITY", multiple: true
+    class Order < ::HealthSeven::SegmentGroup
       attribute :obr, Obr, position: "OBR", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :order, ORDER, position: "DFT_P03.ORDER"
-    class OBSERVATION < ::HealthSeven::SegmentGroup
+    attribute :order, Order, position: "DFT_P03.ORDER"
+    class Observation < ::HealthSeven::SegmentGroup
       attribute :obx, Obx, position: "OBX", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :observations, Array[OBSERVATION], position: "DFT_P03.OBSERVATION", multiple: true
+    attribute :observations, Array[Observation], position: "DFT_P03.OBSERVATION", multiple: true
   end
-  attribute :common_orders, Array[COMMON_ORDER], position: "DFT_P03.COMMON_ORDER", multiple: true
-  class FINANCIAL < ::HealthSeven::SegmentGroup
+  attribute :common_orders, Array[CommonOrder], position: "DFT_P03.COMMON_ORDER", multiple: true
+  class Financial < ::HealthSeven::SegmentGroup
     attribute :ft1, Ft1, position: "FT1", require: true
     attribute :nte, Nte, position: "NTE"
-    class FINANCIAL_PROCEDURE < ::HealthSeven::SegmentGroup
+    class FinancialProcedure < ::HealthSeven::SegmentGroup
       attribute :pr1, Pr1, position: "PR1", require: true
       attribute :rols, Array[Rol], position: "ROL", multiple: true
     end
-    attribute :financial_procedures, Array[FINANCIAL_PROCEDURE], position: "DFT_P03.FINANCIAL_PROCEDURE", multiple: true
-    class FINANCIAL_COMMON_ORDER < ::HealthSeven::SegmentGroup
+    attribute :financial_procedures, Array[FinancialProcedure], position: "DFT_P03.FINANCIAL_PROCEDURE", multiple: true
+    class FinancialCommonOrder < ::HealthSeven::SegmentGroup
       attribute :orc, Orc, position: "ORC"
-      class FINANCIAL_TIMING_QUANTITY < ::HealthSeven::SegmentGroup
+      class FinancialTimingQuantity < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :financial_timing_quantities, Array[FINANCIAL_TIMING_QUANTITY], position: "DFT_P03.FINANCIAL_TIMING_QUANTITY", multiple: true
-      class FINANCIAL_ORDER < ::HealthSeven::SegmentGroup
+      attribute :financial_timing_quantities, Array[FinancialTimingQuantity], position: "DFT_P03.FINANCIAL_TIMING_QUANTITY", multiple: true
+      class FinancialOrder < ::HealthSeven::SegmentGroup
         attribute :obr, Obr, position: "OBR", require: true
         attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :financial_order, FINANCIAL_ORDER, position: "DFT_P03.FINANCIAL_ORDER"
-      class FINANCIAL_OBSERVATION < ::HealthSeven::SegmentGroup
+      attribute :financial_order, FinancialOrder, position: "DFT_P03.FINANCIAL_ORDER"
+      class FinancialObservation < ::HealthSeven::SegmentGroup
         attribute :obx, Obx, position: "OBX", require: true
         attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :financial_observations, Array[FINANCIAL_OBSERVATION], position: "DFT_P03.FINANCIAL_OBSERVATION", multiple: true
+      attribute :financial_observations, Array[FinancialObservation], position: "DFT_P03.FINANCIAL_OBSERVATION", multiple: true
     end
-    attribute :financial_common_orders, Array[FINANCIAL_COMMON_ORDER], position: "DFT_P03.FINANCIAL_COMMON_ORDER", multiple: true
+    attribute :financial_common_orders, Array[FinancialCommonOrder], position: "DFT_P03.FINANCIAL_COMMON_ORDER", multiple: true
   end
-  attribute :financials, Array[FINANCIAL], position: "DFT_P03.FINANCIAL", require: true, multiple: true
+  attribute :financials, Array[Financial], position: "DFT_P03.FINANCIAL", require: true, multiple: true
   attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
   attribute :drg, Drg, position: "DRG"
   attribute :gt1s, Array[Gt1], position: "GT1", multiple: true
-  class INSURANCE < ::HealthSeven::SegmentGroup
+  class Insurance < ::HealthSeven::SegmentGroup
     attribute :in1, In1, position: "IN1", require: true
     attribute :in2, In2, position: "IN2"
     attribute :in3s, Array[In3], position: "IN3", multiple: true
     attribute :rols, Array[Rol], position: "ROL", multiple: true
   end
-  attribute :insurances, Array[INSURANCE], position: "DFT_P03.INSURANCE", multiple: true
+  attribute :insurances, Array[Insurance], position: "DFT_P03.INSURANCE", multiple: true
   attribute :acc, Acc, position: "ACC"
 end
 end

@@ -49,6 +49,7 @@ module Gen
       "require 'health_seven/#{version}/#{dir}.rb'"
     end
     lines<< 'class AnyType < ::HealthSeven::SimpleType; end'
+    lines<< 'class AnyHL7Segment < ::HealthSeven::Segment; end'
     lines<< "end\nend"
 
     fwrite(Pth.from_root_path("lib/health_seven/#{ver}.rb"), lines.join("\n"))
@@ -114,7 +115,7 @@ end
 def generate_attribute_by_el_ref(db, el_ref)
   tp = Db.find_type_by_el(db, el_ref)
   Codeg.generate_attribute(
-    Namings.normalize_name(Meta.type_desc(tp) || Meta.ref(el_ref) || Meta.name(el_ref)),
+    Namings.normalize_name(Meta.type_desc(tp) || Meta.ref(el_ref) || Meta.name(el_ref), Meta.ref(el_ref) || Meta.name(el_ref)),
     Namings.mk_class_name(Meta.base_type(tp) || Meta.name(tp).split('.').first),
     meta_options(el_ref).merge(comment: Meta.type_desc(tp))
   )
@@ -125,7 +126,7 @@ def generate_class_recursively(db, tp)
     if Meta.ref(el_ref) == "ED"
       next "# TODO: Encapsulated data segment"
     elsif Meta.nested_type?(el_ref)
-      type_class_name = Meta.nested_type_name(el_ref)
+      type_class_name = Namings.mk_class_name(Meta.nested_type_name(el_ref))
       [
         Codeg.gklass(nil,
                      type_class_name,

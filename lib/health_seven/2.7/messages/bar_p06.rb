@@ -4,10 +4,10 @@ class BarP06 < ::HealthSeven::Message
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :uac, Uac, position: "UAC"
   attribute :evn, Evn, position: "EVN", require: true
-  class PATIENT < ::HealthSeven::SegmentGroup
+  class Patient < ::HealthSeven::SegmentGroup
     attribute :pid, Pid, position: "PID", require: true
     attribute :pv1, Pv1, position: "PV1"
   end
-  attribute :patients, Array[PATIENT], position: "BAR_P06.PATIENT", require: true, multiple: true
+  attribute :patients, Array[Patient], position: "BAR_P06.PATIENT", require: true, multiple: true
 end
 end

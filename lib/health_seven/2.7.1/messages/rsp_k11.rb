@@ -7,10 +7,10 @@ class RspK11 < ::HealthSeven::Message
   attribute :err, Err, position: "ERR"
   attribute :qak, Qak, position: "QAK", require: true
   attribute :qpd, Qpd, position: "QPD", require: true
-  class ROW_DEFINITION < ::HealthSeven::SegmentGroup
+  class RowDefinition < ::HealthSeven::SegmentGroup
     attribute :anyhl7segment, AnyHL7Segment, position: "anyHL7Segment", require: true
   end
-  attribute :row_definition, ROW_DEFINITION, position: "RSP_K11.ROW_DEFINITION"
+  attribute :row_definition, RowDefinition, position: "RSP_K11.ROW_DEFINITION"
   attribute :dsc, Dsc, position: "DSC"
 end
 end

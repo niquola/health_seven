@@ -4,10 +4,10 @@ class QbpQ13 < ::HealthSeven::Message
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :uac, Uac, position: "UAC"
   attribute :qpd, Qpd, position: "QPD", require: true
-  class QBP < ::HealthSeven::SegmentGroup
+  class Qbp < ::HealthSeven::SegmentGroup
     attribute :anyhl7segment, AnyHL7Segment, position: "anyHL7Segment"
   end
-  attribute :qbp, QBP, position: "QBP_Q13.QBP"
+  attribute :qbp, Qbp, position: "QBP_Q13.QBP"
   attribute :rdf, Rdf, position: "RDF"
   attribute :rcp, Rcp, position: "RCP", require: true
   attribute :dsc, Dsc, position: "DSC"

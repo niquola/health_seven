@@ -4,7 +4,7 @@ class MfnM02 < ::HealthSeven::Message
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :uac, Uac, position: "UAC"
   attribute :mfi, Mfi, position: "MFI", require: true
-  class MF_STAFF < ::HealthSeven::SegmentGroup
+  class MfStaff < ::HealthSeven::SegmentGroup
     attribute :mfe, Mfe, position: "MFE", require: true
     attribute :stf, Stf, position: "STF", require: true
     attribute :pras, Array[Pra], position: "PRA", multiple: true
@@ -15,6 +15,6 @@ class MfnM02 < ::HealthSeven::Message
     attribute :cers, Array[Cer], position: "CER", multiple: true
     attribute :ntes, Array[Nte], position: "NTE", multiple: true
   end
-  attribute :mf_staffs, Array[MF_STAFF], position: "MFN_M02.MF_STAFF", require: true, multiple: true
+  attribute :mf_staffs, Array[MfStaff], position: "MFN_M02.MF_STAFF", require: true, multiple: true
 end
 end

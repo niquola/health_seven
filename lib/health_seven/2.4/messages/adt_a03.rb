@@ -11,11 +11,11 @@ class AdtA03 < ::HealthSeven::Message
   attribute :db1s, Array[Db1], position: "DB1", multiple: true
   attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
   attribute :drg, Drg, position: "DRG"
-  class PROCEDURE < ::HealthSeven::SegmentGroup
+  class Procedure < ::HealthSeven::SegmentGroup
     attribute :pr1, Pr1, position: "PR1", require: true
     attribute :rols, Array[Rol], position: "ROL", multiple: true
   end
-  attribute :procedures, Array[PROCEDURE], position: "ADT_A03.PROCEDURE", multiple: true
+  attribute :procedures, Array[Procedure], position: "ADT_A03.PROCEDURE", multiple: true
   attribute :obxes, Array[Obx], position: "OBX", multiple: true
   attribute :pda, Pda, position: "PDA"
 end

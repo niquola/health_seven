@@ -2,49 +2,49 @@ module HealthSeven::V2_4
 class RasO17 < ::HealthSeven::Message
   attribute :msh, Msh, position: "MSH", require: true
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
-  class PATIENT < ::HealthSeven::SegmentGroup
+  class Patient < ::HealthSeven::SegmentGroup
     attribute :pid, Pid, position: "PID", require: true
     attribute :pd1, Pd1, position: "PD1"
     attribute :ntes, Array[Nte], position: "NTE", multiple: true
     attribute :al1s, Array[Al1], position: "AL1", multiple: true
-    class PATIENT_VISIT < ::HealthSeven::SegmentGroup
+    class PatientVisit < ::HealthSeven::SegmentGroup
       attribute :pv1, Pv1, position: "PV1", require: true
       attribute :pv2, Pv2, position: "PV2"
     end
-    attribute :patient_visit, PATIENT_VISIT, position: "RAS_O17.PATIENT_VISIT"
+    attribute :patient_visit, PatientVisit, position: "RAS_O17.PATIENT_VISIT"
   end
-  attribute :patient, PATIENT, position: "RAS_O17.PATIENT"
-  class ORDER < ::HealthSeven::SegmentGroup
+  attribute :patient, Patient, position: "RAS_O17.PATIENT"
+  class Order < ::HealthSeven::SegmentGroup
     attribute :orc, Orc, position: "ORC", require: true
-    class ORDER_DETAIL < ::HealthSeven::SegmentGroup
+    class OrderDetail < ::HealthSeven::SegmentGroup
       attribute :rxo, Rxo, position: "RXO", require: true
-      class ORDER_DETAIL_SUPPLEMENT < ::HealthSeven::SegmentGroup
+      class OrderDetailSupplement < ::HealthSeven::SegmentGroup
         attribute :ntes, Array[Nte], position: "NTE", require: true, multiple: true
         attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
-        class COMPONENTS < ::HealthSeven::SegmentGroup
+        class Components < ::HealthSeven::SegmentGroup
           attribute :rxcs, Array[Rxc], position: "RXC", require: true, multiple: true
           attribute :ntes, Array[Nte], position: "NTE", multiple: true
         end
-        attribute :components, COMPONENTS, position: "RAS_O17.COMPONENTS"
+        attribute :components, Components, position: "RAS_O17.COMPONENTS"
       end
-      attribute :order_detail_supplement, ORDER_DETAIL_SUPPLEMENT, position: "RAS_O17.ORDER_DETAIL_SUPPLEMENT"
+      attribute :order_detail_supplement, OrderDetailSupplement, position: "RAS_O17.ORDER_DETAIL_SUPPLEMENT"
     end
-    attribute :order_detail, ORDER_DETAIL, position: "RAS_O17.ORDER_DETAIL"
-    class ENCODING < ::HealthSeven::SegmentGroup
+    attribute :order_detail, OrderDetail, position: "RAS_O17.ORDER_DETAIL"
+    class Encoding < ::HealthSeven::SegmentGroup
       attribute :rxe, Rxe, position: "RXE", require: true
       attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
       attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
     end
-    attribute :encoding, ENCODING, position: "RAS_O17.ENCODING"
+    attribute :encoding, Encoding, position: "RAS_O17.ENCODING"
     attribute :rxas, Array[Rxa], position: "RXA", require: true, multiple: true
     attribute :rxr, Rxr, position: "RXR", require: true
-    class OBSERVATION < ::HealthSeven::SegmentGroup
+    class Observation < ::HealthSeven::SegmentGroup
       attribute :obx, Obx, position: "OBX", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :observations, Array[OBSERVATION], position: "RAS_O17.OBSERVATION", multiple: true
+    attribute :observations, Array[Observation], position: "RAS_O17.OBSERVATION", multiple: true
     attribute :ctis, Array[Cti], position: "CTI", multiple: true
   end
-  attribute :orders, Array[ORDER], position: "RAS_O17.ORDER", require: true, multiple: true
+  attribute :orders, Array[Order], position: "RAS_O17.ORDER", require: true, multiple: true
 end
 end

@@ -5,20 +5,20 @@ class BrtO32 < ::HealthSeven::Message
   attribute :errs, Array[Err], position: "ERR", multiple: true
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
-  class RESPONSE < ::HealthSeven::SegmentGroup
+  class Response < ::HealthSeven::SegmentGroup
     attribute :pid, Pid, position: "PID"
-    class ORDER < ::HealthSeven::SegmentGroup
+    class Order < ::HealthSeven::SegmentGroup
       attribute :orc, Orc, position: "ORC", require: true
-      class TIMING < ::HealthSeven::SegmentGroup
+      class Timing < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], position: "BRT_O32.TIMING", multiple: true
+      attribute :timings, Array[Timing], position: "BRT_O32.TIMING", multiple: true
       attribute :bpo, Bpo, position: "BPO"
       attribute :btxes, Array[Btx], position: "BTX", multiple: true
     end
-    attribute :orders, Array[ORDER], position: "BRT_O32.ORDER", multiple: true
+    attribute :orders, Array[Order], position: "BRT_O32.ORDER", multiple: true
   end
-  attribute :response, RESPONSE, position: "BRT_O32.RESPONSE"
+  attribute :response, Response, position: "BRT_O32.RESPONSE"
 end
 end

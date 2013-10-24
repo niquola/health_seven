@@ -5,27 +5,27 @@ class RraO18 < ::HealthSeven::Message
   attribute :errs, Array[Err], position: "ERR", multiple: true
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
-  class RESPONSE < ::HealthSeven::SegmentGroup
-    class PATIENT < ::HealthSeven::SegmentGroup
+  class Response < ::HealthSeven::SegmentGroup
+    class Patient < ::HealthSeven::SegmentGroup
       attribute :pid, Pid, position: "PID", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :patient, PATIENT, position: "RRA_O18.PATIENT"
-    class ORDER < ::HealthSeven::SegmentGroup
+    attribute :patient, Patient, position: "RRA_O18.PATIENT"
+    class Order < ::HealthSeven::SegmentGroup
       attribute :orc, Orc, position: "ORC", require: true
-      class TIMING < ::HealthSeven::SegmentGroup
+      class Timing < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timings, Array[TIMING], position: "RRA_O18.TIMING", multiple: true
-      class ADMINISTRATION < ::HealthSeven::SegmentGroup
+      attribute :timings, Array[Timing], position: "RRA_O18.TIMING", multiple: true
+      class Administration < ::HealthSeven::SegmentGroup
         attribute :rxas, Array[Rxa], position: "RXA", require: true, multiple: true
         attribute :rxr, Rxr, position: "RXR", require: true
       end
-      attribute :administration, ADMINISTRATION, position: "RRA_O18.ADMINISTRATION"
+      attribute :administration, Administration, position: "RRA_O18.ADMINISTRATION"
     end
-    attribute :orders, Array[ORDER], position: "RRA_O18.ORDER", require: true, multiple: true
+    attribute :orders, Array[Order], position: "RRA_O18.ORDER", require: true, multiple: true
   end
-  attribute :response, RESPONSE, position: "RRA_O18.RESPONSE"
+  attribute :response, Response, position: "RRA_O18.RESPONSE"
 end
 end

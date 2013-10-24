@@ -4,66 +4,66 @@ class RgvO15 < ::HealthSeven::Message
   attribute :sfts, Array[Sft], position: "SFT", multiple: true
   attribute :uac, Uac, position: "UAC"
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
-  class PATIENT < ::HealthSeven::SegmentGroup
+  class Patient < ::HealthSeven::SegmentGroup
     attribute :pid, Pid, position: "PID", require: true
     attribute :ntes, Array[Nte], position: "NTE", multiple: true
     attribute :al1s, Array[Al1], position: "AL1", multiple: true
-    class PATIENT_VISIT < ::HealthSeven::SegmentGroup
+    class PatientVisit < ::HealthSeven::SegmentGroup
       attribute :pv1, Pv1, position: "PV1", require: true
       attribute :pv2, Pv2, position: "PV2"
     end
-    attribute :patient_visit, PATIENT_VISIT, position: "RGV_O15.PATIENT_VISIT"
+    attribute :patient_visit, PatientVisit, position: "RGV_O15.PATIENT_VISIT"
   end
-  attribute :patient, PATIENT, position: "RGV_O15.PATIENT"
-  class ORDER < ::HealthSeven::SegmentGroup
+  attribute :patient, Patient, position: "RGV_O15.PATIENT"
+  class Order < ::HealthSeven::SegmentGroup
     attribute :orc, Orc, position: "ORC", require: true
-    class TIMING < ::HealthSeven::SegmentGroup
+    class Timing < ::HealthSeven::SegmentGroup
       attribute :tq1, Tq1, position: "TQ1", require: true
       attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
     end
-    attribute :timings, Array[TIMING], position: "RGV_O15.TIMING", multiple: true
-    class ORDER_DETAIL < ::HealthSeven::SegmentGroup
+    attribute :timings, Array[Timing], position: "RGV_O15.TIMING", multiple: true
+    class OrderDetail < ::HealthSeven::SegmentGroup
       attribute :rxo, Rxo, position: "RXO", require: true
-      class ORDER_DETAIL_SUPPLEMENT < ::HealthSeven::SegmentGroup
+      class OrderDetailSupplement < ::HealthSeven::SegmentGroup
         attribute :ntes, Array[Nte], position: "NTE", require: true, multiple: true
         attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
-        class COMPONENTS < ::HealthSeven::SegmentGroup
+        class Components < ::HealthSeven::SegmentGroup
           attribute :rxc, Rxc, position: "RXC", require: true
           attribute :ntes, Array[Nte], position: "NTE", multiple: true
         end
-        attribute :components, Array[COMPONENTS], position: "RGV_O15.COMPONENTS", multiple: true
+        attribute :components, Array[Components], position: "RGV_O15.COMPONENTS", multiple: true
       end
-      attribute :order_detail_supplement, ORDER_DETAIL_SUPPLEMENT, position: "RGV_O15.ORDER_DETAIL_SUPPLEMENT"
+      attribute :order_detail_supplement, OrderDetailSupplement, position: "RGV_O15.ORDER_DETAIL_SUPPLEMENT"
     end
-    attribute :order_detail, ORDER_DETAIL, position: "RGV_O15.ORDER_DETAIL"
-    class ENCODING < ::HealthSeven::SegmentGroup
+    attribute :order_detail, OrderDetail, position: "RGV_O15.ORDER_DETAIL"
+    class Encoding < ::HealthSeven::SegmentGroup
       attribute :rxe, Rxe, position: "RXE", require: true
-      class TIMING_ENCODED < ::HealthSeven::SegmentGroup
+      class TimingEncoded < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timing_encodeds, Array[TIMING_ENCODED], position: "RGV_O15.TIMING_ENCODED", require: true, multiple: true
+      attribute :timing_encodeds, Array[TimingEncoded], position: "RGV_O15.TIMING_ENCODED", require: true, multiple: true
       attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
       attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
     end
-    attribute :encoding, ENCODING, position: "RGV_O15.ENCODING"
-    class GIVE < ::HealthSeven::SegmentGroup
+    attribute :encoding, Encoding, position: "RGV_O15.ENCODING"
+    class Give < ::HealthSeven::SegmentGroup
       attribute :rxg, Rxg, position: "RXG", require: true
-      class TIMING_GIVE < ::HealthSeven::SegmentGroup
+      class TimingGive < ::HealthSeven::SegmentGroup
         attribute :tq1, Tq1, position: "TQ1", require: true
         attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
       end
-      attribute :timing_gives, Array[TIMING_GIVE], position: "RGV_O15.TIMING_GIVE", require: true, multiple: true
+      attribute :timing_gives, Array[TimingGive], position: "RGV_O15.TIMING_GIVE", require: true, multiple: true
       attribute :rxrs, Array[Rxr], position: "RXR", require: true, multiple: true
       attribute :rxcs, Array[Rxc], position: "RXC", multiple: true
-      class OBSERVATION < ::HealthSeven::SegmentGroup
+      class Observation < ::HealthSeven::SegmentGroup
         attribute :obx, Obx, position: "OBX"
         attribute :ntes, Array[Nte], position: "NTE", multiple: true
       end
-      attribute :observations, Array[OBSERVATION], position: "RGV_O15.OBSERVATION", require: true, multiple: true
+      attribute :observations, Array[Observation], position: "RGV_O15.OBSERVATION", require: true, multiple: true
     end
-    attribute :gives, Array[GIVE], position: "RGV_O15.GIVE", require: true, multiple: true
+    attribute :gives, Array[Give], position: "RGV_O15.GIVE", require: true, multiple: true
   end
-  attribute :orders, Array[ORDER], position: "RGV_O15.ORDER", require: true, multiple: true
+  attribute :orders, Array[Order], position: "RGV_O15.ORDER", require: true, multiple: true
 end
 end

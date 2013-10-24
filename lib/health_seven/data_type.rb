@@ -29,25 +29,16 @@ module HealthSeven
   end
 
   class SimpleType < DataType
-    attr :value
-    def initialize(string)
-      @value = string
+    def initialize(value)
+      @value = value
     end
 
     def self.parse(string)
-      string
+      self.new(string)
+    end
+
+    def to_p
+      @value
     end
   end
-
-  class DT < SimpleType; end
-  class DTM < SimpleType; end
-  class FT < SimpleType; end
-  class GTS < SimpleType; end
-  class ID < SimpleType; end
-  class IS < SimpleType; end
-  class NM < SimpleType; end
-  class SI < SimpleType; end
-  class ST < SimpleType; end
-  class TM < SimpleType; end
-  class TX < SimpleType; end
 end

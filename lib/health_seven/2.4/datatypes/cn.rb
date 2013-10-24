@@ -9,11 +9,11 @@ class Cn < ::HealthSeven::DataType
   # second and further given names or initials thereof
   attribute :second_and_further_given_names_or_initials_thereof, St, position: "CN.4"
   # suffix (e.g., JR or III)
-  attribute :suffix_e_g_jr_or_iii, St, position: "CN.5"
+  attribute :suffix, St, position: "CN.5"
   # prefix (e.g., DR)
-  attribute :prefix_e_g_dr, St, position: "CN.6"
+  attribute :prefix, St, position: "CN.6"
   # degree (e.g., MD)
-  attribute :degree_e_g_md, Is, position: "CN.7"
+  attribute :degree, Is, position: "CN.7"
   # source table
   attribute :source_table, Is, position: "CN.8"
   # assigning authority

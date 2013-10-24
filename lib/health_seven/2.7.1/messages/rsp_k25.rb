@@ -8,7 +8,7 @@ class RspK25 < ::HealthSeven::Message
   attribute :qak, Qak, position: "QAK", require: true
   attribute :qpd, Qpd, position: "QPD", require: true
   attribute :rcp, Rcp, position: "RCP", require: true
-  class STAFF < ::HealthSeven::SegmentGroup
+  class Staff < ::HealthSeven::SegmentGroup
     attribute :stf, Stf, position: "STF", require: true
     attribute :pras, Array[Pra], position: "PRA", multiple: true
     attribute :orgs, Array[Org], position: "ORG", multiple: true
@@ -19,7 +19,7 @@ class RspK25 < ::HealthSeven::Message
     attribute :nk1s, Array[Nk1], position: "NK1", multiple: true
     attribute :rols, Array[Rol], position: "ROL", multiple: true
   end
-  attribute :staffs, Array[STAFF], position: "RSP_K25.STAFF", require: true, multiple: true
+  attribute :staffs, Array[Staff], position: "RSP_K25.STAFF", require: true, multiple: true
   attribute :dsc, Dsc, position: "DSC"
 end
 end

@@ -5,11 +5,11 @@ class QbpK13 < ::HealthSeven::Message
   attribute :err, Err, position: "ERR"
   attribute :qak, Qak, position: "QAK", require: true
   attribute :qpd, Qpd, position: "QPD", require: true
-  class ROW_DEFINITION < ::HealthSeven::SegmentGroup
+  class RowDefinition < ::HealthSeven::SegmentGroup
     attribute :rdf, Rdf, position: "RDF", require: true
     attribute :rdts, Array[Rdt], position: "RDT", multiple: true
   end
-  attribute :row_definition, ROW_DEFINITION, position: "QBP_K13.ROW_DEFINITION"
+  attribute :row_definition, RowDefinition, position: "QBP_K13.ROW_DEFINITION"
   attribute :dsc, Dsc, position: "DSC"
 end
 end

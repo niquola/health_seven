@@ -6,66 +6,66 @@ class PexP07 < ::HealthSeven::Message
   attribute :pid, Pid, position: "PID", require: true
   attribute :pd1, Pd1, position: "PD1"
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
-  class VISIT < ::HealthSeven::SegmentGroup
+  class Visit < ::HealthSeven::SegmentGroup
     attribute :pv1, Pv1, position: "PV1", require: true
     attribute :pv2, Pv2, position: "PV2"
   end
-  attribute :visit, VISIT, position: "PEX_P07.VISIT"
-  class EXPERIENCE < ::HealthSeven::SegmentGroup
+  attribute :visit, Visit, position: "PEX_P07.VISIT"
+  class Experience < ::HealthSeven::SegmentGroup
     attribute :pes, Pes, position: "PES", require: true
-    class PEX_OBSERVATION < ::HealthSeven::SegmentGroup
+    class PexObservation < ::HealthSeven::SegmentGroup
       attribute :peo, Peo, position: "PEO", require: true
-      class PEX_CAUSE < ::HealthSeven::SegmentGroup
+      class PexCause < ::HealthSeven::SegmentGroup
         attribute :pcr, Pcr, position: "PCR", require: true
-        class RX_ORDER < ::HealthSeven::SegmentGroup
+        class RxOrder < ::HealthSeven::SegmentGroup
           attribute :rxe, Rxe, position: "RXE", require: true
-          class TIMING_QTY < ::HealthSeven::SegmentGroup
+          class TimingQty < ::HealthSeven::SegmentGroup
             attribute :tq1, Tq1, position: "TQ1", require: true
             attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
           end
-          attribute :timing_qties, Array[TIMING_QTY], position: "PEX_P07.TIMING_QTY", require: true, multiple: true
+          attribute :timing_qties, Array[TimingQty], position: "PEX_P07.TIMING_QTY", require: true, multiple: true
           attribute :rxrs, Array[Rxr], position: "RXR", multiple: true
         end
-        attribute :rx_order, RX_ORDER, position: "PEX_P07.RX_ORDER"
-        class RX_ADMINISTRATION < ::HealthSeven::SegmentGroup
+        attribute :rx_order, RxOrder, position: "PEX_P07.RX_ORDER"
+        class RxAdministration < ::HealthSeven::SegmentGroup
           attribute :rxa, Rxa, position: "RXA", require: true
           attribute :rxr, Rxr, position: "RXR"
         end
-        attribute :rx_administrations, Array[RX_ADMINISTRATION], position: "PEX_P07.RX_ADMINISTRATION", multiple: true
+        attribute :rx_administrations, Array[RxAdministration], position: "PEX_P07.RX_ADMINISTRATION", multiple: true
         attribute :prbs, Array[Prb], position: "PRB", multiple: true
         attribute :obxes, Array[Obx], position: "OBX", multiple: true
         attribute :ntes, Array[Nte], position: "NTE", multiple: true
-        class ASSOCIATED_PERSON < ::HealthSeven::SegmentGroup
+        class AssociatedPerson < ::HealthSeven::SegmentGroup
           attribute :nk1, Nk1, position: "NK1", require: true
-          class ASSOCIATED_RX_ORDER < ::HealthSeven::SegmentGroup
+          class AssociatedRxOrder < ::HealthSeven::SegmentGroup
             attribute :rxe, Rxe, position: "RXE", require: true
-            class NK1_TIMING_QTY < ::HealthSeven::SegmentGroup
+            class Nk1TimingQty < ::HealthSeven::SegmentGroup
               attribute :tq1, Tq1, position: "TQ1", require: true
               attribute :tq2s, Array[Tq2], position: "TQ2", multiple: true
             end
-            attribute :nk1_timing_qties, Array[NK1_TIMING_QTY], position: "PEX_P07.NK1_TIMING_QTY", require: true, multiple: true
+            attribute :nk1_timing_qties, Array[Nk1TimingQty], position: "PEX_P07.NK1_TIMING_QTY", require: true, multiple: true
             attribute :rxrs, Array[Rxr], position: "RXR", multiple: true
           end
-          attribute :associated_rx_order, ASSOCIATED_RX_ORDER, position: "PEX_P07.ASSOCIATED_RX_ORDER"
-          class ASSOCIATED_RX_ADMIN < ::HealthSeven::SegmentGroup
+          attribute :associated_rx_order, AssociatedRxOrder, position: "PEX_P07.ASSOCIATED_RX_ORDER"
+          class AssociatedRxAdmin < ::HealthSeven::SegmentGroup
             attribute :rxa, Rxa, position: "RXA", require: true
             attribute :rxr, Rxr, position: "RXR"
           end
-          attribute :associated_rx_admins, Array[ASSOCIATED_RX_ADMIN], position: "PEX_P07.ASSOCIATED_RX_ADMIN", multiple: true
+          attribute :associated_rx_admins, Array[AssociatedRxAdmin], position: "PEX_P07.ASSOCIATED_RX_ADMIN", multiple: true
           attribute :prbs, Array[Prb], position: "PRB", multiple: true
           attribute :obxes, Array[Obx], position: "OBX", multiple: true
         end
-        attribute :associated_person, ASSOCIATED_PERSON, position: "PEX_P07.ASSOCIATED_PERSON"
-        class STUDY < ::HealthSeven::SegmentGroup
+        attribute :associated_person, AssociatedPerson, position: "PEX_P07.ASSOCIATED_PERSON"
+        class Study < ::HealthSeven::SegmentGroup
           attribute :csr, Csr, position: "CSR", require: true
           attribute :csps, Array[Csp], position: "CSP", multiple: true
         end
-        attribute :studies, Array[STUDY], position: "PEX_P07.STUDY", multiple: true
+        attribute :studies, Array[Study], position: "PEX_P07.STUDY", multiple: true
       end
-      attribute :pex_causes, Array[PEX_CAUSE], position: "PEX_P07.PEX_CAUSE", require: true, multiple: true
+      attribute :pex_causes, Array[PexCause], position: "PEX_P07.PEX_CAUSE", require: true, multiple: true
     end
-    attribute :pex_observations, Array[PEX_OBSERVATION], position: "PEX_P07.PEX_OBSERVATION", require: true, multiple: true
+    attribute :pex_observations, Array[PexObservation], position: "PEX_P07.PEX_OBSERVATION", require: true, multiple: true
   end
-  attribute :experiences, Array[EXPERIENCE], position: "PEX_P07.EXPERIENCE", require: true, multiple: true
+  attribute :experiences, Array[Experience], position: "PEX_P07.EXPERIENCE", require: true, multiple: true
 end
 end

@@ -8,11 +8,11 @@ class BarP12 < ::HealthSeven::Message
   attribute :pv1, Pv1, position: "PV1", require: true
   attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
   attribute :drg, Drg, position: "DRG"
-  class PROCEDURE < ::HealthSeven::SegmentGroup
+  class Procedure < ::HealthSeven::SegmentGroup
     attribute :pr1, Pr1, position: "PR1", require: true
     attribute :rols, Array[Rol], position: "ROL", multiple: true
   end
-  attribute :procedures, Array[PROCEDURE], position: "BAR_P12.PROCEDURE", multiple: true
+  attribute :procedures, Array[Procedure], position: "BAR_P12.PROCEDURE", multiple: true
   attribute :obx, Obx, position: "OBX"
 end
 end

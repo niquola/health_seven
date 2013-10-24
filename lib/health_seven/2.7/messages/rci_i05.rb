@@ -6,25 +6,25 @@ class RciI05 < ::HealthSeven::Message
   attribute :msa, Msa, position: "MSA", require: true
   attribute :qrd, Qrd, position: "QRD", require: true
   attribute :qrf, Qrf, position: "QRF"
-  class PROVIDER < ::HealthSeven::SegmentGroup
+  class Provider < ::HealthSeven::SegmentGroup
     attribute :prd, Prd, position: "PRD", require: true
     attribute :ctds, Array[Ctd], position: "CTD", multiple: true
   end
-  attribute :providers, Array[PROVIDER], position: "RCI_I05.PROVIDER", require: true, multiple: true
+  attribute :providers, Array[Provider], position: "RCI_I05.PROVIDER", require: true, multiple: true
   attribute :pid, Pid, position: "PID", require: true
   attribute :dg1s, Array[Dg1], position: "DG1", multiple: true
   attribute :drgs, Array[Drg], position: "DRG", multiple: true
   attribute :al1s, Array[Al1], position: "AL1", multiple: true
-  class OBSERVATION < ::HealthSeven::SegmentGroup
+  class Observation < ::HealthSeven::SegmentGroup
     attribute :obr, Obr, position: "OBR", require: true
     attribute :ntes, Array[Nte], position: "NTE", multiple: true
-    class RESULTS < ::HealthSeven::SegmentGroup
+    class Results < ::HealthSeven::SegmentGroup
       attribute :obx, Obx, position: "OBX", require: true
       attribute :ntes, Array[Nte], position: "NTE", multiple: true
     end
-    attribute :results, RESULTS, position: "RCI_I05.RESULTS"
+    attribute :results, Results, position: "RCI_I05.RESULTS"
   end
-  attribute :observation, OBSERVATION, position: "RCI_I05.OBSERVATION"
+  attribute :observation, Observation, position: "RCI_I05.OBSERVATION"
   attribute :ntes, Array[Nte], position: "NTE", multiple: true
 end
 end

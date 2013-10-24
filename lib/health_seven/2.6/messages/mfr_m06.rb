@@ -8,16 +8,16 @@ class MfrM06 < ::HealthSeven::Message
   attribute :qrd, Qrd, position: "QRD", require: true
   attribute :qrf, Qrf, position: "QRF"
   attribute :mfi, Mfi, position: "MFI", require: true
-  class MF_QUERY < ::HealthSeven::SegmentGroup
+  class MfQuery < ::HealthSeven::SegmentGroup
     attribute :mfe, Mfe, position: "MFE", require: true
     attribute :cm0, Cm0, position: "CM0", require: true
-    class MF_PHASE_SCHED_DETAIL < ::HealthSeven::SegmentGroup
+    class MfPhaseSchedDetail < ::HealthSeven::SegmentGroup
       attribute :cm1, Cm1, position: "CM1", require: true
       attribute :cm2s, Array[Cm2], position: "CM2", multiple: true
     end
-    attribute :mf_phase_sched_details, Array[MF_PHASE_SCHED_DETAIL], position: "MFR_M06.MF_PHASE_SCHED_DETAIL", multiple: true
+    attribute :mf_phase_sched_details, Array[MfPhaseSchedDetail], position: "MFR_M06.MF_PHASE_SCHED_DETAIL", multiple: true
   end
-  attribute :mf_queries, Array[MF_QUERY], position: "MFR_M06.MF_QUERY", require: true, multiple: true
+  attribute :mf_queries, Array[MfQuery], position: "MFR_M06.MF_QUERY", require: true, multiple: true
   attribute :dsc, Dsc, position: "DSC"
 end
 end
