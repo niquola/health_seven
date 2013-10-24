@@ -1,5 +1,4 @@
 require_relative 'gen_spec_helper'
-require 'tmpdir'
 
 describe Gen do
   include described_class
