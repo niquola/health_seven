@@ -31,6 +31,12 @@ module Gen
       end
     end
 
+    def types_index(file, index = {})
+      index_for(['/schema/complexType', '/schema/simpleType'], file, index) do |el|
+        Meta.name(el)
+      end
+    end
+
     private
 
     def find_type(db, name)
@@ -43,12 +49,6 @@ module Gen
 
     def elements_index(file, index = {})
       index_for(['/schema/element'], file, index) do |el|
-        Meta.name(el)
-      end
-    end
-
-    def types_index(file, index = {})
-      index_for(['/schema/complexType', '/schema/simpleType'], file, index) do |el|
         Meta.name(el)
       end
     end
