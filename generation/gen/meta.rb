@@ -25,8 +25,7 @@ module Gen::Meta
 
   def base_type(node)
     node = node.xpath('./complexContent/extension').first || node.xpath('./simpleContent/extension').first || node.xpath('./complexContent/restriction').first
-    base = node && node[:base]
-    base && base.gsub(/^xsd:/,'')
+    node && node[:base] && node[:base].gsub(/^xsd:/,'')
   end
 
   def complex_type?(node)
