@@ -1,4 +1,5 @@
 require "health_seven/version"
+require 'active_support/core_ext'
 
 module HealthSeven
   # Your code goes here...
