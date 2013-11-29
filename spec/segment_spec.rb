@@ -16,5 +16,11 @@ describe 'parsing' do
     content= 'PID|1||20060012168^^^^MR^MIDLAND HLTH CTR&9876543210&NPI||EVERYPERSON^ANN^A^^^^L|||F||2106-3^White^CDCREC|^^^13^30341^USA^C|||||||||||2186-5^Not Hispanic^CDCREC'
     pp HealthSeven::Segment.parse('2.5', content).attributes
   end
+
+  it 'should parse simple type fields' do
+    content = 'PID|1||20060012168^^^^MR^MIDLAND HLTH CTR&9876543210&NPI||EVERYPERSON^ANN^A^^^^L|||F||2106-3^White^CDCREC|^^^13^30341^USA^C|||||||||||2186-5^Not Hispanic^CDCREC||1|5'
+    pid = HealthSeven::Segment.parse('2.5', content)
+    pid.birth_order.to_p.should == '5'
+  end
 end
 
