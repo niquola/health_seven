@@ -1,0 +1,7 @@
+# .travis.yml
+language: ruby
+rvm:
+  - "ruby-2.0.0-p353"
+gemfile:
+  - Gemfile
+script: bundle exec rspec spec
