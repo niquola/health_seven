@@ -21,7 +21,11 @@ module HealthSeven
                              if attr.primitive < SimpleType
                                field
                              else
-                               attr.primitive.build(field, '&')
+                               if attr.primitive.respond_to?(:build)
+                                 attr.primitive.build(field, '&')
+                               else
+                                 attr.primitive
+                               end
                              end
                            elsif attr.options[:require].present?
                              puts "WARN: Missing required subcomponent #{attr.name} #{attr.primitive} in #{self.inspect} '#{string}'"
