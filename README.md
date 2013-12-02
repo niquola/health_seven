@@ -1,5 +1,7 @@
 # HealthSeven
 
+[![Build Status](https://travis-ci.org/niquola/health_seven.png)](https://travis-ci.org/niquola/health_seven)
+
 Parse & generate hl7 2.x messages library (http://en.wikipedia.org/wiki/Health_Level_7#HL7_version_2.x)
 
 Support for versions: 2.3 - 2.7.1
