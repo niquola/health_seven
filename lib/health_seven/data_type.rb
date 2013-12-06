@@ -12,27 +12,23 @@ module HealthSeven
       return unless string.present?
       fields = string.split(sep)
       acc = {}
-      if self < SimpleType
-        self.new(string)
-      else
-        self.attribute_set.each_with_index do |attr, index|
-          field = fields[index]
-          acc[attr.name] = if field.present?
-                             if attr.primitive < SimpleType
-                               field
+      self.attribute_set.each_with_index do |attr, index|
+        field = fields[index]
+        acc[attr.name] = if field.present?
+                           if attr.primitive < SimpleType
+                             field
+                           else
+                             if attr.primitive.respond_to?(:build)
+                               attr.primitive.build(field, '&')
                              else
-                               if attr.primitive.respond_to?(:build)
-                                 attr.primitive.build(field, '&')
-                               else
-                                 attr.primitive
-                               end
+                               attr.primitive
                              end
-                           elsif attr.options[:require].present?
-                             puts "WARN: Missing required subcomponent #{attr.name} #{attr.primitive} in #{self.inspect} '#{string}'"
                            end
-        end
-        self.new(acc)
+                         elsif attr.options[:require].present?
+                           puts "WARN: Missing required subcomponent #{attr.name} #{attr.primitive} in #{self.inspect} '#{string}'"
+                         end
       end
+      self.new(acc)
     end
   end
 
@@ -41,7 +37,7 @@ module HealthSeven
       @value = value
     end
 
-    def self.parse(string)
+    def self.build(string, sep = nil)
       self.new(string)
     end
 
